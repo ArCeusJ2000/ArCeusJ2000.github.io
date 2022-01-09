@@ -118,7 +118,7 @@ static下的文件在其他地方以根开头的 URL 访问，比如 static/abc.
 
 附：zola theme列表
 
-[https://www.getzola.org/themes/]: 
+<https://www.getzola.org/themes>
 
 ### 模板使用
 
