@@ -21,7 +21,8 @@
 
     <body class="hack dark main container">
         
-            
+    
+        
                 
                     <header>
                         <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
@@ -54,21 +55,12 @@
                     </header>
                 
             
+    
 
-            <main>
-                
-                    <header>
-                        <h1>Arceus</h1>
-                    </header>
-                
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://arceusj2000.github.io/202201082241/">解决github连不上</a>
-            </h2>
-            <span class="muted">
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">解决github连不上</h1>
+        <span class="muted">
     <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
          stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -84,55 +76,60 @@
 
     Published: 2022-01-08
 </span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>又是饱受gfw折磨的一天 テ_デ</p>
+    </header>
+    <div itemprop="articleBody">
+      <p>又是饱受gfw折磨的一天 テ_デ</p>
 <p>记录一下（曾经可能）有效的方法</p>
+<span id="continue-reading"></span>
+<h2 id="xiu-gai-hosts">修改hosts</h2>
+<p>在 C:\Windows\System32\drivers\etc 文件夹下找到hosts文件</p>
+<p>Run  as Administrator打开</p>
+<p>添加：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>140.82.113.3  www.github.com</span><span>
+</span></code></pre>
+<p>查询IP地址使用：</p>
+<p><a href="https://ipaddress.com">https://ipaddress.com</a></p>
+<h2 id="shi-yong-jing-xiang">使用镜像</h2>
+<p><a href="https://github.com.cnpmjs.org">https://github.com.cnpmjs.org</a></p>
+<h2 id="qu-giteepeng-yun-qi">去Gitee碰运气</h2>
+<p><a href="https://gitee.com">https://gitee.com</a></p>
+<h2 id="ke-xue-shang-wang">科学上网</h2>
+<p>能解决浏览器访问的问题</p>
+<p>但命令行还是会间歇性失效orz</p>
+<p>命令行设置代理</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>set http_proxy=http://127.0.0.1:1080</span><span>
+</span><span>set https_proxy=http://127.0.0.1:1080</span><span>
+</span></code></pre>
 
-                <nav class="readmore"><a itemprop="url" href="https://arceusj2000.github.io/202201082241/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
+    </div>
 
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Arceus
+                
                 
                     
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://arceusj2000.github.io/202201082008/">github pages搭建个人博客</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>3 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
-
-    Published: 2022-01-08
-</span>
-        </header>
-        
-    </article>
-
+                    in <a href="https://arceusj2000.github.io/categories/git/">git</a>
                 
+                
+                    and
+                    tagged
+                    
+                        <a href="https://arceusj2000.github.io/tags/git/">git</a>
+                        
+                    
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
 
-                <nav>
-                  <p>
-                    
-                    <span>Page 1 of 1</span>
-                    
-                  </p>
-                </nav>
-            </main>
-        
+
     </body>
 
 </html>
