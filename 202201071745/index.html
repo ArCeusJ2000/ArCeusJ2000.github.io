@@ -59,7 +59,7 @@
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-        <h1 itemprop="headline">git报错errno 10054解决</h1>
+        <h1 itemprop="headline">git报错port 443:connection timed out解决</h1>
         <span class="muted">
     <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
          width="16" height="16" fill="none" stroke="currentcolor"
@@ -81,14 +81,24 @@
       <span id="continue-reading"></span>
 <p>注意，该方法不一定每次都有效orz</p>
 <h2 id="bao-cuo-nei-rong">报错内容</h2>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>fatal: unable to access &#39;https://github.com/xxx.git/&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Failed to connect to github.com port 443:connection timed out</span><span>
 </span></code></pre>
-<p>git clone / pull / push都有可能出现</p>
-<h2 id="yi-chong-jing-chang-wu-xiao-ou-er-you-xiao-de-jie-jue-fang-fa">一种经常无效，偶尔有效的解决方法</h2>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git config --global http.sslVerify &quot;false&quot;</span><span>
+<p>git clone / pull / push都有可能出现，</p>
+<h2 id="bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa">比较可能有用的解决方法</h2>
+<h3 id="zhong-xin-she-zhi-dai-li">重新设置代理</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git config --global http.proxy http://127.0.0.1:1080</span><span>
+</span><span>
+</span><span>$ git config --global https.proxy http://127.0.0.1:1080</span><span>
 </span></code></pre>
+<h3 id="qu-xiao-quan-ju-dai-li">取消全局代理</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git config --global --unset http.proxy</span><span>
+</span><span> </span><span>
+</span><span>$ git config --global --unset https.proxy</span><span>
+</span></code></pre>
+<p>体感上这个有用的概率更高一点</p>
 <h2 id="qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa">其他曾经有效的解决方法</h2>
 <h4 id="bao-gua-dan-bu-xian-yu">包括但不限于：</h4>
+<p>把梯子关了</p>
 <p>重开一个git bash</p>
 <p>关机重启</p>
 <p>换个时间再试一次</p>
