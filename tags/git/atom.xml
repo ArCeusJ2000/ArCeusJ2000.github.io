@@ -114,6 +114,55 @@
 </content>
 	</entry>
 	<entry xml:lang="zh">
+		<title>git submodule 踩坑记录</title>
+		<published>2022-01-08T12:41:34+00:00</published>
+		<updated>2022-01-08T12:41:34+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201081241/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201081241/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;以https:&#x2F;&#x2F;github.com&#x2F;iphysresearch&#x2F;GWToolkit.git为例&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tian-jia-zi-mo-kuai&quot;&gt;添加子模块&lt;&#x2F;h3&gt;
+&lt;p&gt;添加一个远程仓库项目子模块到一个已有的主仓库项目中。&lt;&#x2F;p&gt;
+&lt;p&gt;添加模块&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git submodule add https:&#x2F;&#x2F;github.com&#x2F;iphysresearch&#x2F;GWToolkit.git GWToolkit&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;写错地址的补救方式&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git rm --cached 仓库名&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;拉取出现空仓库&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git submodule update --init --recursive&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;添加后，根目录下会出现 &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; 文件，如果之前暴力删除了submodule，这里的 &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; 文件也要删除。反过来，如果暴力删除了 &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; 文件，删除或重新拉取submodule之前要先&lt;code&gt;git restore .gitmodules&lt;&#x2F;code&gt; 。&lt;&#x2F;p&gt;
+&lt;p&gt;后文有完整的删除流程。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;cha-kan-zi-mo-kuai&quot;&gt;查看子模块&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git submodule&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;geng-xin-zi-mo-kuai&quot;&gt;更新子模块&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git submodule update&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;shan-chu-zi-mo-kuai&quot;&gt;删除子模块&lt;&#x2F;h3&gt;
+&lt;p&gt;step1. 删除子模块仓库本身&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git rm --cached 仓库名&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$ rm -rf 仓库名&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;step2. 删除 &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; 文件中相关子模块的信息&lt;&#x2F;p&gt;
+&lt;p&gt;形如：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;[submodule &amp;quot;GWToolkit&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        path = GWToolkit&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        url = https:&#x2F;&#x2F;github.com&#x2F;iphysresearch&#x2F;GWToolkit.git&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;step3. 删除 &lt;code&gt;.git&#x2F;config&lt;&#x2F;code&gt; 中相关子模块信息&lt;&#x2F;p&gt;
+&lt;p&gt;形如：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;[submodule &amp;quot;GWToolkit&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        url = https:&#x2F;&#x2F;github.com&#x2F;iphysresearch&#x2F;GWToolkit.git&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        active = true&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;step4. 删除 &lt;code&gt;.git&lt;&#x2F;code&gt; 文件夹中的相关子模块文件&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ rm -rf .git&#x2F;modules&#x2F;GWToolkit&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
 		<title>解决github连不上</title>
 		<published>2022-01-07T22:41:34+00:00</published>
 		<updated>2022-01-07T22:41:34+00:00</updated>

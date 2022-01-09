@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Arceus</title>
+
+      
+
+      
+          <link rel="stylesheet" href="https://arceusj2000.github.io/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io">
+                                <span itemprop="name">主页
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;categories">
+                                <span itemprop="name">分类
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;tags">
+                                <span itemprop="name">标签
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;github.com&#x2F;arceusj2000">
+                                <span itemprop="name">GitHub
+                                </span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">git submodule 踩坑记录</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>2 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2022-01-08
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <span id="continue-reading"></span>
+<p>以https://github.com/iphysresearch/GWToolkit.git为例</p>
+<h3 id="tian-jia-zi-mo-kuai">添加子模块</h3>
+<p>添加一个远程仓库项目子模块到一个已有的主仓库项目中。</p>
+<p>添加模块</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule add https://github.com/iphysresearch/GWToolkit.git GWToolkit</span><span>
+</span></code></pre>
+<p>写错地址的补救方式</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名</span><span>
+</span></code></pre>
+<p>拉取出现空仓库</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update --init --recursive</span><span>
+</span></code></pre>
+<p>添加后，根目录下会出现 <code>.gitmodules</code> 文件，如果之前暴力删除了submodule，这里的 <code>.gitmodules</code> 文件也要删除。反过来，如果暴力删除了 <code>.gitmodules</code> 文件，删除或重新拉取submodule之前要先<code>git restore .gitmodules</code> 。</p>
+<p>后文有完整的删除流程。</p>
+<h3 id="cha-kan-zi-mo-kuai">查看子模块</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule</span><span>
+</span></code></pre>
+<h3 id="geng-xin-zi-mo-kuai">更新子模块</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update</span><span>
+</span></code></pre>
+<h3 id="shan-chu-zi-mo-kuai">删除子模块</h3>
+<p>step1. 删除子模块仓库本身</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名</span><span>
+</span><span>$ rm -rf 仓库名</span><span>
+</span></code></pre>
+<p>step2. 删除 <code>.gitmodules</code> 文件中相关子模块的信息</p>
+<p>形如：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]</span><span>
+</span><span>        path = GWToolkit</span><span>
+</span><span>        url = https://github.com/iphysresearch/GWToolkit.git</span><span>
+</span></code></pre>
+<p>step3. 删除 <code>.git/config</code> 中相关子模块信息</p>
+<p>形如：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]</span><span>
+</span><span>        url = https://github.com/iphysresearch/GWToolkit.git</span><span>
+</span><span>        active = true</span><span>
+</span></code></pre>
+<p>step4. 删除 <code>.git</code> 文件夹中的相关子模块文件</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ rm -rf .git/modules/GWToolkit</span><span>
+</span></code></pre>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Arceus
+                
+                
+                    
+                    in <a href="https://arceusj2000.github.io/categories/git/">git</a>
+                
+                
+                    and
+                    tagged
+                    
+                        <a href="https://arceusj2000.github.io/tags/git/">git</a>
+                        
+                    
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>
