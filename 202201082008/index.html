@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Arceus</title>
+
+      
+
+      
+          <link rel="stylesheet" href="https://arceusj2000.github.io/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io">
+                                <span itemprop="name">主页
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;categories">
+                                <span itemprop="name">分类
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;tags">
+                                <span itemprop="name">标签
+                                </span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;github.com&#x2F;arceusj2000">
+                                <span itemprop="name">GitHub
+                                </span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">github pages搭建个人博客</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>3 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2022-01-08
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <span id="continue-reading"></span>
+<h2 id="scoopan-zhuang">Scoop安装</h2>
+<p>Scoop是适用于 Windows 的命令行安装程序</p>
+<p>PowerShell执行：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Invoke-Expression (New-Object System.Net.WebClient).DownloadString(&#39;https://get.scoop.sh&#39;)</span><span>
+</span></code></pre>
+<p>或</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>iwr -useb get.scoop.sh | iex</span><span>
+</span></code></pre>
+<h2 id="zolaan-zhuang">zola安装</h2>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ scoop install zola</span><span>
+</span></code></pre>
+<h2 id="ben-di-pei-zhi">本地配置</h2>
+<h3 id="clishi-yong">CLI使用</h3>
+<h4 id="chu-shi-hua">初始化</h4>
+<p>本地新建空文件夹</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>$ git init</span><span>
+</span><span>$ zola init</span><span>
+</span></code></pre>
+<p>得到目录结构</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>├── config.toml</span><span>
+</span><span>├── content</span><span>
+</span><span>├── sass</span><span>
+</span><span>├── static</span><span>
+</span><span>├── templates</span><span>
+</span><span>└── themes</span><span>
+</span></code></pre>
+<h4 id="config-toml">config.toml:</h4>
+<p>TOML 格式的必需 Zola 配置文件。</p>
+<h4 id="content">content:</h4>
+<p>包含所有博客内容（主要是 .md 文件）。</p>
+<p>content目录示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>content/</span><span>
+</span><span>  |- _index.md</span><span>
+</span><span>  `- first/</span><span>
+</span><span>       |- index.md</span><span>
+</span><span>       `- image.png</span><span>
+</span></code></pre>
+<p>md文件示例：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>+++</span><span>
+</span><span>title = &quot;标题&quot;</span><span>
+</span><span>date = 2022-1-8 20:08:21</span><span>
+</span><span>slug = &quot;202201082008&quot;</span><span>
+</span><span>[taxonomies]</span><span>
+</span><span>categories = [&quot;分类&quot;]</span><span>
+</span><span>tags = [&quot;标签&quot;]</span><span>
+</span><span>+++</span><span>
+</span><span>
+</span><span>描述</span><span>
+</span><span>
+</span><span>&lt;!-- more --&gt;</span><span>
+</span><span>
+</span><span>博客内容</span><span>
+</span></code></pre>
+<h4 id="sass">sass：</h4>
+<p>包含要编译的 Sass 文件，非 Sass 文件将被忽略。复制编译文件时，将保留sass文件夹的目录结构;例如，sass/something/site.scss 上的文件将被编译为 public/something/site.css。</p>
+<h4 id="static">static：</h4>
+<p>包含任何类型的文件，主要是图片 / js 等静态资源。静态目录中的所有文件/目录将按原样复制到输出目录。如果静态文件很大，则可以通过在配置文件中设置 hard_link_static = true 来配置 Zola 硬链接。</p>
+<p>static下的文件在其他地方以根开头的 URL 访问，比如 static/abc.ico 用 /abc.ico</p>
+<h4 id="templates">templates：</h4>
+<p>包含用于呈现网站的所有 Tera 模板。</p>
+<h4 id="themes">themes：</h4>
+<p>包含用于网站的主题。如果不打算使用主题，将此目录留空。</p>
+<p>附：zola theme列表</p>
+<p>[https://www.getzola.org/themes/]: </p>
+<h3 id="mo-ban-shi-yong">模板使用</h3>
+<p>cd 根目录</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule add https://github.com/getzola/after-dark.git themes/after-dark</span><span>
+</span></code></pre>
+<h3 id="github-actionspei-zhi">Github Actions配置</h3>
+<p>在根目录下创建.github\workflows，新建文件pages.yml</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># On every push this script is executed</span><span>
+</span><span>on: push</span><span>
+</span><span>name: Build and deploy GH Pages</span><span>
+</span><span>jobs:</span><span>
+</span><span>  build:</span><span>
+</span><span>    runs-on: ubuntu-latest</span><span>
+</span><span>    if: github.ref == &#39;refs/heads/main&#39;</span><span>
+</span><span>    steps:</span><span>
+</span><span>      - name: checkout</span><span>
+</span><span>        uses: actions/checkout@v2</span><span>
+</span><span>      - name: build_and_deploy</span><span>
+</span><span>        uses: shalzz/zola-deploy-action@v0.14.1</span><span>
+</span><span>        env:</span><span>
+</span><span>          # Target branch</span><span>
+</span><span>          PAGES_BRANCH: gh-pages</span><span>
+</span><span>          # Provide personal access token</span><span>
+</span><span>          TOKEN: ${{ secrets.TOKEN }}</span><span>
+</span></code></pre>
+<h3 id="build-serve">build&amp;serve</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ zola build</span><span>
+</span><span>$ zola serve</span><span>
+</span></code></pre>
+<p>浏览器打开http://127.0.0.1:1111即可看到初始页面</p>
+<h1 id="github-pagespei-zhi">GitHub Pages配置</h1>
+<p>推送github后会自动进行pages-build-deployment</p>
+<p>生成gh-pages分支</p>
+<h5 id="zhu-yi-yao-zai-settings-pageszhong-she-zhi-sourcefen-zhi-wei-gh-pagesfen-zhi">注意要在Settings-Pages中设置Source分支为gh-pages分支</h5>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Arceus
+                
+                
+                    
+                    in <a href="https://arceusj2000.github.io/categories/git/">git</a>
+                
+                
+                    and
+                    tagged
+                    
+                        <a href="https://arceusj2000.github.io/tags/git/">git</a>
+                        
+                    
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>

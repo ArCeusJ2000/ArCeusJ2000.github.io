@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+	<title>Arceus - git</title>
+	<subtitle>Arceus Blog</subtitle>
+	<link href="https://arceusj2000.github.io/categories/git/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://arceusj2000.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-01-08T20:08:34+00:00</updated>
+	<id>https://arceusj2000.github.io/categories/git/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>github pages搭建个人博客</title>
+		<published>2022-01-08T20:08:34+00:00</published>
+		<updated>2022-01-08T20:08:34+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201082008/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201082008/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;scoopan-zhuang&quot;&gt;Scoop安装&lt;&#x2F;h2&gt;
+&lt;p&gt;Scoop是适用于 Windows 的命令行安装程序&lt;&#x2F;p&gt;
+&lt;p&gt;PowerShell执行：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Invoke-Expression (New-Object System.Net.WebClient).DownloadString(&amp;#39;https:&#x2F;&#x2F;get.scoop.sh&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;或&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;iwr -useb get.scoop.sh | iex&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;zolaan-zhuang&quot;&gt;zola安装&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ scoop install zola&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;ben-di-pei-zhi&quot;&gt;本地配置&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;clishi-yong&quot;&gt;CLI使用&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;chu-shi-hua&quot;&gt;初始化&lt;&#x2F;h4&gt;
+&lt;p&gt;本地新建空文件夹&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span&gt;$ git init&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$ zola init&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;得到目录结构&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;├── config.toml&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;├── content&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;├── sass&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;├── static&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;├── templates&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;└── themes&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;config-toml&quot;&gt;config.toml:&lt;&#x2F;h4&gt;
+&lt;p&gt;TOML 格式的必需 Zola 配置文件。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;content&quot;&gt;content:&lt;&#x2F;h4&gt;
+&lt;p&gt;包含所有博客内容（主要是 .md 文件）。&lt;&#x2F;p&gt;
+&lt;p&gt;content目录示例：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;content&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  |- _index.md&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  `- first&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;       |- index.md&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;       `- image.png&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;md文件示例：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;+++&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;title = &amp;quot;标题&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;date = 2022-1-8 20:08:21&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;slug = &amp;quot;202201082008&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[taxonomies]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;categories = [&amp;quot;分类&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;tags = [&amp;quot;标签&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;+++&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;描述&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;!-- more --&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;博客内容&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;sass&quot;&gt;sass：&lt;&#x2F;h4&gt;
+&lt;p&gt;包含要编译的 Sass 文件，非 Sass 文件将被忽略。复制编译文件时，将保留sass文件夹的目录结构;例如，sass&#x2F;something&#x2F;site.scss 上的文件将被编译为 public&#x2F;something&#x2F;site.css。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;static&quot;&gt;static：&lt;&#x2F;h4&gt;
+&lt;p&gt;包含任何类型的文件，主要是图片 &#x2F; js 等静态资源。静态目录中的所有文件&#x2F;目录将按原样复制到输出目录。如果静态文件很大，则可以通过在配置文件中设置 hard_link_static = true 来配置 Zola 硬链接。&lt;&#x2F;p&gt;
+&lt;p&gt;static下的文件在其他地方以根开头的 URL 访问，比如 static&#x2F;abc.ico 用 &#x2F;abc.ico&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;templates&quot;&gt;templates：&lt;&#x2F;h4&gt;
+&lt;p&gt;包含用于呈现网站的所有 Tera 模板。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;themes&quot;&gt;themes：&lt;&#x2F;h4&gt;
+&lt;p&gt;包含用于网站的主题。如果不打算使用主题，将此目录留空。&lt;&#x2F;p&gt;
+&lt;p&gt;附：zola theme列表&lt;&#x2F;p&gt;
+&lt;p&gt;[https:&#x2F;&#x2F;www.getzola.org&#x2F;themes&#x2F;]: &lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mo-ban-shi-yong&quot;&gt;模板使用&lt;&#x2F;h3&gt;
+&lt;p&gt;cd 根目录&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git submodule add https:&#x2F;&#x2F;github.com&#x2F;getzola&#x2F;after-dark.git themes&#x2F;after-dark&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;github-actionspei-zhi&quot;&gt;Github Actions配置&lt;&#x2F;h3&gt;
+&lt;p&gt;在根目录下创建.github\workflows，新建文件pages.yml&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# On every push this script is executed&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;on: push&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;name: Build and deploy GH Pages&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;jobs:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  build:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    runs-on: ubuntu-latest&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    if: github.ref == &amp;#39;refs&#x2F;heads&#x2F;main&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    steps:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      - name: checkout&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        uses: actions&#x2F;checkout@v2&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;      - name: build_and_deploy&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        uses: shalzz&#x2F;zola-deploy-action@v0.14.1&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        env:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          # Target branch&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          PAGES_BRANCH: gh-pages&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          # Provide personal access token&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;          TOKEN: ${{ secrets.TOKEN }}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;build-serve&quot;&gt;build&amp;amp;serve&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ zola build&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$ zola serve&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;浏览器打开http:&#x2F;&#x2F;127.0.0.1:1111即可看到初始页面&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;github-pagespei-zhi&quot;&gt;GitHub Pages配置&lt;&#x2F;h1&gt;
+&lt;p&gt;推送github后会自动进行pages-build-deployment&lt;&#x2F;p&gt;
+&lt;p&gt;生成gh-pages分支&lt;&#x2F;p&gt;
+&lt;h5 id=&quot;zhu-yi-yao-zai-settings-pageszhong-she-zhi-sourcefen-zhi-wei-gh-pagesfen-zhi&quot;&gt;注意要在Settings-Pages中设置Source分支为gh-pages分支&lt;&#x2F;h5&gt;
+</content>
+	</entry>
+</feed>
