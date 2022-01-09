@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+	<title>Arceus - python</title>
+	<subtitle>Arceus Blog</subtitle>
+	<link href="https://arceusj2000.github.io/tags/python/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://arceusj2000.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-01-09T17:21:14+00:00</updated>
+	<id>https://arceusj2000.github.io/tags/python/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>Quantative Trading相关环境配置</title>
+		<published>2022-01-09T17:21:14+00:00</published>
+		<updated>2022-01-09T17:21:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201091721/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201091721/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;anacondazhong-zhuang&quot;&gt;Anaconda重装&lt;&#x2F;h2&gt;
+&lt;p&gt;如果conda已经没救了，尝试&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda clean --packages &amp;amp;&amp;amp; conda clean --all &amp;amp;&amp;amp; conda update --all&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;若conda还能正常执行安装命令，则跳过此步执行以下步骤&lt;&#x2F;p&gt;
+&lt;p&gt;在 Anaconda Prompt，执行&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda install anaconda-clean&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;安装完成后，执行&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ anaconda-clean&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;不想一个一个敲y可以&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ anaconda-clean --yes&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;然后再执行常规卸载重装流程&lt;&#x2F;p&gt;
+&lt;p&gt;需要注意anaconda版本和python版本的对应问题&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tusharean-zhuang&quot;&gt;tushare安装&lt;&#x2F;h2&gt;
+&lt;p&gt;conda执行&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda install -c waditu tushare&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;来源：&amp;lt;&lt;a href=&quot;https:&#x2F;&#x2F;anaconda.org&#x2F;waditu&#x2F;tushare&quot;&gt;Tushare :: Anaconda.org&lt;&#x2F;a&gt;&amp;gt;&lt;&#x2F;p&gt;
+&lt;p&gt;也可以用pip，但是多python版本环境用pip安装后使用anaconda环境时出现找不到包的情况，走conda可以省很多事，后面同理&lt;&#x2F;p&gt;
+&lt;p&gt;如果有找不到的包可以去&lt;a href=&quot;https:&#x2F;&#x2F;anaconda.org&#x2F;&quot;&gt;https:&#x2F;&#x2F;anaconda.org&#x2F;&lt;&#x2F;a&gt;看看&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ta-liban-zhuang&quot;&gt;Ta-Lib安装&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda install -c conda-forge ta-lib&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;pyqtan-zhuang&quot;&gt;PyQt安装&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda install -c anaconda pyqt&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;pyqtzai-pycharmxia-de-huan-jing-pei-zhi&quot;&gt;PyQt在PyCharm下的环境配置&lt;&#x2F;h3&gt;
+&lt;p&gt;以下配置默认anaconda环境&lt;&#x2F;p&gt;
+&lt;p&gt;在Pycharm中，依次打开 File - Settings - Tools - External Tools，点击 &#x27; + &#x27; &lt;&#x2F;p&gt;
+&lt;h4 id=&quot;qt-designer&quot;&gt;Qt Designer&lt;&#x2F;h4&gt;
+&lt;p&gt;配置如下&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span&gt;Name: QtDisigner&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Program : C:\Users\用户名\Anaconda3\Lib\site-packages\qt5_applications\Qt\bin\designer.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;exe&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Working directory: $FileDir$&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;注意新版本的PyQt designer.exe的位置和以前不同&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;pyuic&quot;&gt;PyUIC&lt;&#x2F;h4&gt;
+&lt;p&gt;配置如下&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Name: PyUIC&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Program : C:\Users\用户名\Anaconda3\python.exe&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Arguments: -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Working directory: $FileDir$&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;pyrcc&quot;&gt;PyRCC&lt;&#x2F;h4&gt;
+&lt;p&gt;配置如下&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Name: PyRCC&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Program : C:\Users\用户名\Anaconda3\Scripts\pyrcc5.exe&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Arguments: $FileName$ -o $FileNameWithoutExtension$_rc.py&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Working directory: $FileDir$&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;配置全部完成后，可以在PyCharm主界面，依次点击 Tools - External Tools 启动QtDisigner、PyUIC和PyRCC&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

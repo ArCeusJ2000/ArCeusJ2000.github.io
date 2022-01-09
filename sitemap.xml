@@ -24,10 +24,17 @@
         <lastmod>2022-01-08T20:08:34</lastmod>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202201091721/</loc>
+        <lastmod>2022-01-09T17:21:14</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/git/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/categories/quant/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/page/1/</loc>
@@ -37,5 +44,11 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/git/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/python/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/quant/</loc>
     </url>
 </urlset>
