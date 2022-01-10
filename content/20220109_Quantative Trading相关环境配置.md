@@ -45,6 +45,8 @@ $ anaconda-clean --yes
 
 需要注意anaconda版本和python版本的对应问题
 
+<[Old package lists — Anaconda documentation](https://docs.anaconda.com/anaconda/packages/oldpkglists/)>
+
 
 
 ## tushare安装
