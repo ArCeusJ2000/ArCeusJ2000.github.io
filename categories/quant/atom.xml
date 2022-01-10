@@ -30,6 +30,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;然后再执行常规卸载重装流程&lt;&#x2F;p&gt;
 &lt;p&gt;需要注意anaconda版本和python版本的对应问题&lt;&#x2F;p&gt;
+&lt;p&gt;&amp;lt;&lt;a href=&quot;https:&#x2F;&#x2F;docs.anaconda.com&#x2F;anaconda&#x2F;packages&#x2F;oldpkglists&#x2F;&quot;&gt;Old package lists — Anaconda documentation&lt;&#x2F;a&gt;&amp;gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;tusharean-zhuang&quot;&gt;tushare安装&lt;&#x2F;h2&gt;
 &lt;p&gt;conda执行&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda install -c waditu tushare&lt;&#x2F;span&gt;&lt;span&gt;
