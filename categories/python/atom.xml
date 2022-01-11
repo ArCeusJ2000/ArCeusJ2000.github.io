@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+	<title>Arceus - python</title>
+	<subtitle>Arceus Blog</subtitle>
+	<link href="https://arceusj2000.github.io/categories/python/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://arceusj2000.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-01-10T21:36:14+00:00</updated>
+	<id>https://arceusj2000.github.io/categories/python/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>conda报错处理合集</title>
+		<published>2022-01-10T21:36:14+00:00</published>
+		<updated>2022-01-10T21:36:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201102136/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201102136/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;condageng-xin-bao-cuo&quot;&gt;conda更新报错&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;condavalueerror-malformed-version-string-invalid-character-s&quot;&gt;CondaValueError: Malformed version string &#x27;~&#x27;: invalid character(s).&lt;&#x2F;h3&gt;
+&lt;p&gt;尝试&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ conda upgrade -n base -c defaults --override-channels conda&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>
