@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+	<title>Arceus - C&#x2F;C++</title>
+	<subtitle>Arceus Blog</subtitle>
+	<link href="https://arceusj2000.github.io/categories/c-c/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://arceusj2000.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-01-11T18:36:14+00:00</updated>
+	<id>https://arceusj2000.github.io/categories/c-c/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>C++STL报错处理合集</title>
+		<published>2022-01-11T18:36:14+00:00</published>
+		<updated>2022-01-11T18:36:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201111836/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201111836/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;can-shu-lei-xing-tong-yi&quot;&gt;参数类型统一&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;error-no-matching-function-for-call-to-min-int-std-basic-string-size-type&quot;&gt;[Error] no matching function for call to &#x27;min(int&amp;amp;, std::basic_string&lt;char&gt;::size_type)&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;STL原型&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;template&amp;lt; class T &amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;const T&amp;amp; min( const T&amp;amp; a, const T&amp;amp; b );&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;报错语句&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;min(n, str.size());&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;使用强制类型转换，改为&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;min(n, int(str.size()));&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>C++编译报错处理合集</title>
+		<published>2022-01-11T17:36:14+00:00</published>
+		<updated>2022-01-11T17:36:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201111736/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201111736/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;bian-yi-bao-cuo&quot;&gt;编译报错&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;error-system-was-not-declared-in-this-scope&quot;&gt;error: &#x27;system&#x27; was not declared in this scope&lt;&#x2F;h3&gt;
+&lt;p&gt;使用&lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;&#x2F;code&gt;缺少头文件&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;#include &amp;lt;cstdlib&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>
