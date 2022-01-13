@@ -40,6 +40,22 @@
 &lt;p&gt;使用&lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;&#x2F;code&gt;缺少头文件&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;#include &amp;lt;cstdlib&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;error-malloc-was-not-declared-in-this-scope&quot;&gt;error: &#x27;malloc&#x27; was not declared in this scope&lt;&#x2F;h3&gt;
+&lt;p&gt;使用&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;#include &amp;lt;malloc.h&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;也可以直接用&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;#include &amp;lt;stdlib.h&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;函数原型&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;void *malloc(size_t size) &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;size： 内存块的大小，以字节为单位。&lt;&#x2F;p&gt;
+&lt;p&gt;该函数返回一个指针 ，指向已分配大小的内存。如果请求失败，则返回 NULL。&lt;&#x2F;p&gt;
+&lt;p&gt;补充：&lt;&#x2F;p&gt;
+&lt;p&gt;重新分配内存&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;void *realloc(void *ptr, size_t size)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 </feed>
