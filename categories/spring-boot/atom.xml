@@ -34,7 +34,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;database – my_database
 &lt;&#x2F;span&gt;&lt;span&gt;properties – useSSL=false&amp;amp;serverTimezone=UTC
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h4 id=&quot;kuo-zhan&quot;&gt;扩展&lt;&#x2F;h4&gt;
+&lt;h3 id=&quot;kuo-zhan&quot;&gt;扩展&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;protocol&quot;&gt;Protocol&lt;&#x2F;h4&gt;
 &lt;p&gt;除了&amp;quot;jdbc:mysql:&amp;quot;协议还支持：&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Load-balancing JDBC connections – jdbc:mysql:loadbalance:
