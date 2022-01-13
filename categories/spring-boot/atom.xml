@@ -109,6 +109,10 @@
 &lt;p&gt;示例：&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;url：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database_name?serverTimezone=GMT%2B8
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;也可以在application.yml “spring:”下添加：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jackson:
+&lt;&#x2F;span&gt;&lt;span&gt;    time-zone: GMT+8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 </feed>
