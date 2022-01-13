@@ -53,3 +53,10 @@ url：jdbc:mysql://localhost:3306/database_name?useSSL=false
 url：jdbc:mysql://localhost:3306/database_name?serverTimezone=GMT%2B8
 ```
 
+也可以在application.yml “spring:”下添加：
+
+```
+jackson:
+    time-zone: GMT+8
+```
+
