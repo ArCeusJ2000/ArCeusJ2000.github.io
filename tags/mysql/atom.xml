@@ -5,8 +5,84 @@
 	<link href="https://arceusj2000.github.io/tags/mysql/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-01-12T19:33:41+00:00</updated>
+	<updated>2022-01-12T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/mysql/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>JDBC for MySQL</title>
+		<published>2022-01-12T20:17:19+00:00</published>
+		<updated>2022-01-12T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201122017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201122017/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;pei-zhi-liu-cheng&quot;&gt;配置流程&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;zai-pom-xmljia-ru-jdbc-driver-mysql-connector-java&quot;&gt;在pom.xml加入JDBC driver mysql-connector-java&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;lt;dependency&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;groupId&amp;gt;mysql&amp;lt;&#x2F;groupId&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;&#x2F;artifactId&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;version&amp;gt;5.7.29&amp;lt;&#x2F;version&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;dependency&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;附MySQL版本查询命令：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;mysql -V
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;application-ymlwen-jian-pei-zhi&quot;&gt;application.yml文件配置&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;mysql-jdbc-driver-url&quot;&gt;MySQL JDBC driver URL&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;protocol&#x2F;&#x2F;[hosts][&#x2F;database][?properties]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;简单示例：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;protocol – jdbc:mysql:
+&lt;&#x2F;span&gt;&lt;span&gt;host – mysql.db.server:3306
+&lt;&#x2F;span&gt;&lt;span&gt;database – my_database
+&lt;&#x2F;span&gt;&lt;span&gt;properties – useSSL=false&amp;amp;serverTimezone=UTC
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;kuo-zhan&quot;&gt;扩展&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;protocol&quot;&gt;Protocol&lt;&#x2F;h4&gt;
+&lt;p&gt;除了&amp;quot;jdbc:mysql:&amp;quot;协议还支持：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Load-balancing JDBC connections – jdbc:mysql:loadbalance:
+&lt;&#x2F;span&gt;&lt;span&gt;JDBC replication connections – jdbc:mysql:replication: 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;hosts&quot;&gt;Hosts&lt;&#x2F;h4&gt;
+&lt;p&gt;如果需要处理多个主机，可以在逗号分隔的列表中列出主机：host1，host2,..., hostN。&lt;&#x2F;p&gt;
+&lt;p&gt;还可以用方括号将逗号分隔的主机列表括起来：[host1， host2,...,hostN]。&lt;&#x2F;p&gt;
+&lt;p&gt;例如：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;myhost1:3306,myhost2:3307&#x2F;db_name
+&lt;&#x2F;span&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;[myhost1:3306,myhost2:3307]&#x2F;db_name
+&lt;&#x2F;span&gt;&lt;span&gt;jdbc:mysql:loadbalance:&#x2F;&#x2F;myhost1:3306,myhost2:3307&#x2F;db_name?user=dbUser&amp;amp;password=1234567&amp;amp;loadBalanceConnectionGroup=group_name&amp;amp;ha.enableJMX=true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;properties-and-user-credentials&quot;&gt;Properties and User Credentials&lt;&#x2F;h4&gt;
+&lt;p&gt;有效的全局属性将应用于所有主机。&lt;&#x2F;p&gt;
+&lt;p&gt;格式：&lt;&#x2F;p&gt;
+&lt;p&gt;属性前面有一个问号&amp;quot;？&amp;quot;，并写成key=value键值对，由&amp;quot;&amp;amp;&amp;quot;符号分隔：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;myhost1:3306&#x2F;db_name?prop1=value1&amp;amp;prop2=value2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以将User Credentials放在属性列表中：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;myhost1:3306&#x2F;db_name?user=root&amp;amp;password=mypass
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以在每个主机前面加上&amp;quot;user：password@host&amp;quot;格式：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;root:mypass@myhost1:3306&#x2F;db_name
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果 JDBC URL 包含主机列表，并且所有主机都使用相同的User Credentials，则可以在主机列表前面加上前缀：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jdbc:mysql:&#x2F;&#x2F;root:mypass[myhost1:3306,myhost2:3307]&#x2F;db_name
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;详细文档：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;connector-j&#x2F;8.0&#x2F;en&#x2F;connector-j-reference-jdbc-url-format.html&quot;&gt;MySQL :: MySQL Connector&#x2F;J 8.0 Developer Guide :: 6.2 Connection URL Syntax&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;connector-j&#x2F;8.0&#x2F;en&#x2F;connector-j-reference-configuration-properties.html&quot;&gt;MySQL :: MySQL Connector&#x2F;J 8.0 Developer Guide :: 6.3 Configuration Properties&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mysqllian-jie-shi-li&quot;&gt;MySQL连接示例&lt;&#x2F;h3&gt;
+&lt;p&gt;MySQL database： “&lt;em&gt;my_database&lt;&#x2F;em&gt;” &lt;&#x2F;p&gt;
+&lt;p&gt;host： “&lt;em&gt;mysql.db.server&lt;&#x2F;em&gt;“&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;@Test
+&lt;&#x2F;span&gt;&lt;span&gt;public void givenMysqlDb_thenCreateConnectionObject() {
+&lt;&#x2F;span&gt;&lt;span&gt;    String jdbcUrl = &amp;quot;jdbc:mysql:&#x2F;&#x2F;mysql.db.server:3306&#x2F;my_database?useSSL=false&amp;amp;serverTimezone=UTC&amp;quot;;    
+&lt;&#x2F;span&gt;&lt;span&gt;    String username = &amp;quot;User&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;    String password = &amp;quot;1234567&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;    try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {
+&lt;&#x2F;span&gt;&lt;span&gt;        assertNotNull(conn);
+&lt;&#x2F;span&gt;&lt;span&gt;    } catch (SQLException e) {
+&lt;&#x2F;span&gt;&lt;span&gt;        System.err.format(&amp;quot;SQL State: %s\n%s&amp;quot;, e.getSQLState(), e.getMessage());
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>Spring Boot连接MySQL报错处理合集</title>
 		<published>2022-01-12T19:33:41+00:00</published>
