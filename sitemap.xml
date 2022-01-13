@@ -40,6 +40,10 @@
         <lastmod>2022-01-11T18:36:14</lastmod>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202201121933/</loc>
+        <lastmod>2022-01-12T19:33:41</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
     </url>
     <url>
@@ -55,6 +59,9 @@
         <loc>https://arceusj2000.github.io/categories/quant/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/categories/spring-boot/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/page/1/</loc>
     </url>
     <url>
@@ -67,9 +74,15 @@
         <loc>https://arceusj2000.github.io/tags/git/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/tags/mysql/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/tags/python/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/quant/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/spring-boot/</loc>
     </url>
 </urlset>
