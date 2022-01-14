@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - C++STL报错处理合集</title>
+      <title>Arceus - C&#x2F;C++等效语句合集</title>
 
       
 
@@ -114,12 +114,16 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201111836/#can-shu-lei-xing-tong-yi" class="toc-link">参数类型统一</a>
+                    <a href="https://arceusj2000.github.io/202201131721/#eoftiao-jian-pan-duan" class="toc-link">EOF条件判断</a>
                     
                     <ul>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201111836/#error-no-matching-function-for-call-to-min-int-std-basic-string-size-type" class="toc-link">[Error] no matching function for call to &#x27;min(int&amp;, std::basic_string::size_type)&#x27;</a>
+                            <a href="https://arceusj2000.github.io/202201131721/#while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m" class="toc-link">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201131721/#while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof" class="toc-link">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</a>
                         </li>
                         
                     </ul>
@@ -136,27 +140,34 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111836&#x2F;">C++STL报错处理合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201131721&#x2F;">C&#x2F;C++等效语句合集</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2022-01-11</span>
+            <span class="post__time">2022-01-13</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="can-shu-lei-xing-tong-yi">参数类型统一</h2>
-<h3 id="error-no-matching-function-for-call-to-min-int-std-basic-string-size-type">[Error] no matching function for call to 'min(int&amp;, std::basic_string<char>::size_type)'</h3>
-<p>STL原型</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>template&lt; class T &gt; </span><span>
-</span><span>const T&amp; min( const T&amp; a, const T&amp; b );</span><span>
+<h2 id="eoftiao-jian-pan-duan">EOF条件判断</h2>
+<h3 id="while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</h3>
+<p>EOF的值为0，测试：</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;</span><span>
+</span><span>using namespace std;</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>() {</span><span>
+</span><span>    </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%d</span><span>&quot;,EOF);   </span><span style="color:#65737e;">//output -1</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>}</span><span>
 </span></code></pre>
-<p>报错语句</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>min(n, str.size());</span><span>
+<p>● 函数 scanf() 的返回值是输入值的个数，如果没有输入值就是返回-1；</p>
+<p>● 符号 ~ 表示按位取反操作，-1按位取反操作的结果是0。</p>
+<h3 id="while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</h3>
+<p>C语句</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(scanf(&quot;%d&quot;,&amp;a)!=EOF)</span><span>
 </span></code></pre>
-<p>使用强制类型转换，改为</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>min(n, int(str.size()));</span><span>
+<p>C++语句</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(!(cin&gt;&gt;a).eof())</span><span>
 </span></code></pre>
 
     </div>
@@ -176,10 +187,10 @@
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">‹ C++_编译报错处理合集</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201122017&#x2F;">‹ JDBC for MySQL</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201121933&#x2F;">Spring Boot连接MySQL报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201132105&#x2F;">C&#x2F;C++_动态内存分配 ›</a>
                     
                     
                     

@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - C++编译报错处理合集</title>
+      <title>Arceus - C++_编译报错处理合集</title>
 
       
 
@@ -126,6 +126,10 @@
                             <a href="https://arceusj2000.github.io/202201111736/#error-malloc-was-not-declared-in-this-scope" class="toc-link">error: &#x27;malloc&#x27; was not declared in this scope</a>
                         </li>
                         
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201111736/#error-memset-was-not-declared-in-this-scope" class="toc-link">error: &#x27;memset&#x27; was not declared in this scope</a>
+                        </li>
+                        
                     </ul>
                     
                 </li>
@@ -140,7 +144,7 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">C++编译报错处理合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">C++_编译报错处理合集</a>
         </h1>
         <div class="post__meta">
             <span class="post__time">2022-01-11</span>
@@ -170,6 +174,10 @@
 <p>补充：</p>
 <p>重新分配内存</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>void *realloc(void *ptr, size_t size)</span><span>
+</span></code></pre>
+<h3 id="error-memset-was-not-declared-in-this-scope">error: 'memset' was not declared in this scope</h3>
+<p>补充头文件</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>#include &lt;cstring&gt;</span><span>
 </span></code></pre>
 
     </div>
