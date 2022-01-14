@@ -163,15 +163,18 @@
 </content>
 	</entry>
 	<entry xml:lang="zh">
-		<title>解决github连不上</title>
-		<published>2022-01-07T22:41:34+00:00</published>
-		<updated>2022-01-07T22:41:34+00:00</updated>
-		<link href="https://arceusj2000.github.io/202201072241/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202201072241/</id>
+		<title>git报错处理合集</title>
+		<published>2022-01-07T17:45:12+00:00</published>
+		<updated>2022-01-07T17:45:12+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201071745/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201071745/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;大部分都是网络问题报错&lt;&#x2F;p&gt;
 &lt;p&gt;又是饱受gfw折磨的一天 テ_デ&lt;&#x2F;p&gt;
 &lt;p&gt;记录一下（曾经可能）有效的方法&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;xiu-gai-hosts&quot;&gt;修改hosts&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;wang-luo-wen-ti-bao-cuo&quot;&gt;网络问题报错&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;jie-jue-githublian-bu-shang&quot;&gt;解决github连不上&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;xiu-gai-hosts&quot;&gt;修改hosts&lt;&#x2F;h4&gt;
 &lt;p&gt;在 C:\Windows\System32\drivers\etc 文件夹下找到hosts文件&lt;&#x2F;p&gt;
 &lt;p&gt;Run  as Administrator打开&lt;&#x2F;p&gt;
 &lt;p&gt;添加：&lt;&#x2F;p&gt;
@@ -179,71 +182,40 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;查询IP地址使用：&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ipaddress.com&quot;&gt;https:&#x2F;&#x2F;ipaddress.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;shi-yong-jing-xiang&quot;&gt;使用镜像&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;shi-yong-jing-xiang&quot;&gt;使用镜像&lt;&#x2F;h4&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com.cnpmjs.org&quot;&gt;https:&#x2F;&#x2F;github.com.cnpmjs.org&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;qu-giteepeng-yun-qi&quot;&gt;去Gitee碰运气&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;qu-giteepeng-yun-qi&quot;&gt;去Gitee碰运气&lt;&#x2F;h4&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gitee.com&quot;&gt;https:&#x2F;&#x2F;gitee.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;ke-xue-shang-wang&quot;&gt;科学上网&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;ke-xue-shang-wang&quot;&gt;科学上网&lt;&#x2F;h4&gt;
 &lt;p&gt;能解决浏览器访问的问题&lt;&#x2F;p&gt;
 &lt;p&gt;但命令行还是会间歇性失效orz&lt;&#x2F;p&gt;
 &lt;p&gt;命令行设置代理&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;set http_proxy=http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;set https_proxy=http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span&gt; http_proxy=http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span&gt; https_proxy=http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-</content>
-	</entry>
-	<entry xml:lang="zh">
-		<title>git报错errno 10054解决</title>
-		<published>2022-01-07T20:45:12+00:00</published>
-		<updated>2022-01-07T20:45:12+00:00</updated>
-		<link href="https://arceusj2000.github.io/202201072045/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202201072045/</id>
-		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;p&gt;注意，该方法不一定每次都有效orz&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;bao-cuo-nei-rong&quot;&gt;报错内容&lt;&#x2F;h2&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;fatal: unable to access &amp;#39;https:&#x2F;&#x2F;github.com&#x2F;xxx.git&#x2F;&amp;#39;: OpenSSL SSL_read: Connection was reset, errno 10054&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;git clone &#x2F; pull &#x2F; push都有可能出现&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;yi-chong-jing-chang-wu-xiao-ou-er-you-xiao-de-jie-jue-fang-fa&quot;&gt;一种经常无效，偶尔有效的解决方法&lt;&#x2F;h2&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git config --global http.sslVerify &amp;quot;false&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h2 id=&quot;qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa&quot;&gt;其他曾经有效的解决方法&lt;&#x2F;h2&gt;
-&lt;h4 id=&quot;bao-gua-dan-bu-xian-yu&quot;&gt;包括但不限于：&lt;&#x2F;h4&gt;
-&lt;p&gt;重开一个git bash&lt;&#x2F;p&gt;
-&lt;p&gt;关机重启&lt;&#x2F;p&gt;
-&lt;p&gt;换个时间再试一次&lt;&#x2F;p&gt;
-</content>
-	</entry>
-	<entry xml:lang="zh">
-		<title>git报错port 443:connection timed out解决</title>
-		<published>2022-01-07T17:45:12+00:00</published>
-		<updated>2022-01-07T17:45:12+00:00</updated>
-		<link href="https://arceusj2000.github.io/202201071745/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202201071745/</id>
-		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;p&gt;注意，该方法不一定每次都有效orz&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;bao-cuo-nei-rong&quot;&gt;报错内容&lt;&#x2F;h2&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Failed to connect to github.com port 443:connection timed out&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;git clone &#x2F; pull &#x2F; push都有可能出现，&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa&quot;&gt;比较可能有用的解决方法&lt;&#x2F;h2&gt;
-&lt;h3 id=&quot;zhong-xin-she-zhi-dai-li&quot;&gt;重新设置代理&lt;&#x2F;h3&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;h2 id=&quot;failed-to-connect-to-github-com-port-443-connection-timed-out&quot;&gt;Failed to connect to github.com port 443:connection timed out&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa&quot;&gt;比较可能有用的解决方法&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;zhong-xin-she-zhi-dai-li&quot;&gt;重新设置代理&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; git config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global&lt;&#x2F;span&gt;&lt;span&gt; http.proxy http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;$ git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; git config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global&lt;&#x2F;span&gt;&lt;span&gt; https.proxy http:&#x2F;&#x2F;127.0.0.1:1080&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h3 id=&quot;qu-xiao-quan-ju-dai-li&quot;&gt;取消全局代理&lt;&#x2F;h3&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ git config --global --unset http.proxy&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;h4 id=&quot;qu-xiao-quan-ju-dai-li&quot;&gt;取消全局代理&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; git config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global --unset&lt;&#x2F;span&gt;&lt;span&gt; http.proxy&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;$ git config --global --unset https.proxy&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; git config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global --unset&lt;&#x2F;span&gt;&lt;span&gt; https.proxy&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;体感上这个有用的概率更高一点&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa&quot;&gt;其他曾经有效的解决方法&lt;&#x2F;h2&gt;
-&lt;h4 id=&quot;bao-gua-dan-bu-xian-yu&quot;&gt;包括但不限于：&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa&quot;&gt;其他曾经有效的解决方法&lt;&#x2F;h4&gt;
+&lt;h5 id=&quot;bao-gua-dan-bu-xian-yu&quot;&gt;包括但不限于：&lt;&#x2F;h5&gt;
 &lt;p&gt;把梯子关了&lt;&#x2F;p&gt;
 &lt;p&gt;重开一个git bash&lt;&#x2F;p&gt;
 &lt;p&gt;关机重启&lt;&#x2F;p&gt;
 &lt;p&gt;换个时间再试一次&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;openssl-ssl-read-connection-was-reset-errno-10054&quot;&gt;OpenSSL SSL_read: Connection was reset, errno 10054&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;openssl-ssl-read-connection-was-reset-errno-10054-fatal-expected-flush-after-ref-listing&quot;&gt;OpenSSL SSL_read: Connection was reset, errno 10054 fatal: expected flush after ref listing&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; git config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global&lt;&#x2F;span&gt;&lt;span&gt; http.sslVerify &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 </feed>

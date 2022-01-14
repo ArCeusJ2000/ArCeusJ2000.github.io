@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - git报错port 443:connection timed out解决</title>
+      <title>Arceus - git报错处理合集</title>
 
       
 
@@ -114,34 +114,20 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201071745/#bao-cuo-nei-rong" class="toc-link">报错内容</a>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201071745/#bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa" class="toc-link">比较可能有用的解决方法</a>
+                    <a href="https://arceusj2000.github.io/202201071745/#wang-luo-wen-ti-bao-cuo" class="toc-link">网络问题报错</a>
                     
                     <ul>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201071745/#zhong-xin-she-zhi-dai-li" class="toc-link">重新设置代理</a>
+                            <a href="https://arceusj2000.github.io/202201071745/#jie-jue-githublian-bu-shang" class="toc-link">解决github连不上</a>
                         </li>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201071745/#qu-xiao-quan-ju-dai-li" class="toc-link">取消全局代理</a>
+                            <a href="https://arceusj2000.github.io/202201071745/#failed-to-connect-to-github-com-port-443-connection-timed-out" class="toc-link">Failed to connect to github.com port 443:connection timed out</a>
                         </li>
                         
-                    </ul>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201071745/#qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa" class="toc-link">其他曾经有效的解决方法</a>
-                    
-                    <ul>
-                        
                         <li>
-                            <a href="https://arceusj2000.github.io/202201071745/#bao-gua-dan-bu-xian-yu" class="toc-link">包括但不限于：</a>
+                            <a href="https://arceusj2000.github.io/202201071745/#openssl-ssl-read-connection-was-reset-errno-10054" class="toc-link">OpenSSL SSL_read: Connection was reset, errno 10054</a>
                         </li>
                         
                     </ul>
@@ -158,7 +144,7 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201071745&#x2F;">git报错port 443:connection timed out解决</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201071745&#x2F;">git报错处理合集</a>
         </h1>
         <div class="post__meta">
             <span class="post__time">2022-01-07</span>
@@ -168,29 +154,53 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<p>注意，该方法不一定每次都有效orz</p>
-<h2 id="bao-cuo-nei-rong">报错内容</h2>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Failed to connect to github.com port 443:connection timed out</span><span>
+<p>大部分都是网络问题报错</p>
+<p>又是饱受gfw折磨的一天 テ_デ</p>
+<p>记录一下（曾经可能）有效的方法</p>
+<h1 id="wang-luo-wen-ti-bao-cuo">网络问题报错</h1>
+<h2 id="jie-jue-githublian-bu-shang">解决github连不上</h2>
+<h4 id="xiu-gai-hosts">修改hosts</h4>
+<p>在 C:\Windows\System32\drivers\etc 文件夹下找到hosts文件</p>
+<p>Run  as Administrator打开</p>
+<p>添加：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>140.82.113.3  www.github.com</span><span>
 </span></code></pre>
-<p>git clone / pull / push都有可能出现，</p>
-<h2 id="bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa">比较可能有用的解决方法</h2>
-<h3 id="zhong-xin-she-zhi-dai-li">重新设置代理</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git config --global http.proxy http://127.0.0.1:1080</span><span>
+<p>查询IP地址使用：</p>
+<p><a href="https://ipaddress.com">https://ipaddress.com</a></p>
+<h4 id="shi-yong-jing-xiang">使用镜像</h4>
+<p><a href="https://github.com.cnpmjs.org">https://github.com.cnpmjs.org</a></p>
+<h4 id="qu-giteepeng-yun-qi">去Gitee碰运气</h4>
+<p><a href="https://gitee.com">https://gitee.com</a></p>
+<h4 id="ke-xue-shang-wang">科学上网</h4>
+<p>能解决浏览器访问的问题</p>
+<p>但命令行还是会间歇性失效orz</p>
+<p>命令行设置代理</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">set</span><span> http_proxy=http://127.0.0.1:1080</span><span>
+</span><span style="color:#96b5b4;">set</span><span> https_proxy=http://127.0.0.1:1080</span><span>
+</span></code></pre>
+<h2 id="failed-to-connect-to-github-com-port-443-connection-timed-out">Failed to connect to github.com port 443:connection timed out</h2>
+<h3 id="bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa">比较可能有用的解决方法</h3>
+<h4 id="zhong-xin-she-zhi-dai-li">重新设置代理</h4>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.proxy http://127.0.0.1:1080</span><span>
 </span><span>
-</span><span>$ git config --global https.proxy http://127.0.0.1:1080</span><span>
+</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> https.proxy http://127.0.0.1:1080</span><span>
 </span></code></pre>
-<h3 id="qu-xiao-quan-ju-dai-li">取消全局代理</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git config --global --unset http.proxy</span><span>
+<h4 id="qu-xiao-quan-ju-dai-li">取消全局代理</h4>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> http.proxy</span><span>
 </span><span> </span><span>
-</span><span>$ git config --global --unset https.proxy</span><span>
+</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> https.proxy</span><span>
 </span></code></pre>
 <p>体感上这个有用的概率更高一点</p>
-<h2 id="qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa">其他曾经有效的解决方法</h2>
-<h4 id="bao-gua-dan-bu-xian-yu">包括但不限于：</h4>
+<h4 id="qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa">其他曾经有效的解决方法</h4>
+<h5 id="bao-gua-dan-bu-xian-yu">包括但不限于：</h5>
 <p>把梯子关了</p>
 <p>重开一个git bash</p>
 <p>关机重启</p>
 <p>换个时间再试一次</p>
+<h2 id="openssl-ssl-read-connection-was-reset-errno-10054">OpenSSL SSL_read: Connection was reset, errno 10054</h2>
+<h3 id="openssl-ssl-read-connection-was-reset-errno-10054-fatal-expected-flush-after-ref-listing">OpenSSL SSL_read: Connection was reset, errno 10054 fatal: expected flush after ref listing</h3>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.sslVerify &quot;</span><span style="color:#a3be8c;">false</span><span>&quot;</span><span>
+</span></code></pre>
 
     </div>
 
@@ -210,7 +220,7 @@
                 <div class="post-nav">
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201072045&#x2F;">git报错errno 10054解决 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201081241&#x2F;">git submodule 踩坑记录 ›</a>
                     
                     
                     
