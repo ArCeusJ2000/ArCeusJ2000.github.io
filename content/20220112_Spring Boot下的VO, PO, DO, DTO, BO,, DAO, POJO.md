@@ -1,7 +1,7 @@
 +++
 title = "Spring Boot下的VO, PO, DO, DTO, BO, DAO, POJO"
-date = 2022-01-16 10:53:41
-slug = "202201161053"
+date = 2022-01-12 10:53:41
+slug = "202201121053"
 
 [taxonomies]
 tags = ["Spring Boot", "Spring" ]
