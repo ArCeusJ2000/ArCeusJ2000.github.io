@@ -5,7 +5,7 @@ slug = "202201121933"
 
 [taxonomies]
 tags = ["MySQL", "Spring Boot" ]
-categories = ["Spring Boot"]
+categories = ["Spring"]
 
 +++
 
