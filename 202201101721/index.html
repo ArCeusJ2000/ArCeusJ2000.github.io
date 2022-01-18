@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - conda报错处理合集</title>
+      <title>Arceus - C&#x2F;C++等效语句合集</title>
 
       
 
@@ -114,42 +114,16 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condageng-xin-bao-cuo" class="toc-link">conda更新报错</a>
+                    <a href="https://arceusj2000.github.io/202201101721/#eoftiao-jian-pan-duan" class="toc-link">EOF条件判断</a>
                     
                     <ul>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#condavalueerror-malformed-version-string-invalid-character-s" class="toc-link">CondaValueError: Malformed version string &#x27;~&#x27;: invalid character(s).</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condaan-zhuang-bao-bao-cuo" class="toc-link">conda安装包报错</a>
-                    
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#packagesnotfounderror-the-following-packages-are-not-available-from-current-channels-ruamel-yaml-conda" class="toc-link">PackagesNotFoundError: The following packages are not available from current channels: ruamel_yaml_conda</a>
+                            <a href="https://arceusj2000.github.io/202201101721/#while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m" class="toc-link">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</a>
                         </li>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#removeerror-requests-is-a-dependency-of-conda-and-cannot-be-removed-from-conda-s-operating-environment" class="toc-link">RemoveError: &#x27;requests&#x27; is a dependency of conda and cannot be removed from conda&#x27;s operating environment</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condabian-ma-bao-cuo" class="toc-link">conda编码报错</a>
-                    
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#fatal-python-error-init-sys-streams-can-t-initialize-sys-standard-streams-lookuperror-unknown-encoding-65001" class="toc-link">Fatal Python error: init_sys_streams: can&#x27;t initialize sys standard streams LookupError: unknown encoding: 65001</a>
+                            <a href="https://arceusj2000.github.io/202201101721/#while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof" class="toc-link">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</a>
                         </li>
                         
                     </ul>
@@ -166,7 +140,7 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201102136&#x2F;">conda报错处理合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201101721&#x2F;">C&#x2F;C++等效语句合集</a>
         </h1>
         <div class="post__meta">
             <span class="post__time">2022-01-10</span>
@@ -176,29 +150,24 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="condageng-xin-bao-cuo">conda更新报错</h2>
-<h3 id="condavalueerror-malformed-version-string-invalid-character-s">CondaValueError: Malformed version string '~': invalid character(s).</h3>
-<p>尝试</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda upgrade -n base -c defaults --override-channels conda</span><span>
+<h2 id="eoftiao-jian-pan-duan">EOF条件判断</h2>
+<h3 id="while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</h3>
+<p>EOF的值为0，测试：</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;</span><span>
+</span><span>using namespace std;</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>() {</span><span>
+</span><span>    </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%d</span><span>&quot;,EOF);   </span><span style="color:#65737e;">//output -1</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>}</span><span>
 </span></code></pre>
-<h2 id="condaan-zhuang-bao-bao-cuo">conda安装包报错</h2>
-<h3 id="packagesnotfounderror-the-following-packages-are-not-available-from-current-channels-ruamel-yaml-conda">PackagesNotFoundError: The following packages are not available from current channels: ruamel_yaml_conda</h3>
-<p>pip和conda部分安装包名不完全一致</p>
-<p>pip下 <strong>ruamel_yaml_conda</strong> 等价于conda下 <strong>ruamel.yaml</strong></p>
-<p>使用：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ruamel.yaml</span><span>
+<p>● 函数 scanf() 的返回值是输入值的个数，如果没有输入值就是返回-1；</p>
+<p>● 符号 ~ 表示按位取反操作，-1按位取反操作的结果是0。</p>
+<h3 id="while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</h3>
+<p>C语句</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(scanf(&quot;%d&quot;,&amp;a)!=EOF)</span><span>
 </span></code></pre>
-<h3 id="removeerror-requests-is-a-dependency-of-conda-and-cannot-be-removed-from-conda-s-operating-environment">RemoveError: 'requests' is a dependency of conda and cannot be removed from conda's operating environment</h3>
-<p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda update --force conda</span><span>
-</span></code></pre>
-<h2 id="condabian-ma-bao-cuo">conda编码报错</h2>
-<h3 id="fatal-python-error-init-sys-streams-can-t-initialize-sys-standard-streams-lookuperror-unknown-encoding-65001">Fatal Python error: init_sys_streams: can't initialize sys standard streams LookupError: unknown encoding: 65001</h3>
-<p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ set pythonioencoding=utf-8</span><span>
-</span></code></pre>
-<p>查看：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo %PYTHONIOENCODING%</span><span>
+<p>C++语句</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(!(cin&gt;&gt;a).eof())</span><span>
 </span></code></pre>
 
     </div>
@@ -211,17 +180,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/python/">#python</a>
+                        <a href="https://arceusj2000.github.io/tags/c-c/">#C&#x2F;C++</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201101721&#x2F;">‹ C&#x2F;C++等效语句合集</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201091721&#x2F;">‹ Quantative Trading相关环境配置</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">C++_编译报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201102136&#x2F;">conda报错处理合集 ›</a>
                     
                     
                     

@@ -90,7 +90,8 @@
 		<updated>2022-01-12T19:33:41+00:00</updated>
 		<link href="https://arceusj2000.github.io/202201121933/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201121933/</id>
-		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;shu-ju-ku-pei-zhi-bao-cuo&quot;&gt;数据库配置报错&lt;&#x2F;h2&gt;
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;shu-ju-ku-pei-zhi-bao-cuo&quot;&gt;数据库配置报错&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;hikaripool-1-exception-during-pool-initialization&quot;&gt;HikariPool-1 - Exception during pool initialization.&lt;&#x2F;h3&gt;
 &lt;p&gt;HikariPool是SpringBoot默认数据库连接池，该报错说明数据库配置有问题&lt;&#x2F;p&gt;
 &lt;p&gt;在application.yml配置文件中逐项检查username、password、url中IP地址、端口号等是否正确&lt;&#x2F;p&gt;
@@ -102,17 +103,17 @@
 &lt;h3 id=&quot;javax-net-ssl-sslexception-message-closing-inbound-before-receiving-peer-s-close-notify&quot;&gt;javax.net.ssl.SSLException MESSAGE: closing inbound before receiving peer&#x27;s close_notify&lt;&#x2F;h3&gt;
 &lt;p&gt;使用mysql8.0以上版本数据库，要设置useSSL=false否则会出现上述报错&lt;&#x2F;p&gt;
 &lt;p&gt;示例：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;url：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database_name?useSSL=false
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;url：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database_name?useSSL=false&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;反之，mysql8.0以下版本例如mysql5.7如果url包含useSSL，也可能会报错，删除该项即可解决&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;the-server-time-zone-value-is-unrecognized&quot;&gt;The server time zone value ‘????’ is unrecognized&lt;&#x2F;h3&gt;
 &lt;p&gt;时区设置serverTimezone=GMT%2B8&lt;&#x2F;p&gt;
 &lt;p&gt;示例：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;url：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database_name?serverTimezone=GMT%2B8
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;url：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;database_name?serverTimezone=GMT%2B8&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;也可以在application.yml “spring:”下添加：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jackson:
-&lt;&#x2F;span&gt;&lt;span&gt;    time-zone: GMT+8
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;jackson:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    time-zone: GMT+8&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
