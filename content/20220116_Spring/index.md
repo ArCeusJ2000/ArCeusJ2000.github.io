@@ -1,5 +1,5 @@
 +++
-title = "Spring Overview"
+title = "Spring Review"
 date = 2022-01-16 21:53:16
 slug = "202201162153"
 
@@ -376,7 +376,7 @@ function mainProgram()
 
 ## Bean的生命周期
 
-![](./images/Spring/spring bean life cycle.jpg)
+![](./spring_bean_life_cycle.jpg)
 
 1. Spring对bean进行**实例化**
 2. Spring将值和bean的引用注入到bean对应的属性中

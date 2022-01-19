@@ -33,7 +33,7 @@ categories = ["Spring"]
 
 ## 模型
 
-![](./Three-tier architecture.png)
+![](./Three-tier_architecture.png)
 
 示例：
 
