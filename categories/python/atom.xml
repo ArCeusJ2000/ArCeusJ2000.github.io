@@ -11,8 +11,8 @@
 		<title>python报错处理合集</title>
 		<published>2022-01-15T14:43:14+00:00</published>
 		<updated>2022-01-15T14:43:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/20220115_python报错处理合集/202201151443/" type="text/html"/>
-		<id>https://arceusj2000.github.io/20220115_python报错处理合集/202201151443/</id>
+		<link href="https://arceusj2000.github.io/python报错处理合集/202201151443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/python报错处理合集/202201151443/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h2 id=&quot;numpyxiang-guan&quot;&gt;Numpy相关&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility&quot;&gt;ValueError: numpy.ndarray size changed, may indicate binary incompatibility.&lt;&#x2F;h3&gt;
