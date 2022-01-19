@@ -33,9 +33,9 @@ categories = ["Spring"]
 
 ## 模型
 
-![](C:\Users\tutu\Desktop\code\blog\ArCeusJ2000.github.io\content\graph\Spring\Three-tier architecture.png)
+![image](./images/Spring/Three-tier architecture.png)
 
-示例：
+示例：images
 
 - 用户发出请求（可能是填写表单），表单的数据在展示层被匹配为VO。
 
