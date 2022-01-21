@@ -68,6 +68,18 @@ set https_proxy=http://127.0.0.1:1080
 
 
 
+## bash代理
+
+```bash
+export ALL_PROXY=http://127.0.0.1:1081
+```
+
+```bash
+export ALL_PROXY=socks5://127.0.0.1:1081
+```
+
+
+
 ## Failed to connect to github.com port 443:connection timed out
 
 ### 比较可能有用的解决方法
