@@ -35,7 +35,7 @@ iwr -useb get.scoop.sh | iex
 $ scoop install zola
 ```
 
-
+scoop报错解决：[How can I go back to original REPO https://github.com/lukesampson/scoop · Issue #4495 · ScoopInstaller/Scoop · GitHub](https://github.com/ScoopInstaller/Scoop/issues/4495)
 
 ## 本地配置
 
