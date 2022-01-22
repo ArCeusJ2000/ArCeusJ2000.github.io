@@ -14,6 +14,31 @@
 		<link href="https://arceusj2000.github.io/python报错处理合集/202201151443/" type="text/html"/>
 		<id>https://arceusj2000.github.io/python报错处理合集/202201151443/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;pythonban-ben-wen-ti&quot;&gt;Python版本问题&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;modulenotfounderror-no-module-named-cpickle&quot;&gt;ModuleNotFoundError: No module named &#x27;cPickle&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;python2有cPickle，但是python3没有cPickle&lt;&#x2F;p&gt;
+&lt;p&gt;python2使用：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;cPickle&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;python3使用：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;pickle&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;name-reload-is-not-defined&quot;&gt;name &#x27;reload&#x27; is not defined&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在Python2.x中由于str和byte之间没有明显区别，经常要依赖于defaultencoding来做转换。 &lt;&#x2F;li&gt;
+&lt;li&gt;在python3中有了明确的str和byte类型区别，从一种类型转换成另一种类型要显式指定&lt;em&gt;encoding。&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;python2使用：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;sys&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;reload&lt;&#x2F;span&gt;&lt;span&gt;(sys)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sys.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;setdefaultencoding&lt;&#x2F;span&gt;&lt;span&gt;(‘utf-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;’)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;python3使用：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;importlib,sys&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;importlib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;reload&lt;&#x2F;span&gt;&lt;span&gt;(sys)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;attributeerror-module-sys-has-no-attribute-setdefaultencoding&quot;&gt;AttributeError: module &#x27;sys&#x27; has no attribute &#x27;setdefaultencoding&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;报错原因同上，python3没有&lt;code&gt;sys.setdefaultencoding(&#x27;utf-8&#x27;)&lt;&#x2F;code&gt;，删除该行即可&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;numpyxiang-guan&quot;&gt;Numpy相关&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility&quot;&gt;ValueError: numpy.ndarray size changed, may indicate binary incompatibility.&lt;&#x2F;h3&gt;
 &lt;p&gt;核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可&lt;&#x2F;p&gt;

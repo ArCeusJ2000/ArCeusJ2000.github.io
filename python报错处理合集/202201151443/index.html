@@ -114,6 +114,27 @@
             <ul>
                 
                 <li>
+                    <a href="https://arceusj2000.github.io/python报错处理合集/202201151443/#pythonban-ben-wen-ti" class="toc-link">Python版本问题</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/python报错处理合集/202201151443/#modulenotfounderror-no-module-named-cpickle" class="toc-link">ModuleNotFoundError: No module named &#x27;cPickle&#x27;</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/python报错处理合集/202201151443/#name-reload-is-not-defined" class="toc-link">name &#x27;reload&#x27; is not defined</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/python报错处理合集/202201151443/#attributeerror-module-sys-has-no-attribute-setdefaultencoding" class="toc-link">AttributeError: module &#x27;sys&#x27; has no attribute &#x27;setdefaultencoding&#x27;</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
                     <a href="https://arceusj2000.github.io/python报错处理合集/202201151443/#numpyxiang-guan" class="toc-link">Numpy相关</a>
                     
                     <ul>
@@ -146,6 +167,31 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
+<h2 id="pythonban-ben-wen-ti">Python版本问题</h2>
+<h3 id="modulenotfounderror-no-module-named-cpickle">ModuleNotFoundError: No module named 'cPickle'</h3>
+<p>python2有cPickle，但是python3没有cPickle</p>
+<p>python2使用：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>cPickle</span><span>
+</span></code></pre>
+<p>python3使用：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>pickle</span><span>
+</span></code></pre>
+<h3 id="name-reload-is-not-defined">name 'reload' is not defined</h3>
+<ul>
+<li>在Python2.x中由于str和byte之间没有明显区别，经常要依赖于defaultencoding来做转换。 </li>
+<li>在python3中有了明确的str和byte类型区别，从一种类型转换成另一种类型要显式指定<em>encoding。</em></li>
+</ul>
+<p>python2使用：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>sys</span><span>
+</span><span style="color:#96b5b4;">reload</span><span>(sys)</span><span>
+</span><span>sys.</span><span style="color:#bf616a;">setdefaultencoding</span><span>(‘utf-</span><span style="color:#d08770;">8</span><span>’)</span><span>
+</span></code></pre>
+<p>python3使用：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>importlib,sys</span><span>
+</span><span>importlib.</span><span style="color:#bf616a;">reload</span><span>(sys)</span><span>
+</span></code></pre>
+<h3 id="attributeerror-module-sys-has-no-attribute-setdefaultencoding">AttributeError: module 'sys' has no attribute 'setdefaultencoding'</h3>
+<p>报错原因同上，python3没有<code>sys.setdefaultencoding('utf-8')</code>，删除该行即可</p>
 <h2 id="numpyxiang-guan">Numpy相关</h2>
 <h3 id="valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility">ValueError: numpy.ndarray size changed, may indicate binary incompatibility.</h3>
 <p>核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可</p>
