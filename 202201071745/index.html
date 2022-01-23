@@ -138,6 +138,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201071745/#git-cloneshi-bai" class="toc-link">git clone失败</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201071745/#fatal-early-eof-fatal-index-pack-failed" class="toc-link">fatal: early EOF fatal: index-pack failed</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -179,8 +192,8 @@
 <p>能解决浏览器访问的问题</p>
 <p>但命令行还是会间歇性失效orz</p>
 <p>命令行设置代理</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">set</span><span> http_proxy=http://127.0.0.1:1080</span><span>
-</span><span style="color:#96b5b4;">set</span><span> https_proxy=http://127.0.0.1:1080</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">set</span><span> http_proxy=http://127.0.0.1:1081</span><span>
+</span><span style="color:#96b5b4;">set</span><span> https_proxy=http://127.0.0.1:1081</span><span>
 </span></code></pre>
 <h2 id="bashdai-li">bash代理</h2>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">http://127.0.0.1:1081</span><span>
@@ -209,6 +222,31 @@
 <h2 id="openssl-ssl-read-connection-was-reset-errno-10054">OpenSSL SSL_read: Connection was reset, errno 10054</h2>
 <h3 id="openssl-ssl-read-connection-was-reset-errno-10054-fatal-expected-flush-after-ref-listing">OpenSSL SSL_read: Connection was reset, errno 10054 fatal: expected flush after ref listing</h3>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.sslVerify &quot;</span><span style="color:#a3be8c;">false</span><span>&quot;</span><span>
+</span></code></pre>
+<h1 id="git-cloneshi-bai">git clone失败</h1>
+<h2 id="fatal-early-eof-fatal-index-pack-failed">fatal: early EOF fatal: index-pack failed</h2>
+<ol>
+<li>关闭压缩：</li>
+</ol>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.compression 0</span><span>
+</span></code></pre>
+<ol start="2">
+<li>截断一部分测试能否成功拉取：</li>
+</ol>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> clone</span><span style="color:#bf616a;"> --depth</span><span> 1 &lt;repo_URI&gt;</span><span>
+</span></code></pre>
+<ol start="3">
+<li>若成功，则继续拉取剩下的部分</li>
+</ol>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --unshallow</span><span>
+</span></code></pre>
+<p>或</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --depth</span><span>=2147483647</span><span>
+</span></code></pre>
+<ol start="4">
+<li>git pull</li>
+</ol>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> pull</span><span style="color:#bf616a;"> --all</span><span>
 </span></code></pre>
 
     </div>

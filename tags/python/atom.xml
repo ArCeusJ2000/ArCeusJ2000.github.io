@@ -219,11 +219,22 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h3 id=&quot;attributeerror-module-sys-has-no-attribute-setdefaultencoding&quot;&gt;AttributeError: module &#x27;sys&#x27; has no attribute &#x27;setdefaultencoding&#x27;&lt;&#x2F;h3&gt;
 &lt;p&gt;报错原因同上，python3没有&lt;code&gt;sys.setdefaultencoding(&#x27;utf-8&#x27;)&lt;&#x2F;code&gt;，删除该行即可&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pyqt5xiang-guan&quot;&gt;PyQt5相关&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;error-could-not-find-a-version-that-satisfies-the-requirement-pil-from-versions-none&quot;&gt;ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)&lt;&#x2F;h3&gt;
+&lt;p&gt;ERROR: No matching distribution found for PIL&lt;&#x2F;p&gt;
+&lt;p&gt;PIL，全称 Python Imaging Library，是 Python 平台一个功能非常强大而且简单易用的图像处理库。但是，由于 PIL 仅支持到Python 2.7，加上年久失修，于是一群志愿者在 PIL 的基础上创建了兼容 Python 3 的版本，名字叫 Pillow ，现在可以通过安装 Pillow 来使用 PIL。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pip install pillow&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;importerror-cannot-import-name-options-from-pyecharts&quot;&gt;ImportError: cannot import name &#x27;options&#x27; from &#x27;pyecharts&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;解决：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pip install pyecharts -U&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;numpyxiang-guan&quot;&gt;Numpy相关&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility&quot;&gt;ValueError: numpy.ndarray size changed, may indicate binary incompatibility.&lt;&#x2F;h3&gt;
 &lt;p&gt;核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pip install --upgrade numpy&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;&#x2F;h2&gt;
 </content>
 	</entry>
 	<entry xml:lang="zh">
