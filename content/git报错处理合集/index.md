@@ -62,8 +62,8 @@ Run  as Administrator打开
 命令行设置代理
 
 ```bash
-set http_proxy=http://127.0.0.1:1080
-set https_proxy=http://127.0.0.1:1080
+set http_proxy=http://127.0.0.1:1081
+set https_proxy=http://127.0.0.1:1081
 ```
 
 
@@ -126,5 +126,41 @@ $ git config --global --unset https.proxy
 
 ```bash
 $ git config --global http.sslVerify "false"
+```
+
+
+
+# git clone失败
+
+## fatal: early EOF fatal: index-pack failed
+
+1. 关闭压缩：
+
+```bash
+git config --global core.compression 0
+```
+
+2. 截断一部分测试能否成功拉取：
+
+```bash
+git clone --depth 1 <repo_URI>
+```
+
+3. 若成功，则继续拉取剩下的部分
+
+```bash
+git fetch --unshallow
+```
+
+或
+
+```bash
+git fetch --depth=2147483647
+```
+
+4. git pull
+
+```bash
+git pull --all
 ```
 
