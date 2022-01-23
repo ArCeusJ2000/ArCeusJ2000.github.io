@@ -188,6 +188,11 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201151642/#plotlyqian-ru-pyqt5" class="toc-link">plotly嵌入PyQt5</a>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -362,6 +367,121 @@
 </span><span>        </span><span style="color:#bf616a;">showarrow</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">xanchor</span><span>=&#39;</span><span style="color:#a3be8c;">left</span><span>&#39;, </span><span style="color:#bf616a;">text</span><span>=&#39;</span><span style="color:#a3be8c;">Increase Period Begins</span><span>&#39;)]</span><span>
 </span><span>)</span><span>
 </span><span>fig.</span><span style="color:#bf616a;">show</span><span>()</span><span>
+</span></code></pre>
+<h2 id="plotlyqian-ru-pyqt5">plotly嵌入PyQt5</h2>
+<p>plotly的绘图对象是浏览器，可以用pyqt的QtWebEngineWidgets控件作为ployly的绘图对象，实现将plotly嵌入pyqt中。</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>os</span><span>
+</span><span style="color:#b48ead;">import </span><span>sys</span><span>
+</span><span style="color:#b48ead;">import </span><span>tempfile</span><span>
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>PyQt5.QtWidgets </span><span style="color:#b48ead;">import </span><span>QPushButton, QLineEdit, QLabel</span><span>
+</span><span style="color:#b48ead;">from </span><span>plotly.io </span><span style="color:#b48ead;">import </span><span>to_html</span><span>
+</span><span style="color:#b48ead;">import </span><span>plotly.graph_objs </span><span style="color:#b48ead;">as </span><span>go</span><span>
+</span><span style="color:#b48ead;">from </span><span>PyQt5 </span><span style="color:#b48ead;">import </span><span>QtCore, QtGui, QtWidgets, QtWebEngineWidgets</span><span>
+</span><span style="color:#b48ead;">import </span><span>plotly.graph_objects </span><span style="color:#b48ead;">as </span><span>go</span><span>
+</span><span style="color:#b48ead;">import </span><span>tushare </span><span style="color:#b48ead;">as </span><span>ts</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">PlotlyViewer</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">QtWebEngineWidgets.QWebEngineView</span><span style="color:#eff1f5;">):</span><span>
+</span><span>    now_Id = &#39;</span><span style="color:#a3be8c;">399300</span><span>&#39;</span><span>
+</span><span>    now_start_time = &#39;</span><span style="color:#a3be8c;">2021-01-01</span><span>&#39;</span><span>
+</span><span>    now_end_time = &#39;</span><span style="color:#a3be8c;">2021-06-01</span><span>&#39;</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">fig</span><span>=</span><span style="color:#d08770;">None</span><span>):</span><span>
+</span><span>        </span><span style="color:#96b5b4;">super</span><span>().</span><span style="color:#96b5b4;">__init__</span><span>()</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">page</span><span>().</span><span style="color:#bf616a;">profile</span><span>().downloadRequested.</span><span style="color:#bf616a;">connect</span><span>(</span><span style="color:#bf616a;">self</span><span>.on_downloadRequested)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">settings</span><span>().</span><span style="color:#bf616a;">setAttribute</span><span>(</span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">settings</span><span>().ShowScrollBars, </span><span style="color:#d08770;">False</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">settings</span><span>().</span><span style="color:#bf616a;">setAttribute</span><span>(QtWebEngineWidgets.QWebEngineSettings.WebGLEnabled, </span><span style="color:#d08770;">True</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file = tempfile.</span><span style="color:#bf616a;">NamedTemporaryFile</span><span>(</span><span style="color:#bf616a;">mode</span><span>=&quot;</span><span style="color:#a3be8c;">w</span><span>&quot;, </span><span style="color:#bf616a;">suffix</span><span>=&quot;</span><span style="color:#a3be8c;">.html</span><span>&quot;, </span><span style="color:#bf616a;">delete</span><span>=</span><span style="color:#d08770;">False</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">resize</span><span>(</span><span style="color:#d08770;">1000</span><span>, </span><span style="color:#d08770;">600</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">setWindowTitle</span><span>(&quot;</span><span style="color:#a3be8c;">candlestick</span><span>&quot;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">set_figure</span><span>(</span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">getFig</span><span>(</span><span style="color:#bf616a;">self</span><span>.now_Id, </span><span style="color:#bf616a;">self</span><span>.now_start_time, </span><span style="color:#bf616a;">self</span><span>.now_end_time))</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb1 = </span><span style="color:#bf616a;">QLabel</span><span>(&#39;</span><span style="color:#a3be8c;">股票代码：</span><span>&#39;, </span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb1.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">40</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb1.</span><span style="color:#bf616a;">setStyleSheet</span><span>(&#39;</span><span style="color:#a3be8c;">background-color: rgb(255,255,255)</span><span>&#39;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_Id = </span><span style="color:#bf616a;">QLineEdit</span><span>(</span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_Id.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">140</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb2 = </span><span style="color:#bf616a;">QLabel</span><span>(&#39;</span><span style="color:#a3be8c;">起始日期：</span><span>&#39;, </span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb2.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">250</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb2.</span><span style="color:#bf616a;">setStyleSheet</span><span>(&#39;</span><span style="color:#a3be8c;">background-color: rgb(255,255,255)</span><span>&#39;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_start_time = </span><span style="color:#bf616a;">QLineEdit</span><span>(</span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_start_time.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">350</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb3 = </span><span style="color:#bf616a;">QLabel</span><span>(&#39;</span><span style="color:#a3be8c;">结束日期：</span><span>&#39;, </span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb3.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">460</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lb3.</span><span style="color:#bf616a;">setStyleSheet</span><span>(&#39;</span><span style="color:#a3be8c;">background-color: rgb(255,255,255)</span><span>&#39;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_end_time = </span><span style="color:#bf616a;">QLineEdit</span><span>(</span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_end_time.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">560</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_Id.</span><span style="color:#bf616a;">setText</span><span>(&#39;</span><span style="color:#a3be8c;">399300</span><span>&#39;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_start_time.</span><span style="color:#bf616a;">setText</span><span>(&#39;</span><span style="color:#a3be8c;">2021-01-01</span><span>&#39;)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.lineEdit_end_time.</span><span style="color:#bf616a;">setText</span><span>(&#39;</span><span style="color:#a3be8c;">2021-06-01</span><span>&#39;)</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.btn1 = </span><span style="color:#bf616a;">QPushButton</span><span>(&quot;</span><span style="color:#a3be8c;">查看K线</span><span>&quot;, </span><span style="color:#bf616a;">self</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.btn1.</span><span style="color:#bf616a;">move</span><span>(</span><span style="color:#d08770;">740</span><span>, </span><span style="color:#d08770;">25</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.btn1.</span><span style="color:#bf616a;">setCheckable</span><span>(</span><span style="color:#d08770;">True</span><span>)</span><span>
+</span><span>
+</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">set_figure</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">fig</span><span>=</span><span style="color:#d08770;">None</span><span>):</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file.</span><span style="color:#bf616a;">seek</span><span>(</span><span style="color:#d08770;">0</span><span>)</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>fig is </span><span style="color:#d08770;">None</span><span>:</span><span>
+</span><span>            fig = go.</span><span style="color:#bf616a;">Figure</span><span>()</span><span>
+</span><span>        fig.</span><span style="color:#bf616a;">update_xaxes</span><span>(</span><span style="color:#bf616a;">showspikes</span><span>=</span><span style="color:#d08770;">True</span><span>)</span><span>
+</span><span>        fig.</span><span style="color:#bf616a;">update_yaxes</span><span>(</span><span style="color:#bf616a;">showspikes</span><span>=</span><span style="color:#d08770;">True</span><span>)</span><span>
+</span><span>        html = </span><span style="color:#bf616a;">to_html</span><span>(fig, </span><span style="color:#bf616a;">config</span><span>={&quot;</span><span style="color:#a3be8c;">responsive</span><span>&quot;: </span><span style="color:#d08770;">True</span><span>, &#39;</span><span style="color:#a3be8c;">scrollZoom</span><span>&#39;: </span><span style="color:#d08770;">True</span><span>})</span><span>
+</span><span>        html += &quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">&lt;style&gt;body{margin: 0;}</span><span>&quot; \</span><span>
+</span><span>                &quot;</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">.plot-container,.main-svg,.svg-container</span><span style="color:#d08770;">{width:100% !important; height:100% !important;}</span><span style="color:#a3be8c;">&lt;/style&gt;</span><span>&quot;</span><span>
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file.</span><span style="color:#bf616a;">write</span><span>(html)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file.</span><span style="color:#bf616a;">truncate</span><span>()</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file.</span><span style="color:#bf616a;">seek</span><span>(</span><span style="color:#d08770;">0</span><span>)</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">load</span><span>(QtCore.QUrl.</span><span style="color:#bf616a;">fromLocalFile</span><span>(</span><span style="color:#bf616a;">self</span><span>.temp_file.name))</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">closeEvent</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">event</span><span>: QtGui.QCloseEvent) -&gt; </span><span style="color:#d08770;">None</span><span>:</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.temp_file.</span><span style="color:#bf616a;">close</span><span>()</span><span>
+</span><span>        os.</span><span style="color:#bf616a;">unlink</span><span>(</span><span style="color:#bf616a;">self</span><span>.temp_file.name)</span><span>
+</span><span>        </span><span style="color:#96b5b4;">super</span><span>().</span><span style="color:#bf616a;">closeEvent</span><span>(event)</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">sizeHint</span><span>(</span><span style="color:#bf616a;">self</span><span>) -&gt; QtCore.QSize:</span><span>
+</span><span>        </span><span style="color:#b48ead;">return </span><span>QtCore.</span><span style="color:#bf616a;">QSize</span><span>(</span><span style="color:#d08770;">400</span><span>, </span><span style="color:#d08770;">400</span><span>)</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">on_downloadRequested</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">download</span><span>):</span><span>
+</span><span>        dialog = QtWidgets.</span><span style="color:#bf616a;">QFileDialog</span><span>()</span><span>
+</span><span>        dialog.</span><span style="color:#bf616a;">setDefaultSuffix</span><span>(&quot;</span><span style="color:#a3be8c;">.png</span><span>&quot;)</span><span>
+</span><span>        path, </span><span style="color:#bf616a;">_ </span><span>= dialog.</span><span style="color:#bf616a;">getSaveFileName</span><span>(</span><span style="color:#bf616a;">self</span><span>, &quot;</span><span style="color:#a3be8c;">Save File</span><span>&quot;, os.path.</span><span style="color:#bf616a;">join</span><span>(os.</span><span style="color:#bf616a;">getcwd</span><span>(), &quot;</span><span style="color:#a3be8c;">newplot.png</span><span>&quot;), &quot;</span><span style="color:#a3be8c;">*.png</span><span>&quot;)</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>path:</span><span>
+</span><span>            download.</span><span style="color:#bf616a;">setPath</span><span>(path)</span><span>
+</span><span>            download.</span><span style="color:#bf616a;">accept</span><span>()</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">getFig</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">id</span><span>, </span><span style="color:#bf616a;">start</span><span>, </span><span style="color:#bf616a;">end</span><span>):</span><span>
+</span><span>        df = ts.</span><span style="color:#bf616a;">get_k_data</span><span>(</span><span style="color:#96b5b4;">id</span><span>, </span><span style="color:#bf616a;">index</span><span>=</span><span style="color:#d08770;">True</span><span>, </span><span style="color:#bf616a;">start</span><span>=start, </span><span style="color:#bf616a;">end</span><span>=end)</span><span>
+</span><span>        fig = go.</span><span style="color:#bf616a;">Figure</span><span>(</span><span style="color:#bf616a;">data</span><span>=[go.</span><span style="color:#bf616a;">Candlestick</span><span>(</span><span style="color:#bf616a;">x</span><span>=df[&#39;</span><span style="color:#a3be8c;">date</span><span>&#39;],</span><span>
+</span><span>                                             </span><span style="color:#bf616a;">open</span><span>=df[&#39;</span><span style="color:#a3be8c;">open</span><span>&#39;],</span><span>
+</span><span>                                             </span><span style="color:#bf616a;">high</span><span>=df[&#39;</span><span style="color:#a3be8c;">high</span><span>&#39;],</span><span>
+</span><span>                                             </span><span style="color:#bf616a;">low</span><span>=df[&#39;</span><span style="color:#a3be8c;">low</span><span>&#39;],</span><span>
+</span><span>                                             </span><span style="color:#bf616a;">close</span><span>=df[&#39;</span><span style="color:#a3be8c;">close</span><span>&#39;])])</span><span>
+</span><span>        fig.</span><span style="color:#bf616a;">update_layout</span><span>(</span><span>
+</span><span>            </span><span style="color:#bf616a;">title</span><span>=&#39;</span><span style="color:#a3be8c;">The Great Recession</span><span>&#39;,</span><span>
+</span><span>            </span><span style="color:#bf616a;">yaxis_title</span><span>=&#39;</span><span style="color:#a3be8c;">AAPL Stock</span><span>&#39;,</span><span>
+</span><span>            </span><span style="color:#bf616a;">shapes</span><span>=[</span><span style="color:#bf616a;">dict</span><span>(</span><span>
+</span><span>                </span><span style="color:#bf616a;">x0</span><span>=&#39;</span><span style="color:#a3be8c;">2021-01-09</span><span>&#39;, </span><span style="color:#bf616a;">x1</span><span>=&#39;</span><span style="color:#a3be8c;">2021-01-09</span><span>&#39;, </span><span style="color:#bf616a;">y0</span><span>=</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#bf616a;">y1</span><span>=</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">xref</span><span>=&#39;</span><span style="color:#a3be8c;">x</span><span>&#39;, </span><span style="color:#bf616a;">yref</span><span>=&#39;</span><span style="color:#a3be8c;">paper</span><span>&#39;,</span><span>
+</span><span>                </span><span style="color:#bf616a;">line_width</span><span>=</span><span style="color:#d08770;">2</span><span>)],</span><span>
+</span><span>            </span><span style="color:#bf616a;">annotations</span><span>=[</span><span style="color:#bf616a;">dict</span><span>(</span><span>
+</span><span>                </span><span style="color:#bf616a;">x</span><span>=&#39;</span><span style="color:#a3be8c;">2021-01-09</span><span>&#39;, </span><span style="color:#bf616a;">y</span><span>=</span><span style="color:#d08770;">0.05</span><span>, </span><span style="color:#bf616a;">xref</span><span>=&#39;</span><span style="color:#a3be8c;">x</span><span>&#39;, </span><span style="color:#bf616a;">yref</span><span>=&#39;</span><span style="color:#a3be8c;">paper</span><span>&#39;,</span><span>
+</span><span>                </span><span style="color:#bf616a;">showarrow</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">xanchor</span><span>=&#39;</span><span style="color:#a3be8c;">left</span><span>&#39;, </span><span style="color:#bf616a;">text</span><span>=&#39;</span><span style="color:#a3be8c;">Increase Period Begins</span><span>&#39;)]</span><span>
+</span><span>        )</span><span>
+</span><span>        </span><span style="color:#b48ead;">return </span><span>fig</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">if </span><span>__name__ == &quot;</span><span style="color:#a3be8c;">__main__</span><span>&quot;:</span><span>
+</span><span>    app = QtWidgets.</span><span style="color:#bf616a;">QApplication</span><span>(sys.argv)</span><span>
+</span><span>    pv = </span><span style="color:#bf616a;">PlotlyViewer</span><span>()</span><span>
+</span><span>    pv.</span><span style="color:#bf616a;">show</span><span>()</span><span>
+</span><span>    app.</span><span style="color:#bf616a;">exec_</span><span>()</span><span>
+</span><span>
 </span></code></pre>
 
     </div>
