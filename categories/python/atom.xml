@@ -5,8 +5,24 @@
 	<link href="https://arceusj2000.github.io/categories/python/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-01-15T14:43:14+00:00</updated>
+	<updated>2022-01-19T16:13:14+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/python/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>pip报错处理合集</title>
+		<published>2022-01-19T16:13:14+00:00</published>
+		<updated>2022-01-19T16:13:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/pip报错处理合集/202201191613/" type="text/html"/>
+		<id>https://arceusj2000.github.io/pip报错处理合集/202201191613/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;piphe-pip3de-qu-bie&quot;&gt;pip和pip3的区别&lt;&#x2F;h2&gt;
+&lt;p&gt;当一台电脑同时有多个版本的Python的时候，用pip3就可以自动区分用Python3来安装库，为了避免和Python2发生冲突的。如果电脑只安装了Python3，那么不管用pip还是pip3都一样的。
+安装了python3之后，会有pip3
+（1）使用pip install XXX ：
+新安装的库会放在这个目录下面：python2.7&#x2F;site-packages
+（2）使用pip3 install XXX ：
+新安装的库会放在这个目录下面：python3.7&#x2F;site-packages
+（3）如果使用python3执行程序，那么就不能importpython2.7&#x2F;site-packages中的库。&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>python报错处理合集</title>
 		<published>2022-01-15T14:43:14+00:00</published>
