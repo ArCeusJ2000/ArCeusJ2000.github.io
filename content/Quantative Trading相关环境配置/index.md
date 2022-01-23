@@ -71,6 +71,16 @@ $ conda install -c waditu tushare
 $ conda install -c conda-forge ta-lib
 ```
 
+Ta-Lib0.4.23部分API调用会报错，换0.4.17可以解决
+
+但是ta-lib指定版本更新会报一堆错
+
+简单粗暴的解决办法:
+
+用[vnpy/vnpy: 基于Python的开源量化交易平台开发框架 (github.com)](https://github.com/vnpy/vnpy)
+
+自带ta-lib0.4.17
+
 
 
 ## PyQt安装

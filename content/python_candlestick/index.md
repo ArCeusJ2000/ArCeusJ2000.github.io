@@ -254,3 +254,122 @@ fig.update_layout(
 fig.show()
 ```
 
+## plotly嵌入PyQt5
+
+plotly的绘图对象是浏览器，可以用pyqt的QtWebEngineWidgets控件作为ployly的绘图对象，实现将plotly嵌入pyqt中。
+
+```python
+import os
+import sys
+import tempfile
+
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLabel
+from plotly.io import to_html
+import plotly.graph_objs as go
+from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
+import plotly.graph_objects as go
+import tushare as ts
+
+
+class PlotlyViewer(QtWebEngineWidgets.QWebEngineView):
+    now_Id = '399300'
+    now_start_time = '2021-01-01'
+    now_end_time = '2021-06-01'
+
+    def __init__(self, fig=None):
+        super().__init__()
+        self.page().profile().downloadRequested.connect(self.on_downloadRequested)
+        self.settings().setAttribute(self.settings().ShowScrollBars, False)
+        self.settings().setAttribute(QtWebEngineWidgets.QWebEngineSettings.WebGLEnabled, True)
+        self.temp_file = tempfile.NamedTemporaryFile(mode="w", suffix=".html", delete=False)
+        self.resize(1000, 600)
+        self.setWindowTitle("candlestick")
+        self.set_figure(self.getFig(self.now_Id, self.now_start_time, self.now_end_time))
+
+        self.lb1 = QLabel('股票代码：', self)
+        self.lb1.move(40, 25)
+        self.lb1.setStyleSheet('background-color: rgb(255,255,255)')
+        self.lineEdit_Id = QLineEdit(self)
+        self.lineEdit_Id.move(140, 25)
+
+        self.lb2 = QLabel('起始日期：', self)
+        self.lb2.move(250, 25)
+        self.lb2.setStyleSheet('background-color: rgb(255,255,255)')
+        self.lineEdit_start_time = QLineEdit(self)
+        self.lineEdit_start_time.move(350, 25)
+
+        self.lb3 = QLabel('结束日期：', self)
+        self.lb3.move(460, 25)
+        self.lb3.setStyleSheet('background-color: rgb(255,255,255)')
+        self.lineEdit_end_time = QLineEdit(self)
+        self.lineEdit_end_time.move(560, 25)
+
+        self.lineEdit_Id.setText('399300')
+        self.lineEdit_start_time.setText('2021-01-01')
+        self.lineEdit_end_time.setText('2021-06-01')
+
+        self.btn1 = QPushButton("查看K线", self)
+        self.btn1.move(740, 25)
+        self.btn1.setCheckable(True)
+
+
+
+    def set_figure(self, fig=None):
+        self.temp_file.seek(0)
+        if fig is None:
+            fig = go.Figure()
+        fig.update_xaxes(showspikes=True)
+        fig.update_yaxes(showspikes=True)
+        html = to_html(fig, config={"responsive": True, 'scrollZoom': True})
+        html += "\n<style>body{margin: 0;}" \
+                "\n.plot-container,.main-svg,.svg-container{width:100% !important; height:100% !important;}</style>"
+
+        self.temp_file.write(html)
+        self.temp_file.truncate()
+        self.temp_file.seek(0)
+        self.load(QtCore.QUrl.fromLocalFile(self.temp_file.name))
+
+    def closeEvent(self, event: QtGui.QCloseEvent) -> None:
+        self.temp_file.close()
+        os.unlink(self.temp_file.name)
+        super().closeEvent(event)
+
+    def sizeHint(self) -> QtCore.QSize:
+        return QtCore.QSize(400, 400)
+
+    def on_downloadRequested(self, download):
+        dialog = QtWidgets.QFileDialog()
+        dialog.setDefaultSuffix(".png")
+        path, _ = dialog.getSaveFileName(self, "Save File", os.path.join(os.getcwd(), "newplot.png"), "*.png")
+        if path:
+            download.setPath(path)
+            download.accept()
+
+    def getFig(self, id, start, end):
+        df = ts.get_k_data(id, index=True, start=start, end=end)
+        fig = go.Figure(data=[go.Candlestick(x=df['date'],
+                                             open=df['open'],
+                                             high=df['high'],
+                                             low=df['low'],
+                                             close=df['close'])])
+        fig.update_layout(
+            title='The Great Recession',
+            yaxis_title='AAPL Stock',
+            shapes=[dict(
+                x0='2021-01-09', x1='2021-01-09', y0=0, y1=1, xref='x', yref='paper',
+                line_width=2)],
+            annotations=[dict(
+                x='2021-01-09', y=0.05, xref='x', yref='paper',
+                showarrow=False, xanchor='left', text='Increase Period Begins')]
+        )
+        return fig
+
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    pv = PlotlyViewer()
+    pv.show()
+    app.exec_()
+
+```
+
