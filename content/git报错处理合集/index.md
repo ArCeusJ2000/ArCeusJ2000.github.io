@@ -72,9 +72,6 @@ set https_proxy=http://127.0.0.1:1081
 
 ```bash
 export ALL_PROXY=http://127.0.0.1:1081
-```
-
-```bash
 export ALL_PROXY=socks5://127.0.0.1:1081
 ```
 
@@ -164,3 +161,39 @@ git fetch --depth=2147483647
 git pull --all
 ```
 
+# 换行符
+
+## warning: LF will be replaced by CRLF
+
+简单粗暴
+
+```bash
+git config --global core.autocrlf false
+```
+
+下三大主流操作系统的换行符：
+
+Uinx/Linux 采用换行符LF 表示下一行（LF：LineFeed，换行）；
+
+Dos 和Windows 采用CRLF （回车+换行）表示下一行（CRLF：CarriageReturn LineFeed，回车换行）；
+
+Mac OS采用回车CR表示下一行（CR：CarriageReturn，回车）。
+
+通过 `git config [--global] core.autocrlf true | false | input` 命令来设置Git 对待换行符的方式
+
+- true
+
+
+​		Git会可以在你add（提交）代码时自动地把换行结束符CRLF转换成 LF，而在checkout （签出）代码时把LF转换成CRLF。如果是在Windows系统上，把它设置成true，这样git代码时，LF会被转换成CRLF
+
+- false
+
+
+​		换行符不做任何改变，文本文件保持其原来的样子。
+
+- input
+
+
+​		add 时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows 操作系统不建议设置此值。
+
+可以通过 `git config core.autocrlf` 命令来显示当前Git 中对待换行符的方式
