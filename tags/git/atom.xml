@@ -196,8 +196,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;bashdai-li&quot;&gt;bash代理&lt;&#x2F;h2&gt;
 &lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ALL_PROXY&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;http:&#x2F;&#x2F;127.0.0.1:1081&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ALL_PROXY&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;socks5:&#x2F;&#x2F;127.0.0.1:1081&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ALL_PROXY&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;socks5:&#x2F;&#x2F;127.0.0.1:1081&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;failed-to-connect-to-github-com-port-443-connection-timed-out&quot;&gt;Failed to connect to github.com port 443:connection timed out&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa&quot;&gt;比较可能有用的解决方法&lt;&#x2F;h3&gt;
@@ -247,6 +246,29 @@
 &lt;&#x2F;ol&gt;
 &lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; pull&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --all&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;huan-xing-fu&quot;&gt;换行符&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;warning-lf-will-be-replaced-by-crlf&quot;&gt;warning: LF will be replaced by CRLF&lt;&#x2F;h2&gt;
+&lt;p&gt;简单粗暴&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; config&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --global&lt;&#x2F;span&gt;&lt;span&gt; core.autocrlf false&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;下三大主流操作系统的换行符：&lt;&#x2F;p&gt;
+&lt;p&gt;Uinx&#x2F;Linux 采用换行符LF 表示下一行（LF：LineFeed，换行）；&lt;&#x2F;p&gt;
+&lt;p&gt;Dos 和Windows 采用CRLF （回车+换行）表示下一行（CRLF：CarriageReturn LineFeed，回车换行）；&lt;&#x2F;p&gt;
+&lt;p&gt;Mac OS采用回车CR表示下一行（CR：CarriageReturn，回车）。&lt;&#x2F;p&gt;
+&lt;p&gt;通过 &lt;code&gt;git config [--global] core.autocrlf true | false | input&lt;&#x2F;code&gt; 命令来设置Git 对待换行符的方式&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;true&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;​		Git会可以在你add（提交）代码时自动地把换行结束符CRLF转换成 LF，而在checkout （签出）代码时把LF转换成CRLF。如果是在Windows系统上，把它设置成true，这样git代码时，LF会被转换成CRLF&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;false&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;​		换行符不做任何改变，文本文件保持其原来的样子。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;input&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;​		add 时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows 操作系统不建议设置此值。&lt;&#x2F;p&gt;
+&lt;p&gt;可以通过 &lt;code&gt;git config core.autocrlf&lt;&#x2F;code&gt; 命令来显示当前Git 中对待换行符的方式&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>

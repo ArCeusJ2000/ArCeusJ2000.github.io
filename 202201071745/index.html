@@ -151,6 +151,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201071745/#huan-xing-fu" class="toc-link">换行符</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201071745/#warning-lf-will-be-replaced-by-crlf" class="toc-link">warning: LF will be replaced by CRLF</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -197,8 +210,7 @@
 </span></code></pre>
 <h2 id="bashdai-li">bash代理</h2>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">http://127.0.0.1:1081</span><span>
-</span></code></pre>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">socks5://127.0.0.1:1081</span><span>
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">socks5://127.0.0.1:1081</span><span>
 </span></code></pre>
 <h2 id="failed-to-connect-to-github-com-port-443-connection-timed-out">Failed to connect to github.com port 443:connection timed out</h2>
 <h3 id="bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa">比较可能有用的解决方法</h3>
@@ -248,6 +260,29 @@
 </ol>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> pull</span><span style="color:#bf616a;"> --all</span><span>
 </span></code></pre>
+<h1 id="huan-xing-fu">换行符</h1>
+<h2 id="warning-lf-will-be-replaced-by-crlf">warning: LF will be replaced by CRLF</h2>
+<p>简单粗暴</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.autocrlf false</span><span>
+</span></code></pre>
+<p>下三大主流操作系统的换行符：</p>
+<p>Uinx/Linux 采用换行符LF 表示下一行（LF：LineFeed，换行）；</p>
+<p>Dos 和Windows 采用CRLF （回车+换行）表示下一行（CRLF：CarriageReturn LineFeed，回车换行）；</p>
+<p>Mac OS采用回车CR表示下一行（CR：CarriageReturn，回车）。</p>
+<p>通过 <code>git config [--global] core.autocrlf true | false | input</code> 命令来设置Git 对待换行符的方式</p>
+<ul>
+<li>true</li>
+</ul>
+<p>​		Git会可以在你add（提交）代码时自动地把换行结束符CRLF转换成 LF，而在checkout （签出）代码时把LF转换成CRLF。如果是在Windows系统上，把它设置成true，这样git代码时，LF会被转换成CRLF</p>
+<ul>
+<li>false</li>
+</ul>
+<p>​		换行符不做任何改变，文本文件保持其原来的样子。</p>
+<ul>
+<li>input</li>
+</ul>
+<p>​		add 时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows 操作系统不建议设置此值。</p>
+<p>可以通过 <code>git config core.autocrlf</code> 命令来显示当前Git 中对待换行符的方式</p>
 
     </div>
 
@@ -265,6 +300,8 @@
             
             
                 <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112151255&#x2F;">‹ npm报错处理合集</a>
                     
                     
                         <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201081241&#x2F;">git submodule 踩坑记录 ›</a>

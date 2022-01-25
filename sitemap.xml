@@ -4,6 +4,10 @@
         <loc>https://arceusj2000.github.io/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202112151255/</loc>
+        <lastmod>2021-12-15T12:55:12</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/202201071745/</loc>
         <lastmod>2022-01-07T17:45:12</lastmod>
     </url>
@@ -64,6 +68,10 @@
         <lastmod>2022-01-17T11:23:41</lastmod>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202201241745/</loc>
+        <lastmod>2022-01-24T17:45:12</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
     </url>
     <url>
@@ -71,6 +79,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/git/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/categories/node-js/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/python/</loc>
@@ -91,6 +102,9 @@
         <loc>https://arceusj2000.github.io/page/3/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/page/4/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/pip报错处理合集/202201191613/</loc>
         <lastmod>2022-01-19T16:13:14</lastmod>
     </url>
@@ -109,6 +123,15 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/mysql/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/nightwatch/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/node-js/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/npm/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/python/</loc>
