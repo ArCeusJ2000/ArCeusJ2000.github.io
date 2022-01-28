@@ -5,25 +5,8 @@
 	<link href="https://arceusj2000.github.io/tags/python/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-01-19T16:13:14+00:00</updated>
+	<updated>2022-01-15T16:42:14+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/python/atom.xml</id>
-	<entry xml:lang="zh">
-		<title>pip报错处理合集</title>
-		<published>2022-01-19T16:13:14+00:00</published>
-		<updated>2022-01-19T16:13:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/202201191613/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202201191613/</id>
-		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;h2 id=&quot;piphe-pip3de-qu-bie&quot;&gt;pip和pip3的区别&lt;&#x2F;h2&gt;
-&lt;p&gt;当一台电脑同时有多个版本的Python的时候，用pip3就可以自动区分用Python3来安装库，为了避免和Python2发生冲突的。如果电脑只安装了Python3，那么不管用pip还是pip3都一样的。
-安装了python3之后，会有pip3
-（1）使用pip install XXX ：
-新安装的库会放在这个目录下面：python2.7&#x2F;site-packages
-（2）使用pip3 install XXX ：
-新安装的库会放在这个目录下面：python3.7&#x2F;site-packages
-（3）如果使用python3执行程序，那么就不能importpython2.7&#x2F;site-packages中的库。&lt;&#x2F;p&gt;
-</content>
-	</entry>
 	<entry xml:lang="zh">
 		<title>python绘制candlestick</title>
 		<published>2022-01-15T16:42:14+00:00</published>
@@ -453,6 +436,97 @@
 &lt;&#x2F;span&gt;&lt;span&gt;Working directory: $FileDir$&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;配置全部完成后，可以在PyCharm主界面，依次点击 Tools - External Tools 启动QtDisigner、PyUIC和PyRCC&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>pandas使用经验总结</title>
+		<published>2022-01-05T14:43:14+00:00</published>
+		<updated>2022-01-05T14:43:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201051443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201051443/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h1 id=&quot;pandasxian-shi-she-zhi&quot;&gt;pandas显示设置&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;kong-zhi-tai-da-yin-wan-zheng-shu-ju&quot;&gt;控制台打印完整数据&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#显示更多行&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_columns&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#显示100行&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#显示更多行&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_rows&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#显示100列&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#改变列宽,设置显示长度为100，默认为50&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_colwidth&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 设置换行，True可以换行显示。False不允许换行&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.expand_frame_repr&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;False&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 重置&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;reset_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_rows&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 全部重置&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;reset_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;all&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;pycharmda-kai-da-yin-da-shu-ju-wen-jian-xian-shi-bu-quan-de-jie-jue-fang-fa&quot;&gt;Pycharm打开（打印）大数据文件显示不全的解决方法&lt;&#x2F;h3&gt;
+&lt;p&gt;Pycharm IDEA对能关联的文件大小做了限制，默认值为2500kb&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;xiu-gai-fang-fa&quot;&gt;修改方法：&lt;&#x2F;h4&gt;
+&lt;p&gt;Pycharm菜单找到&lt;code&gt;Edit Custom Properties&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;追加字段：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;idea.max.intellisense.filesize = 20000&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;idea.max.content.load.filesize = 20000&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;idea.cycle.buffer.size = 20000&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;其中20000代表限制大小为20000kb&lt;&#x2F;p&gt;
+&lt;p&gt;重启Pycharm：&lt;&#x2F;p&gt;
+&lt;p&gt;Pycharm菜单File——&amp;gt;Invalidate caches &#x2F; ...&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shu-zi-ge-shi-hua-xian-shi&quot;&gt;数字格式化显示&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;she-zhi-floatlie-de-jing-du&quot;&gt;设置float列的精度&lt;&#x2F;h4&gt;
+&lt;p&gt;&lt;code&gt;pandas&lt;&#x2F;code&gt;默认情况下float只显示小数点后6位&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;( &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.precision&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 设置显示小数点后4位&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这个设置不影响底层数据，它只影响float列的显示。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;shu-zi-ge-shi-hua-xian-shi-1&quot;&gt;数字格式化显示&lt;&#x2F;h4&gt;
+&lt;p&gt;&lt;code&gt;pandas&lt;&#x2F;code&gt;中有一个选项&lt;code&gt;display.float_formatoption&lt;&#x2F;code&gt;可以用来格式化任何浮点列。&lt;&#x2F;p&gt;
+&lt;p&gt;这个设置项仅适用于浮点列，对于其他数据类型，必须将它们转换为浮点数才可以。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;设置数字精度&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.float_format&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,  &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{:,.2f}&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;.format) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 精确到小数点后2位&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;百分号格式化&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.float_format&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{:.2f}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;.format) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 显示带百分比的列&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;逗号格式化大值数字&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.float_format&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{:,}&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;.format) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#例如100,000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;geng-gai-hui-tu-fang-fa&quot;&gt;更改绘图方法&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;pandas&lt;&#x2F;code&gt;默认使用&lt;code&gt;matplotlib&lt;&#x2F;code&gt;作为绘图后端。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;激活backend&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;例如使用plotly：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.options.plotting.backend = &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;plotly&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;或&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;plotting.backend&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;plotly&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;pei-zhi-info-de-shu-chu&quot;&gt;配置info()的输出&lt;&#x2F;h2&gt;
+&lt;p&gt;设置要分析的最大列数，默认为100。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_info_columns&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;200&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;设置计数null时的阈值，默认为1690785。设置一个较小的值可以避免在测试的时候计算所有&lt;code&gt;null&lt;&#x2F;code&gt;导致速度很慢&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;set_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;display.max_info_rows&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 只在行数不超过5时才计数null&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;xian-shi-she-zhi-he-zhong-zhi-suo-you-she-zhi&quot;&gt;显示设置和重置所有设置&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;describe_option&lt;&#x2F;span&gt;&lt;span&gt;()  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#展示所有设置和描述&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;reset_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;all&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#重置所有设置选项&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>pip报错处理合集</title>
+		<published>2021-12-12T16:13:14+00:00</published>
+		<updated>2021-12-12T16:13:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202112121613/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202112121613/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;piphe-pip3de-qu-bie&quot;&gt;pip和pip3的区别&lt;&#x2F;h2&gt;
+&lt;p&gt;当一台电脑同时有多个版本的Python的时候，用pip3就可以自动区分用Python3来安装库，为了避免和Python2发生冲突的。如果电脑只安装了Python3，那么不管用pip还是pip3都一样的。
+安装了python3之后，会有pip3
+（1）使用pip install XXX ：
+新安装的库会放在这个目录下面：python2.7&#x2F;site-packages
+（2）使用pip3 install XXX ：
+新安装的库会放在这个目录下面：python3.7&#x2F;site-packages
+（3）如果使用python3执行程序，那么就不能importpython2.7&#x2F;site-packages中的库。&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>
