@@ -19,3 +19,14 @@ categories = ["node.js"]
 npm install --save  -g core-js@^3
 ```
 
+## A complete log of this run can be fund in: C\Users\用户\AppData\Roaming\npm-cache_logs
+
+解决：
+
+删除node_modules文件夹
+
+```
+npm cache clean --force
+npm install
+```
+
