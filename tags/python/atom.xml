@@ -11,9 +11,10 @@
 		<title>pip报错处理合集</title>
 		<published>2022-01-19T16:13:14+00:00</published>
 		<updated>2022-01-19T16:13:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/pip报错处理合集/202201191613/" type="text/html"/>
-		<id>https://arceusj2000.github.io/pip报错处理合集/202201191613/</id>
-		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;piphe-pip3de-qu-bie&quot;&gt;pip和pip3的区别&lt;&#x2F;h2&gt;
+		<link href="https://arceusj2000.github.io/202201191613/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201191613/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;piphe-pip3de-qu-bie&quot;&gt;pip和pip3的区别&lt;&#x2F;h2&gt;
 &lt;p&gt;当一台电脑同时有多个版本的Python的时候，用pip3就可以自动区分用Python3来安装库，为了避免和Python2发生冲突的。如果电脑只安装了Python3，那么不管用pip还是pip3都一样的。
 安装了python3之后，会有pip3
 （1）使用pip install XXX ：
@@ -306,8 +307,8 @@
 		<title>python报错处理合集</title>
 		<published>2022-01-15T14:43:14+00:00</published>
 		<updated>2022-01-15T14:43:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/python报错处理合集/202201151443/" type="text/html"/>
-		<id>https://arceusj2000.github.io/python报错处理合集/202201151443/</id>
+		<link href="https://arceusj2000.github.io/202201151443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201151443/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h2 id=&quot;pythonban-ben-wen-ti&quot;&gt;Python版本问题&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;modulenotfounderror-no-module-named-cpickle&quot;&gt;ModuleNotFoundError: No module named &#x27;cPickle&#x27;&lt;&#x2F;h3&gt;
