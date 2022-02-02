@@ -89,4 +89,27 @@ pip install pyecharts -U
 pip install --upgrade numpy
 ```
 
-## 
+
+
+## urllib相关
+
+### AttributeError: module 'urllib' has no attribute 'request'
+
+解决：
+
+```
+from urllib import request
+```
+
+### Unresolved reference 'urllib2'
+
+解决：
+
+在python3.3以后，用urllib.request代替urllib2
+
+import语句使用
+
+```
+from urllib import request
+```
+
