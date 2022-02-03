@@ -155,8 +155,66 @@ if (idx == string::npos)
 if (str.find("abc") == string::npos) { ... }
 
 2. string 类提供了 6 种查找函数,每种函数以不同形式的 find 命名。这些操作全都返回 string::size_type 类型的值，以下标形式标记查找匹配所发生的位置；或者返回一个名为 string::npos 的特殊值，说明查找没有匹配。string 类将 npos 定义为保证大于任何有效下标的值。
-
 3. [string::npos 无符号数的陷阱-tang312-ChinaUnix博客](http://blog.chinaunix.net/uid-10014667-id-375027.html)
+
+### 大小写转换
+
+#### char
+
+**toupper**
+函数原型: `int toupper(int ch);`
+函数返回: 与ch相应的大写字母
+
+**tolower**
+函数原型: `int tolower(int ch);`
+函数返回: 返回ch所代表的字符的小写字母
+
+```
+string s="ABCDE";
+s=tolower(s[0]);
+```
+
+#### char[]
+
+**strupr**
+函数原型：`char *strupr（char *a）`
+函数功能：把字符串a中的串转换成大写
+函数返回: 返回指向s参数的指针
+所属文件：`#include <string.h>`
+
+**strlwr**
+函数原型: `char *strlwr（char *a）`
+函数功能：将字符串a转换为小写形式
+函数返回: 返回指向s参数的指针
+所属文件：`#include <string.h>`
+
+```
+char s[]="ABCDE";
+char *p=strlwr(s);//返回指向s参数的指针。
+```
+
+#### string
+
+**transform和tolower及toupper进行结合**
+
+所属文件：#include<algorithm>
+transform(first1,last1,first2,result,binary_op);//first1是第一个容器的首迭代器，last1为第一个容器的末迭代器，first2为第二个容器的首迭代器，result为存放结果的容器，binary_op为要进行操作的二元函数对象或sturct、class
+
+```c++
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main(){
+    string str = "JFwxs";
+    transform(str.begin(),str.end(),str.begin(),::toupper);
+    cout<<str<<endl;//输出JFWXS
+    transform(str.begin(),str.end(),str.begin(),::tolower);
+    cout<<str<<endl;//输出jfwxs
+}
+
+```
+
+
 
 # 踩坑记录
 
