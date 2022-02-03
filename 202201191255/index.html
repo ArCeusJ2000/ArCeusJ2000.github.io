@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - C&#x2F;C++等效语句合集</title>
+      <title>Arceus - maven报错处理合集</title>
 
       
 
@@ -114,19 +114,7 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201101721/#eoftiao-jian-pan-duan" class="toc-link">EOF条件判断</a>
-                    
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201101721/#while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m" class="toc-link">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</a>
-                        </li>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201101721/#while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof" class="toc-link">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</a>
-                        </li>
-                        
-                    </ul>
+                    <a href="https://arceusj2000.github.io/202201191255/#cuo-wu-zhao-bu-dao-huo-wu-fa-jia-zai-zhu-lei-encoding-utf-8" class="toc-link">错误: 找不到或无法加载主类 .encoding=UTF-8</a>
                     
                 </li>
                 
@@ -140,35 +128,27 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201101721&#x2F;">C&#x2F;C++等效语句合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201191255&#x2F;">maven报错处理合集</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2022-01-10</span>
+            <span class="post__time">2022-01-19</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="eoftiao-jian-pan-duan">EOF条件判断</h2>
-<h3 id="while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m">while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</h3>
-<p>EOF的值为0，测试：</p>
-<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">bits/stdc++.h</span><span>&gt;</span><span>
-</span><span>using namespace std;</span><span>
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>() {</span><span>
-</span><span>    </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%d</span><span>&quot;,EOF);   </span><span style="color:#65737e;">//output -1</span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
-</span><span>}</span><span>
+<h2 id="cuo-wu-zhao-bu-dao-huo-wu-fa-jia-zai-zhu-lei-encoding-utf-8">错误: 找不到或无法加载主类 .encoding=UTF-8</h2>
+<p>事故现场</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>java -Dfile.encoding=UTF-8 -jar xxx.jar</span><span>
 </span></code></pre>
-<p>● 函数 scanf() 的返回值是输入值的个数，如果没有输入值就是返回-1；</p>
-<p>● 符号 ~ 表示按位取反操作，-1按位取反操作的结果是0。</p>
-<h3 id="while-scanf-d-a-eof-gong-neng-deng-xiao-yu-while-cin-a-eof">while(scanf(&quot;%d&quot;,&amp;a)!=EOF) 功能等效于 while(!(cin&gt;&gt;a).eof())</h3>
-<p>C语句</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(scanf(&quot;%d&quot;,&amp;a)!=EOF)</span><span>
+<p>原因：</p>
+<p>idea内置的terminal类似 PowerShell，而上述命令适用于cmd</p>
+<p>解决方法：</p>
+<p>在 PowerShell 中运行时需要加引号使用：</p>
+<pre data-lang="powershell" style="background-color:#2b303b;color:#c0c5ce;" class="language-powershell "><code class="language-powershell" data-lang="powershell"><span>java &#39;</span><span style="color:#a3be8c;">-Dfile.encoding=utf-8</span><span>&#39; -jar xxx.jar</span><span>
 </span></code></pre>
-<p>C++语句</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>while(!(cin&gt;&gt;a).eof())</span><span>
-</span></code></pre>
+<p>或者用cmd运行</p>
 
     </div>
 
@@ -180,17 +160,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/c-c/">#C&#x2F;C++</a>
+                        <a href="https://arceusj2000.github.io/tags/maven/">#maven</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201091721&#x2F;">‹ Quantative Trading相关环境配置</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201171123&#x2F;">‹ Spring 装配 Bean</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201102136&#x2F;">conda报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201232257&#x2F;">VSCode驯化过程记录 ›</a>
                     
                     
                     

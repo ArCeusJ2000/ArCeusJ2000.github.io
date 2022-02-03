@@ -165,7 +165,19 @@
                 </li>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201151443/#" class="toc-link"></a>
+                    <a href="https://arceusj2000.github.io/202201151443/#urllibxiang-guan" class="toc-link">urllib相关</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201151443/#attributeerror-module-urllib-has-no-attribute-request" class="toc-link">AttributeError: module &#x27;urllib&#x27; has no attribute &#x27;request&#x27;</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201151443/#unresolved-reference-urllib2" class="toc-link">Unresolved reference &#x27;urllib2&#x27;</a>
+                        </li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -229,7 +241,17 @@
 <p>核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install --upgrade numpy</span><span>
 </span></code></pre>
-<h2 id=""></h2>
+<h2 id="urllibxiang-guan">urllib相关</h2>
+<h3 id="attributeerror-module-urllib-has-no-attribute-request">AttributeError: module 'urllib' has no attribute 'request'</h3>
+<p>解决：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request</span><span>
+</span></code></pre>
+<h3 id="unresolved-reference-urllib2">Unresolved reference 'urllib2'</h3>
+<p>解决：</p>
+<p>在python3.3以后，用urllib.request代替urllib2</p>
+<p>import语句使用</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request</span><span>
+</span></code></pre>
 
     </div>
 

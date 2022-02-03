@@ -54,7 +54,17 @@
 &lt;p&gt;核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pip install --upgrade numpy&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;urllibxiang-guan&quot;&gt;urllib相关&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;attributeerror-module-urllib-has-no-attribute-request&quot;&gt;AttributeError: module &#x27;urllib&#x27; has no attribute &#x27;request&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;解决：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;from urllib import request&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;unresolved-reference-urllib2&quot;&gt;Unresolved reference &#x27;urllib2&#x27;&lt;&#x2F;h3&gt;
+&lt;p&gt;解决：&lt;&#x2F;p&gt;
+&lt;p&gt;在python3.3以后，用urllib.request代替urllib2&lt;&#x2F;p&gt;
+&lt;p&gt;import语句使用&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;from urllib import request&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 	<entry xml:lang="zh">
