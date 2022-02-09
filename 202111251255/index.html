@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - maven报错处理合集</title>
+      <title>Arceus - Django经验总结</title>
 
       
 
@@ -114,7 +114,27 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202112091255/#cuo-wu-zhao-bu-dao-huo-wu-fa-jia-zai-zhu-lei-encoding-utf-8" class="toc-link">错误: 找不到或无法加载主类 .encoding=UTF-8</a>
+                    <a href="https://arceusj2000.github.io/202111251255/#djangoshi-yong-db-sqlite3" class="toc-link">Django使用db.sqlite3</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202111251255/#chuang-jian-yi-ge-xiang-mu-bing-qi-dong" class="toc-link">创建一个项目并启动</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202111251255/#chu-shi-hua-adminzhang-hao-he-mi-ma" class="toc-link">初始化admin账号和密码</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202111251255/#pei-zhi-shu-ju-biao" class="toc-link">配置数据表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202111251255/#" class="toc-link"></a>
+                        </li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -128,27 +148,39 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112091255&#x2F;">maven报错处理合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111251255&#x2F;">Django经验总结</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2021-12-09</span>
+            <span class="post__time">2021-11-25</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="cuo-wu-zhao-bu-dao-huo-wu-fa-jia-zai-zhu-lei-encoding-utf-8">错误: 找不到或无法加载主类 .encoding=UTF-8</h2>
-<p>事故现场</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>java -Dfile.encoding=UTF-8 -jar xxx.jar</span><span>
+<h2 id="djangoshi-yong-db-sqlite3">Django使用db.sqlite3</h2>
+<h3 id="chuang-jian-yi-ge-xiang-mu-bing-qi-dong">创建一个项目并启动</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>django-admin startproject xiangmuming</span><span>
+</span><span>cd xiangmuming</span><span>
+</span><span>python manage.py runserver</span><span>
 </span></code></pre>
-<p>原因：</p>
-<p>idea内置的terminal类似 PowerShell，而上述命令适用于cmd</p>
-<p>解决方法：</p>
-<p>在 PowerShell 中运行时需要加引号使用：</p>
-<pre data-lang="powershell" style="background-color:#2b303b;color:#c0c5ce;" class="language-powershell "><code class="language-powershell" data-lang="powershell"><span>java &#39;</span><span style="color:#a3be8c;">-Dfile.encoding=utf-8</span><span>&#39; -jar xxx.jar</span><span>
+<h3 id="chu-shi-hua-adminzhang-hao-he-mi-ma">初始化admin账号和密码</h3>
+<ul>
+<li>Django提供admin后台，便于统一管理用户、权限和权限组，超级用户初始化方法</li>
+<li>创建管理员账户：</li>
+</ul>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py createsuperuser</span><span>
 </span></code></pre>
-<p>或者用cmd运行</p>
+<p>​		根据提示设置用户名、邮箱和密码，然后就可以用这个账号登录到后台</p>
+<p>​		或者：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py createsuperuser --username=root --email=root@root.com</span><span>
+</span></code></pre>
+<h3 id="pei-zhi-shu-ju-biao">配置数据表</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py migrate  #迁移django自带的表，有变更的表结构同步到数据库  后面不跟app默认更新所有的app变更</span><span>
+</span><span>python manage.py makemigrations  #将有变更的表结构生成迁移</span><span>
+</span><span>python  manage.py sqlmigrate+表名+序列号  #查询变更迁移的sql语句</span><span>
+</span></code></pre>
+<h3 id=""></h3>
 
     </div>
 
@@ -160,17 +192,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/maven/">#maven</a>
+                        <a href="https://arceusj2000.github.io/tags/django/">#Django</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111251255&#x2F;">‹ Django经验总结</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202101101721&#x2F;">‹ 记录</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112121613&#x2F;">pip报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112091255&#x2F;">maven报错处理合集 ›</a>
                     
                     
                     
