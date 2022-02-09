@@ -1,5 +1,5 @@
 +++
-title = "pandas使用经验总结"
+title = "pandas经验总结"
 date = 2022-01-05 14:43:14
 slug = "202201051443"
 
