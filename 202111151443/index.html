@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - Django经验总结</title>
+      <title>Arceus - python数据处理经验总结</title>
 
       
 
@@ -114,24 +114,16 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202111251255/#djangoshi-yong-db-sqlite3" class="toc-link">Django使用db.sqlite3</a>
+                    <a href="https://arceusj2000.github.io/202111151443/#shu-ju-lei-xing-chu-li" class="toc-link">数据类型处理</a>
                     
                     <ul>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202111251255/#chuang-jian-yi-ge-xiang-mu-bing-qi-dong" class="toc-link">创建一个项目并启动</a>
+                            <a href="https://arceusj2000.github.io/202111151443/#cha-kan-shu-ju-lei-xing" class="toc-link">查看数据类型</a>
                         </li>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202111251255/#chu-shi-hua-adminzhang-hao-he-mi-ma" class="toc-link">初始化admin账号和密码</a>
-                        </li>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202111251255/#pei-zhi-shu-ju-biao" class="toc-link">配置数据表</a>
-                        </li>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202111251255/#" class="toc-link"></a>
+                            <a href="https://arceusj2000.github.io/202111151443/#bytes" class="toc-link">bytes</a>
                         </li>
                         
                     </ul>
@@ -148,39 +140,47 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111251255&#x2F;">Django经验总结</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111151443&#x2F;">python数据处理经验总结</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2021-11-25</span>
+            <span class="post__time">2021-11-15</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="djangoshi-yong-db-sqlite3">Django使用db.sqlite3</h2>
-<h3 id="chuang-jian-yi-ge-xiang-mu-bing-qi-dong">创建一个项目并启动</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>django-admin startproject xiangmuming</span><span>
-</span><span>cd xiangmuming</span><span>
-</span><span>python manage.py runserver</span><span>
+<h2 id="shu-ju-lei-xing-chu-li">数据类型处理</h2>
+<h3 id="cha-kan-shu-ju-lei-xing">查看数据类型</h3>
+<h4 id="type-he-isinstance">type()和isinstance()</h4>
+<p>区别：</p>
+<p>type() 不会认为子类是一种父类类型，不考虑继承关系。</p>
+<p>isinstance() 会认为子类是一种父类类型，考虑继承关系。</p>
+<h3 id="bytes">bytes</h3>
+<h4 id="byteshe-str">bytes和str</h4>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt; type(b&#39;xxxxx&#39;)</span><span>
+</span><span>&lt;class &#39;bytes&#39;&gt;</span><span>
+</span><span> </span><span>
+</span><span>&gt;&gt;&gt; type(&#39;xxxxx&#39;)</span><span>
+</span><span>&lt;class &#39;str&#39;&gt;</span><span>
 </span></code></pre>
-<h3 id="chu-shi-hua-adminzhang-hao-he-mi-ma">初始化admin账号和密码</h3>
-<ul>
-<li>Django提供admin后台，便于统一管理用户、权限和权限组，超级用户初始化方法</li>
-<li>创建管理员账户：</li>
-</ul>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py createsuperuser</span><span>
+<p>bytes是byte的序列，而str是unicode的序列。</p>
+<p>互相转化：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>bytes = str.encode()</span><span>
+</span><span>str = bytes.decode()</span><span>
+</span><span>str = bytes.decode(&quot;gb2312&quot;) #使用 gb2312 的方式</span><span>
 </span></code></pre>
-<p>​		根据提示设置用户名、邮箱和密码，然后就可以用这个账号登录到后台</p>
-<p>​		或者：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py createsuperuser --username=root --email=root@root.com</span><span>
+<h4 id="bytearray">bytearray</h4>
+<p>bytearray是可变的。</p>
+<p><strong>bytearray()</strong> 方法返回一个新字节数组。这个数组里的元素是可变的，并且每个元素的值范围: 0 &lt;= x &lt; 256。</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt;bytearray()</span><span>
+</span><span>bytearray(b&#39;&#39;)</span><span>
+</span><span>&gt;&gt;&gt; bytearray([1,2,3])</span><span>
+</span><span>bytearray(b&#39;\x01\x02\x03&#39;)</span><span>
+</span><span>&gt;&gt;&gt; bytearray(&#39;runoob&#39;, &#39;utf-8&#39;)</span><span>
+</span><span>bytearray(b&#39;runoob&#39;)</span><span>
+</span><span>&gt;&gt;&gt;</span><span>
 </span></code></pre>
-<h3 id="pei-zhi-shu-ju-biao">配置数据表</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python manage.py migrate  #迁移django自带的表，有变更的表结构同步到数据库  后面不跟app默认更新所有的app变更</span><span>
-</span><span>python manage.py makemigrations  #将有变更的表结构生成迁移</span><span>
-</span><span>python  manage.py sqlmigrate+表名+序列号  #查询变更迁移的sql语句</span><span>
-</span></code></pre>
-<h3 id=""></h3>
 
     </div>
 
@@ -192,17 +192,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/django/">#Django</a>
+                        <a href="https://arceusj2000.github.io/tags/python/">#python</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111151443&#x2F;">‹ python数据处理经验总结</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202101101721&#x2F;">‹ 记录</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112091255&#x2F;">maven报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111251255&#x2F;">Django经验总结 ›</a>
                     
                     
                     

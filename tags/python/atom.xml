@@ -539,4 +539,44 @@
 （3）如果使用python3执行程序，那么就不能importpython2.7&#x2F;site-packages中的库。&lt;&#x2F;p&gt;
 </content>
 	</entry>
+	<entry xml:lang="zh">
+		<title>python数据处理经验总结</title>
+		<published>2021-11-15T14:43:14+00:00</published>
+		<updated>2021-11-15T14:43:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202111151443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202111151443/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;shu-ju-lei-xing-chu-li&quot;&gt;数据类型处理&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;cha-kan-shu-ju-lei-xing&quot;&gt;查看数据类型&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;type-he-isinstance&quot;&gt;type()和isinstance()&lt;&#x2F;h4&gt;
+&lt;p&gt;区别：&lt;&#x2F;p&gt;
+&lt;p&gt;type() 不会认为子类是一种父类类型，不考虑继承关系。&lt;&#x2F;p&gt;
+&lt;p&gt;isinstance() 会认为子类是一种父类类型，考虑继承关系。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;bytes&quot;&gt;bytes&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;byteshe-str&quot;&gt;bytes和str&lt;&#x2F;h4&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; type(b&amp;#39;xxxxx&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;class &amp;#39;bytes&amp;#39;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; type(&amp;#39;xxxxx&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;class &amp;#39;str&amp;#39;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;bytes是byte的序列，而str是unicode的序列。&lt;&#x2F;p&gt;
+&lt;p&gt;互相转化：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;bytes = str.encode()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;str = bytes.decode()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;str = bytes.decode(&amp;quot;gb2312&amp;quot;) #使用 gb2312 的方式&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;bytearray&quot;&gt;bytearray&lt;&#x2F;h4&gt;
+&lt;p&gt;bytearray是可变的。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;bytearray()&lt;&#x2F;strong&gt; 方法返回一个新字节数组。这个数组里的元素是可变的，并且每个元素的值范围: 0 &amp;lt;= x &amp;lt; 256。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt;bytearray()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;bytearray(b&amp;#39;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; bytearray([1,2,3])&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;bytearray(b&amp;#39;\x01\x02\x03&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; bytearray(&amp;#39;runoob&amp;#39;, &amp;#39;utf-8&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;bytearray(b&amp;#39;runoob&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
 </feed>
