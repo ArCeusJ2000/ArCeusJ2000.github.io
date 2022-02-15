@@ -1,5 +1,5 @@
 +++
-title = "python报错处理合集"
+title = "python经验总结"
 date = 2022-01-15 14:43:14
 slug = "202201151443"
 
@@ -10,6 +10,32 @@ categories = ["python"]
 +++
 
 <!-- more -->
+
+# 调试/测试
+
+## 程序计时
+
+`time.perf_counter()`以秒为单位返回时间的浮点值
+
+`time.perf_counter_ns()`返回时间以纳秒为单位
+
+## 控制台打印屏蔽与显示
+
+```python
+import sys, os
+
+# Disable
+def blockPrint():
+    sys.stdout = open(os.devnull, 'w')
+
+# Restore
+def enablePrint():
+    sys.stdout = sys.__stdout__
+```
+
+
+
+# 报错处理
 
 ## Python版本问题
 
