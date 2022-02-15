@@ -142,6 +142,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201051443/#bao-cuo-chu-li" class="toc-link">报错处理</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201051443/#settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe" class="toc-link">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -226,6 +239,19 @@
 <h2 id="xian-shi-she-zhi-he-zhong-zhi-suo-you-she-zhi">显示设置和重置所有设置</h2>
 <pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">describe_option</span><span>()  </span><span style="color:#65737e;">#展示所有设置和描述</span><span style="color:#65737e;">
 </span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">all</span><span>&#39;)  </span><span style="color:#65737e;">#重置所有设置选项</span><span style="color:#65737e;">
+</span></code></pre>
+<h1 id="bao-cuo-chu-li">报错处理</h1>
+<h2 id="settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</h2>
+<p>在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X</p>
+<p>事故现场：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+</span></code></pre>
+<p>解决方法：</p>
+<p>直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
+</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()</span><span>
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
 </span></code></pre>
 
     </div>

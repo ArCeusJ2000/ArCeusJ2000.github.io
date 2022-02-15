@@ -100,7 +100,7 @@
 &lt;p&gt;或者 &lt;strong&gt;【Ctrl】+【Shift】+【B】&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;在弹出的待选项中选择之前生成的任务&lt;&#x2F;p&gt;
 &lt;p&gt;运气好的话目录下已经有.exe文件了&lt;&#x2F;p&gt;
-&lt;p&gt;好麻烦，还不如直接用命令行（X&lt;&#x2F;p&gt;
+&lt;p&gt;好麻烦，还不如直接命令行 &lt;code&gt;g++ xxx.cpp&lt;&#x2F;code&gt;（X&lt;&#x2F;p&gt;
 &lt;p&gt;但是有个坑：需要用&lt;code&gt;.\&lt;&#x2F;code&gt;指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。&lt;&#x2F;p&gt;
 </content>
 	</entry>

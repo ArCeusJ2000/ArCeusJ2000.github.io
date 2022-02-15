@@ -181,6 +181,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201151443/#pandasxiang-guan" class="toc-link">pandas相关</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201151443/#settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe" class="toc-link">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -251,6 +264,19 @@
 <p>在python3.3以后，用urllib.request代替urllib2</p>
 <p>import语句使用</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request</span><span>
+</span></code></pre>
+<h2 id="pandasxiang-guan">pandas相关</h2>
+<h3 id="settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</h3>
+<p>在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X</p>
+<p>事故现场：</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+</span></code></pre>
+<p>解决方法：</p>
+<p>直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
+</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()</span><span>
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
 </span></code></pre>
 
     </div>

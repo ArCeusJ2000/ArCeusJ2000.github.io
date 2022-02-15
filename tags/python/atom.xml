@@ -344,6 +344,19 @@
 &lt;p&gt;import语句使用&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;from urllib import request&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;pandasxiang-guan&quot;&gt;pandas相关&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe&quot;&gt;SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame&lt;&#x2F;h3&gt;
+&lt;p&gt;在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X&lt;&#x2F;p&gt;
+&lt;p&gt;事故现场：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;add = {&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ts_code&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: stock_code, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;trade_date&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_date, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_price}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df.loc[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(df)] = add&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;解决方法：&lt;&#x2F;p&gt;
+&lt;p&gt;直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;add = {&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ts_code&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: stock_code, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;trade_date&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_date, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_price}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df = df.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;copy&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df.loc[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(df)] = add&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 	<entry xml:lang="zh">
@@ -519,6 +532,19 @@
 &lt;h2 id=&quot;xian-shi-she-zhi-he-zhong-zhi-suo-you-she-zhi&quot;&gt;显示设置和重置所有设置&lt;&#x2F;h2&gt;
 &lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;describe_option&lt;&#x2F;span&gt;&lt;span&gt;()  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#展示所有设置和描述&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;pd.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;reset_option&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;all&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#重置所有设置选项&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;bao-cuo-chu-li&quot;&gt;报错处理&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe&quot;&gt;SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame&lt;&#x2F;h2&gt;
+&lt;p&gt;在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X&lt;&#x2F;p&gt;
+&lt;p&gt;事故现场：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;add = {&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ts_code&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: stock_code, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;trade_date&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_date, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_price}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df.loc[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(df)] = add&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;解决方法：&lt;&#x2F;p&gt;
+&lt;p&gt;直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;add = {&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ts_code&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: stock_code, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;trade_date&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_date, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;: now_price}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df = df.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;copy&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;df.loc[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(df)] = add&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
