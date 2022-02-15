@@ -287,12 +287,28 @@
 </content>
 	</entry>
 	<entry xml:lang="zh">
-		<title>python报错处理合集</title>
+		<title>python经验总结</title>
 		<published>2022-01-15T14:43:14+00:00</published>
 		<updated>2022-01-15T14:43:14+00:00</updated>
 		<link href="https://arceusj2000.github.io/202201151443/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201151443/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h1 id=&quot;diao-shi-ce-shi&quot;&gt;调试&#x2F;测试&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;cheng-xu-ji-shi&quot;&gt;程序计时&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;time.perf_counter()&lt;&#x2F;code&gt;以秒为单位返回时间的浮点值&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;time.perf_counter_ns()&lt;&#x2F;code&gt;返回时间以纳秒为单位&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kong-zhi-tai-da-yin-ping-bi-yu-xian-shi&quot;&gt;控制台打印屏蔽与显示&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;sys, os&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Disable&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;blockPrint&lt;&#x2F;span&gt;&lt;span&gt;():&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    sys.stdout = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;open&lt;&#x2F;span&gt;&lt;span&gt;(os.devnull, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;w&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Restore&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;enablePrint&lt;&#x2F;span&gt;&lt;span&gt;():&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    sys.stdout = sys.__stdout__&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;bao-cuo-chu-li&quot;&gt;报错处理&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;pythonban-ben-wen-ti&quot;&gt;Python版本问题&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;modulenotfounderror-no-module-named-cpickle&quot;&gt;ModuleNotFoundError: No module named &#x27;cPickle&#x27;&lt;&#x2F;h3&gt;
 &lt;p&gt;python2有cPickle，但是python3没有cPickle&lt;&#x2F;p&gt;
