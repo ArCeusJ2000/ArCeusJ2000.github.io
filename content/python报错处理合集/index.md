@@ -113,3 +113,28 @@ import语句使用
 from urllib import request
 ```
 
+
+
+## pandas相关
+
+### SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame
+
+在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X
+
+事故现场：
+
+```python
+add = {'ts_code': stock_code, 'trade_date': now_date, 'close': now_price}
+df.loc[len(df)] = add
+```
+
+解决方法：
+
+直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下
+
+```python
+add = {'ts_code': stock_code, 'trade_date': now_date, 'close': now_price}
+df = df.copy()
+df.loc[len(df)] = add
+```
+

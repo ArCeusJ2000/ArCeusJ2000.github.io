@@ -128,6 +128,6 @@ IntelliSense模式选择`gcc-x64`。（windows默认为windows-msvc-x64）
 
 运气好的话目录下已经有.exe文件了
 
-好麻烦，还不如直接用命令行（X
+好麻烦，还不如直接命令行 `g++ xxx.cpp`（X
 
 但是有个坑：需要用`.\`指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。
