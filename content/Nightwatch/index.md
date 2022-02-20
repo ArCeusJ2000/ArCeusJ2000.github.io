@@ -5,7 +5,7 @@ slug = "202201241745"
 
 [taxonomies]
 tags = ["node.js", "Nightwatch"]
-categories = ["node.js"]
+categories = ["web"]
 
 +++
 

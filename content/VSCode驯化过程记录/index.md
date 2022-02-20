@@ -23,7 +23,7 @@ categories = ["IDE"]
 
 
 
-## MinGW
+## C++/MinGW
 
 确保环境变量配置正确：
 
@@ -131,3 +131,57 @@ IntelliSense模式选择`gcc-x64`。（windows默认为windows-msvc-x64）
 好麻烦，还不如直接命令行 `g++ xxx.cpp`（X
 
 但是有个坑：需要用`.\`指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。
+
+
+
+## Java单文件
+
+#### launch.json
+
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Hello<java_single_file_9fc652ff>",
+            "request": "launch",
+            "mainClass": "HelloWorld"
+        }
+    ]
+}
+```
+
+配置了两个 launch，一个是以当前打开的 Java 源文件作为主类调试，一个是以 HelloWorld.java 作为主类进行调试
+
+部分插件不再支持Java8，需要手动插件降低版本
+
+懒人（x 命令行编译：
+
+【Ctrl】+【Shift】+【`】打开终端，cd到文件目录
+
+javac xxx.java
+
+java xxx
+
+解决中文编码报错`错误: 编码GBK的不可映射字符`
+
+方法1. 编译的时候使用带参数的编译指令：javac -encoding utf-8 xxx.java
+
+方法2. 单文件改配置
+
+在vscode左下角找到编码utf-8的地方，并点击utf-8
+
+→选择save with encoding
+
+→选择GBK
+
+方法3. 全局改配置
+
+【Ctrl】+【Shift】+【P】→ settings → encoding

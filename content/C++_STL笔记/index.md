@@ -11,9 +11,27 @@ categories = ["C/C++"]
 
 <!-- more -->
 
-## 容器
+# 容器
 
-### erase（）函数
+## map迭代器
+
+### iterator->first和iterator->second
+
+分别指向键值和数值
+
+```c++
+map<string, string> m;
+m["one"] = "sdfasf";
+//迭代器类型需和容器保持一致
+map<string, string>::iterator p = m.begin();
+string a=p->first; // a值是 "one" 也可以写作p.first
+string b=p->second; //b值是 "sdfasf",也可以写作p.second
+
+```
+
+
+
+## erase（）函数
 
 函数原型：
 
@@ -75,9 +93,9 @@ return 0;
 
 
 
-## 字符串
+# 字符串
 
-### string::npos
+## string::npos
 
 npos是一个常数，表示size_t的最大值（Maximum value for size_t）。
 
@@ -157,7 +175,7 @@ if (str.find("abc") == string::npos) { ... }
 2. string 类提供了 6 种查找函数,每种函数以不同形式的 find 命名。这些操作全都返回 string::size_type 类型的值，以下标形式标记查找匹配所发生的位置；或者返回一个名为 string::npos 的特殊值，说明查找没有匹配。string 类将 npos 定义为保证大于任何有效下标的值。
 3. [string::npos 无符号数的陷阱-tang312-ChinaUnix博客](http://blog.chinaunix.net/uid-10014667-id-375027.html)
 
-### 大小写转换
+## 大小写转换
 
 #### char
 

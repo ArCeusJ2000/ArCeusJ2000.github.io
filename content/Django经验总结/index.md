@@ -5,7 +5,7 @@ slug = "202111251255"
 
 [taxonomies]
 tags = ["Django"]
-categories = ["python"]
+categories = ["python",  "web"]
 
 +++
 
