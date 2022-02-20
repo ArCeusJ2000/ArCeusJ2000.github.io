@@ -119,6 +119,10 @@
                     <ul>
                         
                         <li>
+                            <a href="https://arceusj2000.github.io/202201111836/#mapdie-dai-qi" class="toc-link">map迭代器</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://arceusj2000.github.io/202201111836/#erase-han-shu" class="toc-link">erase（）函数</a>
                         </li>
                         
@@ -176,8 +180,19 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="rong-qi">容器</h2>
-<h3 id="erase-han-shu">erase（）函数</h3>
+<h1 id="rong-qi">容器</h1>
+<h2 id="mapdie-dai-qi">map迭代器</h2>
+<h3 id="iterator-firsthe-iterator-second">iterator-&gt;first和iterator-&gt;second</h3>
+<p>分别指向键值和数值</p>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>map&lt;string, string&gt; m;</span><span>
+</span><span>m[&quot;</span><span style="color:#a3be8c;">one</span><span>&quot;] = &quot;</span><span style="color:#a3be8c;">sdfasf</span><span>&quot;;</span><span>
+</span><span style="color:#65737e;">//迭代器类型需和容器保持一致</span><span style="color:#65737e;">
+</span><span>map&lt;string, string&gt;::iterator p = m.</span><span style="color:#bf616a;">begin</span><span>();</span><span>
+</span><span>string a=p-&gt;</span><span style="color:#bf616a;">first</span><span>; </span><span style="color:#65737e;">// a值是 &quot;one&quot; 也可以写作p.first</span><span style="color:#65737e;">
+</span><span>string b=p-&gt;</span><span style="color:#bf616a;">second</span><span>; </span><span style="color:#65737e;">//b值是 &quot;sdfasf&quot;,也可以写作p.second</span><span style="color:#65737e;">
+</span><span>
+</span></code></pre>
+<h2 id="erase-han-shu">erase（）函数</h2>
 <p>函数原型：</p>
 <p>（1）string&amp; erase ( size_t pos = 0, size_t n = npos );</p>
 <p>（2）iterator erase ( iterator position );</p>
@@ -226,8 +241,8 @@
 </span><span>
 </span><span>}</span><span>
 </span></code></pre>
-<h2 id="zi-fu-chuan">字符串</h2>
-<h3 id="string-npos">string::npos</h3>
+<h1 id="zi-fu-chuan">字符串</h1>
+<h2 id="string-npos">string::npos</h2>
 <p>npos是一个常数，表示size_t的最大值（Maximum value for size_t）。</p>
 <p>许多容器都提供这个东西，用来表示不存在的位置，类型一般是std::container_type::size_type。</p>
 <p>用法：</p>
@@ -296,7 +311,7 @@ if (str.find(&quot;abc&quot;) == string::npos) { ... }</p>
 <li>string 类提供了 6 种查找函数,每种函数以不同形式的 find 命名。这些操作全都返回 string::size_type 类型的值，以下标形式标记查找匹配所发生的位置；或者返回一个名为 string::npos 的特殊值，说明查找没有匹配。string 类将 npos 定义为保证大于任何有效下标的值。</li>
 <li><a href="http://blog.chinaunix.net/uid-10014667-id-375027.html">string::npos 无符号数的陷阱-tang312-ChinaUnix博客</a></li>
 </ol>
-<h3 id="da-xiao-xie-zhuan-huan">大小写转换</h3>
+<h2 id="da-xiao-xie-zhuan-huan">大小写转换</h2>
 <h4 id="char">char</h4>
 <p><strong>toupper</strong>
 函数原型: <code>int toupper(int ch);</code>

@@ -155,8 +155,19 @@
 		<link href="https://arceusj2000.github.io/202201111836/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201111836/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;h2 id=&quot;rong-qi&quot;&gt;容器&lt;&#x2F;h2&gt;
-&lt;h3 id=&quot;erase-han-shu&quot;&gt;erase（）函数&lt;&#x2F;h3&gt;
+&lt;h1 id=&quot;rong-qi&quot;&gt;容器&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;mapdie-dai-qi&quot;&gt;map迭代器&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;iterator-firsthe-iterator-second&quot;&gt;iterator-&amp;gt;first和iterator-&amp;gt;second&lt;&#x2F;h3&gt;
+&lt;p&gt;分别指向键值和数值&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;map&amp;lt;string, string&amp;gt; m;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;m[&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;one&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;] = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;sdfasf&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F;迭代器类型需和容器保持一致&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;map&amp;lt;string, string&amp;gt;::iterator p = m.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;begin&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;string a=p-&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;first&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; a值是 &amp;quot;one&amp;quot; 也可以写作p.first&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;string b=p-&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;second&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F;b值是 &amp;quot;sdfasf&amp;quot;,也可以写作p.second&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;erase-han-shu&quot;&gt;erase（）函数&lt;&#x2F;h2&gt;
 &lt;p&gt;函数原型：&lt;&#x2F;p&gt;
 &lt;p&gt;（1）string&amp;amp; erase ( size_t pos = 0, size_t n = npos );&lt;&#x2F;p&gt;
 &lt;p&gt;（2）iterator erase ( iterator position );&lt;&#x2F;p&gt;
@@ -205,8 +216,8 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h2 id=&quot;zi-fu-chuan&quot;&gt;字符串&lt;&#x2F;h2&gt;
-&lt;h3 id=&quot;string-npos&quot;&gt;string::npos&lt;&#x2F;h3&gt;
+&lt;h1 id=&quot;zi-fu-chuan&quot;&gt;字符串&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;string-npos&quot;&gt;string::npos&lt;&#x2F;h2&gt;
 &lt;p&gt;npos是一个常数，表示size_t的最大值（Maximum value for size_t）。&lt;&#x2F;p&gt;
 &lt;p&gt;许多容器都提供这个东西，用来表示不存在的位置，类型一般是std::container_type::size_type。&lt;&#x2F;p&gt;
 &lt;p&gt;用法：&lt;&#x2F;p&gt;
@@ -275,7 +286,7 @@ if (str.find(&amp;quot;abc&amp;quot;) == string::npos) { ... }&lt;&#x2F;p&gt;
 &lt;li&gt;string 类提供了 6 种查找函数,每种函数以不同形式的 find 命名。这些操作全都返回 string::size_type 类型的值，以下标形式标记查找匹配所发生的位置；或者返回一个名为 string::npos 的特殊值，说明查找没有匹配。string 类将 npos 定义为保证大于任何有效下标的值。&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;a href=&quot;http:&#x2F;&#x2F;blog.chinaunix.net&#x2F;uid-10014667-id-375027.html&quot;&gt;string::npos 无符号数的陷阱-tang312-ChinaUnix博客&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;h3 id=&quot;da-xiao-xie-zhuan-huan&quot;&gt;大小写转换&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;da-xiao-xie-zhuan-huan&quot;&gt;大小写转换&lt;&#x2F;h2&gt;
 &lt;h4 id=&quot;char&quot;&gt;char&lt;&#x2F;h4&gt;
 &lt;p&gt;&lt;strong&gt;toupper&lt;&#x2F;strong&gt;
 函数原型: &lt;code&gt;int toupper(int ch);&lt;&#x2F;code&gt;

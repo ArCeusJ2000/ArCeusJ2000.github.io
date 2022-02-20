@@ -119,12 +119,25 @@
                 </li>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201232257/#mingw" class="toc-link">MinGW</a>
+                    <a href="https://arceusj2000.github.io/202201232257/#c-mingw" class="toc-link">C++&#x2F;MinGW</a>
                     
                     <ul>
                         
                         <li>
                             <a href="https://arceusj2000.github.io/202201232257/#bian-yi-yun-xing" class="toc-link">编译运行</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202201232257/#javadan-wen-jian" class="toc-link">Java单文件</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201232257/#launch-json-1" class="toc-link">launch.json</a>
                         </li>
                         
                     </ul>
@@ -156,7 +169,7 @@
 <p><strong>【Ctrl】+【，】</strong>，打开常用设置，第一行就是<code>File:Auto Save</code></p>
 <p>想知道有多少受害者（X</p>
 <p>懒人选择<code>afterDelay</code>，上方搜索框直接搜<code>auto save delay</code>设置延迟时间</p>
-<h2 id="mingw">MinGW</h2>
+<h2 id="c-mingw">C++/MinGW</h2>
 <p>确保环境变量配置正确：</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">g++ --version</span><span>
 </span><span style="color:#bf616a;">gdb --version</span><span>
@@ -239,6 +252,40 @@
 <p>运气好的话目录下已经有.exe文件了</p>
 <p>好麻烦，还不如直接命令行 <code>g++ xxx.cpp</code>（X</p>
 <p>但是有个坑：需要用<code>.\</code>指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。</p>
+<h2 id="javadan-wen-jian">Java单文件</h2>
+<h4 id="launch-json-1">launch.json</h4>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>{</span><span>
+</span><span>    &quot;version&quot;: &quot;0.2.0&quot;,</span><span>
+</span><span>    &quot;configurations&quot;: [</span><span>
+</span><span>        {</span><span>
+</span><span>            &quot;type&quot;: &quot;java&quot;,</span><span>
+</span><span>            &quot;name&quot;: &quot;Debug (Launch) - Current File&quot;,</span><span>
+</span><span>            &quot;request&quot;: &quot;launch&quot;,</span><span>
+</span><span>            &quot;mainClass&quot;: &quot;${file}&quot;</span><span>
+</span><span>        },</span><span>
+</span><span>        {</span><span>
+</span><span>            &quot;type&quot;: &quot;java&quot;,</span><span>
+</span><span>            &quot;name&quot;: &quot;Debug (Launch)-Hello&lt;java_single_file_9fc652ff&gt;&quot;,</span><span>
+</span><span>            &quot;request&quot;: &quot;launch&quot;,</span><span>
+</span><span>            &quot;mainClass&quot;: &quot;HelloWorld&quot;</span><span>
+</span><span>        }</span><span>
+</span><span>    ]</span><span>
+</span><span>}</span><span>
+</span></code></pre>
+<p>配置了两个 launch，一个是以当前打开的 Java 源文件作为主类调试，一个是以 HelloWorld.java 作为主类进行调试</p>
+<p>部分插件不再支持Java8，需要手动插件降低版本</p>
+<p>懒人（x 命令行编译：</p>
+<p>【Ctrl】+【Shift】+【`】打开终端，cd到文件目录</p>
+<p>javac xxx.java</p>
+<p>java xxx</p>
+<p>解决中文编码报错<code>错误: 编码GBK的不可映射字符</code></p>
+<p>方法1. 编译的时候使用带参数的编译指令：javac -encoding utf-8 xxx.java</p>
+<p>方法2. 单文件改配置</p>
+<p>在vscode左下角找到编码utf-8的地方，并点击utf-8</p>
+<p>→选择save with encoding</p>
+<p>→选择GBK</p>
+<p>方法3. 全局改配置</p>
+<p>【Ctrl】+【Shift】+【P】→ settings → encoding</p>
 
     </div>
 

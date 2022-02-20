@@ -135,6 +135,10 @@
                             <a href="https://arceusj2000.github.io/202101101721/#vectorchu-shi-hua" class="toc-link">vector初始化</a>
                         </li>
                         
+                        <li>
+                            <a href="https://arceusj2000.github.io/202101101721/#vectorqing-kong" class="toc-link">vector清空</a>
+                        </li>
+                        
                     </ul>
                     
                 </li>
@@ -259,6 +263,63 @@
 </span><span>		vector&lt;vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&gt; </span><span style="color:#8fa1b3;">v1</span><span>(</span><span style="color:#d08770;">4</span><span>, </span><span style="color:#bf616a;">v0</span><span>);</span><span>
 </span><span>		vector&lt;vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&gt; </span><span style="color:#8fa1b3;">v</span><span>(v1.</span><span style="color:#bf616a;">begin</span><span>()+</span><span style="color:#d08770;">1</span><span>, v1.</span><span style="color:#bf616a;">end</span><span>()-</span><span style="color:#d08770;">1</span><span>); </span><span style="color:#65737e;">//此时的v是 {{1,2,3,4},{1,2,3,4}}</span><span style="color:#65737e;">
 </span><span>
+</span></code></pre>
+<h3 id="vectorqing-kong">vector清空</h3>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;</span><span>
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">vector</span><span>&gt;</span><span>
+</span><span>
+</span><span style="color:#b48ead;">using namespace</span><span> std;</span><span>
+</span><span>
+</span><span style="color:#65737e;">//STL vector的几种清空容器（删除）办法</span><span style="color:#65737e;">
+</span><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">test</span><span>()</span><span>
+</span><span>{</span><span>
+</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; vecnum;</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">1</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">2</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">3</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">4</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">5</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">6</span><span>);</span><span>
+</span><span>    vecnum.</span><span style="color:#bf616a;">push_back</span><span>(</span><span style="color:#d08770;">7</span><span>);</span><span>
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//打印vector的大小和容量</span><span style="color:#65737e;">
+</span><span>    cout &lt;&lt; &quot;</span><span style="color:#a3be8c;">old: size = </span><span>&quot; &lt;&lt; vecnum.</span><span style="color:#bf616a;">size</span><span>() &lt;&lt; &quot;</span><span style="color:#a3be8c;"> ; capacity = </span><span>&quot; &lt;&lt; vecnum.</span><span style="color:#bf616a;">capacity</span><span>() &lt;&lt; endl;</span><span>
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//1. clear()，清空元素，但不回收空间</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//vecnum.clear();</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//2. 使用 erase循环删除，结果同上</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//vector&lt;int&gt;::iterator it;</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//for (it = vecnum.begin(); it != vecnum.end(); )</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//{</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//    //注意使用erase()方法时，迭代不要随意的++</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//    it = vecnum.erase(it);</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//}</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//结论：erase在每次操作时，迭代器指针会整体前移1，就是每次都会移动全部数据，所以vector不适合做频繁删除的容器</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//3. 最简单的使用swap,清除元素并回收内存</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#65737e;">//3.1 写法一</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//vector&lt;int&gt;().swap(vecnum);</span><span style="color:#65737e;">
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//3.2 写法二</span><span style="color:#65737e;">
+</span><span>    vecnum.</span><span style="color:#bf616a;">swap</span><span>(</span><span style="color:#bf616a;">vector</span><span>&lt;</span><span style="color:#b48ead;">int</span><span>&gt;());</span><span>
+</span><span>
+</span><span>    </span><span style="color:#65737e;">//打印vector的大小和容量</span><span style="color:#65737e;">
+</span><span>    cout &lt;&lt; &quot;</span><span style="color:#a3be8c;">last: size = </span><span>&quot; &lt;&lt; vecnum.</span><span style="color:#bf616a;">size</span><span>() &lt;&lt; &quot;</span><span style="color:#a3be8c;"> ; capacity = </span><span>&quot; &lt;&lt; vecnum.</span><span style="color:#bf616a;">capacity</span><span>() &lt;&lt; endl;</span><span>
+</span><span>
+</span><span>}</span><span>
+</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()</span><span>
+</span><span>{</span><span>
+</span><span>    </span><span style="color:#bf616a;">test</span><span>();</span><span>
+</span><span>    </span><span style="color:#96b5b4;">getchar</span><span>();</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <h2 id="shu-ru-shu-chu-chu-li-xiang-guan">输入输出处理相关</h2>
 <h3 id="eoftiao-jian-pan-duan-while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m">EOF条件判断：while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</h3>

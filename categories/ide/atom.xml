@@ -19,7 +19,7 @@
 &lt;p&gt;&lt;strong&gt;【Ctrl】+【，】&lt;&#x2F;strong&gt;，打开常用设置，第一行就是&lt;code&gt;File:Auto Save&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;想知道有多少受害者（X&lt;&#x2F;p&gt;
 &lt;p&gt;懒人选择&lt;code&gt;afterDelay&lt;&#x2F;code&gt;，上方搜索框直接搜&lt;code&gt;auto save delay&lt;&#x2F;code&gt;设置延迟时间&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;mingw&quot;&gt;MinGW&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;c-mingw&quot;&gt;C++&#x2F;MinGW&lt;&#x2F;h2&gt;
 &lt;p&gt;确保环境变量配置正确：&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;g++ --version&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gdb --version&lt;&#x2F;span&gt;&lt;span&gt;
@@ -102,6 +102,40 @@
 &lt;p&gt;运气好的话目录下已经有.exe文件了&lt;&#x2F;p&gt;
 &lt;p&gt;好麻烦，还不如直接命令行 &lt;code&gt;g++ xxx.cpp&lt;&#x2F;code&gt;（X&lt;&#x2F;p&gt;
 &lt;p&gt;但是有个坑：需要用&lt;code&gt;.\&lt;&#x2F;code&gt;指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;javadan-wen-jian&quot;&gt;Java单文件&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;launch-json-1&quot;&gt;launch.json&lt;&#x2F;h4&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;version&amp;quot;: &amp;quot;0.2.0&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;configurations&amp;quot;: [&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;type&amp;quot;: &amp;quot;java&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;name&amp;quot;: &amp;quot;Debug (Launch) - Current File&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;request&amp;quot;: &amp;quot;launch&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;mainClass&amp;quot;: &amp;quot;${file}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        },&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        {&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;type&amp;quot;: &amp;quot;java&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;name&amp;quot;: &amp;quot;Debug (Launch)-Hello&amp;lt;java_single_file_9fc652ff&amp;gt;&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;request&amp;quot;: &amp;quot;launch&amp;quot;,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;mainClass&amp;quot;: &amp;quot;HelloWorld&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    ]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;配置了两个 launch，一个是以当前打开的 Java 源文件作为主类调试，一个是以 HelloWorld.java 作为主类进行调试&lt;&#x2F;p&gt;
+&lt;p&gt;部分插件不再支持Java8，需要手动插件降低版本&lt;&#x2F;p&gt;
+&lt;p&gt;懒人（x 命令行编译：&lt;&#x2F;p&gt;
+&lt;p&gt;【Ctrl】+【Shift】+【`】打开终端，cd到文件目录&lt;&#x2F;p&gt;
+&lt;p&gt;javac xxx.java&lt;&#x2F;p&gt;
+&lt;p&gt;java xxx&lt;&#x2F;p&gt;
+&lt;p&gt;解决中文编码报错&lt;code&gt;错误: 编码GBK的不可映射字符&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;方法1. 编译的时候使用带参数的编译指令：javac -encoding utf-8 xxx.java&lt;&#x2F;p&gt;
+&lt;p&gt;方法2. 单文件改配置&lt;&#x2F;p&gt;
+&lt;p&gt;在vscode左下角找到编码utf-8的地方，并点击utf-8&lt;&#x2F;p&gt;
+&lt;p&gt;→选择save with encoding&lt;&#x2F;p&gt;
+&lt;p&gt;→选择GBK&lt;&#x2F;p&gt;
+&lt;p&gt;方法3. 全局改配置&lt;&#x2F;p&gt;
+&lt;p&gt;【Ctrl】+【Shift】+【P】→ settings → encoding&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>

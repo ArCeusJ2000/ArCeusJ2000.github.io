@@ -126,9 +126,6 @@
         <loc>https://arceusj2000.github.io/categories/mysql/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/categories/node-js/</loc>
-    </url>
-    <url>
         <loc>https://arceusj2000.github.io/categories/python/</loc>
     </url>
     <url>
@@ -139,6 +136,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/suan-fa-ti/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/categories/web/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/wsl/</loc>
