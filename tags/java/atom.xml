@@ -22,6 +22,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;java -version&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;在环境变量Path变量中将需要使用的路径上移，例如将&lt;code&gt;%JAVA_HOME%\bin&lt;&#x2F;code&gt;路径移至&lt;code&gt;C:\Program Files (x86)\Common Files\Oracle\Java\javapath&lt;&#x2F;code&gt;之上&lt;&#x2F;p&gt;
+&lt;p&gt;这个时候在idea运行之前的项目还是会有报错，需要手动换SDK&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>

@@ -5,10 +5,43 @@
 	<link href="https://arceusj2000.github.io/categories/suan-fa-ti/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2021-01-10T17:21:06+00:00</updated>
+	<updated>2021-02-10T17:21:06+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/suan-fa-ti/atom.xml</id>
 	<entry xml:lang="zh">
-		<title>记录</title>
+		<title>Java记录</title>
+		<published>2021-02-10T17:21:06+00:00</published>
+		<updated>2021-02-10T17:21:06+00:00</updated>
+		<link href="https://arceusj2000.github.io/202102101721/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202102101721/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;shu-zu-xiang-guan&quot;&gt;数组相关&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;arrays-sortzi-ding-yi-bi-jiao-qi&quot;&gt;Arrays.sort自定义比较器&lt;&#x2F;h3&gt;
+&lt;p&gt;三种写法，前两种如果比较值超过整形的范围就无法比较了。
+三种写法都是表示对二维数组的行从小到大进行比较，其中intervals是二维数组的数组名。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;java&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-java &quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Arrays&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sort&lt;&#x2F;span&gt;&lt;span&gt;(intervals, (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;v1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;v2&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; v1[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;] - v2[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]);    &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Arrays&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sort&lt;&#x2F;span&gt;&lt;span&gt;(intervals, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Comparator&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;comparingInt&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;o &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; o[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]));&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Arrays&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sort&lt;&#x2F;span&gt;&lt;span&gt;(intervals,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;new &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;Comparator&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int[]&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;public int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;compare&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int[] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;o1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int[] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;o2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;){&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(o1[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;] &lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt; o2[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;]){&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;(o1[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;==&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;o2[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;]){&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;        }&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#eff1f5;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;对于compare或者compareTo函数返回值，1表示两个比较的数字位置互换，0和-1则是位置不发生变化。&lt;&#x2F;p&gt;
+&lt;p&gt;public int compare(Integer a,Integer b){ return a-b；｝如果a大于b，返回正数，表示要将a和b的位置互换，因此小数在前，大数在后，这就成了升序排列，a小于b也是同理&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>C++记录</title>
 		<published>2021-01-10T17:21:06+00:00</published>
 		<updated>2021-01-10T17:21:06+00:00</updated>
 		<link href="https://arceusj2000.github.io/202101101721/" type="text/html"/>
