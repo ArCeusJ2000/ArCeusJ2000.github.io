@@ -25,3 +25,5 @@ java -version
 ```
 
 在环境变量Path变量中将需要使用的路径上移，例如将`%JAVA_HOME%\bin`路径移至`C:\Program Files (x86)\Common Files\Oracle\Java\javapath`之上
+
+这个时候在idea运行之前的项目还是会有报错，需要手动换SDK
