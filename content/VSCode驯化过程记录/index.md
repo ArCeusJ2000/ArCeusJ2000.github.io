@@ -185,3 +185,13 @@ java xxx
 方法3. 全局改配置
 
 【Ctrl】+【Shift】+【P】→ settings → encoding
+
+### 踩坑
+
+在vscode内运行java出现`javac : 无法将“javac”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。`
+
+但是在cmd和powershell里检查java和javac都是正常的
+
+事故原因：配置java环境变量时，配置了classpath，导致无法在当前目录下找到主类，而jdk6以后其实就不用再配置classpath了
+
+解决办法：删除classpath，再重启vscode
