@@ -140,6 +140,10 @@
                             <a href="https://arceusj2000.github.io/202201232257/#launch-json-1" class="toc-link">launch.json</a>
                         </li>
                         
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201232257/#cai-keng" class="toc-link">踩坑</a>
+                        </li>
+                        
                     </ul>
                     
                 </li>
@@ -286,6 +290,11 @@
 <p>→选择GBK</p>
 <p>方法3. 全局改配置</p>
 <p>【Ctrl】+【Shift】+【P】→ settings → encoding</p>
+<h3 id="cai-keng">踩坑</h3>
+<p>在vscode内运行java出现<code>javac : 无法将“javac”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</code></p>
+<p>但是在cmd和powershell里检查java和javac都是正常的</p>
+<p>事故原因：配置java环境变量时，配置了classpath，导致无法在当前目录下找到主类，而jdk6以后其实就不用再配置classpath了</p>
+<p>解决办法：删除classpath，再重启vscode</p>
 
     </div>
 
