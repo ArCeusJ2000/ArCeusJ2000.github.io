@@ -47,6 +47,20 @@ ALTER TABLE table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;
 
 
 
+## PyMySQL
+
+### 报错处理
+
+#### 接口形式报错
+
+事故现场：
+
+![](C:\Users\prts\Desktop\folder\SE\note\blog\ArCeusJ2000.github.io\content\MySQL使用经验总结\img\pymysql_error.png)
+
+解决：
+
+![](C:\Users\prts\Desktop\folder\SE\note\blog\ArCeusJ2000.github.io\content\MySQL使用经验总结\img\pymsql_solve.png)
+
 ## ubuntu环境的MySQL
 
 ### 修改密码
