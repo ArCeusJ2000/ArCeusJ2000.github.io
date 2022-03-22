@@ -31,6 +31,13 @@
 &lt;p&gt;（就是键盘左上角数字1左边的那个&lt;&#x2F;p&gt;
 &lt;p&gt;使用了MySQL保留字或关键字却没有用反引号就会报这个错误。&lt;&#x2F;p&gt;
 &lt;p&gt;如果列名使用了MySQL保留字或关键字就要用反引号代替引号，注释不能用反引号，因为注释只是普通字符串，不是MySQL的关键字，只有关键字或保留字才能使用反引号。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pymysql&quot;&gt;PyMySQL&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bao-cuo-chu-li-1&quot;&gt;报错处理&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;jie-kou-xing-shi-bao-cuo&quot;&gt;接口形式报错&lt;&#x2F;h4&gt;
+&lt;p&gt;事故现场：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;C:%5CUsers%5Cprts%5CDesktop%5Cfolder%5CSE%5Cnote%5Cblog%5CArCeusJ2000.github.io%5Ccontent%5CMySQL%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93%5Cimg%5Cpymysql_error.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;解决：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;C:%5CUsers%5Cprts%5CDesktop%5Cfolder%5CSE%5Cnote%5Cblog%5CArCeusJ2000.github.io%5Ccontent%5CMySQL%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93%5Cimg%5Cpymsql_solve.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;ubuntuhuan-jing-de-mysql&quot;&gt;ubuntu环境的MySQL&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;xiu-gai-mi-ma&quot;&gt;修改密码&lt;&#x2F;h3&gt;
 &lt;p&gt;查看mysql数据库自动设置的随机账户与密码&lt;&#x2F;p&gt;
