@@ -140,6 +140,10 @@
                         </li>
                         
                         <li>
+                            <a href="https://arceusj2000.github.io/202201151443/#duo-xian-cheng-xiang-guan" class="toc-link">多线程相关</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://arceusj2000.github.io/202201151443/#pyqt5xiang-guan" class="toc-link">PyQt5相关</a>
                         </li>
                         
@@ -220,6 +224,15 @@
 </span></code></pre>
 <h3 id="attributeerror-module-sys-has-no-attribute-setdefaultencoding">AttributeError: module 'sys' has no attribute 'setdefaultencoding'</h3>
 <p>报错原因同上，python3没有<code>sys.setdefaultencoding('utf-8')</code>，删除该行即可</p>
+<h2 id="duo-xian-cheng-xiang-guan">多线程相关</h2>
+<h3 id="greenlet-error-cannot-switch-to-a-different-thread">greenlet.error: cannot switch to a different thread</h3>
+<p>debug模式下会对线程的切换造成混乱,解决方案:</p>
+<p>第一种: 禁用debug模式即可</p>
+<p>第二种:在主函数中加入monkey patch</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">if </span><span>__name__ == &#39;</span><span style="color:#a3be8c;">__main__</span><span>&#39;:</span><span>
+</span><span>    </span><span style="color:#b48ead;">from </span><span>gevent </span><span style="color:#b48ead;">import </span><span>monkey</span><span>
+</span><span>    monkey.</span><span style="color:#bf616a;">patch_all</span><span>()</span><span>
+</span></code></pre>
 <h2 id="pyqt5xiang-guan">PyQt5相关</h2>
 <h3 id="error-could-not-find-a-version-that-satisfies-the-requirement-pil-from-versions-none">ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)</h3>
 <p>ERROR: No matching distribution found for PIL</p>

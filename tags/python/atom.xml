@@ -334,6 +334,15 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h3 id=&quot;attributeerror-module-sys-has-no-attribute-setdefaultencoding&quot;&gt;AttributeError: module &#x27;sys&#x27; has no attribute &#x27;setdefaultencoding&#x27;&lt;&#x2F;h3&gt;
 &lt;p&gt;报错原因同上，python3没有&lt;code&gt;sys.setdefaultencoding(&#x27;utf-8&#x27;)&lt;&#x2F;code&gt;，删除该行即可&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;duo-xian-cheng-xiang-guan&quot;&gt;多线程相关&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;greenlet-error-cannot-switch-to-a-different-thread&quot;&gt;greenlet.error: cannot switch to a different thread&lt;&#x2F;h3&gt;
+&lt;p&gt;debug模式下会对线程的切换造成混乱,解决方案:&lt;&#x2F;p&gt;
+&lt;p&gt;第一种: 禁用debug模式即可&lt;&#x2F;p&gt;
+&lt;p&gt;第二种:在主函数中加入monkey patch&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;__name__ == &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;__main__&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;gevent &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;monkey&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    monkey.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;patch_all&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;pyqt5xiang-guan&quot;&gt;PyQt5相关&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;error-could-not-find-a-version-that-satisfies-the-requirement-pil-from-versions-none&quot;&gt;ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)&lt;&#x2F;h3&gt;
 &lt;p&gt;ERROR: No matching distribution found for PIL&lt;&#x2F;p&gt;
@@ -619,23 +628,6 @@
 &lt;&#x2F;span&gt;&lt;span&gt;bytearray(b&amp;#39;runoob&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-</content>
-	</entry>
-	<entry xml:lang="zh">
-		<title>PC使用记录</title>
-		<published>2021-10-17T14:43:14+00:00</published>
-		<updated>2021-10-17T14:43:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/202110171443/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202110171443/</id>
-		<content type="html">&lt;p&gt;ROG幻16使用踩坑(X)&lt;&#x2F;p&gt;
-&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;h2 id=&quot;cai-keng-yi&quot;&gt;踩坑一&lt;&#x2F;h2&gt;
-&lt;p&gt;事故现场：&lt;&#x2F;p&gt;
-&lt;p&gt;黑屏，且无法唤醒，重启后查系统日志也没发现异常&lt;&#x2F;p&gt;
-&lt;p&gt;原因和解决：&lt;&#x2F;p&gt;
-&lt;p&gt;幻16自动熄屏是通过触控板来检测的，所以触控板被手机或者书之类的东西压到就会持续熄屏，并且无法用外设输入唤醒&lt;&#x2F;p&gt;
-&lt;p&gt;即使只是压到边缘的一小块也会出现这种情况&lt;&#x2F;p&gt;
-&lt;p&gt;( ・_ゝ・)&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>
