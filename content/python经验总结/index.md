@@ -81,6 +81,24 @@ importlib.reload(sys)
 
 
 
+## 多线程相关
+
+### greenlet.error: cannot switch to a different thread
+
+debug模式下会对线程的切换造成混乱,解决方案:
+
+第一种: 禁用debug模式即可
+
+第二种:在主函数中加入monkey patch
+
+```python
+if __name__ == '__main__':
+    from gevent import monkey
+    monkey.patch_all()
+```
+
+
+
 ## PyQt5相关
 
 ### ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
