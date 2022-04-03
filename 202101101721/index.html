@@ -144,6 +144,23 @@
                 </li>
                 
                 <li>
+                    <a href="https://arceusj2000.github.io/202101101721/#shu-zhi-xiang-guan" class="toc-link">数值相关</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202101101721/#chu-shi-hua-ji-da-zhi" class="toc-link">初始化极大值</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202101101721/#zheng-wu-qiong-yu-fu-wu-qiong" class="toc-link">正无穷与负无穷</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
                     <a href="https://arceusj2000.github.io/202101101721/#shu-ru-shu-chu-chu-li-xiang-guan" class="toc-link">输入输出处理相关</a>
                     
                     <ul>
@@ -320,6 +337,28 @@
 </span><span>    </span><span style="color:#96b5b4;">getchar</span><span>();</span><span>
 </span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
 </span><span>}</span><span>
+</span></code></pre>
+<h2 id="shu-zhi-xiang-guan">数值相关</h2>
+<h4 id="chu-shi-hua-ji-da-zhi">初始化极大值</h4>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int</span><span> num1 = </span><span style="color:#d08770;">1e9</span><span>;</span><span>
+</span><span style="color:#b48ead;">int</span><span> num1 = </span><span style="color:#d08770;">1e10</span><span>;</span><span>
+</span><span>输出的结果为：</span><span>
+</span><span>num1 = </span><span style="color:#d08770;">1 000 000 000</span><span>；</span><span>
+</span><span>num2 = </span><span style="color:#d08770;">1 410 065 408</span><span>；</span><span>
+</span></code></pre>
+<p>为什么num2 不等于 10000000000 ？
+C/C++中int类型是32位的，范围是-2147483648 到 2147483647。
+int占用4个字节，也就是32位，除了第一位代表符号，剩下的31位可用。
+十进制的 1e10时，转换为二进制：
+10 0101 0100 0000 1011 1110 0100 0000 0000前两位出现数据溢出问题。
+而0101 0100 0000 1011 1110 0100 0000 0000 转换成十进制就是 1 410 065 408</p>
+<h4 id="zheng-wu-qiong-yu-fu-wu-qiong">正无穷与负无穷</h4>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>    </span><span style="color:#b48ead;">int</span><span> a=</span><span style="color:#d08770;">0x3f3f3f3f</span><span>;</span><span>
+</span><span>    </span><span style="color:#b48ead;">int</span><span> b=</span><span style="color:#d08770;">0xc0c0c0c0</span><span>;</span><span>
+</span><span>    输出：</span><span>
+</span><span>    a=</span><span style="color:#d08770;">1061109567</span><span>
+</span><span>    b=-</span><span style="color:#d08770;">1061109568</span><span>
+</span><span>
 </span></code></pre>
 <h2 id="shu-ru-shu-chu-chu-li-xiang-guan">输入输出处理相关</h2>
 <h3 id="eoftiao-jian-pan-duan-while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m">EOF条件判断：while (scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF) 功能等效于 while (~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))</h3>

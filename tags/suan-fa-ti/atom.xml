@@ -175,6 +175,28 @@
 &lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;shu-zhi-xiang-guan&quot;&gt;数值相关&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;chu-shi-hua-ji-da-zhi&quot;&gt;初始化极大值&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; num1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1e9&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; num1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1e10&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;输出的结果为：&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;num1 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 000 000 000&lt;&#x2F;span&gt;&lt;span&gt;；&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;num2 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 410 065 408&lt;&#x2F;span&gt;&lt;span&gt;；&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;为什么num2 不等于 10000000000 ？
+C&#x2F;C++中int类型是32位的，范围是-2147483648 到 2147483647。
+int占用4个字节，也就是32位，除了第一位代表符号，剩下的31位可用。
+十进制的 1e10时，转换为二进制：
+10 0101 0100 0000 1011 1110 0100 0000 0000前两位出现数据溢出问题。
+而0101 0100 0000 1011 1110 0100 0000 0000 转换成十进制就是 1 410 065 408&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;zheng-wu-qiong-yu-fu-wu-qiong&quot;&gt;正无穷与负无穷&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; a=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x3f3f3f3f&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; b=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0xc0c0c0c0&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    输出：&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    a=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1061109567&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    b=-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1061109568&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;shu-ru-shu-chu-chu-li-xiang-guan&quot;&gt;输入输出处理相关&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;eoftiao-jian-pan-duan-while-scanf-d-d-n-m-eof-gong-neng-deng-xiao-yu-while-scanf-d-d-n-m&quot;&gt;EOF条件判断：while (scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;n,&amp;amp;m)!=EOF) 功能等效于 while (~scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;n,&amp;amp;m))&lt;&#x2F;h3&gt;
 &lt;p&gt;EOF的值为0，测试：&lt;&#x2F;p&gt;
