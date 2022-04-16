@@ -4,7 +4,7 @@ date = 2021-01-10 17:21:06
 slug = "202101101721"
 
 [taxonomies]
-tags = ["算法题" ]
+tags = ["cram" ]
 categories = ["C/C++"]
 
 +++
