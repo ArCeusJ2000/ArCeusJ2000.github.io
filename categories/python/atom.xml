@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
-	<title>Arceus - python</title>
+	<title>Arceus - Python</title>
 	<subtitle>Arceus Blog</subtitle>
 	<link href="https://arceusj2000.github.io/categories/python/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-01-15T14:43:14+00:00</updated>
+	<updated>2022-03-05T15:16:18+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/python/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>Graphviz使用记录</title>
+		<published>2022-03-05T15:16:18+00:00</published>
+		<updated>2022-03-05T15:16:18+00:00</updated>
+		<link href="https://arceusj2000.github.io/202203051516/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202203051516/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;Graphviz 是一个开源的可视化图形工具，用于绘制结构化的图形网络，通过对输入脚本的解析，分析出其中的点、边及子图，然后根据属性进行绘制。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang-pei-zhi&quot;&gt;安装配置&lt;&#x2F;h2&gt;
+&lt;p&gt;官网&lt;a href=&quot;http:&#x2F;&#x2F;www.graphviz.org&#x2F;&quot;&gt;Graphviz&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下载&lt;a href=&quot;https:&#x2F;&#x2F;graphviz.org&#x2F;download&#x2F;&quot;&gt;Download | Graphviz&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Graphviz是一个用 dot 语言编写的绘图脚本，在Windows中直接用pip安装会出现下面的报错&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;graphviz.backend.execute.ExecutableNotFound: failed to execute &amp;#39;dot&amp;#39;, make sure the Graphviz executables are on your systems&amp;#39; PATH&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;需要将graphviz中的bin路径添加到环境变量path中&lt;&#x2F;p&gt;
+&lt;p&gt;控制台输入命令：&lt;code&gt;dot -version&lt;&#x2F;code&gt;检验是否配置成功&lt;&#x2F;p&gt;
+&lt;p&gt;在Python中使用，需要&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pip install graphviz&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;python-diao-yong-graphviz-gong-ju&quot;&gt;Python 调用 Graphviz 工具&lt;&#x2F;h3&gt;
+&lt;p&gt;控制台输入&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;echo process1 = subprocess.Popen(command1,stdout=subprocess.PIPE,shell=True)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Python 安装路径下，找到文件 &lt;strong&gt;subprocess.py&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果是Anaconda，文件所在的地址是C:\Users\xxx\Anaconda3\Lib&lt;&#x2F;p&gt;
+&lt;p&gt;找到 &lt;strong&gt;Popen(object)&lt;&#x2F;strong&gt; 类&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5Cpopen.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;找到这个类的 &lt;strong&gt;init()&lt;strong&gt;方法，把 640行的&lt;&#x2F;strong&gt;shell=False&lt;&#x2F;strong&gt; 修改为 &lt;strong&gt;shell=True&lt;&#x2F;strong&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5Cinit.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;记得重启IDE！&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ce-shi-dai-ma&quot;&gt;测试代码&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;from &lt;&#x2F;span&gt;&lt;span&gt;graphviz &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;Digraph&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dot = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Digraph&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;test&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# node() 方法可以在对象中生成一个结点&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dot.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;node&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Life&amp;#39;s too short&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dot.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;node&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;I learn Python&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# edge() 方法可以添加一条边&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dot.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;edge&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;,&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 对象.view(filename=&amp;quot;文件名&amp;quot;, directory=&amp;quot;输出路径&amp;quot;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dot.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;view&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(dot)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;运行生成test.gv.pdf文件，效果如下图：&lt;&#x2F;p&gt;
+&lt;img src=&quot;.\img\res.png&quot; style=&quot;zoom:50%;&quot; &#x2F;&gt;
+&lt;p&gt;print(dot)在控制台打印出&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;digraph test {&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	1 [label=&amp;quot;Life&amp;#39;s too short&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	2 [label=&amp;quot;I learn Python&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	1 -&amp;gt; 2&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;上面的代码可以直接放到 Graphviz 工具里运行&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5Cgvedit.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;详细参数都介绍&lt;a href=&quot;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Zzbj&#x2F;p&#x2F;11431015.html&quot;&gt;Graphviz参数&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>python经验总结</title>
 		<published>2022-01-15T14:43:14+00:00</published>
@@ -14,6 +71,10 @@
 		<link href="https://arceusj2000.github.io/202201151443/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201151443/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h1 id=&quot;cha-zhao-an-zhuang-di-zhi&quot;&gt;查找安装地址&lt;&#x2F;h1&gt;
+&lt;p&gt;控制台&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;where python&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h1 id=&quot;diao-shi-ce-shi&quot;&gt;调试&#x2F;测试&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;cheng-xu-ji-shi&quot;&gt;程序计时&lt;&#x2F;h2&gt;
 &lt;p&gt;&lt;code&gt;time.perf_counter()&lt;&#x2F;code&gt;以秒为单位返回时间的浮点值&lt;&#x2F;p&gt;

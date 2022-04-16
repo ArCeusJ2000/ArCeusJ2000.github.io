@@ -124,6 +124,10 @@
         <lastmod>2022-01-26T22:05:54</lastmod>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202203051516/</loc>
+        <lastmod>2022-03-05T15:16:18</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
     </url>
     <url>
@@ -131,6 +135,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/c-c/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/categories/cram/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/git/</loc>
@@ -157,9 +164,6 @@
         <loc>https://arceusj2000.github.io/categories/spring/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/categories/suan-fa-ti/</loc>
-    </url>
-    <url>
         <loc>https://arceusj2000.github.io/categories/web/</loc>
     </url>
     <url>
@@ -184,16 +188,25 @@
         <loc>https://arceusj2000.github.io/page/6/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/page/7/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/tags/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/c-c/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/tags/cram/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/tags/django/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/git/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/graphviz/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/ide/</loc>
@@ -232,10 +245,10 @@
         <loc>https://arceusj2000.github.io/tags/spring/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/tags/suan-fa-ti/</loc>
+        <loc>https://arceusj2000.github.io/tags/virtual-machine/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/tags/virtual-machine/</loc>
+        <loc>https://arceusj2000.github.io/tags/visuization/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/wsl/</loc>

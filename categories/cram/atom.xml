@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
-	<title>Arceus - 算法题</title>
+	<title>Arceus - cram</title>
 	<subtitle>Arceus Blog</subtitle>
-	<link href="https://arceusj2000.github.io/categories/suan-fa-ti/atom.xml" rel="self" type="application/atom+xml"/>
+	<link href="https://arceusj2000.github.io/categories/cram/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
 	<updated>2021-02-10T17:21:06+00:00</updated>
-	<id>https://arceusj2000.github.io/categories/suan-fa-ti/atom.xml</id>
+	<id>https://arceusj2000.github.io/categories/cram/atom.xml</id>
 	<entry xml:lang="zh">
 		<title>Java记录</title>
 		<published>2021-02-10T17:21:06+00:00</published>

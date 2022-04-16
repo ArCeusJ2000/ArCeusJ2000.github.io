@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - conda报错处理合集</title>
+      <title>Arceus - Graphviz使用记录</title>
 
       
 
@@ -114,42 +114,16 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condageng-xin-bao-cuo" class="toc-link">conda更新报错</a>
+                    <a href="https://arceusj2000.github.io/202203051516/#an-zhuang-pei-zhi" class="toc-link">安装配置</a>
                     
                     <ul>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#condavalueerror-malformed-version-string-invalid-character-s" class="toc-link">CondaValueError: Malformed version string &#x27;~&#x27;: invalid character(s).</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condaan-zhuang-bao-bao-cuo" class="toc-link">conda安装包报错</a>
-                    
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#packagesnotfounderror-the-following-packages-are-not-available-from-current-channels-ruamel-yaml-conda" class="toc-link">PackagesNotFoundError: The following packages are not available from current channels: ruamel_yaml_conda</a>
+                            <a href="https://arceusj2000.github.io/202203051516/#python-diao-yong-graphviz-gong-ju" class="toc-link">Python 调用 Graphviz 工具</a>
                         </li>
                         
                         <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#removeerror-requests-is-a-dependency-of-conda-and-cannot-be-removed-from-conda-s-operating-environment" class="toc-link">RemoveError: &#x27;requests&#x27; is a dependency of conda and cannot be removed from conda&#x27;s operating environment</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201102136/#condabian-ma-bao-cuo" class="toc-link">conda编码报错</a>
-                    
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/202201102136/#fatal-python-error-init-sys-streams-can-t-initialize-sys-standard-streams-lookuperror-unknown-encoding-65001" class="toc-link">Fatal Python error: init_sys_streams: can&#x27;t initialize sys standard streams LookupError: unknown encoding: 65001</a>
+                            <a href="https://arceusj2000.github.io/202203051516/#ce-shi-dai-ma" class="toc-link">测试代码</a>
                         </li>
                         
                     </ul>
@@ -166,40 +140,64 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201102136&#x2F;">conda报错处理合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203051516&#x2F;">Graphviz使用记录</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2022-01-10</span>
+            <span class="post__time">2022-03-05</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="condageng-xin-bao-cuo">conda更新报错</h2>
-<h3 id="condavalueerror-malformed-version-string-invalid-character-s">CondaValueError: Malformed version string '~': invalid character(s).</h3>
-<p>尝试</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda upgrade -n base -c defaults --override-channels conda</span><span>
+<p>Graphviz 是一个开源的可视化图形工具，用于绘制结构化的图形网络，通过对输入脚本的解析，分析出其中的点、边及子图，然后根据属性进行绘制。</p>
+<h2 id="an-zhuang-pei-zhi">安装配置</h2>
+<p>官网<a href="http://www.graphviz.org/">Graphviz</a></p>
+<p>下载<a href="https://graphviz.org/download/">Download | Graphviz</a></p>
+<p>Graphviz是一个用 dot 语言编写的绘图脚本，在Windows中直接用pip安装会出现下面的报错</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>graphviz.backend.execute.ExecutableNotFound: failed to execute &#39;dot&#39;, make sure the Graphviz executables are on your systems&#39; PATH</span><span>
 </span></code></pre>
-<h2 id="condaan-zhuang-bao-bao-cuo">conda安装包报错</h2>
-<h3 id="packagesnotfounderror-the-following-packages-are-not-available-from-current-channels-ruamel-yaml-conda">PackagesNotFoundError: The following packages are not available from current channels: ruamel_yaml_conda</h3>
-<p>pip和conda部分安装包名不完全一致</p>
-<p>pip下 <strong>ruamel_yaml_conda</strong> 等价于conda下 <strong>ruamel.yaml</strong></p>
-<p>使用：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ruamel.yaml</span><span>
+<p>需要将graphviz中的bin路径添加到环境变量path中</p>
+<p>控制台输入命令：<code>dot -version</code>检验是否配置成功</p>
+<p>在Python中使用，需要</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install graphviz</span><span>
 </span></code></pre>
-<h3 id="removeerror-requests-is-a-dependency-of-conda-and-cannot-be-removed-from-conda-s-operating-environment">RemoveError: 'requests' is a dependency of conda and cannot be removed from conda's operating environment</h3>
-<p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda update --force conda</span><span>
+<h3 id="python-diao-yong-graphviz-gong-ju">Python 调用 Graphviz 工具</h3>
+<p>控制台输入</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>echo process1 = subprocess.Popen(command1,stdout=subprocess.PIPE,shell=True)</span><span>
 </span></code></pre>
-<h2 id="condabian-ma-bao-cuo">conda编码报错</h2>
-<h3 id="fatal-python-error-init-sys-streams-can-t-initialize-sys-standard-streams-lookuperror-unknown-encoding-65001">Fatal Python error: init_sys_streams: can't initialize sys standard streams LookupError: unknown encoding: 65001</h3>
-<p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ set pythonioencoding=utf-8</span><span>
+<p>Python 安装路径下，找到文件 <strong>subprocess.py</strong></p>
+<p>如果是Anaconda，文件所在的地址是C:\Users\xxx\Anaconda3\Lib</p>
+<p>找到 <strong>Popen(object)</strong> 类</p>
+<p><img src=".%5Cimg%5Cpopen.png" alt="" /></p>
+<p>找到这个类的 <strong>init()<strong>方法，把 640行的</strong>shell=False</strong> 修改为 <strong>shell=True</strong>。</p>
+<p><img src=".%5Cimg%5Cinit.png" alt="" /></p>
+<p>记得重启IDE！</p>
+<h3 id="ce-shi-dai-ma">测试代码</h3>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>graphviz </span><span style="color:#b48ead;">import </span><span>Digraph</span><span>
+</span><span style="color:#65737e;"># 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。</span><span style="color:#65737e;">
+</span><span>dot = </span><span style="color:#bf616a;">Digraph</span><span>(&#39;</span><span style="color:#a3be8c;">test</span><span>&#39;)</span><span>
+</span><span style="color:#65737e;"># node() 方法可以在对象中生成一个结点</span><span style="color:#65737e;">
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">Life&#39;s too short</span><span>&quot;)</span><span>
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">I learn Python</span><span>&quot;)</span><span>
+</span><span style="color:#65737e;"># edge() 方法可以添加一条边</span><span style="color:#65737e;">
+</span><span>dot.</span><span style="color:#bf616a;">edge</span><span>(&#39;</span><span style="color:#a3be8c;">1</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">2</span><span>&#39;)</span><span>
+</span><span style="color:#65737e;"># 对象.view(filename=&quot;文件名&quot;, directory=&quot;输出路径&quot;)</span><span style="color:#65737e;">
+</span><span>dot.</span><span style="color:#bf616a;">view</span><span>()</span><span>
+</span><span style="color:#96b5b4;">print</span><span>(dot)</span><span>
 </span></code></pre>
-<p>查看：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo %PYTHONIOENCODING%</span><span>
+<p>运行生成test.gv.pdf文件，效果如下图：</p>
+<img src=".\img\res.png" style="zoom:50%;" />
+<p>print(dot)在控制台打印出</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>digraph test {</span><span>
+</span><span>	1 [label=&quot;Life&#39;s too short&quot;]</span><span>
+</span><span>	2 [label=&quot;I learn Python&quot;]</span><span>
+</span><span>	1 -&gt; 2</span><span>
+</span><span>}</span><span>
 </span></code></pre>
+<p>上面的代码可以直接放到 Graphviz 工具里运行</p>
+<p><img src=".%5Cimg%5Cgvedit.png" alt="" /></p>
+<p>详细参数都介绍<a href="https://www.cnblogs.com/Zzbj/p/11431015.html">Graphviz参数</a></p>
 
     </div>
 
@@ -211,17 +209,19 @@
             
                 <div class="post-tags">
                     
+                        <a href="https://arceusj2000.github.io/tags/visuization/">#visuization</a>
+                    
                         <a href="https://arceusj2000.github.io/tags/python/">#Python</a>
+                    
+                        <a href="https://arceusj2000.github.io/tags/graphviz/">#Graphviz</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201091721&#x2F;">‹ Quantative Trading相关环境配置</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201262205&#x2F;">‹ WSL使用记录</a>
                     
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">C++_编译报错处理合集 ›</a>
                     
                     
                     
