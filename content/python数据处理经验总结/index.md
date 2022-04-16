@@ -4,8 +4,8 @@ date = 2021-11-15 14:43:14
 slug = "202111151443"
 
 [taxonomies]
-tags = [ "python" ]
-categories = ["python"]
+tags = [ "Python" ]
+categories = ["Python"]
 
 +++
 

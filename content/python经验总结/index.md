@@ -4,12 +4,22 @@ date = 2022-01-15 14:43:14
 slug = "202201151443"
 
 [taxonomies]
-tags = [ "python" ]
-categories = ["python"]
+tags = [ "Python" ]
+categories = ["Python"]
 
 +++
 
 <!-- more -->
+
+# 查找安装地址
+
+控制台
+
+```
+where python
+```
+
+
 
 # 调试/测试
 

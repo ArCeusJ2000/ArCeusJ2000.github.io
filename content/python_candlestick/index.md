@@ -4,7 +4,7 @@ date = 2022-01-15 16:42:14
 slug = "202201151642"
 
 [taxonomies]
-tags = ["quant", "python" ]
+tags = ["quant", "Python" ]
 categories = ["quant"]
 
 +++
