@@ -65,3 +65,10 @@ $ git rebase -i [startpoint] [endpoint]
 1. 编辑 commit 内容。将 "pick" 改成 "squash" 或者 "s"，意思是将该 commit和 前面的 commit合并。修改合并之后的 commit 注释。编辑完成后，保存并退出（wq!）。
 2. 完成上一步后进入了一个临时的分支（从 development 分支切出来的临时分支）。基于这个临时分支，创建一个新的分支 `git checkout -b feature/temp`。
 3. 再切回 development 分支，执行：git rebase feature/temp合并分支。
+
+## git commit --amend
+
+commit message信息修改
+
+执行`git commit --amend`出现编辑界面（vim），编辑方法同Linux下的vim，编辑后保存并退出
+
