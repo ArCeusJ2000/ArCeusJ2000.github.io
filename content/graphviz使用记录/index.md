@@ -49,11 +49,13 @@ Python 安装路径下，找到文件 **subprocess.py**
 
 找到 **Popen(object)** 类
 
-![](C:\Users\prts\Desktop\graphviz使用记录\img\popen.png)
+![](.\img\popen.png)
 
 找到这个类的 **init()**方法，把 640行的**shell=False** 修改为 **shell=True**。
 
-![](C:\Users\prts\Desktop\graphviz使用记录\img\init.png)
+![](.\img\init.png)
+
+记得重启IDE！
 
 ### 测试代码
 
@@ -73,7 +75,7 @@ print(dot)
 
 运行生成test.gv.pdf文件，效果如下图：
 
-<img src="C:\Users\prts\Desktop\graphviz使用记录\img\res.png" style="zoom:50%;" />
+<img src=".\img\res.png" style="zoom:50%;" />
 
 print(dot)在控制台打印出
 
@@ -87,7 +89,7 @@ digraph test {
 
 上面的代码可以直接放到 Graphviz 工具里运行
 
-![](C:\Users\prts\Desktop\graphviz使用记录\img\gvedit.png)
+![](.\img\gvedit.png)
 
 
 
