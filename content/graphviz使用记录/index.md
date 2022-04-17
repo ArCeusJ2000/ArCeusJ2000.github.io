@@ -93,4 +93,4 @@ digraph test {
 
 
 
-详细参数都介绍[Graphviz参数](https://www.cnblogs.com/Zzbj/p/11431015.html)
+详细参数介绍[Graphviz参数](https://www.cnblogs.com/Zzbj/p/11431015.html)
