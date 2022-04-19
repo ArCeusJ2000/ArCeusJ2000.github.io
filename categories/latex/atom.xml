@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+	<title>Arceus - LaTex</title>
+	<subtitle>Arceus Blog</subtitle>
+	<link href="https://arceusj2000.github.io/categories/latex/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://arceusj2000.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-03-29T15:36:14+00:00</updated>
+	<id>https://arceusj2000.github.io/categories/latex/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>LaTex合集</title>
+		<published>2022-03-29T15:36:14+00:00</published>
+		<updated>2022-03-29T15:36:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202203291536/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202203291536/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi&quot;&gt;LaTex不能显示中文生僻字&lt;&#x2F;h2&gt;
+&lt;p&gt;没错，就是我的名字&lt;&#x2F;p&gt;
+&lt;p&gt;事故现场：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\documentclass&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;latin-font&lt;&#x2F;span&gt;&lt;span&gt; = win|mac|linux|gyre|none,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cjk-font&lt;&#x2F;span&gt;&lt;span&gt; = win|mac|linux|fandol|founder|noto|source|none,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    ]{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;njuthesis&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;解决：把字体设置里的其他系统删掉（X&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\documentclass&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;latin-font&lt;&#x2F;span&gt;&lt;span&gt; = win,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cjk-font&lt;&#x2F;span&gt;&lt;span&gt; = win,&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    ]{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;njuthesis&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+</feed>

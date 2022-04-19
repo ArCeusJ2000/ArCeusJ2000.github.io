@@ -124,8 +124,12 @@
         <lastmod>2022-01-26T22:05:54</lastmod>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/202203051516/</loc>
-        <lastmod>2022-03-05T15:16:18</lastmod>
+        <loc>https://arceusj2000.github.io/202203291536/</loc>
+        <lastmod>2022-03-29T15:36:14</lastmod>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/202204051516/</loc>
+        <lastmod>2022-04-05T15:16:18</lastmod>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
@@ -147,6 +151,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/java/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/categories/latex/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/categories/mysql/</loc>
@@ -213,6 +220,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/java/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/latex/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/maven/</loc>

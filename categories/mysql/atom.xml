@@ -18,10 +18,10 @@
 &lt;h3 id=&quot;mysqlfang-zhi-zhong-fu-cha-ru-xiang-tong-ji-lu&quot;&gt;MySQL防止重复插入相同记录&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;shi-yong-mysql-suo-yin&quot;&gt;使用MySQL 索引&lt;&#x2F;h4&gt;
 &lt;p&gt;创建索引&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;mysql&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-mysql &quot;&gt;&lt;code class=&quot;language-mysql&quot; data-lang=&quot;mysql&quot;&gt;&lt;span&gt;CREATE UNIQUE INDEX index_name ON tablename( index_column_1, index_column_2 );&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre data-lang=&quot;sql&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sql &quot;&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;CREATE UNIQUE INDEX &lt;&#x2F;span&gt;&lt;span&gt;index_name ON &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;tablename&lt;&#x2F;span&gt;&lt;span&gt;( index_column_1, index_column_2 );&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;在一个已存在表中添加一个唯一索引&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;mysql&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-mysql &quot;&gt;&lt;code class=&quot;language-mysql&quot; data-lang=&quot;mysql&quot;&gt;&lt;span&gt;ALTER TABLE table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre data-lang=&quot;sql&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sql &quot;&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;ALTER TABLE &lt;&#x2F;span&gt;&lt;span&gt;table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;此时插入重复插入已有索引的记录会出现报错&lt;code&gt;IntegrityError: (1062, &amp;quot;Duplicate entry &#x27;xx&#x27; for key &#x27;xxxxx&#x27;&amp;quot;)&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;解决方法：把&lt;code&gt;INSERT INTO&lt;&#x2F;code&gt; 改为 `INSERT IGNORE INTO&lt;&#x2F;p&gt;
@@ -66,7 +66,7 @@
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;gai-nian-he-yuan-li&quot;&gt;概念和原理&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;mysqlsuo-yin&quot;&gt;MySQL索引&lt;&#x2F;h3&gt;
-&lt;p&gt;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yrxing&#x2F;p&#x2F;14557150.html&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yrxing&#x2F;p&#x2F;14557150.html&quot;&gt;索引&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
 	</entry>
 </feed>

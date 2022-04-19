@@ -202,10 +202,10 @@
 <h3 id="mysqlfang-zhi-zhong-fu-cha-ru-xiang-tong-ji-lu">MySQL防止重复插入相同记录</h3>
 <h4 id="shi-yong-mysql-suo-yin">使用MySQL 索引</h4>
 <p>创建索引</p>
-<pre data-lang="mysql" style="background-color:#2b303b;color:#c0c5ce;" class="language-mysql "><code class="language-mysql" data-lang="mysql"><span>CREATE UNIQUE INDEX index_name ON tablename( index_column_1, index_column_2 );</span><span>
+<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">CREATE UNIQUE INDEX </span><span>index_name ON </span><span style="color:#8fa1b3;">tablename</span><span>( index_column_1, index_column_2 );</span><span>
 </span></code></pre>
 <p>在一个已存在表中添加一个唯一索引</p>
-<pre data-lang="mysql" style="background-color:#2b303b;color:#c0c5ce;" class="language-mysql "><code class="language-mysql" data-lang="mysql"><span>ALTER TABLE table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;</span><span>
+<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">ALTER TABLE </span><span>table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;</span><span>
 </span></code></pre>
 <p>此时插入重复插入已有索引的记录会出现报错<code>IntegrityError: (1062, &quot;Duplicate entry 'xx' for key 'xxxxx'&quot;)</code></p>
 <p>解决方法：把<code>INSERT INTO</code> 改为 `INSERT IGNORE INTO</p>
@@ -250,7 +250,7 @@
 </span></code></pre>
 <h2 id="gai-nian-he-yuan-li">概念和原理</h2>
 <h3 id="mysqlsuo-yin">MySQL索引</h3>
-<p>https://www.cnblogs.com/yrxing/p/14557150.html</p>
+<p><a href="https://www.cnblogs.com/yrxing/p/14557150.html">索引</a></p>
 
     </div>
 
