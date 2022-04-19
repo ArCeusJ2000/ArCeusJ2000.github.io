@@ -19,13 +19,13 @@ categories = ["MySQL"]
 
 创建索引
 
-```mysql
+```sql
 CREATE UNIQUE INDEX index_name ON tablename( index_column_1, index_column_2 );
 ```
 
 在一个已存在表中添加一个唯一索引
 
-```mysql
+```sql
 ALTER TABLE table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;
 ```
 
@@ -117,4 +117,4 @@ mysql -u root -p
 
 ### MySQL索引
 
-https://www.cnblogs.com/yrxing/p/14557150.html
+[索引](https://www.cnblogs.com/yrxing/p/14557150.html)
