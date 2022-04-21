@@ -8,12 +8,48 @@
 	<updated>2022-03-29T15:36:14+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/latex/atom.xml</id>
 	<entry xml:lang="zh">
-		<title>LaTex合集</title>
+		<title>LaTex使用总结</title>
 		<published>2022-03-29T15:36:14+00:00</published>
 		<updated>2022-03-29T15:36:14+00:00</updated>
 		<link href="https://arceusj2000.github.io/202203291536/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202203291536/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h1 id=&quot;xue-xi-bi-ji&quot;&gt;学习笔记&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;huan-xing&quot;&gt;换行&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;chuang-jian-yi-ge-xin-de-duan-luo&quot;&gt;创建一个新的段落&lt;&#x2F;h4&gt;
+&lt;p&gt;只需要在代码中添加一个空白行就可以了，下一个段落会有段首缩进&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\documentclass&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;article&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{document}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;第一自然段，有首行缩进&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;第二自然段，有首行缩进&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{document}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;bu-suo-jin-huan-xing&quot;&gt;不缩进换行&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\documentclass&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;article&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\usepackage&lt;&#x2F;span&gt;&lt;span&gt;[utf8]{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ebcb8b;&quot;&gt;inputenc&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{document}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;这是一个自然段，有缩进&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;这是&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;\\&lt;&#x2F;span&gt;&lt;span&gt;（两个反斜杠）产生的新行，没有缩进&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\newline&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;这是&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\newline&lt;&#x2F;span&gt;&lt;span&gt;产生的新行，没有缩进&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\hfill \break&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;这是&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\hfill \break&lt;&#x2F;span&gt;&lt;span&gt;产生的新行，没有缩进&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{document}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;\\&lt;&#x2F;code&gt;（两个反斜杠）&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;\newline&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;\hfill \break&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;以上三种换行方法效果相同&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;wen-ti-jie-jue&quot;&gt;问题解决&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi&quot;&gt;LaTex不能显示中文生僻字&lt;&#x2F;h2&gt;
 &lt;p&gt;没错，就是我的名字&lt;&#x2F;p&gt;
 &lt;p&gt;事故现场：&lt;&#x2F;p&gt;

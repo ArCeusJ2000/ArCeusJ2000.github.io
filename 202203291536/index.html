@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - LaTex合集</title>
+      <title>Arceus - LaTex使用总结</title>
 
       
 
@@ -114,7 +114,28 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202203291536/#latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi" class="toc-link">LaTex不能显示中文生僻字</a>
+                    <a href="https://arceusj2000.github.io/202203291536/#xue-xi-bi-ji" class="toc-link">学习笔记</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#huan-xing" class="toc-link">换行</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202203291536/#wen-ti-jie-jue" class="toc-link">问题解决</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi" class="toc-link">LaTex不能显示中文生僻字</a>
+                        </li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -128,7 +149,7 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203291536&#x2F;">LaTex合集</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203291536&#x2F;">LaTex使用总结</a>
         </h1>
         <div class="post__meta">
             <span class="post__time">2022-03-29</span>
@@ -138,6 +159,42 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
+<h1 id="xue-xi-bi-ji">学习笔记</h1>
+<h2 id="huan-xing">换行</h2>
+<h4 id="chuang-jian-yi-ge-xin-de-duan-luo">创建一个新的段落</h4>
+<p>只需要在代码中添加一个空白行就可以了，下一个段落会有段首缩进</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\documentclass</span><span>{</span><span style="color:#ebcb8b;">article</span><span>}</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{document}</span><span>
+</span><span>第一自然段，有首行缩进</span><span>
+</span><span>
+</span><span>第二自然段，有首行缩进</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{document}</span><span>
+</span><span>
+</span></code></pre>
+<h4 id="bu-suo-jin-huan-xing">不缩进换行</h4>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\documentclass</span><span>{</span><span style="color:#ebcb8b;">article</span><span>}</span><span>
+</span><span style="color:#b48ead;">\usepackage</span><span>[utf8]{</span><span style="color:#ebcb8b;">inputenc</span><span>}</span><span>
+</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{document}</span><span>
+</span><span>这是一个自然段，有缩进</span><span style="color:#d08770;">\\</span><span>
+</span><span>这是</span><span style="color:#d08770;">\\</span><span>（两个反斜杠）产生的新行，没有缩进</span><span style="color:#96b5b4;">\newline</span><span>
+</span><span>这是</span><span style="color:#96b5b4;">\newline</span><span>产生的新行，没有缩进</span><span style="color:#96b5b4;">\hfill \break</span><span>
+</span><span>这是</span><span style="color:#96b5b4;">\hfill \break</span><span>产生的新行，没有缩进</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{document}</span><span>
+</span></code></pre>
+<ul>
+<li>
+<p><code>\\</code>（两个反斜杠）</p>
+</li>
+<li>
+<p><code>\newline</code></p>
+</li>
+<li>
+<p><code>\hfill \break</code></p>
+</li>
+</ul>
+<p>以上三种换行方法效果相同</p>
+<h1 id="wen-ti-jie-jue">问题解决</h1>
 <h2 id="latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi">LaTex不能显示中文生僻字</h2>
 <p>没错，就是我的名字</p>
 <p>事故现场：</p>
