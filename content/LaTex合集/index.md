@@ -1,5 +1,5 @@
 +++
-title = "LaTex合集"
+title = "LaTex使用总结"
 date = 2022-03-29 15:36:14
 slug = "202203291536"
 
@@ -10,6 +10,49 @@ categories = ["LaTex"]
 +++
 
 <!-- more -->
+
+# 学习笔记
+
+## 换行
+
+#### 创建一个新的段落
+
+只需要在代码中添加一个空白行就可以了，下一个段落会有段首缩进
+
+```latex
+\documentclass{article}
+\begin{document}
+第一自然段，有首行缩进
+
+第二自然段，有首行缩进
+\end{document}
+
+```
+
+#### 不缩进换行
+
+```latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+这是一个自然段，有缩进\\
+这是\\（两个反斜杠）产生的新行，没有缩进\newline
+这是\newline产生的新行，没有缩进\hfill \break
+这是\hfill \break产生的新行，没有缩进
+\end{document}
+```
+
+- `\\`（两个反斜杠）
+
+- `\newline`
+- `\hfill \break`
+
+以上三种换行方法效果相同
+
+
+
+# 问题解决
 
 ## LaTex不能显示中文生僻字
 
