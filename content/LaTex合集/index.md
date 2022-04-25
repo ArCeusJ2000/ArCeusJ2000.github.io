@@ -13,6 +13,14 @@ categories = ["LaTex"]
 
 # 学习笔记
 
+## 章节和分级标题
+
+```latex
+\chapter{章节}
+\section{一级标题}
+\subsection{二级标题}
+```
+
 ## 换行
 
 #### 创建一个新的段落
