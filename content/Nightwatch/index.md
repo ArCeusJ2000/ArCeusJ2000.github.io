@@ -4,8 +4,8 @@ date = 2022-01-24 17:45:12
 slug = "202201241745"
 
 [taxonomies]
-tags = ["node.js", "Nightwatch"]
-categories = ["web"]
+tags = ["Node.js", "Nightwatch"]
+categories = ["Web"]
 
 +++
 
@@ -160,6 +160,6 @@ module.exports = {
 node_modules\.bin\nightwatch e2e.test.js
 ```
 
-![](.\sample.png)
+![](.\img\sample.png)
 
 测试结果会以XML文件形式输出到tests_output目录下

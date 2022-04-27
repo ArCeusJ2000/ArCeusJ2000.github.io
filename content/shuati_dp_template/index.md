@@ -4,8 +4,8 @@ date = 2021-04-11 17:21:06
 slug = "202104111721"
 
 [taxonomies]
-tags = ["cram" ]
-categories = ["cram"]
+tags = ["Cram" ]
+categories = ["Cram"]
 
 +++
 

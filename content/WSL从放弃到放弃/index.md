@@ -4,7 +4,7 @@ date = 2022-01-26 22:05:54
 slug = "202201262205"
 
 [taxonomies]
-tags = ["virtual machine", "WSL" ]
+tags = ["Virtual machine", "WSL" ]
 categories = ["WSL"]
 
 +++

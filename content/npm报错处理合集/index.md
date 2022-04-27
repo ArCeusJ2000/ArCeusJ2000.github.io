@@ -4,8 +4,8 @@ date = 2021-12-15 12:55:12
 slug = "202112151255"
 
 [taxonomies]
-tags = ["npm", "node.js"]
-categories = ["web"]
+tags = ["Npm", "Node.js"]
+categories = ["Web"]
 
 +++
 

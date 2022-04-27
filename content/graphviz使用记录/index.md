@@ -4,7 +4,7 @@ date = 2022-04-05 15:16:18
 slug = "202204051516"
 
 [taxonomies]
-tags = ["visuization", "Python", "Graphviz" ]
+tags = ["Visuization", "Python", "Graphviz" ]
 categories = ["Python"]
 
 +++

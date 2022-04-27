@@ -4,8 +4,8 @@ date = 2021-10-07 17:45:12
 slug = "202110071745"
 
 [taxonomies]
-tags = ["git"]
-categories = ["git"]
+tags = ["Git"]
+categories = ["Git"]
 
 +++
 
