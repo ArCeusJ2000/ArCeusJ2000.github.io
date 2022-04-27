@@ -15,6 +15,11 @@
 		<id>https://arceusj2000.github.io/202203291536/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;xue-xi-bi-ji&quot;&gt;学习笔记&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;zhang-jie-he-fen-ji-biao-ti&quot;&gt;章节和分级标题&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\chapter&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;章节&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\section&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;一级标题&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\subsection&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;二级标题&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;huan-xing&quot;&gt;换行&lt;&#x2F;h2&gt;
 &lt;h4 id=&quot;chuang-jian-yi-ge-xin-de-duan-luo&quot;&gt;创建一个新的段落&lt;&#x2F;h4&gt;
 &lt;p&gt;只需要在代码中添加一个空白行就可以了，下一个段落会有段首缩进&lt;&#x2F;p&gt;
