@@ -1,7 +1,7 @@
 +++
 title = "C++记录"
-date = 2021-01-10 17:21:06
-slug = "202101101721"
+date = 2019-01-10 17:21:06
+slug = "201901101721"
 
 [taxonomies]
 tags = ["Cram" ]
@@ -11,36 +11,157 @@ categories = ["C/C++"]
 
 <!-- more -->
 
-## 数组相关
+## vector相关
 
-### 数组初始化
+### vector传参
 
-1. 数组初始化有memset与fill两个函数，前者较快。
-2. memset(数组名,初始值,初始字节长度)
-2. memset需要引入string库  memset按照字节赋值，所以一般用于初始化为-1,或0；它们补码中每个字节都一样
-3. 函数内部定义数组容量不要大于10^6,否则会报错。因为函数内部申请的局部变量来自系统栈，允许申请的容量较小。在外部申请的全局变量来自静态存储区，允许申请的空间较大。
+c++中常用的vector容器作为参数时，有三种传参方式，分别如下（为说明问题，用二维vector）：
 
-```c
-//memset 初始化是将一个一个字节填充的
-//数在内存中是以补码形式存放，正数的原码，反码，补码都一样。负数的补码为原码取反+1。 
-int a[2];
-memset(a,0,sizeof(a));
-//0的补码为：00000000
-//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：00000000|00000000|00000000|00000000|00000000|00000000|00000000|00000000 补码形式
-//所以a[0] = a[1] = 0(补码：00000000|00000000|00000000|00000000)
-memset(a,1,sizeof(a));
-//1的补码为：00000001
-//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：00000001|00000001|00000001|00000001|00000001|00000001|00000001|00000001 补码形式
-//所以此时a[0]=a[1]=16843009(补码:00000001|00000001|00000001|00000001)
-memset(a,1,sizeof(a));
-//1的补码为：11111111
-//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：11111111|11111111|11111111|11111111|11111111|11111111|11111111|11111111 补码形式
-//a[0] = a[1] = -1(补码：11111111|11111111|11111111|11111111)
+- function1(std::vector<std::vector<int> > vec)，传值
+- function2(std::vector<std::vector<int> >& vec)，传引用
+- function3(std::vector<std::vector<int> >* vec)，传指针
+
+三种方式的效果分别为：
+
+- 会发生拷贝构造
+- 不会发生拷贝构造
+- 不会发生拷贝构造
+
+验证程序
+
+```c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void function1(std::vector<std::vector<int> > vec)
+{
+    cout<<"-----------------------------------------"<<endl;
+    //打印vec的地址
+    cout<<"function1.&vec:"<<&vec<<endl;
+    //打印vec[i]的地址（即第一层vector的地址）
+    cout<<"function1.&vec[i]:"<<endl;
+    for(int i=0;i<2;i++)
+        cout<<&vec[i]<<endl;
+    //打印vec的各元素地址
+    cout<<"function1.&vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<&vec[i][j]<<" ";
+        cout<<endl;
+    }
+    cout<<"---------------------------"<<endl;
+    //打印vec的各元素值
+    cout<<"function1.vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<vec[i][j]<<" ";
+        cout<<endl;
+    }
+}
+void function2(std::vector<std::vector<int> >& vec)
+{
+    cout<<"-----------------------------------------"<<endl;
+    //打印vec的地址
+    cout<<"function2.&vec:"<<&vec<<endl;
+    //打印vec[i]的地址（即第一层vector的地址）
+    cout<<"function2.&vec[i]:"<<endl;
+    for(int i=0;i<2;i++)
+        cout<<&vec[i]<<endl;
+    //打印vec的各元素地址
+    cout<<"function2.&vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<&vec[i][j]<<" ";
+        cout<<endl;
+    }
+    cout<<"---------------------------"<<endl;
+    //打印vec的各元素值
+    cout<<"function2.vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<vec[i][j]<<" ";
+        cout<<endl;
+    }
+
+}
+void function3(std::vector<std::vector<int> > *vec)
+{
+    cout<<"-----------------------------------------"<<endl;
+    //打印vec的地址
+    cout<<"function3.&vec:"<<vec<<endl;
+    //打印vec[i]的地址（即第一层vector的地址）
+    cout<<"function3.&vec[i]:"<<endl;
+    for(int i=0;i<2;i++)
+        cout<<&(*vec)[i]<<endl;
+    //打印vec的各元素地址
+    cout<<"function3.&vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<&(*vec)[i][j]<<" ";
+        cout<<endl;
+    }
+    cout<<"---------------------------"<<endl;
+    //打印vec的各元素值
+    cout<<"function3.vec[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<(*vec)[i][j]<<" ";
+        cout<<endl;
+    }
+}
+
+int main()
+{
+    //创建2*3的vector容器v,初始值均初始化为0 1 2 1 2 3
+    std::vector<std::vector<int> > v(2,std::vector<int>(3,0));
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            v[i][j]=i+j;
+    }
+
+    //打印v的地址
+    cout<<"&v:"<<&v<<endl;
+    //打印v[i]的地址（即第一层vector的地址）
+    cout<<"&v[i]:"<<endl;
+    for(int i=0;i<2;i++)
+        cout<<&v[i]<<endl;
+    //打印v的各元素地址
+    cout<<"&v[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<&v[i][j]<<" ";
+        cout<<endl;
+    }
+
+    cout<<"---------------------------"<<endl;
+    //打印v的各元素值
+    cout<<"v[i][j]:"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+            cout<<v[i][j]<<" ";
+        cout<<endl;
+    }
+
+    function1(v);
+    function2(v);
+    function3(&v);
+
+    return 0;
+}
 ```
 
 
-
-## vector相关
 
 ### vector初始化
 
@@ -172,6 +293,33 @@ int main()
     getchar();
     return 0;
 }
+```
+
+## 数组相关
+
+### 数组初始化
+
+1. 数组初始化有memset与fill两个函数，前者较快。
+2. memset(数组名,初始值,初始字节长度)
+3. memset需要引入string库  memset按照字节赋值，所以一般用于初始化为-1,或0；它们补码中每个字节都一样
+4. 函数内部定义数组容量不要大于10^6,否则会报错。因为函数内部申请的局部变量来自系统栈，允许申请的容量较小。在外部申请的全局变量来自静态存储区，允许申请的空间较大。
+
+```c
+//memset 初始化是将一个一个字节填充的
+//数在内存中是以补码形式存放，正数的原码，反码，补码都一样。负数的补码为原码取反+1。 
+int a[2];
+memset(a,0,sizeof(a));
+//0的补码为：00000000
+//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：00000000|00000000|00000000|00000000|00000000|00000000|00000000|00000000 补码形式
+//所以a[0] = a[1] = 0(补码：00000000|00000000|00000000|00000000)
+memset(a,1,sizeof(a));
+//1的补码为：00000001
+//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：00000001|00000001|00000001|00000001|00000001|00000001|00000001|00000001 补码形式
+//所以此时a[0]=a[1]=16843009(补码:00000001|00000001|00000001|00000001)
+memset(a,1,sizeof(a));
+//1的补码为：11111111
+//此时,这一片内存存储结果为(4字节a[0]+4字节a[1])：11111111|11111111|11111111|11111111|11111111|11111111|11111111|11111111 补码形式
+//a[0] = a[1] = -1(补码：11111111|11111111|11111111|11111111)
 ```
 
 
