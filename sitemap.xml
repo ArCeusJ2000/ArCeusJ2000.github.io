@@ -4,12 +4,24 @@
         <loc>https://arceusj2000.github.io/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/202101101721/</loc>
-        <lastmod>2021-01-10T17:21:06</lastmod>
+        <loc>https://arceusj2000.github.io/201901101721/</loc>
+        <lastmod>2019-01-10T17:21:06</lastmod>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/201906101721/</loc>
+        <lastmod>2019-06-10T17:21:06</lastmod>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/202102101721/</loc>
         <lastmod>2021-02-10T17:21:06</lastmod>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/202102201721/</loc>
+        <lastmod>2021-02-20T17:21:06</lastmod>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/202103011642/</loc>
+        <lastmod>2021-03-01T16:42:14</lastmod>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/202104101721/</loc>
@@ -18,10 +30,6 @@
     <url>
         <loc>https://arceusj2000.github.io/202104111721/</loc>
         <lastmod>2021-04-11T17:21:06</lastmod>
-    </url>
-    <url>
-        <loc>https://arceusj2000.github.io/202106101721/</loc>
-        <lastmod>2021-06-10T17:21:06</lastmod>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/202109102136/</loc>
@@ -160,6 +168,9 @@
         <loc>https://arceusj2000.github.io/categories/cram/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/categories/data-science/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/git/</loc>
     </url>
     <url>
@@ -247,6 +258,9 @@
         <loc>https://arceusj2000.github.io/tags/latex/</loc>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/tags/machine-learning/</loc>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/tags/maven/</loc>
     </url>
     <url>
@@ -269,6 +283,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/quant/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/r/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/spring-boot/</loc>
