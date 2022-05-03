@@ -15,6 +15,8 @@ categories = ["Python"]
 
 ## 基础图形
 
+https://seaborn.pydata.org/
+
 seaborn中提供了与matplotlib类似的接口，其他高级作图函数都以这些底层作图函数为基础，进行封装，通常作为kind参数。各种基本图形既可以直接传入数组形式的变量数据，也可以传入DataFrame列名并传入data参数。
 
 ```python
