@@ -27,6 +27,42 @@ while (l < r) {
 return left;
 ```
 
+## 归并
+
+[148. 排序链表 - LeetCode](https://leetcode-cn.com/problems/sort-list/)
+
+```c++
+class Solution {
+public:
+    ListNode* merge(ListNode* head, ListNode* head2){
+        if(head==nullptr) return head2;
+        if(head2==nullptr) return head;
+        if(head->val <= head2->val){
+            head->next = merge(head->next, head2);
+            return head;
+        }
+        else{
+            head2->next = merge(head, head2->next);
+            return head2;
+        }
+    }
+    ListNode* sortList(ListNode* head) {
+        if(head==nullptr||head->next==nullptr) return head;
+        ListNode* slow=head;
+        ListNode* fast=head->next;
+        while(fast!=nullptr&&fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        ListNode* head2=slow->next;
+        slow->next=nullptr;
+        return merge(sortList(head),sortList(head2));
+    }
+};
+```
+
+
+
 ## 回溯
 
 ```
