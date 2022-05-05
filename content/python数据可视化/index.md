@@ -51,7 +51,34 @@ sns.regplot() # 散点图附加回归线
 sns.heatmap(annot=True) # annot表示显示数值
 # 另外补充几种常用图
 # 饼图
-plt.pie(x, label, explode,shadow=True,pctdistance=0.6,labeldistance=1.1，startangle=90) # explode表示部分扇形突出，x,label,explode均为数组形式数据
+#设置字体样式
+mpl.rcParams['font.family']='sans-serif'
+mpl.rcParams['font.sans-serif']=[u'SimHei']
+title = '饼图'
+fig = plt.figure(title, figsize=(8, 7))
+fig.tight_layout()
+ax = fig.add_subplot(111)
+data = [3,4,5,7,3]
+labels = ['a','b','c','d','e']
+explodes =[0 for x in data]
+explodes[0] =0.015
+ax.pie(data, labels= labels, radius=0.8, #data 是数据，labels 是标签，radius 是饼图半径
+       explode=explodes, #explodes 为0 代表不偏离圆心， 不为零则代表偏离圆心的距离
+       autopct='%1.1f%%', #显示所占比例，百分数
+       pctdistance = 0.5,
+       labeldistance=0.7,  # a,b,c,d 到圆心的距离
+       textprops={'fontsize': 20, 'color': 'black'}) # 标签和比例的格式
+plt.axis('equal') # 正圆
+plt.legend( loc = 'upper right',bbox_to_anchor=(1.1, 1.05), fontsize=14, borderaxespad=0.3)
+# loc =  'upper right' 位于右上角
+# bbox_to_anchor=[0.5, 0.5] # 外边距 上边 右边
+# ncol=2 分两列
+# borderaxespad = 0.3图例的内边距
+plt.suptitle(title+'pie', fontsize=20)
+#plt.savefig(filepath+'\name.png',dpi=120,bbox_inches='tight') #可通过这个方法保存可视化的图片
+# plt.show()
+# plt.close()
+plt.savefig('bingtu.png',dpi=120,bbox_inches='tight')
 # 极坐标图
 ax = plt.subplot(111,projection='polar') # projection指投影到极坐标
 ax.plot(x,y) # x为角度(弧度制),y为径长

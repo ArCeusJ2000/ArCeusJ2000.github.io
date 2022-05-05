@@ -13,6 +13,8 @@ categories = ["LaTex"]
 
 # 学习笔记
 
+[Overleaf速查表](https://blog.csdn.net/weixin_39876450/article/details/112287980)
+
 ## 章节和分级标题
 
 ```latex
@@ -58,7 +60,25 @@ categories = ["LaTex"]
 
 以上三种换行方法效果相同
 
+## 插入图片
 
+### Overleaf 中导入图片
+
+在文件夹中存放图片
+
+```latex
+\begin{figure}[htp]
+    \centering
+   	\includegraphics[width=0.8\textwidth,height=0.5\textwidth]{the.png}
+    \caption{An image of a galaxy}
+    \label{fig:galaxy}
+\end{figure}
+
+```
+
+`\graphicspath{ {images/} }` 指令告诉 LaTeX  图片是被存储在 `Images/` 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。
+
+`\includegraphics[width=4cm]{InsertingImagesEx5}`需要注意的是，只需要输入图片的文件名，不包括它的后缀
 
 # 问题解决
 
