@@ -123,6 +123,10 @@
                         </li>
                         
                         <li>
+                            <a href="https://arceusj2000.github.io/202102201721/#gui-bing" class="toc-link">归并</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://arceusj2000.github.io/202102201721/#hui-su" class="toc-link">回溯</a>
                         </li>
                         
@@ -165,6 +169,81 @@
 </span><span>        l = mid + </span><span style="color:#d08770;">1</span><span>;</span><span>
 </span><span>}</span><span>
 </span><span style="color:#b48ead;">return</span><span> left;</span><span>
+</span></code></pre>
+<h3 id="sou-suo-qu-jian"><strong>搜索区间</strong></h3>
+<p>两端都闭 <code>[left, right]</code> 和左闭右开 <code>[left, right)</code> 的区别</p>
+<ul>
+<li>两端都闭 [2, 3] 会搜索 2,3 [2, 2] 会搜索 2 [3, 2] 时无效跳出循环</li>
+<li>左闭右开 [2, 3) 会搜索 2 [2, 2] 时无效跳出循环</li>
+<li>如果排序数组中是无重复元素的，果断用「寻找一个数」的左闭右闭模版</li>
+</ul>
+<p>两端都闭 <code>[left, right]</code> 搜索区间设置方法：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>int left = 0;</span><span>
+</span><span>int right = nums.size() - 1;</span><span>
+</span><span>while (left &lt;= right) {return mid;}</span><span>
+</span></code></pre>
+<p>左闭右开 <code>[left, right)</code> 搜索区间设置方法：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>int left = 0;</span><span>
+</span><span>int right = nums.size();</span><span>
+</span><span>while (left &lt; right) {}</span><span>
+</span><span>return left;</span><span>
+</span></code></pre>
+<h3 id="lower-he-upper-bound">lower 和 upper bound</h3>
+<p>例题：<a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">在排序数组中查找元素的第一个和最后一个位置</a></p>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; </span><span style="color:#8fa1b3;">searchRange</span><span style="color:#eff1f5;">(vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt;</span><span>&amp; </span><span style="color:#bf616a;">nums</span><span style="color:#eff1f5;">, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">target</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(nums.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">{</span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">,</span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">};</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    </span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> l </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, r </span><span>=</span><span style="color:#eff1f5;"> nums.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">; </span><span style="color:#65737e;">//二分范围</span><span style="color:#65737e;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">while</span><span style="color:#eff1f5;">( l </span><span>&lt;</span><span style="color:#eff1f5;"> r)			        </span><span style="color:#65737e;">//查找元素的开始位置</span><span style="color:#65737e;">
+</span><span style="color:#eff1f5;">        {</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> mid </span><span>= </span><span style="color:#eff1f5;">(l </span><span>+</span><span style="color:#eff1f5;"> r )</span><span>/</span><span style="color:#d08770;">2</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(nums[mid] </span><span>&gt;=</span><span style="color:#eff1f5;"> target) r </span><span>=</span><span style="color:#eff1f5;"> mid;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else</span><span style="color:#eff1f5;"> l </span><span>=</span><span style="color:#eff1f5;"> mid </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">( nums[r] </span><span>!=</span><span style="color:#eff1f5;"> target) </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">{</span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">,</span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">};  </span><span style="color:#65737e;">//查找失败</span><span style="color:#65737e;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> L </span><span>=</span><span style="color:#eff1f5;"> r;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        l </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">, r </span><span>=</span><span style="color:#eff1f5;"> nums.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;     </span><span style="color:#65737e;">//二分范围</span><span style="color:#65737e;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">while</span><span style="color:#eff1f5;">( l </span><span>&lt;</span><span style="color:#eff1f5;"> r)                   </span><span style="color:#65737e;">//查找元素的结束位置</span><span style="color:#65737e;">
+</span><span style="color:#eff1f5;">        {</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> mid </span><span>= </span><span style="color:#eff1f5;">(l </span><span>+</span><span style="color:#eff1f5;"> r </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">)</span><span>/</span><span style="color:#d08770;">2</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(nums[mid] </span><span>&lt;=</span><span style="color:#eff1f5;"> target ) l </span><span>=</span><span style="color:#eff1f5;"> mid;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else</span><span style="color:#eff1f5;"> r </span><span>=</span><span style="color:#eff1f5;"> mid </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return </span><span style="color:#eff1f5;">{L,r};</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}</span><span>;</span><span>
+</span></code></pre>
+<h2 id="gui-bing">归并</h2>
+<p><a href="https://leetcode-cn.com/problems/sort-list/">148. 排序链表 - LeetCode</a></p>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    ListNode</span><span>* </span><span style="color:#8fa1b3;">merge</span><span style="color:#eff1f5;">(ListNode</span><span>* </span><span style="color:#bf616a;">head</span><span style="color:#eff1f5;">, ListNode</span><span>* </span><span style="color:#bf616a;">head2</span><span style="color:#eff1f5;">){</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(head</span><span>==</span><span style="color:#d08770;">nullptr</span><span style="color:#eff1f5;">) </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> head2;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(head2</span><span>==</span><span style="color:#d08770;">nullptr</span><span style="color:#eff1f5;">) </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> head;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(head-&gt;</span><span style="color:#bf616a;">val </span><span>&lt;=</span><span style="color:#eff1f5;"> head2-&gt;</span><span style="color:#bf616a;">val</span><span style="color:#eff1f5;">){</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            head-&gt;</span><span style="color:#bf616a;">next </span><span>= </span><span style="color:#bf616a;">merge</span><span style="color:#eff1f5;">(head-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">, head2);</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> head;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">else</span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            head2-&gt;</span><span style="color:#bf616a;">next </span><span>= </span><span style="color:#bf616a;">merge</span><span style="color:#eff1f5;">(head, head2-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">);</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> head2;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    ListNode</span><span>* </span><span style="color:#8fa1b3;">sortList</span><span style="color:#eff1f5;">(ListNode</span><span>* </span><span style="color:#bf616a;">head</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(head</span><span>==</span><span style="color:#d08770;">nullptr</span><span>||</span><span style="color:#eff1f5;">head-&gt;</span><span style="color:#bf616a;">next</span><span>==</span><span style="color:#d08770;">nullptr</span><span style="color:#eff1f5;">) </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> head;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        ListNode</span><span>*</span><span style="color:#eff1f5;"> slow</span><span>=</span><span style="color:#eff1f5;">head;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        ListNode</span><span>*</span><span style="color:#eff1f5;"> fast</span><span>=</span><span style="color:#eff1f5;">head-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">while</span><span style="color:#eff1f5;">(fast</span><span>!=</span><span style="color:#d08770;">nullptr</span><span>&amp;&amp;</span><span style="color:#eff1f5;">fast-&gt;</span><span style="color:#bf616a;">next</span><span>!=</span><span style="color:#d08770;">nullptr</span><span style="color:#eff1f5;">){</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            slow</span><span>=</span><span style="color:#eff1f5;">slow-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">            fast</span><span>=</span><span style="color:#eff1f5;">fast-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        ListNode</span><span>*</span><span style="color:#eff1f5;"> head2</span><span>=</span><span style="color:#eff1f5;">slow-&gt;</span><span style="color:#bf616a;">next</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        slow-&gt;</span><span style="color:#bf616a;">next</span><span>=</span><span style="color:#d08770;">nullptr</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">merge</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">sortList</span><span style="color:#eff1f5;">(head),</span><span style="color:#bf616a;">sortList</span><span style="color:#eff1f5;">(head2));</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
+</span><span style="color:#eff1f5;">}</span><span>;</span><span>
 </span></code></pre>
 <h2 id="hui-su">回溯</h2>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>result = []</span><span>

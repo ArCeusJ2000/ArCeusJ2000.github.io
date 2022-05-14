@@ -15,6 +15,7 @@
 		<id>https://arceusj2000.github.io/202203291536/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;xue-xi-bi-ji&quot;&gt;学习笔记&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_39876450&#x2F;article&#x2F;details&#x2F;112287980&quot;&gt;Overleaf速查表&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;zhang-jie-he-fen-ji-biao-ti&quot;&gt;章节和分级标题&lt;&#x2F;h2&gt;
 &lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\chapter&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;章节&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\section&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;一级标题&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
@@ -54,6 +55,19 @@
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;以上三种换行方法效果相同&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cha-ru-tu-pian&quot;&gt;插入图片&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;overleaf-zhong-dao-ru-tu-pian&quot;&gt;Overleaf 中导入图片&lt;&#x2F;h3&gt;
+&lt;p&gt;在文件夹中存放图片&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{figure}[htp]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\centering&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;   	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\includegraphics&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;width&lt;&#x2F;span&gt;&lt;span&gt;=0.8&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\textwidth&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;height&lt;&#x2F;span&gt;&lt;span&gt;=0.5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\textwidth&lt;&#x2F;span&gt;&lt;span&gt;]{the.png}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\caption&lt;&#x2F;span&gt;&lt;span&gt;{An image of a galaxy}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\label&lt;&#x2F;span&gt;&lt;span&gt;{fig:galaxy}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{figure}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;\graphicspath{ {images&#x2F;} }&lt;&#x2F;code&gt; 指令告诉 LaTeX  图片是被存储在 &lt;code&gt;Images&#x2F;&lt;&#x2F;code&gt; 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;\includegraphics[width=4cm]{InsertingImagesEx5}&lt;&#x2F;code&gt;需要注意的是，只需要输入图片的文件名，不包括它的后缀&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;wen-ti-jie-jue&quot;&gt;问题解决&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi&quot;&gt;LaTex不能显示中文生僻字&lt;&#x2F;h2&gt;
 &lt;p&gt;没错，就是我的名字&lt;&#x2F;p&gt;

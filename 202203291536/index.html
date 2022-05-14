@@ -126,6 +126,10 @@
                             <a href="https://arceusj2000.github.io/202203291536/#huan-xing" class="toc-link">换行</a>
                         </li>
                         
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#cha-ru-tu-pian" class="toc-link">插入图片</a>
+                        </li>
+                        
                     </ul>
                     
                 </li>
@@ -164,6 +168,7 @@
     <div class="post-content">
       <span id="continue-reading"></span>
 <h1 id="xue-xi-bi-ji">学习笔记</h1>
+<p><a href="https://blog.csdn.net/weixin_39876450/article/details/112287980">Overleaf速查表</a></p>
 <h2 id="zhang-jie-he-fen-ji-biao-ti">章节和分级标题</h2>
 <pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#96b5b4;">\chapter</span><span>{</span><span style="color:#8fa1b3;">章节</span><span>}</span><span>
 </span><span style="color:#96b5b4;">\section</span><span>{</span><span style="color:#8fa1b3;">一级标题</span><span>}</span><span>
@@ -203,6 +208,19 @@
 </li>
 </ul>
 <p>以上三种换行方法效果相同</p>
+<h2 id="cha-ru-tu-pian">插入图片</h2>
+<h3 id="overleaf-zhong-dao-ru-tu-pian">Overleaf 中导入图片</h3>
+<p>在文件夹中存放图片</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{figure}[htp]</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\centering</span><span>
+</span><span>   	</span><span style="color:#96b5b4;">\includegraphics</span><span>[</span><span style="color:#bf616a;">width</span><span>=0.8</span><span style="color:#96b5b4;">\textwidth</span><span>,</span><span style="color:#bf616a;">height</span><span>=0.5</span><span style="color:#96b5b4;">\textwidth</span><span>]{the.png}</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\caption</span><span>{An image of a galaxy}</span><span>
+</span><span>    </span><span style="color:#b48ead;">\label</span><span>{fig:galaxy}</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{figure}</span><span>
+</span><span>
+</span></code></pre>
+<p><code>\graphicspath{ {images/} }</code> 指令告诉 LaTeX  图片是被存储在 <code>Images/</code> 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。</p>
+<p><code>\includegraphics[width=4cm]{InsertingImagesEx5}</code>需要注意的是，只需要输入图片的文件名，不包括它的后缀</p>
 <h1 id="wen-ti-jie-jue">问题解决</h1>
 <h2 id="latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi">LaTex不能显示中文生僻字</h2>
 <p>没错，就是我的名字</p>
