@@ -83,6 +83,50 @@ public:
 };
 ```
 
+### 查找旋转数组
+
+#### [最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii)
+
+```c++
+int findMin(vector<int>& nums) {
+        int left = 0;
+        int right = nums.size()-1;
+        while(left<right){
+            int mid = left + (right-left)/2;
+            if(nums[mid] > nums[right]){
+                left = mid+1;
+            }
+            else if(nums[mid] < nums[right]){
+                right = mid;
+            }
+            else{
+                right --;
+            }
+        }
+        return nums[left];
+    }
+```
+
+#### 用最大值求最小值
+
+最大值右边就是最小值
+
+```c++
+int findMin(vector<int>& nums) {
+        int left = 0;
+        int right = nums.size() - 1;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;   /* 先加一再除，mid更靠近右边的right */
+            if (nums[left] < nums[mid]) {
+                left = mid;                            /* 向右移动左边界 */
+            } else if (nums[left] > nums[mid]) {
+                right = mid - 1;                       /* 向左移动右边界 */
+            }
+        }
+        return nums[(right + 1) % nums.size()];    /* 最大值向右移动一位就是最小值了（需要考虑最大值在最右边的情况，右移一位后对数组长度取余） */
+    }
+```
+
 
 
 ## 归并
@@ -117,6 +161,102 @@ public:
         return merge(sortList(head),sortList(head2));
     }
 };
+```
+
+### 归并排序模板
+
+```java
+    //归并排序入口
+    public void mergeSort(int[] nums){
+        MergeSort(nums,0,nums.length-1);
+    }
+
+    /**
+     * 归并排序
+     * @param nums 待排序数组
+     * @param start 数组开始的下标
+     * @param end 数组结束的下标
+     */
+    private void MergeSort(int[] nums,int start,int end){
+        if(start<end){
+            int mid=start+(end-start)/2;
+            MergeSort(nums,start,mid); //将无序数组划分
+            MergeSort(nums,mid+1,end); //将无序数组划分
+            merge(nums,start,mid,end); //再将两个有序数组合并
+        }
+    }
+
+    /**
+     *  双指针合并两个有序数组
+     * @param nums
+     * @param start
+     * @param mid
+     * @param end
+     */
+    private void merge(int[]nums, int start, int mid, int end){
+        int P1=start;
+        int P2=mid+1;
+        int tmp[]=new int[end-start+1]; //需要借助额外的O(n)空间来存储合并后的数组
+        int cur=0;
+        while (P1<=mid&&P2<=end){
+            if(nums[P1]<nums[P2]){
+               tmp[cur]=nums[P1];
+               P1++;
+            }else {
+               tmp[cur]=nums[P2];
+               P2++;
+            }
+            cur++;
+        }
+        while (P1<=mid){
+            tmp[cur]=nums[P1];
+            P1++;
+            cur++;
+        }
+        while (P2<=end){
+            tmp[cur]=nums[P2];
+            P2++;
+            cur++;
+        }
+        for (int i = 0; i < res.length ; i++) {
+             nums[i+start]=tmp[i];
+        }
+    }
+```
+
+
+
+## 滑动窗口
+
+```c++
+void slidingWindow(string s, string t) {
+    int left = 0;
+    int right = 0;
+    int valid = 0; // 窗口内已凑齐的字符种类数量
+    unordered_map<char, int> window;
+    unordered_map<char, int> need; // 需要凑齐的字符和对应数量
+    for (char c : t) need[c]++;
+
+    while (right < s.size()) {
+        // 右边届入窗口，进行窗口内数据的一系列更新
+        window[s[right]]++;
+        if (window[s[right]] == need[s[right]]) {
+            valid++;
+        }  // 注意：先加，再判断
+
+        // 判断左侧窗口是否要收缩
+        while (window needs shrink) {
+            // 左边界移出窗口，进行窗口内数据的一系列更新
+            if (window[s[left]] == need[s[left]]) {
+                valid--;
+            }  // 注意：先判断，再减
+            window[s[left]]--;
+            left++;  // 注意：左边届的收缩，要写在所有处理完成的最后
+        }
+        // 采集答案...
+        right++;  // 注意：右边届的收缩，要写在所有处理完成的最后
+    }
+}
 ```
 
 
