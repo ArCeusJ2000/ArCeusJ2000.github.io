@@ -130,6 +130,10 @@
                             <a href="https://arceusj2000.github.io/202203291536/#cha-ru-tu-pian" class="toc-link">插入图片</a>
                         </li>
                         
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#cha-ru-biao-ge" class="toc-link">插入表格</a>
+                        </li>
+                        
                     </ul>
                     
                 </li>
@@ -141,6 +145,14 @@
                         
                         <li>
                             <a href="https://arceusj2000.github.io/202203291536/#latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi" class="toc-link">LaTex不能显示中文生僻字</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#tu-pian-wei-zhi-gu-ding" class="toc-link">图片位置固定</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202203291536/#bu-yin-yong-dan-shi-xian-shi-can-kao-wen-xian" class="toc-link">不引用但是显示参考文献</a>
                         </li>
                         
                     </ul>
@@ -221,6 +233,65 @@
 </span></code></pre>
 <p><code>\graphicspath{ {images/} }</code> 指令告诉 LaTeX  图片是被存储在 <code>Images/</code> 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。</p>
 <p><code>\includegraphics[width=4cm]{InsertingImagesEx5}</code>需要注意的是，只需要输入图片的文件名，不包括它的后缀</p>
+<h2 id="cha-ru-biao-ge">插入表格</h2>
+<p><a href="https://www.tablesgenerator.com/latex_tables">TablesGenerator</a></p>
+<h3 id="ding-yi-biao-ge-dan-lie-kuan-du">定义表格单列宽度</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>\begin{tabular}{p{2cm}p{3cm}p{2.5cm}p{2.5cm}p{2.5cm}p{2.5cm}}</span><span>
+</span></code></pre>
+<p><code>p{2cm}</code>就是代表第一列的宽度，后面依次是后面的宽度，会自动进行换行显示。</p>
+<h3 id="an-ye-mian-kuan-du-diao-zheng-biao-ge">按页面宽度调整表格</h3>
+<p><code>\setlength{\tabcolsep}{7mm}{XXXX}</code></p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{center}</span><span>
+</span><span style="color:#96b5b4;">\textbf</span><span>{</span><span style="font-weight:bold;color:#ebcb8b;">Table 2</span><span>}</span><span style="color:#d08770;">~~</span><span>Improved table.</span><span style="color:#d08770;">\\</span><span>
+</span><span style="color:#96b5b4;">\setlength</span><span>{</span><span style="color:#96b5b4;">\tabcolsep</span><span>}{7mm}{</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{tabular}{</span><span style="color:#b48ead;">cccccc</span><span>} </span><span style="color:#96b5b4;">\toprule</span><span>
+</span><span>Models  </span><span style="color:#d08770;">&amp;  </span><span>$</span><span style="color:#96b5b4;">\hat </span><span style="color:#bf616a;">c</span><span>$  </span><span style="color:#d08770;">&amp;  </span><span>$</span><span style="color:#96b5b4;">\hat</span><span style="color:#b48ead;">\alpha</span><span>$  </span><span style="color:#d08770;">&amp;  </span><span>$</span><span style="color:#96b5b4;">\hat</span><span style="color:#b48ead;">\beta</span><span>_</span><span style="color:#d08770;">0</span><span>$  </span><span style="color:#d08770;">&amp;  </span><span>$</span><span style="color:#96b5b4;">\hat</span><span style="color:#b48ead;">\beta</span><span>_</span><span style="color:#d08770;">1</span><span>$  </span><span style="color:#d08770;">&amp;  </span><span>$</span><span style="color:#96b5b4;">\hat</span><span style="color:#b48ead;">\beta</span><span>_</span><span style="color:#d08770;">2</span><span>$  </span><span style="color:#d08770;">\\ </span><span style="color:#96b5b4;">\hline</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 30.6302  </span><span style="color:#d08770;">&amp;</span><span> 0.4127  </span><span style="color:#d08770;">&amp;</span><span> 9.4257  </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">\\</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 12.4089  </span><span style="color:#d08770;">&amp;</span><span> 0.5169  </span><span style="color:#d08770;">&amp;</span><span> 18.6986  </span><span style="color:#d08770;">&amp;</span><span> -6.6157  </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">\\</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 14.8586  </span><span style="color:#d08770;">&amp;</span><span> 0.4991  </span><span style="color:#d08770;">&amp;</span><span> 19.5421  </span><span style="color:#d08770;">&amp;</span><span> -7.0717  </span><span style="color:#d08770;">&amp;</span><span> 0.2183  </span><span style="color:#d08770;">\\</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 3.06302  </span><span style="color:#d08770;">&amp;</span><span> 0.41266  </span><span style="color:#d08770;">&amp;</span><span> 0.11725  </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">\\</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 1.24089  </span><span style="color:#d08770;">&amp;</span><span> 0.51691  </span><span style="color:#d08770;">&amp;</span><span> 0.83605  </span><span style="color:#d08770;">&amp;</span><span> -0.66157  </span><span style="color:#d08770;">&amp;</span><span> - </span><span style="color:#d08770;">\\</span><span>
+</span><span>model  </span><span style="color:#d08770;">&amp;</span><span> 1.48586  </span><span style="color:#d08770;">&amp;</span><span> 0.49906  </span><span style="color:#d08770;">&amp;</span><span> 0.95609  </span><span style="color:#d08770;">&amp;</span><span> -0.70717  </span><span style="color:#d08770;">&amp;</span><span> 0.02183  </span><span style="color:#d08770;">\\</span><span>
+</span><span style="color:#96b5b4;">\bottomrule</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{tabular}}</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{center}</span><span>
+</span></code></pre>
+<h3 id="biao-ming">表名</h3>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{table}</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{tabular}{|</span><span style="color:#b48ead;">l</span><span>|</span><span style="color:#b48ead;">l</span><span>|</span><span style="color:#b48ead;">l</span><span>|</span><span style="color:#b48ead;">l</span><span>|}</span><span>
+</span><span>	Any </span><span style="color:#d08770;">&amp;</span><span> 112  </span><span style="color:#d08770;">&amp;</span><span> 123 </span><span style="color:#d08770;">&amp;</span><span> 132  </span><span style="color:#d08770;">\\</span><span>
+</span><span>	Zhang                   </span><span style="color:#d08770;">&amp;</span><span> 324</span><span style="color:#d08770;">&amp;</span><span> 345 </span><span style="color:#d08770;">&amp;</span><span> 345  </span><span style="color:#d08770;">\\</span><span>
+</span><span>	David                   </span><span style="color:#d08770;">&amp;</span><span> 123                     </span><span style="color:#d08770;">&amp;</span><span> 34  </span><span style="color:#d08770;">&amp;</span><span> 45   </span><span style="color:#d08770;">\\</span><span>
+</span><span>	Araminta                </span><span style="color:#d08770;">&amp;</span><span> 133 </span><span style="color:#d08770;">&amp;</span><span> 33  </span><span style="color:#d08770;">&amp;</span><span> 35 </span><span style="color:#d08770;">\\ </span><span>
+</span><span style="color:#b48ead;">\end</span><span>{tabular}</span><span>
+</span><span style="color:#96b5b4;">\caption</span><span>{a table of scores}</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{table}</span><span>
+</span></code></pre>
+<p><code>\caption{a table of scores}</code>设置表名，如果不需要自动编号可以使用<code>\caption*{a table of scores}</code></p>
+<h3 id="san-xing-xian-biao">三行线表</h3>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span>	</span><span style="color:#96b5b4;">\toprule   </span><span style="color:#65737e;">%第一行线</span><span>
+</span><span>    </span><span style="color:#65737e;">%表示第一列占1.5cm 第二列占6cm 第三列占2cm 的距离 并且这几个字都是居中对齐</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\multicolumn</span><span>{1}{m{1.5cm}}{</span><span style="color:#96b5b4;">\centering</span><span> Symbol} </span><span style="color:#d08770;">&amp; </span><span style="color:#96b5b4;">\multicolumn</span><span>{1}{m{6cm}}{</span><span style="color:#96b5b4;">\centering</span><span> Definition} </span><span style="color:#d08770;">&amp; </span><span style="color:#96b5b4;">\multicolumn</span><span>{1}{m{2cm}}{ Unit} </span><span style="color:#d08770;">\\</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\midrule   </span><span style="color:#65737e;">%第二行线</span><span>
+</span><span>     $</span><span style="color:#bf616a;">V</span><span>$ </span><span style="color:#d08770;">&amp;</span><span> index </span><span style="color:#d08770;">&amp;</span><span> -- </span><span style="color:#d08770;">\\</span><span>
+</span><span>     $</span><span style="color:#bf616a;">X</span><span>$ </span><span style="color:#d08770;">&amp;</span><span> The  </span><span style="color:#d08770;">&amp;</span><span> -- </span><span style="color:#d08770;">\\</span><span>
+</span><span>     $</span><span style="color:#bf616a;">Y</span><span>$ </span><span style="color:#d08770;">&amp;</span><span> The </span><span style="color:#d08770;">&amp;</span><span> -- </span><span style="color:#d08770;">\\</span><span>
+</span><span>     $</span><span style="color:#bf616a;">Z</span><span>$ </span><span style="color:#d08770;">&amp;</span><span> The  </span><span style="color:#d08770;">&amp;</span><span> -- </span><span style="color:#d08770;">\\</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\bottomrule   </span><span style="color:#65737e;">%第三行线</span><span>
+</span></code></pre>
+<h3 id="quan-xian-biao">全线表</h3>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{table}[H]</span><span>
+</span><span style="color:#96b5b4;">\setlength</span><span>{</span><span style="color:#96b5b4;">\tabcolsep</span><span>}{20mm}{</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{tabular}{|</span><span style="color:#b48ead;">l</span><span>|</span><span style="color:#b48ead;">l</span><span>|}</span><span>
+</span><span style="color:#96b5b4;">\hline</span><span>
+</span><span>第一行 </span><span style="color:#d08770;">&amp;</span><span> 的内容     </span><span style="color:#d08770;">\\ </span><span>
+</span><span style="color:#96b5b4;">\hline</span><span>
+</span><span>第二行 </span><span style="color:#d08770;">&amp;</span><span> 的内容     </span><span style="color:#d08770;">\\ </span><span>
+</span><span style="color:#96b5b4;">\hline</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{tabular}}</span><span>
+</span><span style="color:#96b5b4;">\caption </span><span>{表名}</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{table}</span><span>
+</span></code></pre>
 <h1 id="wen-ti-jie-jue">问题解决</h1>
 <h2 id="latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi">LaTex不能显示中文生僻字</h2>
 <p>没错，就是我的名字</p>
@@ -235,6 +306,24 @@
 </span><span>    </span><span style="color:#bf616a;">latin-font</span><span> = win,</span><span>
 </span><span>    </span><span style="color:#bf616a;">cjk-font</span><span> = win,</span><span>
 </span><span>    ]{</span><span style="color:#ebcb8b;">njuthesis</span><span>}</span><span>
+</span></code></pre>
+<h2 id="tu-pian-wei-zhi-gu-ding">图片位置固定</h2>
+<p>为了避免图片位置被重排导致的图文分离，在<code>\begin{document}</code>前加上<code>\usepackage{float}</code></p>
+<p>由此在画图表的时候产生了另一个问题：</p>
+<p><code>You have forgotten to include a float specifier, which tells LaTeX where to position your figure. To fix this, either insert a float specifier inside the square brackets (e.g. \begin{figure}[h]), or remove the square brackets (e.g. \begin{figure}). Find out more about float specifiers here.</code></p>
+<p>解决办法：</p>
+<p>位置固定用 <code>\begin{figure}[H]</code></p>
+<p>位置不固定用 <code>\begin{figure}[htp]</code></p>
+<h2 id="bu-yin-yong-dan-shi-xian-shi-can-kao-wen-xian">不引用但是显示参考文献</h2>
+<p>（不要过问为什么不引用</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#96b5b4;">\addcontentsline</span><span>{toc}{section}{参考文献}</span><span>
+</span><span style="color:#b48ead;">\nocite</span><span>{</span><span style="color:#d08770;">1</span><span>} </span><span style="color:#65737e;">%只加入到参考文献列表中，不在文中引用（显示[id]）</span><span>
+</span><span style="color:#b48ead;">\nocite</span><span>{</span><span style="color:#d08770;">*</span><span>} </span><span style="color:#65737e;">%显示所有文献</span><span>
+</span><span style="color:#96b5b4;">\bibliographystyle</span><span>{plain}</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{thebibliography}{}</span><span>
+</span><span style="color:#96b5b4;">\bibitem</span><span>[1]{1} Book Title, Author</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{thebibliography}</span><span>
+</span><span>
 </span></code></pre>
 
     </div>

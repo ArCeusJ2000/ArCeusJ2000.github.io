@@ -127,6 +127,10 @@
                         </li>
                         
                         <li>
+                            <a href="https://arceusj2000.github.io/202102201721/#hua-dong-chuang-kou" class="toc-link">滑动窗口</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://arceusj2000.github.io/202102201721/#hui-su" class="toc-link">回溯</a>
                         </li>
                         
@@ -215,6 +219,42 @@
 </span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
 </span><span style="color:#eff1f5;">}</span><span>;</span><span>
 </span></code></pre>
+<h3 id="cha-zhao-xuan-zhuan-shu-zu">查找旋转数组</h3>
+<h4 id="zui-xiao-zhi"><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii">最小值</a></h4>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">findMin</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">nums</span><span>) {</span><span>
+</span><span>        </span><span style="color:#b48ead;">int</span><span> left = </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>        </span><span style="color:#b48ead;">int</span><span> right = nums.</span><span style="color:#bf616a;">size</span><span>()-</span><span style="color:#d08770;">1</span><span>;</span><span>
+</span><span>        </span><span style="color:#b48ead;">while</span><span>(left&lt;right){</span><span>
+</span><span>            </span><span style="color:#b48ead;">int</span><span> mid = left + (right-left)/</span><span style="color:#d08770;">2</span><span>;</span><span>
+</span><span>            </span><span style="color:#b48ead;">if</span><span>(nums[mid] &gt; nums[right]){</span><span>
+</span><span>                left = mid+</span><span style="color:#d08770;">1</span><span>;</span><span>
+</span><span>            }</span><span>
+</span><span>            </span><span style="color:#b48ead;">else if</span><span>(nums[mid] &lt; nums[right]){</span><span>
+</span><span>                right = mid;</span><span>
+</span><span>            }</span><span>
+</span><span>            </span><span style="color:#b48ead;">else</span><span>{</span><span>
+</span><span>                right --;</span><span>
+</span><span>            }</span><span>
+</span><span>        }</span><span>
+</span><span>        </span><span style="color:#b48ead;">return</span><span> nums[left];</span><span>
+</span><span>    }</span><span>
+</span></code></pre>
+<h4 id="yong-zui-da-zhi-qiu-zui-xiao-zhi">用最大值求最小值</h4>
+<p>最大值右边就是最小值</p>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">findMin</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">nums</span><span>) {</span><span>
+</span><span>        </span><span style="color:#b48ead;">int</span><span> left = </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>        </span><span style="color:#b48ead;">int</span><span> right = nums.</span><span style="color:#bf616a;">size</span><span>() - </span><span style="color:#d08770;">1</span><span>;</span><span>
+</span><span>        </span><span style="color:#b48ead;">while </span><span>(left &lt; right) {</span><span>
+</span><span>            </span><span style="color:#b48ead;">int</span><span> mid = left + (right - left + </span><span style="color:#d08770;">1</span><span>) / </span><span style="color:#d08770;">2</span><span>;   </span><span style="color:#65737e;">/* 先加一再除，mid更靠近右边的right */</span><span>
+</span><span>            </span><span style="color:#b48ead;">if </span><span>(nums[left] &lt; nums[mid]) {</span><span>
+</span><span>                left = mid;                            </span><span style="color:#65737e;">/* 向右移动左边界 */</span><span>
+</span><span>            } </span><span style="color:#b48ead;">else if </span><span>(nums[left] &gt; nums[mid]) {</span><span>
+</span><span>                right = mid - </span><span style="color:#d08770;">1</span><span>;                       </span><span style="color:#65737e;">/* 向左移动右边界 */</span><span>
+</span><span>            }</span><span>
+</span><span>        }</span><span>
+</span><span>        </span><span style="color:#b48ead;">return</span><span> nums[(right + </span><span style="color:#d08770;">1</span><span>) % nums.</span><span style="color:#bf616a;">size</span><span>()];    </span><span style="color:#65737e;">/* 最大值向右移动一位就是最小值了（需要考虑最大值在最右边的情况，右移一位后对数组长度取余） */</span><span>
+</span><span>    }</span><span>
+</span></code></pre>
 <h2 id="gui-bing">归并</h2>
 <p><a href="https://leetcode-cn.com/problems/sort-list/">148. 排序链表 - LeetCode</a></p>
 <pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
@@ -244,6 +284,94 @@
 </span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">merge</span><span style="color:#eff1f5;">(</span><span style="color:#bf616a;">sortList</span><span style="color:#eff1f5;">(head),</span><span style="color:#bf616a;">sortList</span><span style="color:#eff1f5;">(head2));</span><span style="color:#eff1f5;">
 </span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
 </span><span style="color:#eff1f5;">}</span><span>;</span><span>
+</span></code></pre>
+<h3 id="gui-bing-pai-xu-mo-ban">归并排序模板</h3>
+<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span>    </span><span style="color:#65737e;">//归并排序入口</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#b48ead;">public</span><span> void </span><span style="color:#bf616a;">mergeSort</span><span>(</span><span style="color:#b48ead;">int[]</span><span> nums){</span><span>
+</span><span>        </span><span style="color:#bf616a;">MergeSort</span><span>(nums,</span><span style="color:#d08770;">0</span><span>,nums.length-</span><span style="color:#d08770;">1</span><span>);</span><span>
+</span><span>    }</span><span>
+</span><span>
+</span><span>    </span><span style="color:#65737e;">/**</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * 归并排序</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">nums</span><span style="color:#65737e;"> 待排序数组</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">start</span><span style="color:#65737e;"> 数组开始的下标</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">end</span><span style="color:#65737e;"> 数组结束的下标</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     */</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    private void MergeSort(int[] nums,int start,int end){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        if(start&lt;</span><span style="color:#bf616a;">end){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">int mid</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">start+(end-start)/2;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">MergeSort(nums,start,mid); </span><span style="color:#65737e;">//</span><span style="color:#d08770;">将无序数组划分</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">MergeSort(nums,mid+1,end); </span><span style="color:#65737e;">//</span><span style="color:#d08770;">将无序数组划分</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">merge(nums,start,mid,end); </span><span style="color:#65737e;">//</span><span style="color:#d08770;">再将两个有序数组合并</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    /</span><span style="color:#d08770;">**</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     </span><span style="color:#d08770;">*  双指针合并两个有序数组</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">nums</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">start</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">mid</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     * </span><span style="color:#b48ead;">@param </span><span style="color:#bf616a;">end</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">     */</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    private void merge(int[]nums, int start, int mid, int end){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        int P1=start;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        int P2=mid+1;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        int tmp[]=new int[end-start+1]; //需要借助额外的O(n)空间来存储合并后的数组</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        int cur=0;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        while (P1&lt;=mid&amp;&amp;P2&lt;=end){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            if(nums[P1]&lt;</span><span style="color:#bf616a;">nums[P2]){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">               </span><span style="color:#d08770;">tmp[cur]</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">nums[P1];</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">               </span><span style="color:#d08770;">P1++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">}else {</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">               </span><span style="color:#d08770;">tmp[cur]</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">nums[P2];</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">               </span><span style="color:#d08770;">P2++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">cur++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">while (P1</span><span style="background-color:#bf616a;color:#2b303b;">&lt;</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">mid){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">tmp[cur]</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">nums[P1];</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">P1++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">cur++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">while (P2</span><span style="background-color:#bf616a;color:#2b303b;">&lt;</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">end){</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">tmp[cur]</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">nums[P2];</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">P2++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">            </span><span style="color:#d08770;">cur++;</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">for (int i </span><span style="color:#65737e;">= </span><span style="color:#a3be8c;">0; </span><span style="color:#d08770;">i </span><span style="background-color:#bf616a;color:#2b303b;">&lt;</span><span style="color:#65737e;"> </span><span style="color:#d08770;">res.length ; i++) {</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">             </span><span style="color:#d08770;">nums[i+start]</span><span style="color:#65737e;">=</span><span style="color:#a3be8c;">tmp[i];</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">        </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span><span style="color:#65737e;">    </span><span style="color:#d08770;">}</span><span style="color:#65737e;">
+</span></code></pre>
+<h2 id="hua-dong-chuang-kou">滑动窗口</h2>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">slidingWindow</span><span>(string </span><span style="color:#bf616a;">s</span><span>, string </span><span style="color:#bf616a;">t</span><span>) {</span><span>
+</span><span>    </span><span style="color:#b48ead;">int</span><span> left = </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#b48ead;">int</span><span> right = </span><span style="color:#d08770;">0</span><span>;</span><span>
+</span><span>    </span><span style="color:#b48ead;">int</span><span> valid = </span><span style="color:#d08770;">0</span><span>; </span><span style="color:#65737e;">// 窗口内已凑齐的字符种类数量</span><span style="color:#65737e;">
+</span><span>    unordered_map&lt;</span><span style="color:#b48ead;">char</span><span>, </span><span style="color:#b48ead;">int</span><span>&gt; window;</span><span>
+</span><span>    unordered_map&lt;</span><span style="color:#b48ead;">char</span><span>, </span><span style="color:#b48ead;">int</span><span>&gt; need; </span><span style="color:#65737e;">// 需要凑齐的字符和对应数量</span><span style="color:#65737e;">
+</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">char</span><span> c : t) need[c]++;</span><span>
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">while </span><span>(right &lt; s.</span><span style="color:#bf616a;">size</span><span>()) {</span><span>
+</span><span>        </span><span style="color:#65737e;">// 右边届入窗口，进行窗口内数据的一系列更新</span><span style="color:#65737e;">
+</span><span>        window[s[right]]++;</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>(window[s[right]] == need[s[right]]) {</span><span>
+</span><span>            valid++;</span><span>
+</span><span>        }  </span><span style="color:#65737e;">// 注意：先加，再判断</span><span style="color:#65737e;">
+</span><span>
+</span><span>        </span><span style="color:#65737e;">// 判断左侧窗口是否要收缩</span><span style="color:#65737e;">
+</span><span>        </span><span style="color:#b48ead;">while </span><span>(window needs shrink) {</span><span>
+</span><span>            </span><span style="color:#65737e;">// 左边界移出窗口，进行窗口内数据的一系列更新</span><span style="color:#65737e;">
+</span><span>            </span><span style="color:#b48ead;">if </span><span>(window[s[left]] == need[s[left]]) {</span><span>
+</span><span>                valid--;</span><span>
+</span><span>            }  </span><span style="color:#65737e;">// 注意：先判断，再减</span><span style="color:#65737e;">
+</span><span>            window[s[left]]--;</span><span>
+</span><span>            left++;  </span><span style="color:#65737e;">// 注意：左边届的收缩，要写在所有处理完成的最后</span><span style="color:#65737e;">
+</span><span>        }</span><span>
+</span><span>        </span><span style="color:#65737e;">// 采集答案...</span><span style="color:#65737e;">
+</span><span>        right++;  </span><span style="color:#65737e;">// 注意：右边届的收缩，要写在所有处理完成的最后</span><span style="color:#65737e;">
+</span><span>    }</span><span>
+</span><span>}</span><span>
 </span></code></pre>
 <h2 id="hui-su">回溯</h2>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>result = []</span><span>
