@@ -55,7 +55,13 @@ wsl --set-default-version 2
 - 使用以下命令列出计算机上的容器：`docker container ls --all` 或 `docker ps -a`（如果没有 -a 显示全部标志，则仅显示正在运行的容器）
 - 使用以下命令列出有关 Docker 安装的系统范围的信息，包括 WSL 2 上下文中你可使用的统计信息和资源（CPU & 内存）：`docker info`
 
+## WSL设置
 
+在宿主机上找到WSL：
+
+WIN+R 或者文件资源管理器 输入`\\wsl$`
+
+`\\wsl$\Ubuntu\etc\apt`sources.list换国内镜像
 
 ## VS Code
 
