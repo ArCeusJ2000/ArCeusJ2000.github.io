@@ -40,6 +40,10 @@
 &lt;li&gt;使用以下命令列出计算机上的容器：&lt;code&gt;docker container ls --all&lt;&#x2F;code&gt; 或 &lt;code&gt;docker ps -a&lt;&#x2F;code&gt;（如果没有 -a 显示全部标志，则仅显示正在运行的容器）&lt;&#x2F;li&gt;
 &lt;li&gt;使用以下命令列出有关 Docker 安装的系统范围的信息，包括 WSL 2 上下文中你可使用的统计信息和资源（CPU &amp;amp; 内存）：&lt;code&gt;docker info&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;wslshe-zhi&quot;&gt;WSL设置&lt;&#x2F;h2&gt;
+&lt;p&gt;在宿主机上找到WSL：&lt;&#x2F;p&gt;
+&lt;p&gt;WIN+R 或者文件资源管理器 输入&lt;code&gt;\\wsl$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;\\wsl$\Ubuntu\etc\apt&lt;&#x2F;code&gt;sources.list换国内镜像&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;vs-code&quot;&gt;VS Code&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;jin-ru-wslgong-zuo-huan-jing&quot;&gt;进入WSL工作环境&lt;&#x2F;h3&gt;
 &lt;p&gt;VS Code安装Remote - WSL插件&lt;&#x2F;p&gt;
