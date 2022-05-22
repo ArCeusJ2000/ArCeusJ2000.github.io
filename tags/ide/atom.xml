@@ -141,6 +141,14 @@
 &lt;p&gt;但是在cmd和powershell里检查java和javac都是正常的&lt;&#x2F;p&gt;
 &lt;p&gt;事故原因：配置java环境变量时，配置了classpath，导致无法在当前目录下找到主类，而jdk6以后其实就不用再配置classpath了&lt;&#x2F;p&gt;
 &lt;p&gt;解决办法：删除classpath，再重启vscode&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;python-in-wsl&quot;&gt;Python in WSL&lt;&#x2F;h2&gt;
+&lt;p&gt;命令行创建并激活虚拟环境&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;python3 -m venv .venv&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;source .venv&#x2F;bin&#x2F;activate&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;打开VSCode&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;code .&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
 </feed>

@@ -510,4 +510,67 @@ kind：底层作图类型名称，如&amp;quot;line&amp;quot;,“bar”,&amp;quo
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>
+	<entry xml:lang="zh">
+		<title>paddle踩坑</title>
+		<published>2021-07-15T14:43:14+00:00</published>
+		<updated>2021-07-15T14:43:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202107151443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202107151443/</id>
+		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;这东西有CPU版本和GPU版本两种，GPU版本的完全依赖CUDA+CUDNN，直接pip install只会报一堆让人摸不着头脑的错（x&lt;&#x2F;p&gt;
+&lt;p&gt;CPU版本直接&lt;code&gt;python -m pip install paddlepaddle==2.3.0 -i https:&#x2F;&#x2F;mirror.baidu.com&#x2F;pypi&#x2F;simple&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下面是GPU版本的踩坑记录&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cuda-cudnnan-zhuang&quot;&gt;CUDA+CUDNN安装&lt;&#x2F;h2&gt;
+&lt;p&gt;下载地址&lt;&#x2F;p&gt;
+&lt;p&gt;https:&#x2F;&#x2F;developer.nvidia.com&#x2F;cuda-toolkit-archive&lt;&#x2F;p&gt;
+&lt;p&gt;https:&#x2F;&#x2F;developer.nvidia.com&#x2F;rdp&#x2F;cudnn-archive   （下这个还要注册nvda账户orz&lt;&#x2F;p&gt;
+&lt;p&gt;目前(2022.4)paddle支持到10.2&lt;&#x2F;p&gt;
+&lt;p&gt;命令提示符&lt;code&gt;nvcc -V&lt;&#x2F;code&gt;检查CUDA是否安装成功&lt;&#x2F;p&gt;
+&lt;p&gt;CUDNN安装包解压后丢进&lt;code&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;有冲突就覆盖（x&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;paddlean-zhuang&quot;&gt;paddle安装&lt;&#x2F;h2&gt;
+&lt;p&gt;CUDA10.2版本的镜像&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;python -m pip install paddlepaddle-gpu==2.3.0 -i https:&#x2F;&#x2F;mirror.baidu.com&#x2F;pypi&#x2F;simple&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;此时如果用paddle跑代码会出现报错：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;RuntimeError: (PreconditionNotMet) The third-party dynamic library (cudnn64_7.dll) that Paddle depends on is not configured correctly. (error code is 126)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  Suggestions:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  1. Check if the third-party dynamic library (e.g. CUDA, CUDNN) is installed correctly and its version is matched with paddlepaddle you installed.&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  2. Configure third-party dynamic library environment variables as follows:&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  - Windows: set PATH by `set PATH=XXX; (at ..\paddle\phi\backends\dynload\dynamic_loader.cc:303)&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  [operator &amp;lt; uniform_random &amp;gt; error]&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;缺少cudnn64_7.dll，需要手动下载丢进&lt;code&gt;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下载地址：https:&#x2F;&#x2F;www.dll-files.com&#x2F;search&lt;&#x2F;p&gt;
+&lt;p&gt;我就是为了记录这个网址专门水了一篇（x&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Solving stupid problems——装不上某个python包</title>
+		<published>2020-09-13T14:43:14+00:00</published>
+		<updated>2020-09-13T14:43:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202009131443/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202009131443/</id>
+		<content type="html">&lt;p&gt;记录一次用pip安装python包失败的解决过程&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;shi-gu-xian-chang&quot;&gt;事故现场&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;pip装不上，去&lt;a href=&quot;https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;stable-baselines3&#x2F;#files&quot;&gt;stable-baselines3 · PyPI&lt;&#x2F;a&gt;上下的whl也装不上&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wen-ti-jie-jue&quot;&gt;问题解决&lt;&#x2F;h2&gt;
+&lt;p&gt;python 中的egg文件；类似于Java 中的jar 包，把一系列的python源码文件、元数据文件、其他资源文件 zip 压缩，重新命名为.egg 文件，目的是作为一个整体进行发布。&lt;&#x2F;p&gt;
+&lt;p&gt;关于egg-info是什么：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.python101.pythonlibrary.org&#x2F;chapter38_eggs.html&quot;&gt;Chapter 38 - The Python egg — Python 101 1.0 documentation (pythonlibrary.org)&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Built Distribution 和 Source Distribution&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;不同操作系统安装 Python 包的要求不完全相同，Built Distribution 是按照某类操作系统（例如 Linux）安装要求所打成的包，这样安装的时候只需要将包解压，文件放到适当的位置即可，效率比较高。但一个 Built Distribution 只适用于一类操作系统，例如 Linux 上的 Built Distribution 包无法在 Windows 上安装。而 Source Distribution 包便解决了这个问题，它是对源代码进行打包，将源代码打包成利于打成 Built Distribution 包的形式。这样，我们便可以通过 Source Distribution 包生成适用于特定类型操作系统的 Built Distribution 包，再进行安装。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;xxx.whl是Built Distribution &lt;&#x2F;p&gt;
+&lt;p&gt;xxx.tar.gz是 Source Distribution&lt;&#x2F;p&gt;
+&lt;p&gt;xxx.whl扔进&lt;code&gt;C:\Users\username\Anaconda3\Scripts&lt;&#x2F;code&gt;用pip安装，如上图所示&lt;&#x2F;p&gt;
+&lt;p&gt;xxx.tar.gz解压后包含xxx和xxx.egg-info两个文件夹，需要一起扔进&lt;code&gt;C:\Users\usern\Anaconda3\Lib\site-packages&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;直接把解压后的包扔进去或者没有egg-info都不能被python环境识别，在这里踩了坑orz&lt;&#x2F;p&gt;
+&lt;p&gt;类似egg-info这种伴生关系的还有dist-info&lt;&#x2F;p&gt;
+</content>
+	</entry>
 </feed>

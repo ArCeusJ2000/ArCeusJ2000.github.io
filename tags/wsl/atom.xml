@@ -44,6 +44,7 @@
 &lt;p&gt;在宿主机上找到WSL：&lt;&#x2F;p&gt;
 &lt;p&gt;WIN+R 或者文件资源管理器 输入&lt;code&gt;\\wsl$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;code&gt;\\wsl$\Ubuntu\etc\apt&lt;&#x2F;code&gt;sources.list换国内镜像&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;~&lt;&#x2F;code&gt;目录下的文件对应&lt;code&gt;\\wsl$\Ubuntu\home\unix&lt;&#x2F;code&gt;目录&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;vs-code&quot;&gt;VS Code&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;jin-ru-wslgong-zuo-huan-jing&quot;&gt;进入WSL工作环境&lt;&#x2F;h3&gt;
 &lt;p&gt;VS Code安装Remote - WSL插件&lt;&#x2F;p&gt;
@@ -67,7 +68,7 @@
 &lt;p&gt;按住 Control 键并选择显示的地址，可以在默认 Web 浏览器中打开，并查看在其容器中运行的项目。&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;ming-ling-xing-dai-li&quot;&gt;命令行代理&lt;&#x2F;h2&gt;
 &lt;p&gt;使用&lt;code&gt;ipconfig&lt;&#x2F;code&gt;查询宿主机的ip&lt;&#x2F;p&gt;
-&lt;p&gt;在WSL命令行配置&lt;&#x2F;p&gt;
+&lt;p&gt;在WSL命令行配置，例如export ALL_PROXY=http:192.168.1.105:1081&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;export ALL_PROXY=http:&#x2F;&#x2F;宿主机ip:1081&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>

@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - coding通用记录</title>
+      <title>Arceus - paddle踩坑</title>
 
       
 
@@ -114,15 +114,12 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/201906101721/#cao-zuo-fu-xiang-guan" class="toc-link">操作符相关</a>
+                    <a href="https://arceusj2000.github.io/202107151443/#cuda-cudnnan-zhuang" class="toc-link">CUDA+CUDNN安装</a>
                     
-                    <ul>
-                        
-                        <li>
-                            <a href="https://arceusj2000.github.io/201906101721/#he-qu-bie" class="toc-link">&amp;&amp;和&amp;区别</a>
-                        </li>
-                        
-                    </ul>
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202107151443/#paddlean-zhuang" class="toc-link">paddle安装</a>
                     
                 </li>
                 
@@ -136,26 +133,43 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;201906101721&#x2F;">coding通用记录</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202107151443&#x2F;">paddle踩坑</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2019-06-10</span>
+            <span class="post__time">2021-07-15</span>
             
         </div>
     </header>
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h1 id="cao-zuo-fu-xiang-guan">操作符相关</h1>
-<h2 id="he-qu-bie">&amp;&amp;和&amp;区别</h2>
-<p>&amp;和&amp;&amp;都是逻辑运算符号，&amp;&amp;又叫短路运算符。区别如下：</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int</span><span> i=</span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span style="color:#b48ead;">if</span><span>(i==</span><span style="color:#d08770;">2 </span><span>&amp; i++==</span><span style="color:#d08770;">2</span><span>){}　</span><span style="color:#65737e;">//i==2为false,但i++==2还会继续比较，所以i++被执行</span><span style="color:#65737e;">
-</span><span>System.</span><span style="color:#bf616a;">out</span><span>.</span><span style="color:#bf616a;">println</span><span>(i);</span><span style="color:#65737e;">//i 打印出来为2</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">int</span><span> j=</span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span style="color:#b48ead;">if</span><span>(j==</span><span style="color:#d08770;">2 </span><span>&amp;&amp; j++==</span><span style="color:#d08770;">2</span><span>){} </span><span style="color:#65737e;">//j==2为false,但j++==2不会继续比较，所以j++不被执行</span><span style="color:#65737e;">
-</span><span>System.</span><span style="color:#bf616a;">out</span><span>.</span><span style="color:#bf616a;">println</span><span>(j);</span><span style="color:#65737e;">//j打印出来为1</span><span style="color:#65737e;">
+<p>这东西有CPU版本和GPU版本两种，GPU版本的完全依赖CUDA+CUDNN，直接pip install只会报一堆让人摸不着头脑的错（x</p>
+<p>CPU版本直接<code>python -m pip install paddlepaddle==2.3.0 -i https://mirror.baidu.com/pypi/simple</code></p>
+<p>下面是GPU版本的踩坑记录</p>
+<h2 id="cuda-cudnnan-zhuang">CUDA+CUDNN安装</h2>
+<p>下载地址</p>
+<p>https://developer.nvidia.com/cuda-toolkit-archive</p>
+<p>https://developer.nvidia.com/rdp/cudnn-archive   （下这个还要注册nvda账户orz</p>
+<p>目前(2022.4)paddle支持到10.2</p>
+<p>命令提示符<code>nvcc -V</code>检查CUDA是否安装成功</p>
+<p>CUDNN安装包解压后丢进<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin</code></p>
+<p>有冲突就覆盖（x</p>
+<h2 id="paddlean-zhuang">paddle安装</h2>
+<p>CUDA10.2版本的镜像</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python -m pip install paddlepaddle-gpu==2.3.0 -i https://mirror.baidu.com/pypi/simple</span><span>
 </span></code></pre>
+<p>此时如果用paddle跑代码会出现报错：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>RuntimeError: (PreconditionNotMet) The third-party dynamic library (cudnn64_7.dll) that Paddle depends on is not configured correctly. (error code is 126)</span><span>
+</span><span>  Suggestions:</span><span>
+</span><span>  1. Check if the third-party dynamic library (e.g. CUDA, CUDNN) is installed correctly and its version is matched with paddlepaddle you installed.</span><span>
+</span><span>  2. Configure third-party dynamic library environment variables as follows:</span><span>
+</span><span>  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`</span><span>
+</span><span>  - Windows: set PATH by `set PATH=XXX; (at ..\paddle\phi\backends\dynload\dynamic_loader.cc:303)</span><span>
+</span><span>  [operator &lt; uniform_random &gt; error]</span><span>
+</span></code></pre>
+<p>缺少cudnn64_7.dll，需要手动下载丢进<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin</code></p>
+<p>下载地址：https://www.dll-files.com/search</p>
+<p>我就是为了记录这个网址专门水了一篇（x</p>
 
     </div>
 
@@ -167,17 +181,17 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/cram/">#Cram</a>
+                        <a href="https://arceusj2000.github.io/tags/python/">#Python</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;201901101721&#x2F;">‹ C++记录</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202104201721&#x2F;">‹ 算法题trick</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202009131443&#x2F;">Solving stupid problems——装不上某个python包 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202108151443&#x2F;">python数据可视化 ›</a>
                     
                     
                     

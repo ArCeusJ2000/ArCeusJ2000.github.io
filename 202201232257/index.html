@@ -148,6 +148,11 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201232257/#python-in-wsl" class="toc-link">Python in WSL</a>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -295,6 +300,14 @@
 <p>但是在cmd和powershell里检查java和javac都是正常的</p>
 <p>事故原因：配置java环境变量时，配置了classpath，导致无法在当前目录下找到主类，而jdk6以后其实就不用再配置classpath了</p>
 <p>解决办法：删除classpath，再重启vscode</p>
+<h2 id="python-in-wsl">Python in WSL</h2>
+<p>命令行创建并激活虚拟环境</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python3 -m venv .venv</span><span>
+</span><span>source .venv/bin/activate</span><span>
+</span></code></pre>
+<p>打开VSCode</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>code .</span><span>
+</span></code></pre>
 
     </div>
 

@@ -164,6 +164,11 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201071745/#ge-ren-fang-wen-ling-pai" class="toc-link">个人访问令牌</a>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -283,6 +288,12 @@
 </ul>
 <p>​		add 时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows 操作系统不建议设置此值。</p>
 <p>可以通过 <code>git config core.autocrlf</code> 命令来显示当前Git 中对待换行符的方式</p>
+<h1 id="ge-ren-fang-wen-ling-pai">个人访问令牌</h1>
+<p>github21年8月13后不再支持用户名密码的方式验证</p>
+<p>不小心用了<code>git config --global --unset credential.helper</code> </p>
+<p>现在每个本地仓库都要重新验证一次orz</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git remote set-url origin https://[githubtoken]@github.com/[username]/[repositoryname].git</span><span>
+</span></code></pre>
 
     </div>
 
