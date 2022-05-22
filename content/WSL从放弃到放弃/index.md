@@ -63,6 +63,8 @@ WIN+R 或者文件资源管理器 输入`\\wsl$`
 
 `\\wsl$\Ubuntu\etc\apt`sources.list换国内镜像
 
+`~`目录下的文件对应`\\wsl$\Ubuntu\home\unix`目录
+
 ## VS Code
 
 ### 进入WSL工作环境
@@ -111,7 +113,7 @@ code .
 
 使用`ipconfig`查询宿主机的ip
 
-在WSL命令行配置
+在WSL命令行配置，例如export ALL_PROXY=http:192.168.1.105:1081
 
 ```
 export ALL_PROXY=http://宿主机ip:1081

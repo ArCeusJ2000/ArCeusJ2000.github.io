@@ -197,3 +197,16 @@ Mac OS采用回车CR表示下一行（CR：CarriageReturn，回车）。
 ​		add 时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows 操作系统不建议设置此值。
 
 可以通过 `git config core.autocrlf` 命令来显示当前Git 中对待换行符的方式
+
+# 个人访问令牌
+
+github21年8月13后不再支持用户名密码的方式验证
+
+不小心用了`git config --global --unset credential.helper` 
+
+现在每个本地仓库都要重新验证一次orz
+
+```
+git remote set-url origin https://[githubtoken]@github.com/[username]/[repositoryname].git
+```
+

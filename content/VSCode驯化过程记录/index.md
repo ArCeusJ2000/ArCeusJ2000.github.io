@@ -195,3 +195,21 @@ java xxx
 事故原因：配置java环境变量时，配置了classpath，导致无法在当前目录下找到主类，而jdk6以后其实就不用再配置classpath了
 
 解决办法：删除classpath，再重启vscode
+
+
+
+## Python in WSL
+
+命令行创建并激活虚拟环境
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+打开VSCode
+
+```
+code .
+```
+
