@@ -75,7 +75,7 @@ print(dot)
 
 运行生成test.gv.pdf文件，效果如下图：
 
-<img src=".\img\res.png" style="zoom:50%;" />
+<img src=".\img\res.png" style="zoom:100%;" />
 
 print(dot)在控制台打印出
 
@@ -148,8 +148,8 @@ dot -Tpdf classes.dot -o classes.pdf
 
 产生文件classes.dot和classes.pdf
 
-![](.\img\0.png)
+<img src=".\img\0.png" style="zoom:80%;" />
 
-![](.\img\1.png)
+<img src=".\img\1.png" style="zoom:60%;" />
 
 好怪，为什么这两张图上了github就看不到了hh
