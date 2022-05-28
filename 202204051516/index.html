@@ -130,6 +130,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202204051516/#hui-zhi-pythonlei-tu" class="toc-link">绘制Python类图</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202204051516/#li-zi" class="toc-link">例子</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -178,8 +191,8 @@
 </span><span style="color:#65737e;"># 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。</span><span style="color:#65737e;">
 </span><span>dot = </span><span style="color:#bf616a;">Digraph</span><span>(&#39;</span><span style="color:#a3be8c;">test</span><span>&#39;)</span><span>
 </span><span style="color:#65737e;"># node() 方法可以在对象中生成一个结点</span><span style="color:#65737e;">
-</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">Life&#39;s too short</span><span>&quot;)</span><span>
-</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">I learn Python</span><span>&quot;)</span><span>
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">start</span><span>&quot;)</span><span>
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">end</span><span>&quot;)</span><span>
 </span><span style="color:#65737e;"># edge() 方法可以添加一条边</span><span style="color:#65737e;">
 </span><span>dot.</span><span style="color:#bf616a;">edge</span><span>(&#39;</span><span style="color:#a3be8c;">1</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">2</span><span>&#39;)</span><span>
 </span><span style="color:#65737e;"># 对象.view(filename=&quot;文件名&quot;, directory=&quot;输出路径&quot;)</span><span style="color:#65737e;">
@@ -190,14 +203,50 @@
 <img src=".\img\res.png" style="zoom:50%;" />
 <p>print(dot)在控制台打印出</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>digraph test {</span><span>
-</span><span>	1 [label=&quot;Life&#39;s too short&quot;]</span><span>
-</span><span>	2 [label=&quot;I learn Python&quot;]</span><span>
+</span><span>	1 [label=&quot;start&quot;]</span><span>
+</span><span>	2 [label=&quot;end&quot;]</span><span>
 </span><span>	1 -&gt; 2</span><span>
 </span><span>}</span><span>
 </span></code></pre>
-<p>上面的代码可以直接放到 Graphviz 工具里运行</p>
-<p><img src=".%5Cimg%5Cgvedit.png" alt="" /></p>
+<p>上面的代码可以直接放到 Graphviz 工具(GVEdit)里运行</p>
 <p>详细参数介绍<a href="https://www.cnblogs.com/Zzbj/p/11431015.html">Graphviz参数</a></p>
+<h2 id="hui-zhi-pythonlei-tu">绘制Python类图</h2>
+<p>安装Pyreverse（在pylint模块）</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install pylint</span><span>
+</span></code></pre>
+<p>命令行检查</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse -h</span><span>
+</span></code></pre>
+<h3 id="li-zi">例子</h3>
+<p><code>__init__</code>.py文件，（默认设置只能画这个文件名，暂时还没试出来不改文件名画图的方法</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">A</span><span style="color:#eff1f5;">():</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
+</span><span>        </span><span style="color:#b48ead;">pass</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">B</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">A</span><span style="color:#eff1f5;">):</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_b = &quot;</span><span style="color:#a3be8c;">Hello B</span><span>&quot;</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">C</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_c = </span><span style="color:#d08770;">123</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">D</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_d = [</span><span style="color:#d08770;">12</span><span>, </span><span style="color:#d08770;">123</span><span>]</span><span>
+</span></code></pre>
+<p>目录结构：/code/example/_<em>init</em>_.py</p>
+<p>在code目录命令行</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse example/</span><span>
+</span></code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>dot -Tpdf classes.dot -o classes.pdf</span><span>
+</span></code></pre>
+<p>产生文件classes.dot和classes.pdf</p>
+<p><img src=".%5Cimg%5Cdot.png" alt="" /></p>
+<p><img src=".%5Cimg%5Cpdf.png" alt="" /></p>
 
     </div>
 
