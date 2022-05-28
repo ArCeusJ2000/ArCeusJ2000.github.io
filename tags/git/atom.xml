@@ -14,7 +14,8 @@
 		<link href="https://arceusj2000.github.io/202201082008/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201082008/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
-&lt;h2 id=&quot;scoopan-zhuang&quot;&gt;Scoop安装&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;an-zhuang&quot;&gt;安装&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;scoopan-zhuang&quot;&gt;Scoop安装&lt;&#x2F;h3&gt;
 &lt;p&gt;Scoop是适用于 Windows 的命令行安装程序&lt;&#x2F;p&gt;
 &lt;p&gt;PowerShell执行：&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Invoke-Expression (New-Object System.Net.WebClient).DownloadString(&amp;#39;https:&#x2F;&#x2F;get.scoop.sh&amp;#39;)&lt;&#x2F;span&gt;&lt;span&gt;
@@ -22,7 +23,7 @@
 &lt;p&gt;或&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;iwr -useb get.scoop.sh | iex&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;h2 id=&quot;zolaan-zhuang&quot;&gt;zola安装&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;zolaan-zhuang&quot;&gt;zola安装&lt;&#x2F;h3&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ scoop install zola&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;scoop报错解决：&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ScoopInstaller&#x2F;Scoop&#x2F;issues&#x2F;4495&quot;&gt;How can I go back to original REPO https:&#x2F;&#x2F;github.com&#x2F;lukesampson&#x2F;scoop · Issue #4495 · ScoopInstaller&#x2F;Scoop · GitHub&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -108,10 +109,14 @@
 &lt;&#x2F;span&gt;&lt;span&gt;$ zola serve&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;浏览器打开http:&#x2F;&#x2F;127.0.0.1:1111即可看到初始页面&lt;&#x2F;p&gt;
-&lt;h1 id=&quot;github-pagespei-zhi&quot;&gt;GitHub Pages配置&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;github-pagespei-zhi&quot;&gt;GitHub Pages配置&lt;&#x2F;h2&gt;
 &lt;p&gt;推送github后会自动进行pages-build-deployment&lt;&#x2F;p&gt;
 &lt;p&gt;生成gh-pages分支&lt;&#x2F;p&gt;
 &lt;h5 id=&quot;zhu-yi-yao-zai-settings-pageszhong-she-zhi-sourcefen-zhi-wei-gh-pagesfen-zhi&quot;&gt;注意要在Settings-Pages中设置Source分支为gh-pages分支&lt;&#x2F;h5&gt;
+&lt;h1 id=&quot;bugji-lu&quot;&gt;Bug记录&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;tu-pian-xian-shi&quot;&gt;图片显示&lt;&#x2F;h2&gt;
+&lt;p&gt;图片在本地zola serve能显示，到GitHub显示不了，&lt;&#x2F;p&gt;
+&lt;p&gt;但是设置例如&lt;code&gt;&amp;lt;img src=&amp;quot;.\img\0.png&amp;quot; style=&amp;quot;zoom:80%;&amp;quot;&#x2F;&amp;gt;&lt;&#x2F;code&gt; 的图片尺寸后又可以正常显示了&lt;&#x2F;p&gt;
 </content>
 	</entry>
 	<entry xml:lang="zh">

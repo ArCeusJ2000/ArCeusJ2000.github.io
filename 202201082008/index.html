@@ -114,12 +114,19 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202201082008/#scoopan-zhuang" class="toc-link">Scoop安装</a>
+                    <a href="https://arceusj2000.github.io/202201082008/#an-zhuang" class="toc-link">安装</a>
                     
-                </li>
-                
-                <li>
-                    <a href="https://arceusj2000.github.io/202201082008/#zolaan-zhuang" class="toc-link">zola安装</a>
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201082008/#scoopan-zhuang" class="toc-link">Scoop安装</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201082008/#zolaan-zhuang" class="toc-link">zola安装</a>
+                        </li>
+                        
+                    </ul>
                     
                 </li>
                 
@@ -161,6 +168,19 @@
                     
                 </li>
                 
+                <li>
+                    <a href="https://arceusj2000.github.io/202201082008/#bugji-lu" class="toc-link">Bug记录</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201082008/#tu-pian-xian-shi" class="toc-link">图片显示</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
             </ul>
         </nav>
     </div>
@@ -181,7 +201,8 @@
 
     <div class="post-content">
       <span id="continue-reading"></span>
-<h2 id="scoopan-zhuang">Scoop安装</h2>
+<h2 id="an-zhuang">安装</h2>
+<h3 id="scoopan-zhuang">Scoop安装</h3>
 <p>Scoop是适用于 Windows 的命令行安装程序</p>
 <p>PowerShell执行：</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Invoke-Expression (New-Object System.Net.WebClient).DownloadString(&#39;https://get.scoop.sh&#39;)</span><span>
@@ -189,7 +210,7 @@
 <p>或</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>iwr -useb get.scoop.sh | iex</span><span>
 </span></code></pre>
-<h2 id="zolaan-zhuang">zola安装</h2>
+<h3 id="zolaan-zhuang">zola安装</h3>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ scoop install zola</span><span>
 </span></code></pre>
 <p>scoop报错解决：<a href="https://github.com/ScoopInstaller/Scoop/issues/4495">How can I go back to original REPO https://github.com/lukesampson/scoop · Issue #4495 · ScoopInstaller/Scoop · GitHub</a></p>
@@ -275,10 +296,14 @@
 </span><span>$ zola serve</span><span>
 </span></code></pre>
 <p>浏览器打开http://127.0.0.1:1111即可看到初始页面</p>
-<h1 id="github-pagespei-zhi">GitHub Pages配置</h1>
+<h2 id="github-pagespei-zhi">GitHub Pages配置</h2>
 <p>推送github后会自动进行pages-build-deployment</p>
 <p>生成gh-pages分支</p>
 <h5 id="zhu-yi-yao-zai-settings-pageszhong-she-zhi-sourcefen-zhi-wei-gh-pagesfen-zhi">注意要在Settings-Pages中设置Source分支为gh-pages分支</h5>
+<h1 id="bugji-lu">Bug记录</h1>
+<h2 id="tu-pian-xian-shi">图片显示</h2>
+<p>图片在本地zola serve能显示，到GitHub显示不了，</p>
+<p>但是设置例如<code>&lt;img src=&quot;.\img\0.png&quot; style=&quot;zoom:80%;&quot;/&gt;</code> 的图片尺寸后又可以正常显示了</p>
 
     </div>
 
