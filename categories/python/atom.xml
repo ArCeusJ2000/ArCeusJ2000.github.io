@@ -51,7 +51,7 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(dot)&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;运行生成test.gv.pdf文件，效果如下图：&lt;&#x2F;p&gt;
-&lt;img src=&quot;.\img\res.png&quot; style=&quot;zoom:50%;&quot; &#x2F;&gt;
+&lt;img src=&quot;.\img\res.png&quot; style=&quot;zoom:100%;&quot; &#x2F;&gt;
 &lt;p&gt;print(dot)在控制台打印出&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;digraph test {&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;	1 [label=&amp;quot;start&amp;quot;]&lt;&#x2F;span&gt;&lt;span&gt;
@@ -96,8 +96,8 @@
 &lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;dot -Tpdf classes.dot -o classes.pdf&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;产生文件classes.dot和classes.pdf&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C0.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;img src=&quot;.\img\0.png&quot; style=&quot;zoom:80%;&quot; &#x2F;&gt;
+&lt;img src=&quot;.\img\1.png&quot; style=&quot;zoom:60%;&quot; &#x2F;&gt;
 &lt;p&gt;好怪，为什么这两张图上了github就看不到了hh&lt;&#x2F;p&gt;
 </content>
 	</entry>
