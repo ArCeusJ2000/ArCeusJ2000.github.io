@@ -11,7 +11,9 @@ categories = ["Git"]
 
 <!-- more -->
 
-## Scoop安装
+## 安装
+
+### Scoop安装
 
 Scoop是适用于 Windows 的命令行安装程序
 
@@ -29,7 +31,7 @@ iwr -useb get.scoop.sh | iex
 
 
 
-## zola安装
+### zola安装
 
 ```
 $ scoop install zola
@@ -163,10 +165,20 @@ $ zola serve
 
 
 
-# GitHub Pages配置
+## GitHub Pages配置
 
 推送github后会自动进行pages-build-deployment
 
 生成gh-pages分支
 
 ##### 注意要在Settings-Pages中设置Source分支为gh-pages分支
+
+
+
+# Bug记录
+
+## 图片显示
+
+图片在本地zola serve能显示，到GitHub显示不了，
+
+但是设置例如`<img src=".\img\0.png" style="zoom:80%;"/>` 的图片尺寸后又可以正常显示了
