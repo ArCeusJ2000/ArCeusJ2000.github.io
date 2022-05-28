@@ -148,7 +148,7 @@ dot -Tpdf classes.dot -o classes.pdf
 
 产生文件classes.dot和classes.pdf
 
-![](.\img\dot.png)
+![](.\img\0.png)
 
-![](.\img\pdf.png)
+![](.\img\1.png)
 
