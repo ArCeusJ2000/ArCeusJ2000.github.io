@@ -64,8 +64,8 @@ from graphviz import Digraph
 # 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。
 dot = Digraph('test')
 # node() 方法可以在对象中生成一个结点
-dot.node("1","Life's too short")
-dot.node("2","I learn Python")
+dot.node("1","start")
+dot.node("2","end")
 # edge() 方法可以添加一条边
 dot.edge('1','2')
 # 对象.view(filename="文件名", directory="输出路径")
@@ -81,16 +81,73 @@ print(dot)在控制台打印出
 
 ```
 digraph test {
-	1 [label="Life's too short"]
-	2 [label="I learn Python"]
+	1 [label="start"]
+	2 [label="end"]
 	1 -> 2
 }
 ```
 
-上面的代码可以直接放到 Graphviz 工具里运行
-
-![](.\img\gvedit.png)
+上面的代码可以直接放到 Graphviz 工具(GVEdit)里运行
 
 
 
 详细参数介绍[Graphviz参数](https://www.cnblogs.com/Zzbj/p/11431015.html)
+
+
+
+## 绘制Python类图
+
+安装Pyreverse（在pylint模块）
+
+```
+pip install pylint
+```
+
+命令行检查
+
+```
+pyreverse -h
+```
+
+### 例子
+
+`__init__`.py文件，（默认设置只能画这个文件名，暂时还没试出来不改文件名画图的方法
+
+```python
+class A():
+    def __init__(self):
+        pass
+
+
+class B(A):
+    def __init__(self):
+        self.m_b = "Hello B"
+
+
+class C(B):
+    def __init__(self):
+        self.m_c = 123
+
+
+class D(B):
+    def __init__(self):
+        self.m_d = [12, 123]
+```
+
+目录结构：/code/example/\__init__.py
+
+在code目录命令行
+
+```
+pyreverse example/
+```
+
+```
+dot -Tpdf classes.dot -o classes.pdf
+```
+
+产生文件classes.dot和classes.pdf
+
+![](.\img\dot.png)
+
+![](.\img\pdf.png)
