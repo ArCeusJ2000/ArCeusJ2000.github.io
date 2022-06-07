@@ -1,11 +1,11 @@
 +++
 title = "maven报错处理合集"
-date = 2021-12-09 12:55:12
-slug = "202112091255"
+date = 2020-12-09 12:55:12
+slug = "202012091255"
 
 [taxonomies]
-tags = ["maven"]
-categories = ["Build automation"]
+tags = ["Maven"]
+categories = ["Build Automation"]
 
 +++
 

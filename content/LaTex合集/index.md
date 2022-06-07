@@ -1,7 +1,7 @@
 +++
 title = "LaTex使用总结"
-date = 2022-03-29 15:36:14
-slug = "202203291536"
+date = 2022-01-29 15:36:14
+slug = "202201291536"
 
 [taxonomies]
 tags = ["LaTex" ]
@@ -59,6 +59,16 @@ categories = ["LaTex"]
 - `\hfill \break`
 
 以上三种换行方法效果相同
+
+#### 单段不首行缩进
+
+```latex
+\noindent{
+	不需要首行缩进的段落内容
+}
+```
+
+
 
 ## 插入图片
 

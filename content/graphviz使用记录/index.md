@@ -1,7 +1,7 @@
 +++
 title = "Graphviz使用记录"
-date = 2022-04-05 15:16:18
-slug = "202204051516"
+date = 2022-02-05 15:16:18
+slug = "202202051516"
 
 [taxonomies]
 tags = ["Visuization", "Python", "Graphviz" ]
