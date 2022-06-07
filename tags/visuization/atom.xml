@@ -5,14 +5,14 @@
 	<link href="https://arceusj2000.github.io/tags/visuization/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-04-05T15:16:18+00:00</updated>
+	<updated>2022-02-05T15:16:18+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/visuization/atom.xml</id>
 	<entry xml:lang="zh">
 		<title>Graphviz使用记录</title>
-		<published>2022-04-05T15:16:18+00:00</published>
-		<updated>2022-04-05T15:16:18+00:00</updated>
-		<link href="https://arceusj2000.github.io/202204051516/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202204051516/</id>
+		<published>2022-02-05T15:16:18+00:00</published>
+		<updated>2022-02-05T15:16:18+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202051516/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202051516/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;Graphviz 是一个开源的可视化图形工具，用于绘制结构化的图形网络，通过对输入脚本的解析，分析出其中的点、边及子图，然后根据属性进行绘制。&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;an-zhuang-pei-zhi&quot;&gt;安装配置&lt;&#x2F;h2&gt;

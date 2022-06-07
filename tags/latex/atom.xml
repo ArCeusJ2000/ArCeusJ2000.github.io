@@ -5,14 +5,14 @@
 	<link href="https://arceusj2000.github.io/tags/latex/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-03-29T15:36:14+00:00</updated>
+	<updated>2022-01-29T15:36:14+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/latex/atom.xml</id>
 	<entry xml:lang="zh">
 		<title>LaTex使用总结</title>
-		<published>2022-03-29T15:36:14+00:00</published>
-		<updated>2022-03-29T15:36:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/202203291536/" type="text/html"/>
-		<id>https://arceusj2000.github.io/202203291536/</id>
+		<published>2022-01-29T15:36:14+00:00</published>
+		<updated>2022-01-29T15:36:14+00:00</updated>
+		<link href="https://arceusj2000.github.io/202201291536/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202201291536/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;xue-xi-bi-ji&quot;&gt;学习笔记&lt;&#x2F;h1&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_39876450&#x2F;article&#x2F;details&#x2F;112287980&quot;&gt;Overleaf速查表&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
@@ -55,6 +55,11 @@
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;以上三种换行方法效果相同&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;dan-duan-bu-shou-xing-suo-jin&quot;&gt;单段不首行缩进&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;latex&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-latex &quot;&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\noindent&lt;&#x2F;span&gt;&lt;span&gt;{&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;	不需要首行缩进的段落内容&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;cha-ru-tu-pian&quot;&gt;插入图片&lt;&#x2F;h2&gt;
 &lt;h3 id=&quot;overleaf-zhong-dao-ru-tu-pian&quot;&gt;Overleaf 中导入图片&lt;&#x2F;h3&gt;
 &lt;p&gt;在文件夹中存放图片&lt;&#x2F;p&gt;
