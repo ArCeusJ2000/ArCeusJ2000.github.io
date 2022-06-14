@@ -68,6 +68,91 @@ categories = ["LaTex"]
 }
 ```
 
+## 字号
+
+从小到大
+
+```
+\tiny
+\scriptsize
+\footnotesize
+\small
+\normalsize
+\large
+\Large
+\LARGE
+\huge
+\Huge
+```
+
+使用形式
+
+```latex
+\begin{tiny}
+...
+\end{tiny}
+```
+
+
+
+## 无序列表与有序列表
+
+实心圆点无序列表
+
+```latex
+\begin{itemize}
+    \item one
+    \item two
+    \item ...
+\end{itemize}
+```
+
+使用其他符号进行排列，例如星号
+
+```latex
+\begin{itemize}
+    \item[*] one
+    \item[*] two
+    \item[*] ...
+\end{itemize}
+```
+
+数字顺序有序列表
+
+```latex
+\begin{enumerate}
+    \item one
+    \item two
+    \item ...
+\end{enumerate}
+```
+
+使用其他形式的编号需要先加载包，\usepackage{enumerate}
+
+```latex
+\begin{enumerate}[i)]
+    \item one
+    \item two
+    \item ...
+\end{enumerate}
+
+\begin{enumerate}[1)]
+    \item one
+    \item two
+    \item ...
+\end{enumerate}
+```
+
+自定义编号形式
+
+```latex
+\begin{description}
+    \item[Step1] one
+    \item[Step2] two
+    \item[Step3] ...
+\end{description}
+```
+
 
 
 ## 插入图片
@@ -89,6 +174,8 @@ categories = ["LaTex"]
 `\graphicspath{ {images/} }` 指令告诉 LaTeX  图片是被存储在 `Images/` 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。
 
 `\includegraphics[width=4cm]{InsertingImagesEx5}`需要注意的是，只需要输入图片的文件名，不包括它的后缀
+
+可用于调整图片大小和缩放
 
 ## 插入表格
 
@@ -172,6 +259,74 @@ model  & 1.48586  & 0.49906  & 0.95609  & -0.70717  & 0.02183  \\
 \end{table}
 ```
 
+## 插入代码
+
+最简单的
+
+```latex
+\begin{verbatim}
+...
+\end{verbatim}
+```
+
+复杂一点的
+
+```latex
+\begin{lstlisting}
+...
+\end{lstlisting}
+
+```
+
+```latex
+\usepackage{listings}
+  \lstset{ %
+    language=Octave,                % the language of the code
+    basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                    % will be numbered
+    numbersep=5pt,                  % how far the line-numbers are from the code
+    backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+    showspaces=false,               % show spaces adding particular underscores
+    showstringspaces=false,         % underline spaces within strings
+    showtabs=false,                 % show tabs within strings adding particular underscores
+    frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+    tabsize=2,                      % sets default tabsize to 2 spaces
+    captionpos=b,                   % sets the caption-position to bottom
+    breaklines=true,                % sets automatic line breaking
+    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+    title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                    % also try caption instead of title
+    keywordstyle=\color{blue},          % keyword style
+    commentstyle=\color{dkgreen},       % comment style
+    stringstyle=\color{mauve},         % string literal style
+    escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+    morekeywords={*,...}               % if you want to add more keywords to the set
+
+```
+
+
+
+## 引文
+
+```
+\bibliographystyle{样式}
+1. plain，按字母的顺序排列，比较次序为作者、年度和标题
+2. unsrt，样式同plain，只是按照引用的先后排序
+3. alpha，用作者名首字母+年份后两位作标号，以字母顺序排序
+4. abbrv，类似plain，将月份全拼改为缩写，更显紧凑
+5. ieeetr，国际电气电子工程师协会期刊样式
+6. acm，美国计算机学会期刊样式
+7. siam，美国工业和应用数学学会期刊样式
+```
+
+```
+\bibliography{xxx} %xxx.bib
+```
+
 
 
 # 问题解决
@@ -200,7 +355,7 @@ model  & 1.48586  & 0.49906  & 0.95609  & -0.70717  & 0.02183  \\
 
 ## 图片位置固定
 
-为了避免图片位置被重排导致的图文分离，在`\begin{document}`前加上`\usepackage{float}`
+为了避免图片位置被重排导致的图文分离，在`\begin{document}`前加上`\usepackage{float}`和`\usepackage{graphicx}` 
 
 由此在画图表的时候产生了另一个问题：
 
@@ -214,7 +369,7 @@ model  & 1.48586  & 0.49906  & 0.95609  & -0.70717  & 0.02183  \\
 
 ## 不引用但是显示参考文献
 
-（不要过问为什么不引用
+（不要问为什么不引用
 
 ```latex
 \addcontentsline{toc}{section}{参考文献}
