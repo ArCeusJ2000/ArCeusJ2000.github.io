@@ -1,5 +1,5 @@
 +++
-title = "Reading Notes for DB meets DL"
+title = "Reading Notes on DB meets DL"
 date = 2022-02-01 20:17:19
 slug = "202202012017"
 
@@ -9,7 +9,7 @@ categories = ["Reading Notes", "Eng"]
 
 +++
 
-Reading notes for https://doi.org/10.1145/3003665.3003669
+Reading notes on https://doi.org/10.1145/3003665.3003669
 
 <!-- more -->
 

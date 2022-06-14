@@ -1,5 +1,5 @@
 +++
-title = "Reading Notes for MLearn"
+title = "Reading Notes on MLearn"
 date = 2022-02-03 20:17:19
 slug = "202202032017"
 
@@ -9,7 +9,7 @@ categories =  ["Reading Notes", "Eng"]
 
 +++
 
-Reading notes for https://doi.org/10.1145/3329486.3329494
+Reading notes on https://doi.org/10.1145/3329486.3329494
 
 MLearn: A Declarative Machine Learning Language for Database Systems
 
