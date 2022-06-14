@@ -127,11 +127,27 @@
                         </li>
                         
                         <li>
+                            <a href="https://arceusj2000.github.io/202201291536/#zi-hao" class="toc-link">字号</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201291536/#wu-xu-lie-biao-yu-you-xu-lie-biao" class="toc-link">无序列表与有序列表</a>
+                        </li>
+                        
+                        <li>
                             <a href="https://arceusj2000.github.io/202201291536/#cha-ru-tu-pian" class="toc-link">插入图片</a>
                         </li>
                         
                         <li>
                             <a href="https://arceusj2000.github.io/202201291536/#cha-ru-biao-ge" class="toc-link">插入表格</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201291536/#cha-ru-dai-ma" class="toc-link">插入代码</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://arceusj2000.github.io/202201291536/#yin-wen" class="toc-link">引文</a>
                         </li>
                         
                     </ul>
@@ -225,6 +241,66 @@
 </span><span>	不需要首行缩进的段落内容</span><span>
 </span><span>}</span><span>
 </span></code></pre>
+<h2 id="zi-hao">字号</h2>
+<p>从小到大</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>\tiny</span><span>
+</span><span>\scriptsize</span><span>
+</span><span>\footnotesize</span><span>
+</span><span>\small</span><span>
+</span><span>\normalsize</span><span>
+</span><span>\large</span><span>
+</span><span>\Large</span><span>
+</span><span>\LARGE</span><span>
+</span><span>\huge</span><span>
+</span><span>\Huge</span><span>
+</span></code></pre>
+<p>使用形式</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{tiny}</span><span>
+</span><span>...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{tiny}</span><span>
+</span></code></pre>
+<h2 id="wu-xu-lie-biao-yu-you-xu-lie-biao">无序列表与有序列表</h2>
+<p>实心圆点无序列表</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{itemize}</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{itemize}</span><span>
+</span></code></pre>
+<p>使用其他符号进行排列，例如星号</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{itemize}</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[*] one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[*] two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[*] ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{itemize}</span><span>
+</span></code></pre>
+<p>数字顺序有序列表</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{enumerate}</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{enumerate}</span><span>
+</span></code></pre>
+<p>使用其他形式的编号需要先加载包，\usepackage{enumerate}</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{enumerate}[i)]</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{enumerate}</span><span>
+</span><span>
+</span><span style="color:#b48ead;">\begin</span><span>{enumerate}[1)]</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span> ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{enumerate}</span><span>
+</span></code></pre>
+<p>自定义编号形式</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{description}</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[Step1] one</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[Step2] two</span><span>
+</span><span>    </span><span style="color:#96b5b4;">\item</span><span>[Step3] ...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{description}</span><span>
+</span></code></pre>
 <h2 id="cha-ru-tu-pian">插入图片</h2>
 <h3 id="overleaf-zhong-dao-ru-tu-pian">Overleaf 中导入图片</h3>
 <p>在文件夹中存放图片</p>
@@ -238,6 +314,7 @@
 </span></code></pre>
 <p><code>\graphicspath{ {images/} }</code> 指令告诉 LaTeX  图片是被存储在 <code>Images/</code> 文件夹之中的，现在可以仅输入图片的文件名，不再需要输入它的路径了。</p>
 <p><code>\includegraphics[width=4cm]{InsertingImagesEx5}</code>需要注意的是，只需要输入图片的文件名，不包括它的后缀</p>
+<p>可用于调整图片大小和缩放</p>
 <h2 id="cha-ru-biao-ge">插入表格</h2>
 <p><a href="https://www.tablesgenerator.com/latex_tables">TablesGenerator</a></p>
 <h3 id="ding-yi-biao-ge-dan-lie-kuan-du">定义表格单列宽度</h3>
@@ -297,6 +374,58 @@
 </span><span style="color:#96b5b4;">\caption </span><span>{表名}</span><span>
 </span><span style="color:#b48ead;">\end</span><span>{table}</span><span>
 </span></code></pre>
+<h2 id="cha-ru-dai-ma">插入代码</h2>
+<p>最简单的</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{verbatim}</span><span>
+</span><span>...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{verbatim}</span><span>
+</span></code></pre>
+<p>复杂一点的</p>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\begin</span><span>{lstlisting}</span><span>
+</span><span>...</span><span>
+</span><span style="color:#b48ead;">\end</span><span>{lstlisting}</span><span>
+</span><span>
+</span></code></pre>
+<pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#b48ead;">\usepackage</span><span>{</span><span style="color:#ebcb8b;">listings</span><span>}</span><span>
+</span><span>  </span><span style="color:#96b5b4;">\lstset</span><span>{ </span><span style="color:#65737e;">%</span><span>
+</span><span>    language=Octave,                </span><span style="color:#65737e;">% the language of the code</span><span>
+</span><span>    basicstyle=</span><span style="color:#96b5b4;">\footnotesize</span><span>,           </span><span style="color:#65737e;">% the size of the fonts that are used for the code</span><span>
+</span><span>    numbers=left,                   </span><span style="color:#65737e;">% where to put the line-numbers</span><span>
+</span><span>    numberstyle=</span><span style="color:#96b5b4;">\tiny\color</span><span>{gray},  </span><span style="color:#65737e;">% the style that is used for the line-numbers</span><span>
+</span><span>    stepnumber=2,                   </span><span style="color:#65737e;">% the step between two line-numbers. If it&#39;s 1, each line</span><span>
+</span><span>                                    </span><span style="color:#65737e;">% will be numbered</span><span>
+</span><span>    numbersep=5pt,                  </span><span style="color:#65737e;">% how far the line-numbers are from the code</span><span>
+</span><span>    backgroundcolor=</span><span style="color:#96b5b4;">\color</span><span>{white},      </span><span style="color:#65737e;">% choose the background color. You must add \usepackage{color}</span><span>
+</span><span>    showspaces=false,               </span><span style="color:#65737e;">% show spaces adding particular underscores</span><span>
+</span><span>    showstringspaces=false,         </span><span style="color:#65737e;">% underline spaces within strings</span><span>
+</span><span>    showtabs=false,                 </span><span style="color:#65737e;">% show tabs within strings adding particular underscores</span><span>
+</span><span>    frame=single,                   </span><span style="color:#65737e;">% adds a frame around the code</span><span>
+</span><span>    rulecolor=</span><span style="color:#96b5b4;">\color</span><span>{black},        </span><span style="color:#65737e;">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))</span><span>
+</span><span>    tabsize=2,                      </span><span style="color:#65737e;">% sets default tabsize to 2 spaces</span><span>
+</span><span>    captionpos=b,                   </span><span style="color:#65737e;">% sets the caption-position to bottom</span><span>
+</span><span>    breaklines=true,                </span><span style="color:#65737e;">% sets automatic line breaking</span><span>
+</span><span>    breakatwhitespace=false,        </span><span style="color:#65737e;">% sets if automatic breaks should only happen at whitespace</span><span>
+</span><span>    title=</span><span style="color:#96b5b4;">\lstname</span><span>,                 </span><span style="color:#65737e;">% show the filename of files included with \lstinputlisting;</span><span>
+</span><span>                                    </span><span style="color:#65737e;">% also try caption instead of title</span><span>
+</span><span>    keywordstyle=</span><span style="color:#96b5b4;">\color</span><span>{blue},          </span><span style="color:#65737e;">% keyword style</span><span>
+</span><span>    commentstyle=</span><span style="color:#96b5b4;">\color</span><span>{dkgreen},       </span><span style="color:#65737e;">% comment style</span><span>
+</span><span>    stringstyle=</span><span style="color:#96b5b4;">\color</span><span>{mauve},         </span><span style="color:#65737e;">% string literal style</span><span>
+</span><span>    escapeinside={</span><span style="color:#96b5b4;">\%</span><span>*}{*)},            </span><span style="color:#65737e;">% if you want to add LaTeX within your code</span><span>
+</span><span>    morekeywords={*,...}               </span><span style="color:#65737e;">% if you want to add more keywords to the set</span><span>
+</span><span>
+</span></code></pre>
+<h2 id="yin-wen">引文</h2>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>\bibliographystyle{样式}</span><span>
+</span><span>1. plain，按字母的顺序排列，比较次序为作者、年度和标题</span><span>
+</span><span>2. unsrt，样式同plain，只是按照引用的先后排序</span><span>
+</span><span>3. alpha，用作者名首字母+年份后两位作标号，以字母顺序排序</span><span>
+</span><span>4. abbrv，类似plain，将月份全拼改为缩写，更显紧凑</span><span>
+</span><span>5. ieeetr，国际电气电子工程师协会期刊样式</span><span>
+</span><span>6. acm，美国计算机学会期刊样式</span><span>
+</span><span>7. siam，美国工业和应用数学学会期刊样式</span><span>
+</span></code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>\bibliography{xxx} %xxx.bib</span><span>
+</span></code></pre>
 <h1 id="wen-ti-jie-jue">问题解决</h1>
 <h2 id="latexbu-neng-xian-shi-zhong-wen-sheng-pi-zi">LaTex不能显示中文生僻字</h2>
 <p>没错，就是我的名字</p>
@@ -313,14 +442,14 @@
 </span><span>    ]{</span><span style="color:#ebcb8b;">njuthesis</span><span>}</span><span>
 </span></code></pre>
 <h2 id="tu-pian-wei-zhi-gu-ding">图片位置固定</h2>
-<p>为了避免图片位置被重排导致的图文分离，在<code>\begin{document}</code>前加上<code>\usepackage{float}</code></p>
+<p>为了避免图片位置被重排导致的图文分离，在<code>\begin{document}</code>前加上<code>\usepackage{float}</code>和<code>\usepackage{graphicx}</code> </p>
 <p>由此在画图表的时候产生了另一个问题：</p>
 <p><code>You have forgotten to include a float specifier, which tells LaTeX where to position your figure. To fix this, either insert a float specifier inside the square brackets (e.g. \begin{figure}[h]), or remove the square brackets (e.g. \begin{figure}). Find out more about float specifiers here.</code></p>
 <p>解决办法：</p>
 <p>位置固定用 <code>\begin{figure}[H]</code></p>
 <p>位置不固定用 <code>\begin{figure}[htp]</code></p>
 <h2 id="bu-yin-yong-dan-shi-xian-shi-can-kao-wen-xian">不引用但是显示参考文献</h2>
-<p>（不要过问为什么不引用</p>
+<p>（不要问为什么不引用</p>
 <pre data-lang="latex" style="background-color:#2b303b;color:#c0c5ce;" class="language-latex "><code class="language-latex" data-lang="latex"><span style="color:#96b5b4;">\addcontentsline</span><span>{toc}{section}{参考文献}</span><span>
 </span><span style="color:#b48ead;">\nocite</span><span>{</span><span style="color:#d08770;">1</span><span>} </span><span style="color:#65737e;">%只加入到参考文献列表中，不在文中引用（显示[id]）</span><span>
 </span><span style="color:#b48ead;">\nocite</span><span>{</span><span style="color:#d08770;">*</span><span>} </span><span style="color:#65737e;">%显示所有文献</span><span>
@@ -351,7 +480,7 @@
                         <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201262205&#x2F;">‹ WSL使用记录</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202012017&#x2F;">Reading Notes for DB meets DL ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202012017&#x2F;">Reading Notes on DB meets DL ›</a>
                     
                     
                     

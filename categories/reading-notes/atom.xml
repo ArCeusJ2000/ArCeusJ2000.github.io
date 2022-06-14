@@ -5,15 +5,72 @@
 	<link href="https://arceusj2000.github.io/categories/reading-notes/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-02-01T20:17:19+00:00</updated>
+	<updated>2022-02-08T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/reading-notes/atom.xml</id>
 	<entry xml:lang="zh">
-		<title>Reading Notes for DB meets DL</title>
+		<title>Reading Notes on MLog</title>
+		<published>2022-02-08T20:17:19+00:00</published>
+		<updated>2022-02-08T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202082017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202082017/</id>
+		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.14778&#x2F;3137765.3137812&lt;&#x2F;p&gt;
+&lt;p&gt;MLog: towards declarative in-database machine learning&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;MLOG is a high-level language that integrates machine learning into data management systems. MLog is declarative, in the sense that the system manages all data movement, data persistency, and machine-learning related optimizations (such as data batching) automatically. With MLog, users can succinctly specify not only simple models such as SVM (in just two lines), but also sophisticated deep learning models that are not supported by existing in-database analytics systems (e.g., MADlib, PAL, and SciDB), as a series of cascaded TViews.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;p&gt;In this paper, authors demonstrate MLOG, a system that aims for marrying Keras-like declarative machine learning to SciDB-like declarative data management. In MLOG, they build upon a standard data model similar to SciDB, to avoid neglecting and reinventing decades of study of data management. Their approach is to extend the query language over the SciDB data model to allow users to specify machine learning models in a way similar to traditional relational views and relational queries. Specifically, they demonstrate the following three main respects of MLOG:&lt;&#x2F;p&gt;
+&lt;p&gt;Declarative Query Language: It allows users to specify a range of machine learning models, including deep neural networks, very succinctly&lt;&#x2F;p&gt;
+&lt;p&gt;Automated Query Optimization: Authors demonstrate how to automatically compile MLOG programs into native TensorFlow programs using textbook static analysis techniques.&lt;&#x2F;p&gt;
+&lt;p&gt;Performance: The performance of automatically generated TensorFlow programs on a range of machine learning tasks.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-mlog-language&quot;&gt;THE MLOG LANGUAGE&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Algebra over Tensors.  The data model of MLOG is based on tensors–all data in MLOG are tensors and all operations are a subset of linear algebra over tensors. In MLOG, the tensors are closely related to the relational model; in fact, logically, a tensor is defined as a special type of relation. &lt;&#x2F;li&gt;
+&lt;li&gt;TRules.  An MLOG program Π consists of a set of TRules(tensoral rules). &lt;&#x2F;li&gt;
+&lt;li&gt;Semantics.   Similar to Datalog programs, we can define fixed point semantics for MLOG programs.&lt;&#x2F;li&gt;
+&lt;li&gt;Query.  There are two ways to query the system. The forward query and backward query.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;user-interaction-model&quot;&gt;USER INTERACTION MODEL&lt;&#x2F;h2&gt;
+&lt;p&gt;Like most SQL databases, users interact with our system by executing a sequence of MLOG statements in a REPL or a script. Each MLOG statement can be either a standard SQL statement, a TView, an MLOG query, or an MLOG tensor construction statement. &lt;&#x2F;p&gt;
+&lt;p&gt;Query optimization is undertaken by first translating an MLOG program into a Datalog program, a process that we call “Datalogify.” Given the Datalog program, the optimizer uses a standard static analysis technique to reason about the property of the program and generate a TensorFlow program as the physical plan.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;related-work&quot;&gt;RELATED WORK&lt;&#x2F;h2&gt;
+&lt;p&gt;Modern data systems often support libraries for analytics and machine learning. Examples include MADlib for Greenplum and PostgreSQL, SAP PAL for SAP HANA, ORE for Oracle databases. These libraries tightly integrate with the host data system and support traditional machine learning algorithms such as SVM or K-means. Authors advocates a more flexible higher-level language that supports more sophisticated machine learning models, such as deep neural networks, inside existing data systems. SciDB is a recent effort to extend relational database with data representations and operations for linear algebra. However, there is no machine learning library existing for SciDB and MLOG could fill that vacancy. There have been efforts to train linear models over joins. Compared with these efforts, MLOG advocates a more unified data model based on tensors instead of relations and also provides a more expressive way to encode correlations among tensors. As a result, MLOG is able to encode sophisticated machine learning models beyond linear models.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;CONCLUSION&lt;&#x2F;h2&gt;
+&lt;p&gt;An MLOG program is very similar to a SQL program but extends relational algebra over relations to linear algebra over tensors. This extension allows MLOG to encode a range of machine learning models that are not supported in current data analytics systems. To optimize the performance of an MLOG program, MLOG contains a databasestyle query optimizer. In many cases, the resulting performance of automatically compiled MLOG programs is comparable with handtuned TensorFlow programs&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on MLearn</title>
+		<published>2022-02-03T20:17:19+00:00</published>
+		<updated>2022-02-03T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202032017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202032017/</id>
+		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3329486.3329494&lt;&#x2F;p&gt;
+&lt;p&gt;MLearn: A Declarative Machine Learning Language for Database Systems&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;The language was designed to cover an end-to-end machine learning process, including initial data curation, with the focus on
+moving computations inside the core of database systems. In this paper, the authors explained the architecture of a compiler that translates into target specific user-defined-functions for the PostgreSQL and HyPer database systems. They gave an example on an accompanying example of linear regression. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;p&gt;From a systems developer&#x27;s point of view, database systems form the native way of efficiently storing data in index structures. Inside database systems, SQL, as the declarative language, simplifies data curation because it allows feature extraction as projections and selections of the only relevant tuples by design. Many studies have presented architectures for building end-to-end machine learning systems. Therefore, different systems tackle the challenges of representing arrays natively in database systems. &lt;&#x2F;p&gt;
+&lt;p&gt;The paper’s main contributions are the description of the architecture behind MLearn with an accompanying example, an extension of PostgreSQL by linear algebra and gradient descent on array datatypes, as well as a look on integrating array query languages.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-mlearn-language&quot;&gt;THE MLEARN LANGUAGE&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Compiling the MLearn language with the ML2SQL compiler (dark blue): it first preprocesses import and include statements, then it compiles to SQL or Python code.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;technical-background&quot;&gt;TECHNICAL BACKGROUND&lt;&#x2F;h2&gt;
+&lt;p&gt;In order to allow machine-learning-related computations within database systems, they have to provide tensors and functionalities for training a model. HyPer has already extended its array datatype to serve as tensors by allowing algebra on those types. To reach a broader audience for our declarative machine learning language, they also provide some matrix algebra functionalities for PostgreSQL online. In addition to matrix operations, a gradient descent optimiser is essential for training models inside database systems.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion-and-ongoing-work&quot;&gt;CONCLUSION AND ONGOING WORK&lt;&#x2F;h2&gt;
+&lt;p&gt;This paper has shown how the ML2SQL compiler treats preprocessor statements to allow the inclusion of code snippets and libraries.&lt;&#x2F;p&gt;
+&lt;p&gt;They have discovered out that array processing represents the major building block for tasks related to machine learning. These tasks would strongly benefit from SQL especially for data preprocessing. In addition, when integrating the advantages of array database into hybrid OLTP and OLAP database systems, no domain specific systems would be required. We shall therefore work on applying matrix algebra to tables using stored procedures that are written in ArrayQL.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on DB meets DL</title>
 		<published>2022-02-01T20:17:19+00:00</published>
 		<updated>2022-02-01T20:17:19+00:00</updated>
 		<link href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202012017/</id>
-		<content type="html">&lt;p&gt;Reading notes for https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;background&quot;&gt;BACKGROUND&lt;&#x2F;h1&gt;
 &lt;p&gt;Deep learning has excelled on complex problems in a variety of data-driven research areas. The database community has been working on data-driven applications for many years and should have dominated this wave of deep learning, but this has not been the case.&lt;&#x2F;p&gt;

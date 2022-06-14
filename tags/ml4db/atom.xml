@@ -8,12 +8,12 @@
 	<updated>2022-02-01T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/ml4db/atom.xml</id>
 	<entry xml:lang="zh">
-		<title>Reading Notes for DB meets DL</title>
+		<title>Reading Notes on DB meets DL</title>
 		<published>2022-02-01T20:17:19+00:00</published>
 		<updated>2022-02-01T20:17:19+00:00</updated>
 		<link href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202012017/</id>
-		<content type="html">&lt;p&gt;Reading notes for https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
+		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h1 id=&quot;background&quot;&gt;BACKGROUND&lt;&#x2F;h1&gt;
 &lt;p&gt;Deep learning has excelled on complex problems in a variety of data-driven research areas. The database community has been working on data-driven applications for many years and should have dominated this wave of deep learning, but this has not been the case.&lt;&#x2F;p&gt;
