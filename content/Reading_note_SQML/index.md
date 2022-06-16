@@ -1,7 +1,7 @@
 +++
 title = "Reading Notes on SQML"
-date = 2022-02-015 20:17:19
-slug = "2022020152017"
+date = 2022-02-15 20:17:19
+slug = "202202152017"
 
 [taxonomies]
 tags = ["DB4ML" ]

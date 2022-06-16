@@ -1,7 +1,7 @@
 +++
 title = "Reading Notes on DB4ML"
-date = 2022-02-011 20:17:19
-slug = "2022020112017"
+date = 2022-02-11 20:17:19
+slug = "202202112017"
 
 [taxonomies]
 tags = ["DB4ML" ]

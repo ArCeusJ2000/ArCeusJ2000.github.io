@@ -1,7 +1,7 @@
 +++
 title = "Reading Notes on Vertica-ML"
-date = 2022-02-017 20:17:19
-slug = "2022020172017"
+date = 2022-02-17 20:17:19
+slug = "202202172017"
 
 [taxonomies]
 tags = ["DB4ML" ]

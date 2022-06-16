@@ -1,7 +1,7 @@
 +++
 title = "Reading Notes on SubspaceDB"
 date = 2022-02-18 20:17:19
-slug = "2022020182017"
+slug = "202202182017"
 
 [taxonomies]
 tags = ["DB4ML" ]
@@ -33,13 +33,16 @@ The major contributions of this paper are
 
 1. Formulation of following relational algebraic operators with optimization objectives 
 
-   • Computation of partial similarity between two tables. 
+   -  Computation of partial similarity between two tables. 
 
-   • Finding representative tuples from a table. 
 
-   • Finding relevant attributes in a table. 
+   -  Finding representative tuples from a table. 
 
-   • Characterizing neighbourhood of a given tuple from a table 
+
+   -  Finding relevant attributes in a table. 
+
+
+   -  Characterizing neighbourhood of a given tuple from a table 
 
 2. SubspaceDB : A Querying system that facilitates data summarization, dimensionality reduction and subspace clustering of high dimensional data stored within RDBMS, using the proposed operators. 
 
@@ -66,4 +69,4 @@ Authors present a top down approach for subspace clustering, called projected cl
 
 ## Conclusion
 
-SubspaceDB is comprised of algebraic relational operators that facilitate abundance of actionable analytics such as representative selection, feature selection, dimensionality reduction, neighbourhood, segmental similarity measure, and above all subspace clustering within DBMS. DBMSs equipped with these capabilities serve to augment DBMS’s machine learning capability in a seamless manner, obviating the need of separate APIs, external analytic systems or data mining tools.
+SubspaceDB is comprised of algebraic relational operators that facilitate abundance of actionable analytics such as representative selection, feature selection, dimensionality reduction, neighbourhood, segmental similarity measure, and above all subspace clustering within DBMS. DBMSs equipped with these capabilities serve to augment DBMSâ€™s machine learning capability in a seamless manner, obviating the need of separate APIs, external analytic systems or data mining tools.
