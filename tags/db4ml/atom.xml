@@ -5,8 +5,147 @@
 	<link href="https://arceusj2000.github.io/tags/db4ml/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-02-08T20:17:19+00:00</updated>
+	<updated>2022-02-18T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/tags/db4ml/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>Reading Notes on SubspaceDB</title>
+		<published>2022-02-18T20:17:19+00:00</published>
+		<updated>2022-02-18T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202182017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202182017/</id>
+		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1016&#x2F;j.datak.2019.05.003&lt;&#x2F;p&gt;
+&lt;p&gt;SubspaceDB : In-database subspace clustering for analytical query processing&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;High dimensional data analysis within relational database management systems (RDBMS) is challenging because of inadequate support from SQL. Currently, subspace clustering of high dimensional data is implemented either outside DBMS using wrapper code or inside DBMS using SQL User Defined Functions&#x2F;Aggregates(UDFs&#x2F;UDAs). However, both these approaches have potential disadvantages from performance, resource usage, and security perspective for voluminous and frequently updated data.&lt;&#x2F;p&gt;
+&lt;p&gt;SubspaceDB implements subspace clustering directly within an RDBMS. SubspaceDB can be over 10 times faster as compared to a conventional wrapper-based or SQL UDF approach. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;p&gt;Despite the fact that RDBMS still remain the premium type of data management technology in most of the domains, subspace clustering algorithms do not lend themselves to SQL queries.&lt;&#x2F;p&gt;
+&lt;p&gt;Four important queries that help in the formation of subspace clusters for in-DBMS analytics: &lt;&#x2F;p&gt;
+&lt;p&gt;(a) Medoid queries, (b) Neighbourhood queries, (c) Partial similarity queries, and (d) Prominence queries. &lt;&#x2F;p&gt;
+&lt;p&gt;The major contributions of this paper are &lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Formulation of following relational algebraic operators with optimization objectives &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Computation of partial similarity between two tables. &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finding representative tuples from a table. &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finding relevant attributes in a table. &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Characterizing neighbourhood of a given tuple from a table &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;SubspaceDB : A Querying system that facilitates data summarization, dimensionality reduction and subspace clustering of high dimensional data stored within RDBMS, using the proposed operators. &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;A framework for querying data via SubspaceDB.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Most of the research work on integrating machine learning with DBMS propose to export data to external tools. But moving large volumes of data is inefficient due to I&#x2F;O overhead, change of file format and network speed. So, large-scale parallel and distributed file systems like Hadoop and Spark are also used extensively for big data analytics. In spite of these successive tools in front of scalable data analytics, this direction presents significant challenges for high dimensional data analysis, real time data access, space management, security, and concurrency control. In order to address the aforementioned issues, authors propose a new strategy for subspace clustering within DBMS. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;proposed-analytical-query-model&quot;&gt;Proposed analytical query model&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Dataset is structured and stored in RDBMS. &lt;&#x2F;li&gt;
+&lt;li&gt;Though the dimensions of data is quite high, the intrinsic dimensions are less. &lt;&#x2F;li&gt;
+&lt;li&gt;The frequency of increase in the number of tuples is higher than that of the attributes.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;These operators are devised by an optimal integration of selection, generalized projection, rename, union and aggregate operators. &lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Computation of partial similarity between two tables. &lt;&#x2F;li&gt;
+&lt;li&gt;Finding representative tuples from a table. &lt;&#x2F;li&gt;
+&lt;li&gt;Finding relevant attributes in a table. &lt;&#x2F;li&gt;
+&lt;li&gt;Characterizing neighbourhood of a given tuple from a table&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;realization-of-subspace-clustering-within-dbms&quot;&gt;Realization of subspace clustering within DBMS&lt;&#x2F;h2&gt;
+&lt;p&gt;Authors present a top down approach for subspace clustering, called projected clustering, which can be applied on a table within RDBMS by integration of the proposed operators in appropriate manner. The advantage is interactive analysis, reduced data movement, efficient query processing due to reduced search space, and above all retrieval of hidden clusters in different subsets of attributes. &lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;SubspaceDB is comprised of algebraic relational operators that facilitate abundance of actionable analytics such as representative selection, feature selection, dimensionality reduction, neighbourhood, segmental similarity measure, and above all subspace clustering within DBMS. DBMSs equipped with these capabilities serve to augment DBMS’s machine learning capability in a seamless manner, obviating the need of separate APIs, external analytic systems or data mining tools.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on Vertica-ML</title>
+		<published>2022-02-17T20:17:19+00:00</published>
+		<updated>2022-02-17T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202172017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202172017/</id>
+		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3318464.3386137&lt;&#x2F;p&gt;
+&lt;p&gt;Vertica-ML: Distributed Machine Learning in Vertica Database&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;An in-database machine learning system can provide many advantages in this scenario, e.g., eliminating the overhead of data transfer, avoiding the maintenance costs of a separate analytical system, and addressing data security and provenance concerns. This subsystem, Vertica-ML, includes machine learning functionalities with SQL API which cover a complete data science workflow as well as model management.  Machine learning models in Vertica are treated as first-class database objects like tables and views; therefore, they enjoy a similar mechanism for archiving and managing.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;An intuitive SQL interface for machine learning It treats models as first-class database objects, and allows business analysts and other SQL users to do more advanced data analysis using the same language they are comfortable with. &lt;&#x2F;li&gt;
+&lt;li&gt;A variety of ML algorithms and tools In addition to distributed algorithms for training predictive models, the set of SQL functions introduced by Vertica-ML covers different stages of a data scientist’s typical workflow. &lt;&#x2F;li&gt;
+&lt;li&gt;A special model object and model management In contrast to previous in-database ML systems which have been oblivious of model management, Vertica-ML provides capabilities to facilitate it. &lt;&#x2F;li&gt;
+&lt;li&gt;Distributed in-memory storage It is integrated into the distributed architecture of Vertica DBMS with the ability to spill to disk when needed&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;vertica-ecosystem&quot;&gt;VERTICA ECOSYSTEM&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, the authors describe the main structure of Vertica. They emphasise that Vertica supports UDF (User Defined Function) and Metafunction, which is currently the more popular implementation in the industry and is the general idea in Presto ML.&lt;&#x2F;p&gt;
+&lt;p&gt;Metafunction is a Vertica-specific function that differs from UDF in that UDF can be used as part of a SQL statement, whereas Metafunction can only be used after a SELECT keyword or even in a FROM clause. Metafunction can only be used after a SELECT keyword, not even in a FROM clause. In fact, the main purpose of Metafunction in Vertica-ML is to pass parameters to machine learning algorithms.&lt;&#x2F;p&gt;
+&lt;p&gt;Vertica-ML also provides management functions for the trained models. The user can use get_model_summary and get_model_attribute to obtain the appropriate meta-information about the model. The model is stored as an object in a database table. This allows us to modify a model using the traditional ALTER or DROP statements.&lt;&#x2F;p&gt;
+&lt;p&gt;Since the machine learning algorithms are implemented directly in the analytical database, parallel computing is a must. Because Vertica itself is a distributed multi-node database, each node computes a portion of the data and does aggregation on a single node.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on SQML</title>
+		<published>2022-02-15T20:17:19+00:00</published>
+		<updated>2022-02-15T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202152017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202152017/</id>
+		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3127479.3132746&lt;&#x2F;p&gt;
+&lt;p&gt;SQML: large-scale in-database machine learning with pure SQL&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;Many enterprises have migrated their data from an on-site database to a cloud-based database-as-a-service that handles all database-related administrative tasks while providing a simple SQL interface to the end user. Given these converging trends, there is a pressing need for database-as-a-service providers to add support for sophisticated machine learning algorithms to the core functionality of their products.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;p&gt;SQML has several advantages over existing in-database machine learning methods, especially for a database-as-a-service:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;SQML does not require user-dened aggregates (UDAs). &lt;&#x2F;li&gt;
+&lt;li&gt;Even when UDAs are available, UDA-based approaches assume that the learned model can ?t in memory on a single machine. SQML represents models as disk-backed tables that are partitioned across many machines, so it can scale to arbitrary model sizes.&lt;&#x2F;li&gt;
+&lt;li&gt;SQML estimates generalized linear models, a large class of models for supervised machine learning that includes linear regression, logistic regression, and support vector machines as special cases. &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;CONCLUSION&lt;&#x2F;h2&gt;
+&lt;p&gt;The SQML learning algorithm is based on preconditioned proximal gradient descent, a state-of-the-art method for convex optimization.&lt;&#x2F;p&gt;
+&lt;p&gt;The results of the experiment are shown SQML outperformed the UDA-based algorithm.&lt;&#x2F;p&gt;
+&lt;p&gt;First, Dremel imposes relatively tight memory limits on each user, and since UDAs must hold the entire model in memory, they had to use model compression techniques that invariably degrade model quality.  SQML does not require model compression, since the models are stored in disk-backed tables. &lt;&#x2F;p&gt;
+&lt;p&gt;Second, on large training sets UDA-based algorithms learn several independent models on disjoint subsets of the training data and then average them together, an approach that slows convergence. SQML always learns a single model on the entire dataset&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on DB4ML</title>
+		<published>2022-02-11T20:17:19+00:00</published>
+		<updated>2022-02-11T20:17:19+00:00</updated>
+		<link href="https://arceusj2000.github.io/202202112017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202202112017/</id>
+		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3318464.3380575&lt;&#x2F;p&gt;
+&lt;p&gt;DB4ML - An In-Memory Database Kernel with Machine Learning Support&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;ABSTRACT&lt;&#x2F;h2&gt;
+&lt;p&gt;Authors revisit the question of how  ML algorithms can be best integrated into existing DBMSs to not only avoid expensive data copies to external ML tools but also to comply with regulatory reasons. The key observation is that database transactions already provide an execution model that allows DBMSs to efficiently mimic the execution model of modern parallel ML algorithms. This paper presents DB4ML, an in-memory database kernel that allows applications to implement user-defined ML algorithms and efficiently run them inside a DBMS. Thereby, the ML algorithms are implemented using a programming model based on the idea of so called iterative transactions.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;INTRODUCTION&lt;&#x2F;h2&gt;
+&lt;p&gt;The standard approach for applying machine learning (ML) algorithms on relational data is to first select the relevant entries with an SQL query and export them from the database into an external ML tool. Then the ML algorithm is run over the extracted data — outside the DBMS — using statistical software packages or ML libraries. However, this approach can impose a high overhead due to expensive data transfers which can significantly slow down the overall learning procedure especially if the datasets are large. Integrating ML algorithms into DBMSs is thus an ongoing effort in both academia and industry. But performance is not the only reason why vendors integrate ML into a DBMS. Another major reason is compliance  that often discourage applications to export any data out of a DBMS since DBMSs already provide rich security frameworks to protect the data from unauthorized access.&lt;&#x2F;p&gt;
+&lt;p&gt;Their approach is based on the key observation that modern in-memory database systems already support fine-grained concurrency control in the form of transactions. Yet, traditional transaction execution schemes are often too heavyweight. Consequently, we show how it is possible to efficiently leverage transaction semantics also for ML algorithms. As a main contribution, we present a new in-memory database kernel called DB4ML that is based on transactions but adds extensions to enable ML algorithms on top of classical transaction processing.&lt;&#x2F;p&gt;
+&lt;p&gt;They propose the concept of iterative transactions. With iterative transactions the very same transaction can be re-executed multiple times until convergence without the need to be actively re-scheduled for every iteration by a driver program (i.e., a client) as done in existing approaches. Furthermore, as a second extension, they add new isolation levels for machine-learning into DB4ML.&lt;&#x2F;p&gt;
+&lt;p&gt;To summarize, the contributions of this paper are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;They define a programming model for user-defined iterative transactions that supports a wide class of ML algorithms and allows developers to easily integrate new ML algorithms into a DBMS. &lt;&#x2F;li&gt;
+&lt;li&gt;They discuss the implementation of our transactional database kernel called DB4ML including a storage manager and execution engine that can efficiently run parallel ML algorithms. &lt;&#x2F;li&gt;
+&lt;li&gt;They showcase through two use cases (PageRank as well as Stochastic Gradient Descent) how ML algorithms could be implemented inside DB4ML. &lt;&#x2F;li&gt;
+&lt;li&gt;Their experimental evaluation shows for the aforementioned use cases that DB4ML can support ML algorithms with the efficiency of modern specialized ML engines without the need to transfer data out of the DBMS.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;CONCLUSION&lt;&#x2F;h2&gt;
+&lt;p&gt;DB4ML offers a new programming model and an execution engine with isolation levels that provide the concurrency schemes required by modern parallel ML algorithms. A central aspect of DB4ML is that the programmer can implement user-defined ML algorithms in DB4ML without having to worry about the low-level details of synchronization. That way, the implementation will automatically benefit from all the parallelization and architectural optimizations which DB4ML contains - as to be expected from a database system. &lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>Reading Notes on MLog</title>
 		<published>2022-02-08T20:17:19+00:00</published>
