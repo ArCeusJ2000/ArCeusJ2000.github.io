@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - Solving stupid problems——装不上某个python包</title>
+      <title>Arceus - Reading Notes on Gorgon</title>
 
       
 
@@ -114,12 +114,22 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202009131443/#shi-gu-xian-chang" class="toc-link">事故现场</a>
+                    <a href="https://arceusj2000.github.io/202202252017/#abstract" class="toc-link">ABSTRACT</a>
                     
                 </li>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202009131443/#wen-ti-jie-jue" class="toc-link">问题解决</a>
+                    <a href="https://arceusj2000.github.io/202202252017/#introduction" class="toc-link">INTRODUCTION</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202202252017/#related-work" class="toc-link">RELATED WORK</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202202252017/#conclusion" class="toc-link">CONCLUSION</a>
                     
                 </li>
                 
@@ -133,34 +143,35 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202009131443&#x2F;">Solving stupid problems——装不上某个python包</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202252017&#x2F;">Reading Notes on Gorgon</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2020-09-13</span>
+            <span class="post__time">2022-02-25</span>
             
         </div>
     </header>
 
     <div class="post-content">
-      <p>记录一次用pip安装python包失败的解决过程</p>
+      <p>Reading notes on https://doi.org/10.1109/ISCA45697.2020.00035</p>
+<p>Gorgon: Accelerating Machine Learning from Relational Data</p>
 <span id="continue-reading"></span>
-<h2 id="shi-gu-xian-chang">事故现场</h2>
-<p><img src=".%5Cimg%5C1.png" alt="" /></p>
-<p>pip装不上，去<a href="https://pypi.org/project/stable-baselines3/#files">stable-baselines3 · PyPI</a>上下的whl也装不上</p>
-<h2 id="wen-ti-jie-jue">问题解决</h2>
-<p>python 中的egg文件；类似于Java 中的jar 包，把一系列的python源码文件、元数据文件、其他资源文件 zip 压缩，重新命名为.egg 文件，目的是作为一个整体进行发布。</p>
-<p>关于egg-info是什么：</p>
-<p><a href="https://www.python101.pythonlibrary.org/chapter38_eggs.html">Chapter 38 - The Python egg — Python 101 1.0 documentation (pythonlibrary.org)</a></p>
-<p>Built Distribution 和 Source Distribution</p>
-<ul>
-<li>不同操作系统安装 Python 包的要求不完全相同，Built Distribution 是按照某类操作系统（例如 Linux）安装要求所打成的包，这样安装的时候只需要将包解压，文件放到适当的位置即可，效率比较高。但一个 Built Distribution 只适用于一类操作系统，例如 Linux 上的 Built Distribution 包无法在 Windows 上安装。而 Source Distribution 包便解决了这个问题，它是对源代码进行打包，将源代码打包成利于打成 Built Distribution 包的形式。这样，我们便可以通过 Source Distribution 包生成适用于特定类型操作系统的 Built Distribution 包，再进行安装。</li>
-</ul>
-<p>xxx.whl是Built Distribution </p>
-<p>xxx.tar.gz是 Source Distribution</p>
-<p>xxx.whl扔进<code>C:\Users\username\Anaconda3\Scripts</code>用pip安装，如上图所示</p>
-<p>xxx.tar.gz解压后包含xxx和xxx.egg-info两个文件夹，需要一起扔进<code>C:\Users\usern\Anaconda3\Lib\site-packages</code></p>
-<p>直接把解压后的包扔进去或者没有egg-info都不能被python环境识别，在这里踩了坑orz</p>
-<p>类似egg-info这种伴生关系的还有dist-info</p>
+<h2 id="abstract">ABSTRACT</h2>
+<p>One emerging application is in-database machine learning: a high-performance, low-friction interface for analytics on large databases. They co-locate database and machine learning processing in a unified reconfigurable data analytics accelerator, Gorgon, which flexibly shares resources between db and ml without compromising performance or incurring excessive overheads in either domain. They distill and integrate database parallel patterns into an existing ML-focused cgra, increasing area by less than 4% while outperforming a multicore software baseline by 1500X. They also explore the performance impact of unifying db and ml in a single accelerator, showing up to 4x speedup over split accelerators.</p>
+<h2 id="introduction">INTRODUCTION</h2>
+<p>Gorgon is a unified data analytics CGRA for in-database machine learning (DB+ML) with ML-focused parallel patterns (map, reduce, etc.) and DB-focused parallel patterns (sort, join, group-by, etc.). Gorgon thus accelerates full data-processing pipelines and is more reconfigurable than previous CGRAS.</p>
+<p>Industrial BD+ML systems, like Google's BigQuery ML and Apaches' MADlib, add ML inference and training to the relational model as new SQL operators. DB and ML have been accelerated individually, but no single hardware platform accelerates both.</p>
+<p>The key contribution of this paper:</p>
+<p>Detailed microarchitectual and system=level design of low-overhead database primitives embedded in a general-purpose reconfigurable accelerator.</p>
+<p>An evaluation of end-to-end system performance, including comparisons to software and independent DB and ML accelerators.</p>
+<h2 id="related-work">RELATED WORK</h2>
+<p>database acceleration ASICs,Q100</p>
+<p>FPGA database accelerators</p>
+<p>Domain-agnostic dataflow accelerators NoC</p>
+<p>In-database Machine Learning DAnA</p>
+<p>A variety of software solutions integrate ML with database operations, including Apache's Spark and MADlib. Greenplum Database and Google's BigQuery ML. Spark is an open-source distributed data-processing engine for various workloads, including SQL, machine learning, and graph processing.BigQuery ML can run ML models in its cloud data warehouse. MADlib is an open-source project that provides SQL-based ML algorithms that run in a database.</p>
+<h2 id="conclusion">CONCLUSION</h2>
+<p>A unified, performant, and flexible accelerator--the ideal, combining the advantages of fixed-function accelerators and FPGAS--would simplify data center management by keeping compute resources homogeneous. Furthermore, accelerator unification enables new, cross-domain applications like DB+ML. Gorgon demonstrates the potential for reuse between accelerators by embedding database inspired paralled patterns in a general-purpose fabric originally designed for ML; it is also the first system to fuse and accelerate DB+ML processing on a single chip, accelerating full data-processing pipelines. </p>
+<p>Gorgon is better-suited to data center integration than a sea of heterogeneous accelerators and faster. Furthermore, a unified platform shares expensive resources and large dice in advanced nodes. By adding database support to an ML-focused accelerator, Gorgon enables more powerful ML pipelines than existing accelerators.</p>
 
     </div>
 
@@ -172,19 +183,19 @@
             
                 <div class="post-tags">
                     
-                        <a href="https://arceusj2000.github.io/tags/python/">#Python</a>
+                        <a href="https://arceusj2000.github.io/tags/db4ml/">#DB4ML</a>
                     
-                        <a href="https://arceusj2000.github.io/tags/solving-stupid-problems/">#Solving stupid problems</a>
+                        <a href="https://arceusj2000.github.io/tags/ml4db/">#ML4DB</a>
                     
                 </div>
             
             
                 <div class="post-nav">
                     
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202006262205&#x2F;">‹ guanshui工具记录</a>
+                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202212017&#x2F;">‹ Reading Notes on XuanYuan</a>
                     
                     
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202012091255&#x2F;">maven报错处理合集 ›</a>
+                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203012017&#x2F;">Reading Notes on IDEL ›</a>
                     
                     
                     
