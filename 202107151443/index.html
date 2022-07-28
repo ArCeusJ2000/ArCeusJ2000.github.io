@@ -156,16 +156,16 @@
 <p>有冲突就覆盖（x</p>
 <h2 id="paddlean-zhuang">paddle安装</h2>
 <p>CUDA10.2版本的镜像</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python -m pip install paddlepaddle-gpu==2.3.0 -i https://mirror.baidu.com/pypi/simple</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python -m pip install paddlepaddle-gpu==2.3.0 -i https://mirror.baidu.com/pypi/simple
 </span></code></pre>
 <p>此时如果用paddle跑代码会出现报错：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>RuntimeError: (PreconditionNotMet) The third-party dynamic library (cudnn64_7.dll) that Paddle depends on is not configured correctly. (error code is 126)</span><span>
-</span><span>  Suggestions:</span><span>
-</span><span>  1. Check if the third-party dynamic library (e.g. CUDA, CUDNN) is installed correctly and its version is matched with paddlepaddle you installed.</span><span>
-</span><span>  2. Configure third-party dynamic library environment variables as follows:</span><span>
-</span><span>  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`</span><span>
-</span><span>  - Windows: set PATH by `set PATH=XXX; (at ..\paddle\phi\backends\dynload\dynamic_loader.cc:303)</span><span>
-</span><span>  [operator &lt; uniform_random &gt; error]</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>RuntimeError: (PreconditionNotMet) The third-party dynamic library (cudnn64_7.dll) that Paddle depends on is not configured correctly. (error code is 126)
+</span><span>  Suggestions:
+</span><span>  1. Check if the third-party dynamic library (e.g. CUDA, CUDNN) is installed correctly and its version is matched with paddlepaddle you installed.
+</span><span>  2. Configure third-party dynamic library environment variables as follows:
+</span><span>  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`
+</span><span>  - Windows: set PATH by `set PATH=XXX; (at ..\paddle\phi\backends\dynload\dynamic_loader.cc:303)
+</span><span>  [operator &lt; uniform_random &gt; error]
 </span></code></pre>
 <p>缺少cudnn64_7.dll，需要手动下载丢进<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin</code></p>
 <p>下载地址：https://www.dll-files.com/search</p>
@@ -185,17 +185,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202104201721&#x2F;">‹ 算法题trick</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202108151443&#x2F;">python数据可视化 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

@@ -157,41 +157,41 @@
 <h3 id="tian-jia-zi-mo-kuai">添加子模块</h3>
 <p>添加一个远程仓库项目子模块到一个已有的主仓库项目中。</p>
 <p>添加模块</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule add https://github.com/iphysresearch/GWToolkit.git GWToolkit</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule add https://github.com/iphysresearch/GWToolkit.git GWToolkit
 </span></code></pre>
 <p>写错地址的补救方式</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名
 </span></code></pre>
 <p>拉取出现空仓库</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update --init --recursive</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update --init --recursive
 </span></code></pre>
 <p>添加后，根目录下会出现 <code>.gitmodules</code> 文件，如果之前暴力删除了submodule，这里的 <code>.gitmodules</code> 文件也要删除。反过来，如果暴力删除了 <code>.gitmodules</code> 文件，删除或重新拉取submodule之前要先<code>git restore .gitmodules</code> 。</p>
 <p>后文有完整的删除流程。</p>
 <h3 id="cha-kan-zi-mo-kuai">查看子模块</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule
 </span></code></pre>
 <h3 id="geng-xin-zi-mo-kuai">更新子模块</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git submodule update
 </span></code></pre>
 <h3 id="shan-chu-zi-mo-kuai">删除子模块</h3>
 <p>step1. 删除子模块仓库本身</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名</span><span>
-</span><span>$ rm -rf 仓库名</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rm --cached 仓库名
+</span><span>$ rm -rf 仓库名
 </span></code></pre>
 <p>step2. 删除 <code>.gitmodules</code> 文件中相关子模块的信息</p>
 <p>形如：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]</span><span>
-</span><span>        path = GWToolkit</span><span>
-</span><span>        url = https://github.com/iphysresearch/GWToolkit.git</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]
+</span><span>        path = GWToolkit
+</span><span>        url = https://github.com/iphysresearch/GWToolkit.git
 </span></code></pre>
 <p>step3. 删除 <code>.git/config</code> 中相关子模块信息</p>
 <p>形如：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]</span><span>
-</span><span>        url = https://github.com/iphysresearch/GWToolkit.git</span><span>
-</span><span>        active = true</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[submodule &quot;GWToolkit&quot;]
+</span><span>        url = https://github.com/iphysresearch/GWToolkit.git
+</span><span>        active = true
 </span></code></pre>
 <p>step4. 删除 <code>.git</code> 文件夹中的相关子模块文件</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ rm -rf .git/modules/GWToolkit</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ rm -rf .git/modules/GWToolkit
 </span></code></pre>
 
     </div>
@@ -208,17 +208,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201071745&#x2F;">‹ git报错处理合集</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201082008&#x2F;">github pages搭建个人博客 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

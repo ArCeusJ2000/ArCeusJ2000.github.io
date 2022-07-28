@@ -169,53 +169,53 @@
       <span id="continue-reading"></span>
 <h2 id="pei-zhi-liu-cheng">配置流程</h2>
 <h3 id="zai-pom-xmljia-ru-jdbc-driver-mysql-connector-java">在pom.xml加入JDBC driver mysql-connector-java</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&lt;dependency&gt;</span><span>
-</span><span>    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><span>
-</span><span>    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><span>
-</span><span>    &lt;version&gt;5.7.29&lt;/version&gt;</span><span>
-</span><span>&lt;/dependency&gt;</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&lt;dependency&gt;
+</span><span>    &lt;groupId&gt;mysql&lt;/groupId&gt;
+</span><span>    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+</span><span>    &lt;version&gt;5.7.29&lt;/version&gt;
+</span><span>&lt;/dependency&gt;
 </span></code></pre>
 <p>附MySQL版本查询命令：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -V</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -V
 </span></code></pre>
 <h2 id="application-ymlwen-jian-pei-zhi">application.yml文件配置</h2>
 <h3 id="mysql-jdbc-driver-url">MySQL JDBC driver URL</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>protocol//[hosts][/database][?properties]</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>protocol//[hosts][/database][?properties]
 </span></code></pre>
 <p>简单示例：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>protocol – jdbc:mysql:</span><span>
-</span><span>host – mysql.db.server:3306</span><span>
-</span><span>database – my_database</span><span>
-</span><span>properties – useSSL=false&amp;serverTimezone=UTC</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>protocol – jdbc:mysql:
+</span><span>host – mysql.db.server:3306
+</span><span>database – my_database
+</span><span>properties – useSSL=false&amp;serverTimezone=UTC
 </span></code></pre>
 <h3 id="kuo-zhan">扩展</h3>
 <h4 id="protocol">Protocol</h4>
 <p>除了&quot;jdbc:mysql:&quot;协议还支持：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Load-balancing JDBC connections – jdbc:mysql:loadbalance:</span><span>
-</span><span>JDBC replication connections – jdbc:mysql:replication: </span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Load-balancing JDBC connections – jdbc:mysql:loadbalance:
+</span><span>JDBC replication connections – jdbc:mysql:replication: 
 </span></code></pre>
 <h4 id="hosts">Hosts</h4>
 <p>如果需要处理多个主机，可以在逗号分隔的列表中列出主机：host1，host2,..., hostN。</p>
 <p>还可以用方括号将逗号分隔的主机列表括起来：[host1， host2,...,hostN]。</p>
 <p>例如：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306,myhost2:3307/db_name</span><span>
-</span><span>jdbc:mysql://[myhost1:3306,myhost2:3307]/db_name</span><span>
-</span><span>jdbc:mysql:loadbalance://myhost1:3306,myhost2:3307/db_name?user=dbUser&amp;password=1234567&amp;loadBalanceConnectionGroup=group_name&amp;ha.enableJMX=true</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306,myhost2:3307/db_name
+</span><span>jdbc:mysql://[myhost1:3306,myhost2:3307]/db_name
+</span><span>jdbc:mysql:loadbalance://myhost1:3306,myhost2:3307/db_name?user=dbUser&amp;password=1234567&amp;loadBalanceConnectionGroup=group_name&amp;ha.enableJMX=true
 </span></code></pre>
 <h4 id="properties-and-user-credentials">Properties and User Credentials</h4>
 <p>有效的全局属性将应用于所有主机。</p>
 <p>格式：</p>
 <p>属性前面有一个问号&quot;？&quot;，并写成key=value键值对，由&quot;&amp;&quot;符号分隔：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306/db_name?prop1=value1&amp;prop2=value2</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306/db_name?prop1=value1&amp;prop2=value2
 </span></code></pre>
 <p>可以将User Credentials放在属性列表中：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306/db_name?user=root&amp;password=mypass</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://myhost1:3306/db_name?user=root&amp;password=mypass
 </span></code></pre>
 <p>可以在每个主机前面加上&quot;user：password@host&quot;格式：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://root:mypass@myhost1:3306/db_name</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://root:mypass@myhost1:3306/db_name
 </span></code></pre>
 <p>如果 JDBC URL 包含主机列表，并且所有主机都使用相同的User Credentials，则可以在主机列表前面加上前缀：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://root:mypass[myhost1:3306,myhost2:3307]/db_name</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jdbc:mysql://root:mypass[myhost1:3306,myhost2:3307]/db_name
 </span></code></pre>
 <p>详细文档：</p>
 <p><a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html">MySQL :: MySQL Connector/J 8.0 Developer Guide :: 6.2 Connection URL Syntax</a></p>
@@ -223,17 +223,17 @@
 <h3 id="mysqllian-jie-shi-li">MySQL连接示例</h3>
 <p>MySQL database： “<em>my_database</em>” </p>
 <p>host： “<em>mysql.db.server</em>“</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>@Test</span><span>
-</span><span>public void givenMysqlDb_thenCreateConnectionObject() {</span><span>
-</span><span>    String jdbcUrl = &quot;jdbc:mysql://mysql.db.server:3306/my_database?useSSL=false&amp;serverTimezone=UTC&quot;;    </span><span>
-</span><span>    String username = &quot;User&quot;;</span><span>
-</span><span>    String password = &quot;1234567&quot;;</span><span>
-</span><span>    try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {</span><span>
-</span><span>        assertNotNull(conn);</span><span>
-</span><span>    } catch (SQLException e) {</span><span>
-</span><span>        System.err.format(&quot;SQL State: %s\n%s&quot;, e.getSQLState(), e.getMessage());</span><span>
-</span><span>    }</span><span>
-</span><span>}</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>@Test
+</span><span>public void givenMysqlDb_thenCreateConnectionObject() {
+</span><span>    String jdbcUrl = &quot;jdbc:mysql://mysql.db.server:3306/my_database?useSSL=false&amp;serverTimezone=UTC&quot;;    
+</span><span>    String username = &quot;User&quot;;
+</span><span>    String password = &quot;1234567&quot;;
+</span><span>    try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {
+</span><span>        assertNotNull(conn);
+</span><span>    } catch (SQLException e) {
+</span><span>        System.err.format(&quot;SQL State: %s\n%s&quot;, e.getSQLState(), e.getMessage());
+</span><span>    }
+</span><span>}
 </span></code></pre>
 
     </div>
@@ -252,17 +252,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201132105&#x2F;">‹ C&#x2F;C++_动态内存分配</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201151443&#x2F;">python经验总结 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

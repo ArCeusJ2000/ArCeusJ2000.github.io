@@ -179,26 +179,26 @@
 <h2 id="condageng-xin-bao-cuo">conda更新报错</h2>
 <h3 id="condavalueerror-malformed-version-string-invalid-character-s">CondaValueError: Malformed version string '~': invalid character(s).</h3>
 <p>尝试</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda upgrade -n base -c defaults --override-channels conda</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda upgrade -n base -c defaults --override-channels conda
 </span></code></pre>
 <h2 id="condaan-zhuang-bao-bao-cuo">conda安装包报错</h2>
 <h3 id="packagesnotfounderror-the-following-packages-are-not-available-from-current-channels-ruamel-yaml-conda">PackagesNotFoundError: The following packages are not available from current channels: ruamel_yaml_conda</h3>
 <p>pip和conda部分安装包名不完全一致</p>
 <p>pip下 <strong>ruamel_yaml_conda</strong> 等价于conda下 <strong>ruamel.yaml</strong></p>
 <p>使用：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ruamel.yaml</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ruamel.yaml
 </span></code></pre>
 <h3 id="removeerror-requests-is-a-dependency-of-conda-and-cannot-be-removed-from-conda-s-operating-environment">RemoveError: 'requests' is a dependency of conda and cannot be removed from conda's operating environment</h3>
 <p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda update --force conda</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda update --force conda
 </span></code></pre>
 <h2 id="condabian-ma-bao-cuo">conda编码报错</h2>
 <h3 id="fatal-python-error-init-sys-streams-can-t-initialize-sys-standard-streams-lookuperror-unknown-encoding-65001">Fatal Python error: init_sys_streams: can't initialize sys standard streams LookupError: unknown encoding: 65001</h3>
 <p>执行：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ set pythonioencoding=utf-8</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ set pythonioencoding=utf-8
 </span></code></pre>
 <p>查看：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo %PYTHONIOENCODING%</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo %PYTHONIOENCODING%
 </span></code></pre>
 
     </div>
@@ -215,17 +215,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201091721&#x2F;">‹ Quantative Trading相关环境配置</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201111736&#x2F;">C++_编译报错处理合集 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

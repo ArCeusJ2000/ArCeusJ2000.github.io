@@ -193,56 +193,56 @@
 <p><strong>找到「状态」 -&gt; 定义 dp 数组/函数 -&gt; 明确「选择」-&gt; 明确 base case。</strong></p>
 <h2 id="fei-bo-na-qi-shu-lie">斐波那契数列</h2>
 <h3 id="bao-li-di-gui">暴力递归</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {</span><span>
-</span><span>    </span><span style="color:#b48ead;">if </span><span>(N == </span><span style="color:#d08770;">1 </span><span>|| N == </span><span style="color:#d08770;">2</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">fib</span><span>(N - </span><span style="color:#d08770;">1</span><span>) + </span><span style="color:#bf616a;">fib</span><span>(N - </span><span style="color:#d08770;">2</span><span>);</span><span>
-</span><span>}</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(N == </span><span style="color:#d08770;">1 </span><span>|| N == </span><span style="color:#d08770;">2</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">fib</span><span>(N - </span><span style="color:#d08770;">1</span><span>) + </span><span style="color:#bf616a;">fib</span><span>(N - </span><span style="color:#d08770;">2</span><span>);
+</span><span>}
 </span></code></pre>
 <p>时间复杂度： O(2^n)</p>
 <h3 id="dai-bei-wang-lu-de-di-gui-jie-fa">带备忘录的递归解法</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {</span><span>
-</span><span>    </span><span style="color:#b48ead;">if </span><span>(N &lt; </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;</span><span>
-</span><span>    </span><span style="color:#65737e;">// 备忘录全初始化为 0</span><span style="color:#65737e;">
-</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">memo</span><span>(N + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0</span><span>);</span><span>
-</span><span>    </span><span style="color:#65737e;">// 初始化最简情况</span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">helper</span><span>(memo, N);</span><span>
-</span><span>}</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(N &lt; </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#65737e;">// 备忘录全初始化为 0
+</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">memo</span><span>(N + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span>    </span><span style="color:#65737e;">// 初始化最简情况
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">helper</span><span>(memo, N);
+</span><span>}
 </span><span>
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">helper</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">memo</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {</span><span>
-</span><span>    </span><span style="color:#65737e;">// base case </span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">if </span><span>(n == </span><span style="color:#d08770;">1 </span><span>|| n == </span><span style="color:#d08770;">2</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span>    </span><span style="color:#65737e;">// 已经计算过</span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">if </span><span>(memo[n] != </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">return</span><span> memo[n];</span><span>
-</span><span>    memo[n] = </span><span style="color:#bf616a;">helper</span><span>(memo, n - </span><span style="color:#d08770;">1</span><span>) + </span><span>
-</span><span>                </span><span style="color:#bf616a;">helper</span><span>(memo, n - </span><span style="color:#d08770;">2</span><span>);</span><span>
-</span><span>    </span><span style="color:#b48ead;">return</span><span> memo[n];</span><span>
-</span><span>}</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">helper</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">memo</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {
+</span><span>    </span><span style="color:#65737e;">// base case 
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(n == </span><span style="color:#d08770;">1 </span><span>|| n == </span><span style="color:#d08770;">2</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#65737e;">// 已经计算过
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(memo[n] != </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">return</span><span> memo[n];
+</span><span>    memo[n] = </span><span style="color:#bf616a;">helper</span><span>(memo, n - </span><span style="color:#d08770;">1</span><span>) + 
+</span><span>                </span><span style="color:#bf616a;">helper</span><span>(memo, n - </span><span style="color:#d08770;">2</span><span>);
+</span><span>    </span><span style="color:#b48ead;">return</span><span> memo[n];
+</span><span>}
 </span></code></pre>
 <p>时间复杂度： O(n)</p>
 <h3 id="dp-shu-zu-de-die-dai-jie-fa">dp 数组的迭代解法</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {</span><span>
-</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">dp</span><span>(N + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0</span><span>);</span><span>
-</span><span>    </span><span style="color:#65737e;">// base case</span><span style="color:#65737e;">
-</span><span>    dp[</span><span style="color:#d08770;">1</span><span>] = dp[</span><span style="color:#d08770;">2</span><span>] = </span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">3</span><span>; i &lt;= N; i++)</span><span>
-</span><span>        dp[i] = dp[i - </span><span style="color:#d08770;">1</span><span>] + dp[i - </span><span style="color:#d08770;">2</span><span>];</span><span>
-</span><span>    </span><span style="color:#b48ead;">return</span><span> dp[N];</span><span>
-</span><span>}</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">N</span><span>) {
+</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">dp</span><span>(N + </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">0</span><span>);
+</span><span>    </span><span style="color:#65737e;">// base case
+</span><span>    dp[</span><span style="color:#d08770;">1</span><span>] = dp[</span><span style="color:#d08770;">2</span><span>] = </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">3</span><span>; i &lt;= N; i++)
+</span><span>        dp[i] = dp[i - </span><span style="color:#d08770;">1</span><span>] + dp[i - </span><span style="color:#d08770;">2</span><span>];
+</span><span>    </span><span style="color:#b48ead;">return</span><span> dp[N];
+</span><span>}
 </span></code></pre>
 <p>时间复杂度： O(n)</p>
 <h3 id="kong-jian-fu-za-du-jiang-wei-o-1">空间复杂度降为 O(1)</h3>
 <p>根据斐波那契数列的状态转移方程，当前状态只和之前的两个状态有关，只要存储之前的两个状态就可以了。</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {</span><span>
-</span><span>    </span><span style="color:#b48ead;">if </span><span>(n == </span><span style="color:#d08770;">2 </span><span>|| n == </span><span style="color:#d08770;">1</span><span>) </span><span>
-</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span>    </span><span style="color:#b48ead;">int</span><span> prev = </span><span style="color:#d08770;">1</span><span>, curr = </span><span style="color:#d08770;">1</span><span>;</span><span>
-</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">3</span><span>; i &lt;= n; i++) {</span><span>
-</span><span>        </span><span style="color:#b48ead;">int</span><span> sum = prev + curr;</span><span>
-</span><span>        prev = curr;</span><span>
-</span><span>        curr = sum;</span><span>
-</span><span>    }</span><span>
-</span><span>    </span><span style="color:#b48ead;">return</span><span> curr;</span><span>
-</span><span>}</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fib</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(n == </span><span style="color:#d08770;">2 </span><span>|| n == </span><span style="color:#d08770;">1</span><span>) 
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">int</span><span> prev = </span><span style="color:#d08770;">1</span><span>, curr = </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">3</span><span>; i &lt;= n; i++) {
+</span><span>        </span><span style="color:#b48ead;">int</span><span> sum = prev + curr;
+</span><span>        prev = curr;
+</span><span>        curr = sum;
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return</span><span> curr;
+</span><span>}
 </span></code></pre>
 <h2 id="cou-ling-qian-wen-ti">凑零钱问题</h2>
 <h4 id="ti-mu">题目</h4>
@@ -253,79 +253,79 @@
 <p><strong>「选择」并择优</strong>，也就是对于每个状态，可以做出什么选择改变当前状态。具体到这个问题，无论当的目标金额是多少，选择就是从面额列表<code>coins</code>中选择一个硬币，然后目标金额就会减少</p>
 <p><strong>base case</strong>，目标金额为 0 时，所需硬币数量为 0；当目标金额小于 0 时，无解，返回 -1</p>
 <h3 id="bao-li-jie-fa">暴力解法</h3>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># 伪码框架</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):</span><span>
-</span><span>    </span><span style="color:#65737e;"># 定义：要凑出金额 n，至少要 dp(n) 个硬币</span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):</span><span>
-</span><span>        </span><span style="color:#65737e;"># 做选择，需要硬币最少的那个结果就是答案</span><span style="color:#65737e;">
-</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:</span><span>
-</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ </span><span style="color:#bf616a;">dp</span><span>(n - coin))</span><span>
-</span><span>        </span><span style="color:#b48ead;">return </span><span>res</span><span>
-</span><span>    </span><span style="color:#65737e;"># 我们要求目标金额是 amount</span><span style="color:#65737e;">
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># 伪码框架
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):
+</span><span>    </span><span style="color:#65737e;"># 定义：要凑出金额 n，至少要 dp(n) 个硬币
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):
+</span><span>        </span><span style="color:#65737e;"># 做选择，需要硬币最少的那个结果就是答案
+</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:
+</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ </span><span style="color:#bf616a;">dp</span><span>(n - coin))
+</span><span>        </span><span style="color:#b48ead;">return </span><span>res
+</span><span>    </span><span style="color:#65737e;"># 我们要求目标金额是 amount
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)
 </span><span>
 </span></code></pre>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):
 </span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):</span><span>
-</span><span>        </span><span style="color:#65737e;"># base case</span><span style="color:#65737e;">
-</span><span>        </span><span style="color:#b48ead;">if </span><span>n == </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>
-</span><span>        </span><span style="color:#b48ead;">if </span><span>n &lt; </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1</span><span>
-</span><span>        </span><span style="color:#65737e;"># 求最小值，所以初始化为正无穷</span><span style="color:#65737e;">
-</span><span>        res = </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;)</span><span>
-</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:</span><span>
-</span><span>            subproblem = </span><span style="color:#bf616a;">dp</span><span>(n - coin)</span><span>
-</span><span>            </span><span style="color:#65737e;"># 子问题无解，跳过</span><span style="color:#65737e;">
-</span><span>            </span><span style="color:#b48ead;">if </span><span>subproblem == -</span><span style="color:#d08770;">1</span><span>: </span><span style="color:#b48ead;">continue</span><span>
-</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ subproblem)</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):
+</span><span>        </span><span style="color:#65737e;"># base case
+</span><span>        </span><span style="color:#b48ead;">if </span><span>n == </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0
+</span><span>        </span><span style="color:#b48ead;">if </span><span>n &lt; </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1
+</span><span>        </span><span style="color:#65737e;"># 求最小值，所以初始化为正无穷
+</span><span>        res = </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;)
+</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:
+</span><span>            subproblem = </span><span style="color:#bf616a;">dp</span><span>(n - coin)
+</span><span>            </span><span style="color:#65737e;"># 子问题无解，跳过
+</span><span>            </span><span style="color:#b48ead;">if </span><span>subproblem == -</span><span style="color:#d08770;">1</span><span>: </span><span style="color:#b48ead;">continue
+</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ subproblem)
 </span><span>
-</span><span>        </span><span style="color:#b48ead;">return </span><span>res </span><span style="color:#b48ead;">if </span><span>res != </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;) </span><span style="color:#b48ead;">else </span><span>-</span><span style="color:#d08770;">1</span><span>
+</span><span>        </span><span style="color:#b48ead;">return </span><span>res </span><span style="color:#b48ead;">if </span><span>res != </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;) </span><span style="color:#b48ead;">else </span><span>-</span><span style="color:#d08770;">1
 </span><span>
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)
 </span></code></pre>
 <p><strong>时间复杂度：子问题总数 x 解决每个子问题的时间</strong>。</p>
 <p>子问题总数为递归树节点个数，是 O(n^k)。每个子问题中含有一个 for 循环，复杂度为 O(k)。所以总时间复杂度为 O(k * n^k)，指数级别。</p>
 <h3 id="dai-bei-wang-lu-de-di-gui">带备忘录的递归</h3>
 <p>通过备忘录消除子问题</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):</span><span>
-</span><span>    </span><span style="color:#65737e;"># 备忘录</span><span style="color:#65737e;">
-</span><span>    memo = </span><span style="color:#bf616a;">dict</span><span>()</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):</span><span>
-</span><span>        </span><span style="color:#65737e;"># 查备忘录，避免重复计算</span><span style="color:#65737e;">
-</span><span>        </span><span style="color:#b48ead;">if </span><span>n in memo: </span><span style="color:#b48ead;">return </span><span>memo[n]</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">coinChange</span><span>(</span><span style="color:#bf616a;">coins</span><span>: List[int], </span><span style="color:#bf616a;">amount</span><span>: int):
+</span><span>    </span><span style="color:#65737e;"># 备忘录
+</span><span>    memo = </span><span style="color:#bf616a;">dict</span><span>()
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">dp</span><span>(</span><span style="color:#bf616a;">n</span><span>):
+</span><span>        </span><span style="color:#65737e;"># 查备忘录，避免重复计算
+</span><span>        </span><span style="color:#b48ead;">if </span><span>n in memo: </span><span style="color:#b48ead;">return </span><span>memo[n]
 </span><span>
-</span><span>        </span><span style="color:#b48ead;">if </span><span>n == </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>
-</span><span>        </span><span style="color:#b48ead;">if </span><span>n &lt; </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1</span><span>
-</span><span>        res = </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;)</span><span>
-</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:</span><span>
-</span><span>            subproblem = </span><span style="color:#bf616a;">dp</span><span>(n - coin)</span><span>
-</span><span>            </span><span style="color:#b48ead;">if </span><span>subproblem == -</span><span style="color:#d08770;">1</span><span>: </span><span style="color:#b48ead;">continue</span><span>
-</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ subproblem)</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>n == </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0
+</span><span>        </span><span style="color:#b48ead;">if </span><span>n &lt; </span><span style="color:#d08770;">0</span><span>: </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1
+</span><span>        res = </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;)
+</span><span>        </span><span style="color:#b48ead;">for </span><span>coin </span><span style="color:#b48ead;">in </span><span>coins:
+</span><span>            subproblem = </span><span style="color:#bf616a;">dp</span><span>(n - coin)
+</span><span>            </span><span style="color:#b48ead;">if </span><span>subproblem == -</span><span style="color:#d08770;">1</span><span>: </span><span style="color:#b48ead;">continue
+</span><span>            res = </span><span style="color:#96b5b4;">min</span><span>(res, </span><span style="color:#d08770;">1 </span><span>+ subproblem)
 </span><span>
-</span><span>        </span><span style="color:#65737e;"># 记入备忘录</span><span style="color:#65737e;">
-</span><span>        memo[n] = res </span><span style="color:#b48ead;">if </span><span>res != </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;) </span><span style="color:#b48ead;">else </span><span>-</span><span style="color:#d08770;">1</span><span>
-</span><span>        </span><span style="color:#b48ead;">return </span><span>memo[n]</span><span>
+</span><span>        </span><span style="color:#65737e;"># 记入备忘录
+</span><span>        memo[n] = res </span><span style="color:#b48ead;">if </span><span>res != </span><span style="color:#bf616a;">float</span><span>(&#39;</span><span style="color:#a3be8c;">INF</span><span>&#39;) </span><span style="color:#b48ead;">else </span><span>-</span><span style="color:#d08770;">1
+</span><span>        </span><span style="color:#b48ead;">return </span><span>memo[n]
 </span><span>
-</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">dp</span><span>(amount)
 </span></code></pre>
 <p>子问题总数不会超过金额数 n，即子问题数目为 O(n)。处理一个子问题的时间不变，仍是 O(k)，所以总的时间复杂度是 O(kn)。</p>
 <h3 id="dp-shu-zu-de-die-dai-jie-fa-1">dp 数组的迭代解法</h3>
 <p><code>dp[i] = x</code>表示，当目标金额为<code>i</code>时，至少需要<code>x</code>枚硬币。</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">coinChange</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">coins</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">amount</span><span>) {</span><span>
-</span><span>    </span><span style="color:#65737e;">// 数组大小为 amount + 1，初始值也为 amount + 1</span><span style="color:#65737e;">
-</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">dp</span><span>(amount + </span><span style="color:#d08770;">1</span><span>, amount + </span><span style="color:#d08770;">1</span><span>);</span><span>
-</span><span>    </span><span style="color:#65737e;">// base case</span><span style="color:#65737e;">
-</span><span>    dp[</span><span style="color:#d08770;">0</span><span>] = </span><span style="color:#d08770;">0</span><span>;</span><span>
-</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &lt; dp.</span><span style="color:#bf616a;">size</span><span>(); i++) {</span><span>
-</span><span>        </span><span style="color:#65737e;">// 内层 for 在求所有子问题 + 1 的最小值</span><span style="color:#65737e;">
-</span><span>        </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> coin : coins) {</span><span>
-</span><span>            </span><span style="color:#65737e;">// 子问题无解，跳过</span><span style="color:#65737e;">
-</span><span>            </span><span style="color:#b48ead;">if </span><span>(i - coin &lt; </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">continue</span><span>;</span><span>
-</span><span>            dp[i] = </span><span style="color:#bf616a;">min</span><span>(dp[i], </span><span style="color:#d08770;">1 </span><span>+ dp[i - coin]);</span><span>
-</span><span>        }</span><span>
-</span><span>    }</span><span>
-</span><span>    </span><span style="color:#b48ead;">return </span><span>(dp[amount] == amount + </span><span style="color:#d08770;">1</span><span>) ? -</span><span style="color:#d08770;">1 </span><span>: dp[amount];</span><span>
-</span><span>}</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">coinChange</span><span>(vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt;&amp; </span><span style="color:#bf616a;">coins</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">amount</span><span>) {
+</span><span>    </span><span style="color:#65737e;">// 数组大小为 amount + 1，初始值也为 amount + 1
+</span><span>    vector&lt;</span><span style="color:#b48ead;">int</span><span>&gt; </span><span style="color:#bf616a;">dp</span><span>(amount + </span><span style="color:#d08770;">1</span><span>, amount + </span><span style="color:#d08770;">1</span><span>);
+</span><span>    </span><span style="color:#65737e;">// base case
+</span><span>    dp[</span><span style="color:#d08770;">0</span><span>] = </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &lt; dp.</span><span style="color:#bf616a;">size</span><span>(); i++) {
+</span><span>        </span><span style="color:#65737e;">// 内层 for 在求所有子问题 + 1 的最小值
+</span><span>        </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> coin : coins) {
+</span><span>            </span><span style="color:#65737e;">// 子问题无解，跳过
+</span><span>            </span><span style="color:#b48ead;">if </span><span>(i - coin &lt; </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">continue</span><span>;
+</span><span>            dp[i] = </span><span style="color:#bf616a;">min</span><span>(dp[i], </span><span style="color:#d08770;">1 </span><span>+ dp[i - coin]);
+</span><span>        }
+</span><span>    }
+</span><span>    </span><span style="color:#b48ead;">return </span><span>(dp[amount] == amount + </span><span style="color:#d08770;">1</span><span>) ? -</span><span style="color:#d08770;">1 </span><span>: dp[amount];
+</span><span>}
 </span></code></pre>
 <p><code>dp</code>数组初始化为<code>amount + 1</code>，是因为凑成<code>amount</code>金额的硬币数最多只可能等于<code>amount</code>（全用 1 元面值的硬币），所以初始化为<code>amount + 1</code>就相当于初始化为正无穷，便于后续取最小值。</p>
 
@@ -343,17 +343,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202104101721&#x2F;">‹ Data structure template</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202104201721&#x2F;">算法题trick ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

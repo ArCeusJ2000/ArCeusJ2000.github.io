@@ -204,113 +204,113 @@
 <p>动态内存是由程序员手动分配,手动释放的；动态内存是在堆分配的。</p>
 <h2 id="cdong-tai-nei-cun-fen-pei">C动态内存分配</h2>
 <p>C语言使用了一个库解决方案实现动态内存分配，其函数malloc( )，calloc( )，realloc( )和free( )在<cstdlib>（在C中称为&lt;stdlib.h&gt;）中定义。这些函数可用于C++，用于分配和解除分配动态内存。</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">malloc</span><span>(size_t </span><span style="color:#bf616a;">size</span><span>)</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">malloc</span><span>(size_t </span><span style="color:#bf616a;">size</span><span>)
 </span></code></pre>
 <ul>
 <li><strong>size</strong> − 内存块的大小，以字节为单位。</li>
 </ul>
 <p>分配请求的内存并返回指向该内存的指针。</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">calloc</span><span>(size_t </span><span style="color:#bf616a;">nitems</span><span>, size_t </span><span style="color:#bf616a;">size</span><span>)</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">calloc</span><span>(size_t </span><span style="color:#bf616a;">nitems</span><span>, size_t </span><span style="color:#bf616a;">size</span><span>)
 </span></code></pre>
 <ul>
 <li><strong>nitems</strong> − 要分配的元素数。</li>
 <li><strong>size</strong> − 元素的大小。</li>
 </ul>
 <p>malloc 和 calloc 的不同之处在于，malloc 不会将内存设置为零，而 calloc 会将分配的内存设置为零。</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">realloc</span><span>(</span><span style="color:#b48ead;">void </span><span>*</span><span style="color:#bf616a;">ptr</span><span>, size_t </span><span style="color:#bf616a;">size</span><span>)</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span>*</span><span style="color:#8fa1b3;">realloc</span><span>(</span><span style="color:#b48ead;">void </span><span>*</span><span style="color:#bf616a;">ptr</span><span>, size_t </span><span style="color:#bf616a;">size</span><span>)
 </span></code></pre>
 <ul>
 <li><strong>ptr</strong> − 指向先前使用malloc，calloc或realloc分配的内存块的指针，以进行重新分配。如果是 NULL，则分配一个新块，并且函数将返回指向该块的指针。</li>
 <li><strong>size</strong> − 内存块的新大小，以字节为单位。如果为 0 并且 ptr 指向现有内存块，则 ptr 所指向的内存块将解除分配，并返回 NULL 指针。</li>
 </ul>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">free</span><span>(</span><span style="color:#b48ead;">void </span><span>*</span><span style="color:#bf616a;">ptr</span><span>)</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">free</span><span>(</span><span style="color:#b48ead;">void </span><span>*</span><span style="color:#bf616a;">ptr</span><span>)
 </span></code></pre>
 <ul>
 <li><strong>ptr</strong> − 指向先前分配了 malloc、calloc 或 realloc 以解除分配的内存块的指针。如果空指针作为参数传递，则不会发生任何操作。</li>
 </ul>
 <p>示例：</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stdio.h</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stdlib.h</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">string.h</span><span>&gt;</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stdio.h</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stdlib.h</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">string.h</span><span>&gt;
 </span><span>
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main </span><span>() {</span><span>
-</span><span>   </span><span style="color:#b48ead;">char </span><span>*str;</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main </span><span>() {
+</span><span>   </span><span style="color:#b48ead;">char </span><span>*str;
 </span><span>
-</span><span>   </span><span style="color:#65737e;">/* Initial memory allocation */</span><span>
-</span><span>   str = (</span><span style="color:#b48ead;">char </span><span>*) </span><span style="color:#96b5b4;">malloc</span><span>(</span><span style="color:#d08770;">15</span><span>);</span><span>
-</span><span>   </span><span style="color:#96b5b4;">strcpy</span><span>(str, &quot;</span><span style="color:#a3be8c;">tutorialspoint</span><span>&quot;);</span><span>
-</span><span>   </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#a3be8c;">String = </span><span style="color:#d08770;">%s</span><span style="color:#a3be8c;">,  Address = </span><span style="color:#d08770;">%u</span><span style="color:#96b5b4;">\n</span><span>&quot;, str, str);</span><span>
+</span><span>   </span><span style="color:#65737e;">/* Initial memory allocation */
+</span><span>   str = (</span><span style="color:#b48ead;">char </span><span>*) </span><span style="color:#96b5b4;">malloc</span><span>(</span><span style="color:#d08770;">15</span><span>);
+</span><span>   </span><span style="color:#96b5b4;">strcpy</span><span>(str, &quot;</span><span style="color:#a3be8c;">tutorialspoint</span><span>&quot;);
+</span><span>   </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#a3be8c;">String = </span><span style="color:#d08770;">%s</span><span style="color:#a3be8c;">,  Address = </span><span style="color:#d08770;">%u</span><span style="color:#96b5b4;">\n</span><span>&quot;, str, str);
 </span><span>
-</span><span>   </span><span style="color:#65737e;">/* Reallocating memory */</span><span>
-</span><span>   str = (</span><span style="color:#b48ead;">char </span><span>*) </span><span style="color:#96b5b4;">realloc</span><span>(str, </span><span style="color:#d08770;">25</span><span>);</span><span>
-</span><span>   </span><span style="color:#96b5b4;">strcat</span><span>(str, &quot;</span><span style="color:#a3be8c;">.com</span><span>&quot;);</span><span>
-</span><span>   </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#a3be8c;">String = </span><span style="color:#d08770;">%s</span><span style="color:#a3be8c;">,  Address = </span><span style="color:#d08770;">%u</span><span style="color:#96b5b4;">\n</span><span>&quot;, str, str);</span><span>
+</span><span>   </span><span style="color:#65737e;">/* Reallocating memory */
+</span><span>   str = (</span><span style="color:#b48ead;">char </span><span>*) </span><span style="color:#96b5b4;">realloc</span><span>(str, </span><span style="color:#d08770;">25</span><span>);
+</span><span>   </span><span style="color:#96b5b4;">strcat</span><span>(str, &quot;</span><span style="color:#a3be8c;">.com</span><span>&quot;);
+</span><span>   </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#a3be8c;">String = </span><span style="color:#d08770;">%s</span><span style="color:#a3be8c;">,  Address = </span><span style="color:#d08770;">%u</span><span style="color:#96b5b4;">\n</span><span>&quot;, str, str);
 </span><span>
-</span><span>   </span><span style="color:#65737e;">/* Deallocate allocated memory */</span><span>
-</span><span>   </span><span style="color:#96b5b4;">free</span><span>(str);</span><span>
-</span><span>   </span><span>
-</span><span>   </span><span style="color:#b48ead;">return</span><span>(</span><span style="color:#d08770;">0</span><span>);</span><span>
-</span><span>}</span><span>
+</span><span>   </span><span style="color:#65737e;">/* Deallocate allocated memory */
+</span><span>   </span><span style="color:#96b5b4;">free</span><span>(str);
+</span><span>   
+</span><span>   </span><span style="color:#b48ead;">return</span><span>(</span><span style="color:#d08770;">0</span><span>);
+</span><span>}
 </span></code></pre>
 <p>输出：</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>String = tutorialspoint, Address = </span><span style="color:#d08770;">355090448</span><span>
-</span><span>String = tutorialspoint.</span><span style="color:#bf616a;">com</span><span>, Address = </span><span style="color:#d08770;">355090448</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span>String = tutorialspoint, Address = </span><span style="color:#d08770;">355090448
+</span><span>String = tutorialspoint.</span><span style="color:#bf616a;">com</span><span>, Address = </span><span style="color:#d08770;">355090448
 </span></code></pre>
 <h2 id="c-dong-tai-nei-cun-fen-pei">C++动态内存分配</h2>
 <h3 id="new-he-delete-yun-suan-fu">new 和 delete 运算符</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">new</span><span> data-type;</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">new</span><span> data-type;
 </span></code></pre>
 <p>例如：</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span>* p; </span><span style="color:#65737e;">// declares a pointer p</span><span style="color:#65737e;">
-</span><span>p = </span><span style="color:#b48ead;">new int</span><span>;  </span><span style="color:#65737e;">// dynamically allocate an int for loading the address in p</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">double </span><span>* d;  </span><span style="color:#65737e;">// declares a pointer d</span><span style="color:#65737e;">
-</span><span>d = </span><span style="color:#b48ead;">new double</span><span>;  </span><span style="color:#65737e;">// dynamically allocate a double and loading the address in p</span><span style="color:#65737e;">
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">int </span><span>* p; </span><span style="color:#65737e;">// declares a pointer p
+</span><span>p = </span><span style="color:#b48ead;">new int</span><span>;  </span><span style="color:#65737e;">// dynamically allocate an int for loading the address in p
+</span><span style="color:#b48ead;">double </span><span>* d;  </span><span style="color:#65737e;">// declares a pointer d
+</span><span>d = </span><span style="color:#b48ead;">new double</span><span>;  </span><span style="color:#65737e;">// dynamically allocate a double and loading the address in p
 </span></code></pre>
 <p>C 中的 malloc（） 函数在C++中仍然存在，但建议避免使用 malloc( )函数。</p>
 <p>因为容易出错（X</p>
 <p>因为new 不仅分配内存，它还构造对象 （√</p>
 <p>当不再需要动态分配的变量时，可以使用 delete 运算符来释放内存空间。(对应free( ))</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">delete</span><span> var_name;</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">delete</span><span> var_name;
 </span></code></pre>
 <p>简单示例：</p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">using namespace</span><span> std; </span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std; 
 </span><span>
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()</span><span>
-</span><span>{</span><span>
-</span><span>    </span><span style="color:#b48ead;">double</span><span>* val = </span><span style="color:#d08770;">NULL</span><span>;</span><span>
-</span><span>    val = </span><span style="color:#b48ead;">new double</span><span>;</span><span>
-</span><span>    *val = </span><span style="color:#d08770;">38184.26</span><span>;</span><span>
-</span><span>    cout &lt;&lt; &quot;</span><span style="color:#a3be8c;">Value is : </span><span>&quot; &lt;&lt; *val &lt;&lt; endl;</span><span>
-</span><span>    </span><span style="color:#b48ead;">delete</span><span> val;</span><span>
-</span><span>}</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>    </span><span style="color:#b48ead;">double</span><span>* val = </span><span style="color:#d08770;">NULL</span><span>;
+</span><span>    val = </span><span style="color:#b48ead;">new double</span><span>;
+</span><span>    *val = </span><span style="color:#d08770;">38184.26</span><span>;
+</span><span>    cout &lt;&lt; &quot;</span><span style="color:#a3be8c;">Value is : </span><span>&quot; &lt;&lt; *val &lt;&lt; endl;
+</span><span>    </span><span style="color:#b48ead;">delete</span><span> val;
+</span><span>}
 </span></code></pre>
 <h3 id="shu-zu-dong-tai-nei-cun-fen-pei">数组动态内存分配</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">char</span><span>* val  = </span><span style="color:#d08770;">NULL</span><span>;      </span><span style="color:#65737e;">// Pointer initialized with NULL value</span><span style="color:#65737e;">
-</span><span>val = </span><span style="color:#b48ead;">new char</span><span>[</span><span style="color:#d08770;">40</span><span>];     </span><span style="color:#65737e;">// Request memory for the variable</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">delete []</span><span> val;			</span><span style="color:#65737e;">// Delete the array pointed to by val</span><span style="color:#65737e;">
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">char</span><span>* val  = </span><span style="color:#d08770;">NULL</span><span>;      </span><span style="color:#65737e;">// Pointer initialized with NULL value
+</span><span>val = </span><span style="color:#b48ead;">new char</span><span>[</span><span style="color:#d08770;">40</span><span>];     </span><span style="color:#65737e;">// Request memory for the variable
+</span><span style="color:#b48ead;">delete []</span><span> val;			</span><span style="color:#65737e;">// Delete the array pointed to by val
 </span></code></pre>
 <h3 id="gou-zao-han-shu-dong-tai-nei-cun-fen-pei">构造函数动态内存分配</h3>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">using namespace</span><span> std; </span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;
+</span><span style="color:#b48ead;">using namespace</span><span> std; 
 </span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">stud </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
-</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    </span><span style="color:#8fa1b3;">stud</span><span style="color:#eff1f5;">()</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        cout </span><span>&lt;&lt; &quot;</span><span style="color:#a3be8c;">Constructor Used</span><span>&quot; &lt;&lt;</span><span style="color:#eff1f5;"> endl;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    </span><span style="color:#8fa1b3;">~stud</span><span style="color:#eff1f5;">()</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        cout </span><span>&lt;&lt; &quot;</span><span style="color:#a3be8c;">Destructor Used</span><span>&quot; &lt;&lt;</span><span style="color:#eff1f5;"> endl;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">}</span><span>;</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">stud </span><span style="color:#eff1f5;">{
+</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:
+</span><span style="color:#eff1f5;">    </span><span style="color:#8fa1b3;">stud</span><span style="color:#eff1f5;">()
+</span><span style="color:#eff1f5;">    {
+</span><span style="color:#eff1f5;">        cout </span><span>&lt;&lt; &quot;</span><span style="color:#a3be8c;">Constructor Used</span><span>&quot; &lt;&lt;</span><span style="color:#eff1f5;"> endl;
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">    </span><span style="color:#8fa1b3;">~stud</span><span style="color:#eff1f5;">()
+</span><span style="color:#eff1f5;">    {
+</span><span style="color:#eff1f5;">        cout </span><span>&lt;&lt; &quot;</span><span style="color:#a3be8c;">Destructor Used</span><span>&quot; &lt;&lt;</span><span style="color:#eff1f5;"> endl;
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">}</span><span>;
 </span><span>
-</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()</span><span>
-</span><span>{</span><span>
-</span><span>    stud* S = </span><span style="color:#b48ead;">new</span><span> stud[</span><span style="color:#d08770;">6</span><span>];</span><span>
-</span><span>    </span><span style="color:#b48ead;">delete[]</span><span> S;</span><span>
-</span><span>}</span><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>()
+</span><span>{
+</span><span>    stud* S = </span><span style="color:#b48ead;">new</span><span> stud[</span><span style="color:#d08770;">6</span><span>];
+</span><span>    </span><span style="color:#b48ead;">delete[]</span><span> S;
+</span><span>}
 </span></code></pre>
 
     </div>
@@ -327,17 +327,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201121933&#x2F;">‹ Spring Boot连接MySQL报错处理合集</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201142017&#x2F;">JDBC for MySQL ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

@@ -11,7 +11,7 @@
 		<title>WSL使用记录</title>
 		<published>2022-01-26T22:05:54+00:00</published>
 		<updated>2022-01-26T22:05:54+00:00</updated>
-		<link href="https://arceusj2000.github.io/202201262205/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202201262205/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202201262205/</id>
 		<content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;p&gt;WSL是适用于 Linux 的 Windows 子系统，可以直接在 Windows 上运行 GNU&#x2F;Linux 环境。&lt;&#x2F;p&gt;
@@ -23,14 +23,14 @@
 &lt;p&gt;docker settings——&amp;gt;Resources——&amp;gt;WSL Integration——&amp;gt;选择要启用的WSL 2 版本&lt;&#x2F;p&gt;
 &lt;p&gt;如果已经安装配置过WSL却出现&lt;code&gt;You don’t have any WSL 2 distro. Please convert a WSL 1 distro to WSL 2&lt;&#x2F;code&gt;，解决方法如下：&lt;&#x2F;p&gt;
 &lt;p&gt;使用命令检查WSL模式：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl.exe -l -v&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl.exe -l -v
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;将已存在的Linux发行版转到v2：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl.exe --set-version ubuntu 2&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl.exe --set-version ubuntu 2
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;(Ubuntu是要启用的发行版本)&lt;&#x2F;p&gt;
 &lt;p&gt;将 WSL 2 设置为默认版本：&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl --set-default-version 2&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wsl --set-default-version 2
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h3 id=&quot;fu-chang-yong-docker-ming-ling&quot;&gt;附常用Docker 命令：&lt;&#x2F;h3&gt;
 &lt;ul&gt;
@@ -53,7 +53,7 @@
 &lt;p&gt;点击VS Code左下角的打开远程窗口图标——&amp;gt;New WSL Window using Distro...&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;da-kai-xiang-mu&quot;&gt;打开项目&lt;&#x2F;h3&gt;
 &lt;p&gt;打开 wsl 终端，进入到要打开的项目中，在项目中执行命令&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;code .&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;code .
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;或者&lt;&#x2F;p&gt;
 &lt;p&gt;在VS Code中进入WSL工作环境后，&lt;&#x2F;p&gt;
@@ -69,7 +69,7 @@
 &lt;h2 id=&quot;ming-ling-xing-dai-li&quot;&gt;命令行代理&lt;&#x2F;h2&gt;
 &lt;p&gt;使用&lt;code&gt;ipconfig&lt;&#x2F;code&gt;查询宿主机的ip&lt;&#x2F;p&gt;
 &lt;p&gt;在WSL命令行配置，例如export ALL_PROXY=http:192.168.1.105:1081&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;export ALL_PROXY=http:&#x2F;&#x2F;宿主机ip:1081&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;export ALL_PROXY=http:&#x2F;&#x2F;宿主机ip:1081
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
 	</entry>

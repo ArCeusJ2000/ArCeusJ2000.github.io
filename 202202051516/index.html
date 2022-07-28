@@ -168,81 +168,81 @@
 <p>官网<a href="http://www.graphviz.org/">Graphviz</a></p>
 <p>下载<a href="https://graphviz.org/download/">Download | Graphviz</a></p>
 <p>Graphviz是一个用 dot 语言编写的绘图脚本，在Windows中直接用pip安装会出现下面的报错</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>graphviz.backend.execute.ExecutableNotFound: failed to execute &#39;dot&#39;, make sure the Graphviz executables are on your systems&#39; PATH</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>graphviz.backend.execute.ExecutableNotFound: failed to execute &#39;dot&#39;, make sure the Graphviz executables are on your systems&#39; PATH
 </span></code></pre>
 <p>需要将graphviz中的bin路径添加到环境变量path中</p>
 <p>控制台输入命令：<code>dot -version</code>检验是否配置成功</p>
 <p>在Python中使用，需要</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install graphviz</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install graphviz
 </span></code></pre>
 <h3 id="python-diao-yong-graphviz-gong-ju">Python 调用 Graphviz 工具</h3>
 <p>控制台输入</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>echo process1 = subprocess.Popen(command1,stdout=subprocess.PIPE,shell=True)</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>echo process1 = subprocess.Popen(command1,stdout=subprocess.PIPE,shell=True)
 </span></code></pre>
 <p>Python 安装路径下，找到文件 <strong>subprocess.py</strong></p>
 <p>如果是Anaconda，文件所在的地址是C:\Users\xxx\Anaconda3\Lib</p>
 <p>找到 <strong>Popen(object)</strong> 类</p>
-<p><img src=".%5Cimg%5Cpopen.png" alt="" /></p>
+<p><img src="https://arceusj2000.github.io/202202051516/.%5Cimg%5Cpopen.png" alt="" /></p>
 <p>找到这个类的 <strong>init()<strong>方法，把 640行的</strong>shell=False</strong> 修改为 <strong>shell=True</strong>。</p>
-<p><img src=".%5Cimg%5Cinit.png" alt="" /></p>
+<p><img src="https://arceusj2000.github.io/202202051516/.%5Cimg%5Cinit.png" alt="" /></p>
 <p>记得重启IDE！</p>
 <h3 id="ce-shi-dai-ma">测试代码</h3>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>graphviz </span><span style="color:#b48ead;">import </span><span>Digraph</span><span>
-</span><span style="color:#65737e;"># 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。</span><span style="color:#65737e;">
-</span><span>dot = </span><span style="color:#bf616a;">Digraph</span><span>(&#39;</span><span style="color:#a3be8c;">test</span><span>&#39;)</span><span>
-</span><span style="color:#65737e;"># node() 方法可以在对象中生成一个结点</span><span style="color:#65737e;">
-</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">start</span><span>&quot;)</span><span>
-</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">end</span><span>&quot;)</span><span>
-</span><span style="color:#65737e;"># edge() 方法可以添加一条边</span><span style="color:#65737e;">
-</span><span>dot.</span><span style="color:#bf616a;">edge</span><span>(&#39;</span><span style="color:#a3be8c;">1</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">2</span><span>&#39;)</span><span>
-</span><span style="color:#65737e;"># 对象.view(filename=&quot;文件名&quot;, directory=&quot;输出路径&quot;)</span><span style="color:#65737e;">
-</span><span>dot.</span><span style="color:#bf616a;">view</span><span>()</span><span>
-</span><span style="color:#96b5b4;">print</span><span>(dot)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>graphviz </span><span style="color:#b48ead;">import </span><span>Digraph
+</span><span style="color:#65737e;"># 需要一个对象来作为生成 DOT 脚本的载体，通过这个语句实例化一个图形对象。
+</span><span>dot = </span><span style="color:#bf616a;">Digraph</span><span>(&#39;</span><span style="color:#a3be8c;">test</span><span>&#39;)
+</span><span style="color:#65737e;"># node() 方法可以在对象中生成一个结点
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">start</span><span>&quot;)
+</span><span>dot.</span><span style="color:#bf616a;">node</span><span>(&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">end</span><span>&quot;)
+</span><span style="color:#65737e;"># edge() 方法可以添加一条边
+</span><span>dot.</span><span style="color:#bf616a;">edge</span><span>(&#39;</span><span style="color:#a3be8c;">1</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">2</span><span>&#39;)
+</span><span style="color:#65737e;"># 对象.view(filename=&quot;文件名&quot;, directory=&quot;输出路径&quot;)
+</span><span>dot.</span><span style="color:#bf616a;">view</span><span>()
+</span><span style="color:#96b5b4;">print</span><span>(dot)
 </span></code></pre>
 <p>运行生成test.gv.pdf文件，效果如下图：</p>
 <img src=".\img\res.png" style="zoom:100%;" />
 <p>print(dot)在控制台打印出</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>digraph test {</span><span>
-</span><span>	1 [label=&quot;start&quot;]</span><span>
-</span><span>	2 [label=&quot;end&quot;]</span><span>
-</span><span>	1 -&gt; 2</span><span>
-</span><span>}</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>digraph test {
+</span><span>	1 [label=&quot;start&quot;]
+</span><span>	2 [label=&quot;end&quot;]
+</span><span>	1 -&gt; 2
+</span><span>}
 </span></code></pre>
 <p>上面的代码可以直接放到 Graphviz 工具(GVEdit)里运行</p>
 <p>详细参数介绍<a href="https://www.cnblogs.com/Zzbj/p/11431015.html">Graphviz参数</a></p>
 <h2 id="hui-zhi-pythonlei-tu">绘制Python类图</h2>
 <p>安装Pyreverse（在pylint模块）</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install pylint</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install pylint
 </span></code></pre>
 <p>命令行检查</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse -h</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse -h
 </span></code></pre>
 <h3 id="li-zi">例子</h3>
 <p><code>__init__</code>.py文件，（默认设置只能画这个文件名，暂时还没试出来不改文件名画图的方法</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">A</span><span style="color:#eff1f5;">():</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
-</span><span>        </span><span style="color:#b48ead;">pass</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">A</span><span style="color:#eff1f5;">():
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#b48ead;">pass
 </span><span>
 </span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">B</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">A</span><span style="color:#eff1f5;">):</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_b = &quot;</span><span style="color:#a3be8c;">Hello B</span><span>&quot;</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">B</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">A</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_b = &quot;</span><span style="color:#a3be8c;">Hello B</span><span>&quot;
 </span><span>
 </span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">C</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_c = </span><span style="color:#d08770;">123</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">C</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_c = </span><span style="color:#d08770;">123
 </span><span>
 </span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">D</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):</span><span>
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_d = [</span><span style="color:#d08770;">12</span><span>, </span><span style="color:#d08770;">123</span><span>]</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">D</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">B</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.m_d = [</span><span style="color:#d08770;">12</span><span>, </span><span style="color:#d08770;">123</span><span>]
 </span></code></pre>
 <p>目录结构：/code/example/_<em>init</em>_.py</p>
 <p>在code目录命令行</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse example/</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pyreverse example/
 </span></code></pre>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>dot -Tpdf classes.dot -o classes.pdf</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>dot -Tpdf classes.dot -o classes.pdf
 </span></code></pre>
 <p>产生文件classes.dot和classes.pdf</p>
 <img src=".\img\0.png" style="zoom:80%;" />
@@ -266,17 +266,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202032017&#x2F;">‹ Reading Notes on MLearn</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202082017&#x2F;">Reading Notes on MLog ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

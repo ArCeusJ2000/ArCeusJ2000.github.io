@@ -179,17 +179,17 @@
 <h3 id="javax-net-ssl-sslexception-message-closing-inbound-before-receiving-peer-s-close-notify">javax.net.ssl.SSLException MESSAGE: closing inbound before receiving peer's close_notify</h3>
 <p>使用mysql8.0以上版本数据库，要设置useSSL=false否则会出现上述报错</p>
 <p>示例：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>url：jdbc:mysql://localhost:3306/database_name?useSSL=false</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>url：jdbc:mysql://localhost:3306/database_name?useSSL=false
 </span></code></pre>
 <p>反之，mysql8.0以下版本例如mysql5.7如果url包含useSSL，也可能会报错，删除该项即可解决</p>
 <h3 id="the-server-time-zone-value-is-unrecognized">The server time zone value ‘????’ is unrecognized</h3>
 <p>时区设置serverTimezone=GMT%2B8</p>
 <p>示例：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>url：jdbc:mysql://localhost:3306/database_name?serverTimezone=GMT%2B8</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>url：jdbc:mysql://localhost:3306/database_name?serverTimezone=GMT%2B8
 </span></code></pre>
 <p>也可以在application.yml “spring:”下添加：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jackson:</span><span>
-</span><span>    time-zone: GMT+8</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>jackson:
+</span><span>    time-zone: GMT+8
 </span></code></pre>
 
     </div>
@@ -208,17 +208,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201121053&#x2F;">‹ Spring Boot下的VO, PO, DO, DTO, BO, DAO, POJO</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201132105&#x2F;">C&#x2F;C++_动态内存分配 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

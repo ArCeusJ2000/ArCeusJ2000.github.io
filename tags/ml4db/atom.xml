@@ -11,7 +11,7 @@
 		<title>Reading Notes on Gorgon</title>
 		<published>2022-02-25T20:17:19+00:00</published>
 		<updated>2022-02-25T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202252017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202252017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202252017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1109&#x2F;ISCA45697.2020.00035&lt;&#x2F;p&gt;
 &lt;p&gt;Gorgon: Accelerating Machine Learning from Relational Data&lt;&#x2F;p&gt;
@@ -39,7 +39,7 @@
 		<title>Reading Notes on XuanYuan</title>
 		<published>2022-02-21T20:17:19+00:00</published>
 		<updated>2022-02-21T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202212017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202212017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202212017/</id>
 		<content type="html">&lt;p&gt;Reading notes on Li G, Zhou X, Li S. XuanYuan: An AI-Native Database[J]. IEEE Data Eng. Bull., 2019, 42(2): 70-81.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
@@ -57,7 +57,7 @@
 &lt;p&gt;Traditional databases focus on the relational model and provide relational data management and analysis capabilities.&lt;&#x2F;p&gt;
 &lt;p&gt;Transitional databases only consider generic hardware such as CPU, RAM and disk, but do not take full advantage of new hardware such as ARM, AI chips, GPUs, FPGAs, NVM, RDMA.&lt;&#x2F;p&gt;
 &lt;p&gt;Regulus integrates AI technology into the database to make it more intelligent and also provides AI capabilities within the database. On the one hand, Regulus integrates AI technology into the database to provide self-configuration, self-optimisation, self-monitoring, self-diagnosis, self-healing, self-security and self-assembly capabilities, which can improve the availability, performance and stability of the database and reduce the burden of intensive human involvement. On the other hand, &amp;quot;Regulus&amp;quot; enables databases to provide AI capabilities using declarative languages to lower the threshold for using AI. In addition, &amp;quot;Regulus&amp;quot; leverages diverse computing power to support data analysis and machine learning.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202212017&#x2F;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;ai4db&quot;&gt;AI4DB&lt;&#x2F;h2&gt;
 &lt;p&gt;There are several challenges to embedding AI capabilities in a database.
 Training samples. Most AI models require large-scale, high-quality, diverse training data to achieve good performance. However, it is quite difficult to obtain training data in databases because they are either safety-critical or dependent on DBAs. for example, in database button tuning, the training samples should be based on the experience of DBAs. Therefore, it is difficult to obtain a large number of training samples. In addition, the training data should cover different scenarios, different hardware environments, and different workloads.
@@ -79,7 +79,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on DB meets DL</title>
 		<published>2022-02-01T20:17:19+00:00</published>
 		<updated>2022-02-01T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202012017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
@@ -102,7 +102,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 &lt;h3 id=&quot;fault-tolerance&quot;&gt;Fault Tolerance&lt;&#x2F;h3&gt;
 &lt;p&gt;The database system uses logging and checkpointing to achieve a high fault tolerance mechanism. Current deep learning systems rely heavily on checkpoint files for training site recovery. And frequent logging of checkpoints introduces a large overhead. Compared to the strong consistency requirements of database systems, SGD (stochastic gradient descent) allows for a certain degree of inconsistency, so full logging is not necessary. It is an interesting research question how to combine the features of SGD and the system architecture to achieve efficient fault tolerance.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;optimization-techniques-in-existing-systems&quot;&gt;Optimization Techniques in Existing Systems&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5Csystem.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202012017&#x2F;.%5Cimg%5Csystem.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;deep-learning-to-databases&quot;&gt;DEEP LEARNING TO DATABASES&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;query-interface&quot;&gt;Query Interface&lt;&#x2F;h2&gt;
 &lt;p&gt;In recent years, deep learning has yielded the best results in NLP (natural language processing) and RNN models have been shown to learn structured data. Can RNN models be used to parse natural language to generate the corresponding SQL and to optimise the SQL using existing database methods? Heuristic rules can be used to detect syntax errors in the generated SQL. The challenge with this problem is the lack of a large training dataset.&lt;&#x2F;p&gt;

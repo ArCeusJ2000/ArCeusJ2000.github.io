@@ -166,46 +166,46 @@
       <span id="continue-reading"></span>
 <h2 id="pei-zhi">配置</h2>
 <h4 id="gitignore">.gitignore</h4>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Java</span><span>
-</span><span>*.class</span><span>
-</span><span> </span><span>
-</span><span># Eclipse</span><span>
-</span><span>.classpath</span><span>
-</span><span>.project</span><span>
-</span><span>.settings/</span><span>
-</span><span> </span><span>
-</span><span># Intellij</span><span>
-</span><span>.idea/</span><span>
-</span><span>*.iml</span><span>
-</span><span>*.iws</span><span>
-</span><span>out/</span><span>
-</span><span> </span><span>
-</span><span># Mac</span><span>
-</span><span>.DS_Store</span><span>
-</span><span> </span><span>
-</span><span># Maven</span><span>
-</span><span>log/</span><span>
-</span><span>target/</span><span>
-</span><span> </span><span>
-</span><span># svn</span><span>
-</span><span>.svn/</span><span>
-</span><span> </span><span>
-</span><span>scandir/</span><span>
-</span><span>rebel.xml</span><span>
-</span><span> </span><span>
-</span><span>#lilei environment</span><span>
-</span><span>dep2.sh</span><span>
-</span><span> </span><span>
-</span><span>#log</span><span>
-</span><span>*.log</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Java
+</span><span>*.class
+</span><span> 
+</span><span># Eclipse
+</span><span>.classpath
+</span><span>.project
+</span><span>.settings/
+</span><span> 
+</span><span># Intellij
+</span><span>.idea/
+</span><span>*.iml
+</span><span>*.iws
+</span><span>out/
+</span><span> 
+</span><span># Mac
+</span><span>.DS_Store
+</span><span> 
+</span><span># Maven
+</span><span>log/
+</span><span>target/
+</span><span> 
+</span><span># svn
+</span><span>.svn/
+</span><span> 
+</span><span>scandir/
+</span><span>rebel.xml
+</span><span> 
+</span><span>#lilei environment
+</span><span>dep2.sh
+</span><span> 
+</span><span>#log
+</span><span>*.log
 </span></code></pre>
 <h2 id="git-rebase">git rebase</h2>
 <h3 id="he-bing-ben-di-commit">合并本地commit</h3>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rebase -i [startpoint] [endpoint]</span><span>
-</span><span>// -i 的含义是：--interactive, 即弹出交互式的界面让用户编辑完成合并操作</span><span>
-</span><span>// [startpoint] 指的是合并区间的起点。</span><span>
-</span><span>// [endpoint] 指的是合并区间的终点，默认是当前分支 HEAD 所指向的 commit。</span><span>
-</span><span>// 这里的区间是一个前开后闭的区间。</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ git rebase -i [startpoint] [endpoint]
+</span><span>// -i 的含义是：--interactive, 即弹出交互式的界面让用户编辑完成合并操作
+</span><span>// [startpoint] 指的是合并区间的起点。
+</span><span>// [endpoint] 指的是合并区间的终点，默认是当前分支 HEAD 所指向的 commit。
+</span><span>// 这里的区间是一个前开后闭的区间。
 </span></code></pre>
 <ol>
 <li>编辑 commit 内容。将 &quot;pick&quot; 改成 &quot;squash&quot; 或者 &quot;s&quot;，意思是将该 commit和 前面的 commit合并。修改合并之后的 commit 注释。编辑完成后，保存并退出（wq!）。</li>
@@ -230,17 +230,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202109102136&#x2F;">‹ Win10使用经验总结</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202110171443&#x2F;">PC使用记录 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

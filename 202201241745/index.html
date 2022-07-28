@@ -176,101 +176,101 @@
 <h2 id="huan-jing-da-jian">环境搭建</h2>
 <h3 id="chang-gui-an-zhuang-pei-zhi">常规安装配置</h3>
 <p>官网：<a href="https://nightwatchjs.org/">Nightwatch.js | Node.js powered End-to-End testing framework (nightwatchjs.org)</a></p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install selenium-standalone --save-dev</span><span>
-</span><span>npm install nightwatch --save-dev</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install selenium-standalone --save-dev
+</span><span>npm install nightwatch --save-dev
 </span></code></pre>
 <h4 id="an-zhuang-chromedriver">安装ChromeDriver</h4>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install chromedriver --save-dev</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install chromedriver --save-dev
 </span></code></pre>
 <p>其他浏览器同理，Microsoft Edge似乎不能直接用npm安装，需要自己去官网下载</p>
 <h4 id="chromeliu-lan-qi-yun-xing">Chrome浏览器运行</h4>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npx nightwatch node_modules/nightwatch/examples/tests/ecosia.js --env chrome</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npx nightwatch node_modules/nightwatch/examples/tests/ecosia.js --env chrome
 </span></code></pre>
 <h4 id="ming-ling-xing-qi-dong-nightwatch">命令行启动 Nightwatch</h4>
 <ol>
 <li>指定环境测试</li>
 </ol>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm test</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm test
 </span></code></pre>
 <p>在 package.json 设定的 npm test 会执行当前项目下的 Nightwatch Test Runner 并指定环境为 local 以进行测试。</p>
 <ol start="2">
 <li>使用全局安装的 Nightwatch Test Runner 进行测试</li>
 </ol>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>nightwatch</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>nightwatch
 </span></code></pre>
 <p>示例：<a href="https://github.com/cythilya/nightwatch101">cythilya/nightwatch101: 使用 Nightwatch 實現 End-to-End Testing ★ (github.com)</a></p>
 <h3 id="vue-clian-zhuang-nightwatch">vue-cli安装Nightwatch</h3>
 <p>在 vue-cli 中选择使用 e2e tests，vue-cli 会自动安装 selenium-server 和 chromedriver 等必要工具</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vue add @vue/e2e-nightwatch</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vue add @vue/e2e-nightwatch
 </span></code></pre>
 <p>运行 e2e 测试</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vue-cli-service test:e2e</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>vue-cli-service test:e2e
 </span></code></pre>
 <p>vue-cli 安装的 Nightwatch 会依赖一个 Selenium Server和一个 java 程序</p>
 <p>Nightwatch 和浏览器需要通过 Selenium Server 来通信</p>
 <h3 id="geng-jian-ji-de-fang-fa-zhi-jie-qu-dong-liu-lan-qi">更简洁的方法——直接驱动浏览器</h3>
 <p>Nightwatch@1.0 可以直接驱动浏览器, 无需 Selenium Server</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install nightwatch@1.0.8</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>npm install nightwatch@1.0.8
 </span></code></pre>
 <h4 id="jian-dan-shi-li">简单示例</h4>
 <p>配置文件 nightwatch.conf.js</p>
-<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>module.exports = {</span><span>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>module.exports = {
 </span><span>
-</span><span>  &quot;</span><span style="color:#a3be8c;">webdriver</span><span>&quot;: {</span><span>
+</span><span>  &quot;</span><span style="color:#a3be8c;">webdriver</span><span>&quot;: {
 </span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">server_path</span><span>&quot;: </span><span style="color:#96b5b4;">require</span><span>(&#39;</span><span style="color:#a3be8c;">chromedriver</span><span>&#39;).</span><span style="color:#bf616a;">path</span><span>, </span><span style="color:#65737e;">// ChromeDriver 安装地址</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">server_path</span><span>&quot;: </span><span style="color:#96b5b4;">require</span><span>(&#39;</span><span style="color:#a3be8c;">chromedriver</span><span>&#39;).</span><span style="color:#bf616a;">path</span><span>, </span><span style="color:#65737e;">// ChromeDriver 安装地址
 </span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">start_process</span><span>&quot;: </span><span style="color:#d08770;">true</span><span>, </span><span style="color:#65737e;">// 需要启动 driver</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">start_process</span><span>&quot;: </span><span style="color:#d08770;">true</span><span>, </span><span style="color:#65737e;">// 需要启动 driver
 </span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">port</span><span>&quot;: </span><span style="color:#d08770;">9515 </span><span style="color:#65737e;">// driver 启动的端口, 一般是 9515 或 4444</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">port</span><span>&quot;: </span><span style="color:#d08770;">9515 </span><span style="color:#65737e;">// driver 启动的端口, 一般是 9515 或 4444
 </span><span>
-</span><span>  },</span><span>
+</span><span>  },
 </span><span>
-</span><span>  &quot;</span><span style="color:#a3be8c;">test_settings</span><span>&quot;: {</span><span>
+</span><span>  &quot;</span><span style="color:#a3be8c;">test_settings</span><span>&quot;: {
 </span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">default</span><span>&quot;: {</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">default</span><span>&quot;: {
 </span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">desiredCapabilities</span><span>&quot;: {</span><span>
+</span><span>      &quot;</span><span style="color:#a3be8c;">desiredCapabilities</span><span>&quot;: {
 </span><span>
-</span><span>        &quot;</span><span style="color:#a3be8c;">browserName</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">chrome</span><span>&quot; </span><span style="color:#65737e;">// 指定浏览器名</span><span>
+</span><span>        &quot;</span><span style="color:#a3be8c;">browserName</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">chrome</span><span>&quot; </span><span style="color:#65737e;">// 指定浏览器名
 </span><span>
-</span><span>      }</span><span>
+</span><span>      }
 </span><span>
-</span><span>    }</span><span>
+</span><span>    }
 </span><span>
-</span><span>  }</span><span>
+</span><span>  }
 </span><span>
-</span><span>}</span><span>
+</span><span>}
 </span></code></pre>
 <p>测试脚本 e2e.test.js</p>
-<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>module.exports = {</span><span>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span>module.exports = {
 </span><span>
-</span><span>  &#39;</span><span style="color:#a3be8c;">Basic e2e Test</span><span>&#39; (</span><span style="color:#bf616a;">browser</span><span>) {</span><span>
+</span><span>  &#39;</span><span style="color:#a3be8c;">Basic e2e Test</span><span>&#39; (</span><span style="color:#bf616a;">browser</span><span>) {
 </span><span>
-</span><span>    </span><span style="color:#bf616a;">browser</span><span>
+</span><span>    </span><span style="color:#bf616a;">browser
 </span><span>
-</span><span>      .</span><span style="color:#8fa1b3;">url</span><span>(&#39;</span><span style="color:#a3be8c;">http://so.com</span><span>&#39;) </span><span style="color:#65737e;">// 打开 so.com 网页</span><span>
+</span><span>      .</span><span style="color:#8fa1b3;">url</span><span>(&#39;</span><span style="color:#a3be8c;">http://so.com</span><span>&#39;) </span><span style="color:#65737e;">// 打开 so.com 网页
 </span><span>
-</span><span>      .</span><span style="color:#8fa1b3;">waitForElementVisible</span><span>(&#39;</span><span style="color:#a3be8c;">body</span><span>&#39;) </span><span style="color:#65737e;">// 确认能看到 body 元素</span><span>
+</span><span>      .</span><span style="color:#8fa1b3;">waitForElementVisible</span><span>(&#39;</span><span style="color:#a3be8c;">body</span><span>&#39;) </span><span style="color:#65737e;">// 确认能看到 body 元素
 </span><span>
-</span><span>      .</span><span style="color:#8fa1b3;">setValue</span><span>(&#39;</span><span style="color:#a3be8c;">#input</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">Nightwatch</span><span>&#39;) </span><span style="color:#65737e;">// 在搜索框输入 Nightwatch</span><span>
+</span><span>      .</span><span style="color:#8fa1b3;">setValue</span><span>(&#39;</span><span style="color:#a3be8c;">#input</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">Nightwatch</span><span>&#39;) </span><span style="color:#65737e;">// 在搜索框输入 Nightwatch
 </span><span>
-</span><span>      .</span><span style="color:#96b5b4;">click</span><span>(&#39;</span><span style="color:#a3be8c;">#search-button</span><span>&#39;) </span><span style="color:#65737e;">// 点击搜索</span><span>
+</span><span>      .</span><span style="color:#96b5b4;">click</span><span>(&#39;</span><span style="color:#a3be8c;">#search-button</span><span>&#39;) </span><span style="color:#65737e;">// 点击搜索
 </span><span>
-</span><span>      .</span><span style="color:#96b5b4;">pause</span><span>(</span><span style="color:#d08770;">1000</span><span>) </span><span style="color:#65737e;">// 等待1秒钟</span><span>
+</span><span>      .</span><span style="color:#96b5b4;">pause</span><span>(</span><span style="color:#d08770;">1000</span><span>) </span><span style="color:#65737e;">// 等待1秒钟
 </span><span>
-</span><span>      .</span><span style="color:#bf616a;">assert</span><span>.</span><span style="color:#8fa1b3;">containsText</span><span>(&#39;</span><span style="color:#a3be8c;">#container</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">Nightwatch</span><span>&#39;) </span><span style="color:#65737e;">// 查询结果包含 Nightwatch</span><span>
+</span><span>      .</span><span style="color:#bf616a;">assert</span><span>.</span><span style="color:#8fa1b3;">containsText</span><span>(&#39;</span><span style="color:#a3be8c;">#container</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">Nightwatch</span><span>&#39;) </span><span style="color:#65737e;">// 查询结果包含 Nightwatch
 </span><span>
-</span><span>      .</span><span style="color:#8fa1b3;">end</span><span>()</span><span>
+</span><span>      .</span><span style="color:#8fa1b3;">end</span><span>()
 </span><span>
-</span><span>  }</span><span>
+</span><span>  }
 </span><span>
-</span><span>}</span><span>
+</span><span>}
 </span></code></pre>
 <p>运行</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>node_modules\.bin\nightwatch e2e.test.js</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>node_modules\.bin\nightwatch e2e.test.js
 </span></code></pre>
-<p><img src=".%5Cimg%5Csample.png" alt="" /></p>
+<p><img src="https://arceusj2000.github.io/202201241745/.%5Cimg%5Csample.png" alt="" /></p>
 <p>测试结果会以XML文件形式输出到tests_output目录下</p>
 
     </div>
@@ -289,17 +289,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201232257&#x2F;">‹ VSCode驯化过程记录</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201262205&#x2F;">WSL使用记录 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

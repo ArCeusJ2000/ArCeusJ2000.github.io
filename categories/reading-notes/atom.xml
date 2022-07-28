@@ -5,13 +5,34 @@
 	<link href="https://arceusj2000.github.io/categories/reading-notes/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-03-01T20:17:19+00:00</updated>
+	<updated>2022-03-05T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/reading-notes/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>Reading Notes on Ease.ml</title>
+		<published>2022-03-05T20:17:19+00:00</published>
+		<updated>2022-03-05T20:17:19+00:00</updated>
+		<link rel="alternate" href="https://arceusj2000.github.io/202203052017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202203052017/</id>
+		<content type="html">&lt;p&gt;Reading notes on &lt;&#x2F;p&gt;
+&lt;p&gt;Ease.ml: towards multi-tenant resource sharing for machine learning workloads&lt;&#x2F;p&gt;
+&lt;p&gt;https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3177732.3177737&lt;&#x2F;p&gt;
+&lt;p&gt;Ease.ml&#x2F;ci and Ease.ml&#x2F;meter in action: towards data management for statistical generalization&lt;&#x2F;p&gt;
+&lt;p&gt;https:&#x2F;&#x2F;doi.org&#x2F;10.14778&#x2F;3352063.3352110&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;h2 id=&quot;question&quot;&gt;Question&lt;&#x2F;h2&gt;
+&lt;p&gt;As a &amp;quot;service provider&amp;quot; that manages a shared cluster of machines running machine learning workloads, what is the resource sharing strategy that maximizes the global satisfaction of all users? Resource sharing is a critical yet subtle issue in this multi-tenant scenario, as we have to balance between efficiency and fairness. Also, as of today, the counterpart of &amp;quot;software engineering for ML&amp;quot; is largely missing --- developers of ML applications are left with powerful tools (e.g., TensorFlow and PyTorch) but little guidance regarding the development lifecycle itself.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ease-ml&quot;&gt;Ease.ml&lt;&#x2F;h2&gt;
+&lt;p&gt;Ease.ml, a declarative machine learning service platform. With ease.ml, a user defines the high-level schema of an ML application and submits the task via a Web interface. The system then deals with the rest, such as model selection and data movement. They first formalize the problem that we call multi-tenant model selection, aiming for minimizing the total regret of all users running automatic model selection tasks. Then  they develop a novel algorithm that combines multi-armed bandits with Bayesian optimization and prove a regret bound under the multi-tenant setting. Finally, they report the evaluation of ease.ml on synthetic data and on two services we are providing to our users, namely, image classification with deep neural networks and binary classification with Azure ML Studio.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ease-ml-ci-and-ease-ml-meter&quot;&gt;Ease.ml&#x2F;ci and Ease.ml&#x2F;meter&lt;&#x2F;h2&gt;
+&lt;p&gt;Developing machine learning (ML) applications is similar to developing traditional software --- it is often an iterative process in which developers navigate within a rich space of requirements, design decisions, implementations, empirical quality, and performance. In traditional software development, software engineering is the field of study which provides principled guidelines for this iterative process.&lt;&#x2F;p&gt;
+&lt;p&gt;The authors look at the management of the ML development lifecycle from a data management perspective. They show two closely related systems, easy.ml&#x2F;ci and easy.ml&#x2F;meter, which provide some &#x27;principled guidance&#x27; for ML application development: ci is a continuous integration engine for ML models, and meter is a &#x27;profiler&#x27; for controlling overfitting of ML models. Both systems focus on managing the &#x27;statistical generalisation capabilities&#x27; of the datasets used to assess the quality of ML applications, i.e. the validation set and the test set.&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>Reading Notes on IDEL</title>
 		<published>2022-03-01T20:17:19+00:00</published>
 		<updated>2022-03-01T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202203012017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202203012017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202203012017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.48550&#x2F;arXiv.1803.04884&lt;&#x2F;p&gt;
 &lt;p&gt;IDEL: In-Database Entity Linking with Neural Embeddings&lt;&#x2F;p&gt;
@@ -37,7 +58,7 @@
 		<title>Reading Notes on Gorgon</title>
 		<published>2022-02-25T20:17:19+00:00</published>
 		<updated>2022-02-25T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202252017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202252017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202252017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1109&#x2F;ISCA45697.2020.00035&lt;&#x2F;p&gt;
 &lt;p&gt;Gorgon: Accelerating Machine Learning from Relational Data&lt;&#x2F;p&gt;
@@ -65,7 +86,7 @@
 		<title>Reading Notes on XuanYuan</title>
 		<published>2022-02-21T20:17:19+00:00</published>
 		<updated>2022-02-21T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202212017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202212017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202212017/</id>
 		<content type="html">&lt;p&gt;Reading notes on Li G, Zhou X, Li S. XuanYuan: An AI-Native Database[J]. IEEE Data Eng. Bull., 2019, 42(2): 70-81.&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
@@ -83,7 +104,7 @@
 &lt;p&gt;Traditional databases focus on the relational model and provide relational data management and analysis capabilities.&lt;&#x2F;p&gt;
 &lt;p&gt;Transitional databases only consider generic hardware such as CPU, RAM and disk, but do not take full advantage of new hardware such as ARM, AI chips, GPUs, FPGAs, NVM, RDMA.&lt;&#x2F;p&gt;
 &lt;p&gt;Regulus integrates AI technology into the database to make it more intelligent and also provides AI capabilities within the database. On the one hand, Regulus integrates AI technology into the database to provide self-configuration, self-optimisation, self-monitoring, self-diagnosis, self-healing, self-security and self-assembly capabilities, which can improve the availability, performance and stability of the database and reduce the burden of intensive human involvement. On the other hand, &amp;quot;Regulus&amp;quot; enables databases to provide AI capabilities using declarative languages to lower the threshold for using AI. In addition, &amp;quot;Regulus&amp;quot; leverages diverse computing power to support data analysis and machine learning.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202212017&#x2F;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;ai4db&quot;&gt;AI4DB&lt;&#x2F;h2&gt;
 &lt;p&gt;There are several challenges to embedding AI capabilities in a database.
 Training samples. Most AI models require large-scale, high-quality, diverse training data to achieve good performance. However, it is quite difficult to obtain training data in databases because they are either safety-critical or dependent on DBAs. for example, in database button tuning, the training samples should be based on the experience of DBAs. Therefore, it is difficult to obtain a large number of training samples. In addition, the training data should cover different scenarios, different hardware environments, and different workloads.
@@ -105,7 +126,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on SubspaceDB</title>
 		<published>2022-02-18T20:17:19+00:00</published>
 		<updated>2022-02-18T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202182017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202182017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202182017/</id>
 		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1016&#x2F;j.datak.2019.05.003&lt;&#x2F;p&gt;
 &lt;p&gt;SubspaceDB : In-database subspace clustering for analytical query processing&lt;&#x2F;p&gt;
@@ -167,7 +188,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on Vertica-ML</title>
 		<published>2022-02-17T20:17:19+00:00</published>
 		<updated>2022-02-17T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202172017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202172017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202172017/</id>
 		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3318464.3386137&lt;&#x2F;p&gt;
 &lt;p&gt;Vertica-ML: Distributed Machine Learning in Vertica Database&lt;&#x2F;p&gt;
@@ -182,7 +203,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 &lt;li&gt;Distributed in-memory storage It is integrated into the distributed architecture of Vertica DBMS with the ability to spill to disk when needed&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;vertica-ecosystem&quot;&gt;VERTICA ECOSYSTEM&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202172017&#x2F;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Firstly, the authors describe the main structure of Vertica. They emphasise that Vertica supports UDF (User Defined Function) and Metafunction, which is currently the more popular implementation in the industry and is the general idea in Presto ML.&lt;&#x2F;p&gt;
 &lt;p&gt;Metafunction is a Vertica-specific function that differs from UDF in that UDF can be used as part of a SQL statement, whereas Metafunction can only be used after a SELECT keyword or even in a FROM clause. Metafunction can only be used after a SELECT keyword, not even in a FROM clause. In fact, the main purpose of Metafunction in Vertica-ML is to pass parameters to machine learning algorithms.&lt;&#x2F;p&gt;
 &lt;p&gt;Vertica-ML also provides management functions for the trained models. The user can use get_model_summary and get_model_attribute to obtain the appropriate meta-information about the model. The model is stored as an object in a database table. This allows us to modify a model using the traditional ALTER or DROP statements.&lt;&#x2F;p&gt;
@@ -193,7 +214,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on SQML</title>
 		<published>2022-02-15T20:17:19+00:00</published>
 		<updated>2022-02-15T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202152017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202152017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202152017/</id>
 		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3127479.3132746&lt;&#x2F;p&gt;
 &lt;p&gt;SQML: large-scale in-database machine learning with pure SQL&lt;&#x2F;p&gt;
@@ -218,7 +239,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on DB4ML</title>
 		<published>2022-02-11T20:17:19+00:00</published>
 		<updated>2022-02-11T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202112017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202112017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202112017/</id>
 		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3318464.3380575&lt;&#x2F;p&gt;
 &lt;p&gt;DB4ML - An In-Memory Database Kernel with Machine Learning Support&lt;&#x2F;p&gt;
@@ -244,7 +265,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on MLog</title>
 		<published>2022-02-08T20:17:19+00:00</published>
 		<updated>2022-02-08T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202082017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202082017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202082017/</id>
 		<content type="html">&lt;p&gt;Reading notes on  https:&#x2F;&#x2F;doi.org&#x2F;10.14778&#x2F;3137765.3137812&lt;&#x2F;p&gt;
 &lt;p&gt;MLog: towards declarative in-database machine learning&lt;&#x2F;p&gt;
@@ -276,7 +297,7 @@ examples, e.g., the training cases in the night or rainy day, but not many redun
 		<title>Reading Notes on MLearn</title>
 		<published>2022-02-03T20:17:19+00:00</published>
 		<updated>2022-02-03T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202032017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202032017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202032017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3329486.3329494&lt;&#x2F;p&gt;
 &lt;p&gt;MLearn: A Declarative Machine Learning Language for Database Systems&lt;&#x2F;p&gt;
@@ -288,7 +309,7 @@ moving computations inside the core of database systems. In this paper, the auth
 &lt;p&gt;From a systems developer&#x27;s point of view, database systems form the native way of efficiently storing data in index structures. Inside database systems, SQL, as the declarative language, simplifies data curation because it allows feature extraction as projections and selections of the only relevant tuples by design. Many studies have presented architectures for building end-to-end machine learning systems. Therefore, different systems tackle the challenges of representing arrays natively in database systems. &lt;&#x2F;p&gt;
 &lt;p&gt;The paper’s main contributions are the description of the architecture behind MLearn with an accompanying example, an extension of PostgreSQL by linear algebra and gradient descent on array datatypes, as well as a look on integrating array query languages.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-mlearn-language&quot;&gt;THE MLEARN LANGUAGE&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202032017&#x2F;.%5Cimg%5C1.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Compiling the MLearn language with the ML2SQL compiler (dark blue): it first preprocesses import and include statements, then it compiles to SQL or Python code.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;technical-background&quot;&gt;TECHNICAL BACKGROUND&lt;&#x2F;h2&gt;
 &lt;p&gt;In order to allow machine-learning-related computations within database systems, they have to provide tensors and functionalities for training a model. HyPer has already extended its array datatype to serve as tensors by allowing algebra on those types. To reach a broader audience for our declarative machine learning language, they also provide some matrix algebra functionalities for PostgreSQL online. In addition to matrix operations, a gradient descent optimiser is essential for training models inside database systems.&lt;&#x2F;p&gt;
@@ -301,7 +322,7 @@ moving computations inside the core of database systems. In this paper, the auth
 		<title>Reading Notes on DB meets DL</title>
 		<published>2022-02-01T20:17:19+00:00</published>
 		<updated>2022-02-01T20:17:19+00:00</updated>
-		<link href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202202012017/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202202012017/</id>
 		<content type="html">&lt;p&gt;Reading notes on https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3003665.3003669&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
@@ -324,7 +345,7 @@ moving computations inside the core of database systems. In this paper, the auth
 &lt;h3 id=&quot;fault-tolerance&quot;&gt;Fault Tolerance&lt;&#x2F;h3&gt;
 &lt;p&gt;The database system uses logging and checkpointing to achieve a high fault tolerance mechanism. Current deep learning systems rely heavily on checkpoint files for training site recovery. And frequent logging of checkpoints introduces a large overhead. Compared to the strong consistency requirements of database systems, SGD (stochastic gradient descent) allows for a certain degree of inconsistency, so full logging is not necessary. It is an interesting research question how to combine the features of SGD and the system architecture to achieve efficient fault tolerance.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;optimization-techniques-in-existing-systems&quot;&gt;Optimization Techniques in Existing Systems&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5Csystem.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202202012017&#x2F;.%5Cimg%5Csystem.PNG&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h1 id=&quot;deep-learning-to-databases&quot;&gt;DEEP LEARNING TO DATABASES&lt;&#x2F;h1&gt;
 &lt;h2 id=&quot;query-interface&quot;&gt;Query Interface&lt;&#x2F;h2&gt;
 &lt;p&gt;In recent years, deep learning has yielded the best results in NLP (natural language processing) and RNN models have been shown to learn structured data. Can RNN models be used to parse natural language to generate the corresponding SQL and to optimise the SQL using existing database methods? Heuristic rules can be used to detect syntax errors in the generated SQL. The challenge with this problem is the lack of a large training dataset.&lt;&#x2F;p&gt;

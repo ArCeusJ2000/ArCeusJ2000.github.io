@@ -198,7 +198,7 @@
 <p>在 C:\Windows\System32\drivers\etc 文件夹下找到hosts文件</p>
 <p>Run  as Administrator打开</p>
 <p>添加：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>140.82.113.3  www.github.com</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>140.82.113.3  www.github.com
 </span></code></pre>
 <p>查询IP地址使用：</p>
 <p><a href="https://ipaddress.com">https://ipaddress.com</a></p>
@@ -210,24 +210,24 @@
 <p>能解决浏览器访问的问题</p>
 <p>但命令行还是会间歇性失效orz</p>
 <p>命令行设置代理</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">set</span><span> http_proxy=http://127.0.0.1:1081</span><span>
-</span><span style="color:#96b5b4;">set</span><span> https_proxy=http://127.0.0.1:1081</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">set</span><span> http_proxy=http://127.0.0.1:1081
+</span><span style="color:#96b5b4;">set</span><span> https_proxy=http://127.0.0.1:1081
 </span></code></pre>
 <h2 id="bashdai-li">bash代理</h2>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">http://127.0.0.1:1081</span><span>
-</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">socks5://127.0.0.1:1081</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">http://127.0.0.1:1081
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">ALL_PROXY</span><span>=</span><span style="color:#a3be8c;">socks5://127.0.0.1:1081
 </span></code></pre>
 <h2 id="failed-to-connect-to-github-com-port-443-connection-timed-out">Failed to connect to github.com port 443:connection timed out</h2>
 <h3 id="bi-jiao-ke-neng-you-yong-de-jie-jue-fang-fa">比较可能有用的解决方法</h3>
 <h4 id="zhong-xin-she-zhi-dai-li">重新设置代理</h4>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.proxy http://127.0.0.1:1080</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.proxy http://127.0.0.1:1080
 </span><span>
-</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> https.proxy http://127.0.0.1:1080</span><span>
+</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> https.proxy http://127.0.0.1:1080
 </span></code></pre>
 <h4 id="qu-xiao-quan-ju-dai-li">取消全局代理</h4>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> http.proxy</span><span>
-</span><span> </span><span>
-</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> https.proxy</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> http.proxy
+</span><span> 
+</span><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global --unset</span><span> https.proxy
 </span></code></pre>
 <p>体感上这个有用的概率更高一点</p>
 <h4 id="qi-ta-ceng-jing-you-xiao-de-jie-jue-fang-fa">其他曾经有效的解决方法</h4>
@@ -238,37 +238,37 @@
 <p>换个时间再试一次</p>
 <h2 id="openssl-ssl-read-connection-was-reset-errno-10054">OpenSSL SSL_read: Connection was reset, errno 10054</h2>
 <h3 id="openssl-ssl-read-connection-was-reset-errno-10054-fatal-expected-flush-after-ref-listing">OpenSSL SSL_read: Connection was reset, errno 10054 fatal: expected flush after ref listing</h3>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.sslVerify &quot;</span><span style="color:#a3be8c;">false</span><span>&quot;</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git config</span><span style="color:#bf616a;"> --global</span><span> http.sslVerify &quot;</span><span style="color:#a3be8c;">false</span><span>&quot;
 </span></code></pre>
 <h1 id="git-cloneshi-bai">git clone失败</h1>
 <h2 id="fatal-early-eof-fatal-index-pack-failed">fatal: early EOF fatal: index-pack failed</h2>
 <ol>
 <li>关闭压缩：</li>
 </ol>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.compression 0</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.compression 0
 </span></code></pre>
 <ol start="2">
 <li>截断一部分测试能否成功拉取：</li>
 </ol>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> clone</span><span style="color:#bf616a;"> --depth</span><span> 1 &lt;repo_URI&gt;</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> clone</span><span style="color:#bf616a;"> --depth</span><span> 1 &lt;repo_URI&gt;
 </span></code></pre>
 <ol start="3">
 <li>若成功，则继续拉取剩下的部分</li>
 </ol>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --unshallow</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --unshallow
 </span></code></pre>
 <p>或</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --depth</span><span>=2147483647</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> fetch</span><span style="color:#bf616a;"> --depth</span><span>=2147483647
 </span></code></pre>
 <ol start="4">
 <li>git pull</li>
 </ol>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> pull</span><span style="color:#bf616a;"> --all</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> pull</span><span style="color:#bf616a;"> --all
 </span></code></pre>
 <h1 id="huan-xing-fu">换行符</h1>
 <h2 id="warning-lf-will-be-replaced-by-crlf">warning: LF will be replaced by CRLF</h2>
 <p>简单粗暴</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.autocrlf false</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">git</span><span> config</span><span style="color:#bf616a;"> --global</span><span> core.autocrlf false
 </span></code></pre>
 <p>下三大主流操作系统的换行符：</p>
 <p>Uinx/Linux 采用换行符LF 表示下一行（LF：LineFeed，换行）；</p>
@@ -292,7 +292,7 @@
 <p>github21年8月13后不再支持用户名密码的方式验证</p>
 <p>不小心用了<code>git config --global --unset credential.helper</code> </p>
 <p>现在每个本地仓库都要重新验证一次orz</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git remote set-url origin https://[githubtoken]@github.com/[username]/[repositoryname].git</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>git remote set-url origin https://[githubtoken]@github.com/[username]/[repositoryname].git
 </span></code></pre>
 
     </div>
@@ -309,17 +309,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201051443&#x2F;">‹ pandas经验总结</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201081241&#x2F;">git submodule 踩坑记录 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

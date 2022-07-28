@@ -180,8 +180,8 @@
 <p>懒人选择<code>afterDelay</code>，上方搜索框直接搜<code>auto save delay</code>设置延迟时间</p>
 <h2 id="c-mingw">C++/MinGW</h2>
 <p>确保环境变量配置正确：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">g++ --version</span><span>
-</span><span style="color:#bf616a;">gdb --version</span><span>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">g++ --version
+</span><span style="color:#bf616a;">gdb --version
 </span></code></pre>
 <p>打开VS Code，安装插件C/C++</p>
 <p>然后**【Ctrl】+【Shift】+【P】**，打开命令面板，输入关键词&quot;C/C++&quot;</p>
@@ -196,60 +196,60 @@
 <p>之后会自动创建一个<code>tasks.json</code>文件，放在<code>.vscode</code>中</p>
 <p>同目录下还有一个<code>launch.json</code>文件需要配置</p>
 <h4 id="tasks-json">tasks.json</h4>
-<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{</span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">version</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">2.0.0</span><span>&quot;,</span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">tasks</span><span>&quot;: [</span><span>
-</span><span>        {</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">type</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">cppbuild</span><span>&quot;,</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">label</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C/C++: g++.exe build active file</span><span>&quot;,</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">command</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C:/msys64/mingw64/bin/g++.exe</span><span>&quot;,</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">args</span><span>&quot;: [</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">-g</span><span>&quot;,</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">${file}</span><span>&quot;,</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">-o</span><span>&quot;,</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">${fileBasenameNoExtension}.exe</span><span>&quot;</span><span>
-</span><span>            ],</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">options</span><span>&quot;: {</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">cwd</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span>&quot;</span><span>
-</span><span>            },</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">problemMatcher</span><span>&quot;: [</span><span>
-</span><span>                &quot;</span><span style="color:#a3be8c;">$gcc</span><span>&quot;</span><span>
-</span><span>            ],</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">group</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">build</span><span>&quot;,</span><span>
-</span><span>            &quot;</span><span style="color:#a3be8c;">detail</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">compiler: C:/msys64/mingw64/bin/g++.exe</span><span>&quot;</span><span>
-</span><span>        }</span><span>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">version</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">2.0.0</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">tasks</span><span>&quot;: [
+</span><span>        {
+</span><span>            &quot;</span><span style="color:#a3be8c;">type</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">cppbuild</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">label</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C/C++: g++.exe build active file</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">command</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C:/msys64/mingw64/bin/g++.exe</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">args</span><span>&quot;: [
+</span><span>                &quot;</span><span style="color:#a3be8c;">-g</span><span>&quot;,
+</span><span>                &quot;</span><span style="color:#a3be8c;">${file}</span><span>&quot;,
+</span><span>                &quot;</span><span style="color:#a3be8c;">-o</span><span>&quot;,
+</span><span>                &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">${fileBasenameNoExtension}.exe</span><span>&quot;
+</span><span>            ],
+</span><span>            &quot;</span><span style="color:#a3be8c;">options</span><span>&quot;: {
+</span><span>                &quot;</span><span style="color:#a3be8c;">cwd</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span>&quot;
+</span><span>            },
+</span><span>            &quot;</span><span style="color:#a3be8c;">problemMatcher</span><span>&quot;: [
+</span><span>                &quot;</span><span style="color:#a3be8c;">$gcc</span><span>&quot;
+</span><span>            ],
+</span><span>            &quot;</span><span style="color:#a3be8c;">group</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">build</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">detail</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">compiler: C:/msys64/mingw64/bin/g++.exe</span><span>&quot;
+</span><span>        }
 </span><span style="background-color:#bf616a;color:#2b303b;">}</span><span>
 </span></code></pre>
 <ul>
 <li>command和detail可以不用绝对路径</li>
 </ul>
 <h4 id="launch-json">launch.json</h4>
-<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{</span><span>
-</span><span>  &quot;</span><span style="color:#a3be8c;">version</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">0.2.0</span><span>&quot;,</span><span>
-</span><span>  &quot;</span><span style="color:#a3be8c;">configurations</span><span>&quot;: [</span><span>
-</span><span>    {</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">g++.exe - Build and debug active file</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">type</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">cppdbg</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">request</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">launch</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">program</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">${fileBasenameNoExtension}.exe</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">args</span><span>&quot;: [],</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">stopAtEntry</span><span>&quot;: </span><span style="color:#d08770;">false</span><span>,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">cwd</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">environment</span><span>&quot;: [],</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">externalConsole</span><span>&quot;: </span><span style="color:#d08770;">false</span><span>,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">MIMode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">gdb</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">miDebuggerPath</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C:</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">msys64</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">mingw64</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">bin</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">gdb.exe</span><span>&quot;,</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">setupCommands</span><span>&quot;: [</span><span>
-</span><span>        {</span><span>
-</span><span>          &quot;</span><span style="color:#a3be8c;">description</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Enable pretty-printing for gdb</span><span>&quot;,</span><span>
-</span><span>          &quot;</span><span style="color:#a3be8c;">text</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">-enable-pretty-printing</span><span>&quot;,</span><span>
-</span><span>          &quot;</span><span style="color:#a3be8c;">ignoreFailures</span><span>&quot;: </span><span style="color:#d08770;">true</span><span>
-</span><span>        }</span><span>
-</span><span>      ],</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">preLaunchTask</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C/C++: g++.exe build active file</span><span>&quot;</span><span>
-</span><span>    }</span><span>
-</span><span>  ]</span><span>
-</span><span>}</span><span>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>  &quot;</span><span style="color:#a3be8c;">version</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">0.2.0</span><span>&quot;,
+</span><span>  &quot;</span><span style="color:#a3be8c;">configurations</span><span>&quot;: [
+</span><span>    {
+</span><span>      &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">g++.exe - Build and debug active file</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">type</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">cppdbg</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">request</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">launch</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">program</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">${fileBasenameNoExtension}.exe</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">args</span><span>&quot;: [],
+</span><span>      &quot;</span><span style="color:#a3be8c;">stopAtEntry</span><span>&quot;: </span><span style="color:#d08770;">false</span><span>,
+</span><span>      &quot;</span><span style="color:#a3be8c;">cwd</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">${fileDirname}</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">environment</span><span>&quot;: [],
+</span><span>      &quot;</span><span style="color:#a3be8c;">externalConsole</span><span>&quot;: </span><span style="color:#d08770;">false</span><span>,
+</span><span>      &quot;</span><span style="color:#a3be8c;">MIMode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">gdb</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">miDebuggerPath</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C:</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">msys64</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">mingw64</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">bin</span><span style="color:#96b5b4;">\\</span><span style="color:#a3be8c;">gdb.exe</span><span>&quot;,
+</span><span>      &quot;</span><span style="color:#a3be8c;">setupCommands</span><span>&quot;: [
+</span><span>        {
+</span><span>          &quot;</span><span style="color:#a3be8c;">description</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Enable pretty-printing for gdb</span><span>&quot;,
+</span><span>          &quot;</span><span style="color:#a3be8c;">text</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">-enable-pretty-printing</span><span>&quot;,
+</span><span>          &quot;</span><span style="color:#a3be8c;">ignoreFailures</span><span>&quot;: </span><span style="color:#d08770;">true
+</span><span>        }
+</span><span>      ],
+</span><span>      &quot;</span><span style="color:#a3be8c;">preLaunchTask</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">C/C++: g++.exe build active file</span><span>&quot;
+</span><span>    }
+</span><span>  ]
+</span><span>}
 </span></code></pre>
 <ul>
 <li>miDebuggerPath改成本地绝对路径</li>
@@ -263,23 +263,23 @@
 <p>但是有个坑：需要用<code>.\</code>指明它是当前目录下的可执行文件，因为VS Code的默认终端实际上是PowerShell。</p>
 <h2 id="javadan-wen-jian">Java单文件</h2>
 <h4 id="launch-json-1">launch.json</h4>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>{</span><span>
-</span><span>    &quot;version&quot;: &quot;0.2.0&quot;,</span><span>
-</span><span>    &quot;configurations&quot;: [</span><span>
-</span><span>        {</span><span>
-</span><span>            &quot;type&quot;: &quot;java&quot;,</span><span>
-</span><span>            &quot;name&quot;: &quot;Debug (Launch) - Current File&quot;,</span><span>
-</span><span>            &quot;request&quot;: &quot;launch&quot;,</span><span>
-</span><span>            &quot;mainClass&quot;: &quot;${file}&quot;</span><span>
-</span><span>        },</span><span>
-</span><span>        {</span><span>
-</span><span>            &quot;type&quot;: &quot;java&quot;,</span><span>
-</span><span>            &quot;name&quot;: &quot;Debug (Launch)-Hello&lt;java_single_file_9fc652ff&gt;&quot;,</span><span>
-</span><span>            &quot;request&quot;: &quot;launch&quot;,</span><span>
-</span><span>            &quot;mainClass&quot;: &quot;HelloWorld&quot;</span><span>
-</span><span>        }</span><span>
-</span><span>    ]</span><span>
-</span><span>}</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>{
+</span><span>    &quot;version&quot;: &quot;0.2.0&quot;,
+</span><span>    &quot;configurations&quot;: [
+</span><span>        {
+</span><span>            &quot;type&quot;: &quot;java&quot;,
+</span><span>            &quot;name&quot;: &quot;Debug (Launch) - Current File&quot;,
+</span><span>            &quot;request&quot;: &quot;launch&quot;,
+</span><span>            &quot;mainClass&quot;: &quot;${file}&quot;
+</span><span>        },
+</span><span>        {
+</span><span>            &quot;type&quot;: &quot;java&quot;,
+</span><span>            &quot;name&quot;: &quot;Debug (Launch)-Hello&lt;java_single_file_9fc652ff&gt;&quot;,
+</span><span>            &quot;request&quot;: &quot;launch&quot;,
+</span><span>            &quot;mainClass&quot;: &quot;HelloWorld&quot;
+</span><span>        }
+</span><span>    ]
+</span><span>}
 </span></code></pre>
 <p>配置了两个 launch，一个是以当前打开的 Java 源文件作为主类调试，一个是以 HelloWorld.java 作为主类进行调试</p>
 <p>部分插件不再支持Java8，需要手动插件降低版本</p>
@@ -302,11 +302,11 @@
 <p>解决办法：删除classpath，再重启vscode</p>
 <h2 id="python-in-wsl">Python in WSL</h2>
 <p>命令行创建并激活虚拟环境</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python3 -m venv .venv</span><span>
-</span><span>source .venv/bin/activate</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>python3 -m venv .venv
+</span><span>source .venv/bin/activate
 </span></code></pre>
 <p>打开VSCode</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>code .</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>code .
 </span></code></pre>
 
     </div>
@@ -323,17 +323,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201171123&#x2F;">‹ Spring 装配 Bean</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201241745&#x2F;">Nightwatch使用笔记 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

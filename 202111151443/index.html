@@ -158,28 +158,28 @@
 <p>isinstance() 会认为子类是一种父类类型，考虑继承关系。</p>
 <h3 id="bytes">bytes</h3>
 <h4 id="byteshe-str">bytes和str</h4>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt; type(b&#39;xxxxx&#39;)</span><span>
-</span><span>&lt;class &#39;bytes&#39;&gt;</span><span>
-</span><span> </span><span>
-</span><span>&gt;&gt;&gt; type(&#39;xxxxx&#39;)</span><span>
-</span><span>&lt;class &#39;str&#39;&gt;</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt; type(b&#39;xxxxx&#39;)
+</span><span>&lt;class &#39;bytes&#39;&gt;
+</span><span> 
+</span><span>&gt;&gt;&gt; type(&#39;xxxxx&#39;)
+</span><span>&lt;class &#39;str&#39;&gt;
 </span></code></pre>
 <p>bytes是byte的序列，而str是unicode的序列。</p>
 <p>互相转化：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>bytes = str.encode()</span><span>
-</span><span>str = bytes.decode()</span><span>
-</span><span>str = bytes.decode(&quot;gb2312&quot;) #使用 gb2312 的方式</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>bytes = str.encode()
+</span><span>str = bytes.decode()
+</span><span>str = bytes.decode(&quot;gb2312&quot;) #使用 gb2312 的方式
 </span></code></pre>
 <h4 id="bytearray">bytearray</h4>
 <p>bytearray是可变的。</p>
 <p><strong>bytearray()</strong> 方法返回一个新字节数组。这个数组里的元素是可变的，并且每个元素的值范围: 0 &lt;= x &lt; 256。</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt;bytearray()</span><span>
-</span><span>bytearray(b&#39;&#39;)</span><span>
-</span><span>&gt;&gt;&gt; bytearray([1,2,3])</span><span>
-</span><span>bytearray(b&#39;\x01\x02\x03&#39;)</span><span>
-</span><span>&gt;&gt;&gt; bytearray(&#39;runoob&#39;, &#39;utf-8&#39;)</span><span>
-</span><span>bytearray(b&#39;runoob&#39;)</span><span>
-</span><span>&gt;&gt;&gt;</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt;bytearray()
+</span><span>bytearray(b&#39;&#39;)
+</span><span>&gt;&gt;&gt; bytearray([1,2,3])
+</span><span>bytearray(b&#39;\x01\x02\x03&#39;)
+</span><span>&gt;&gt;&gt; bytearray(&#39;runoob&#39;, &#39;utf-8&#39;)
+</span><span>bytearray(b&#39;runoob&#39;)
+</span><span>&gt;&gt;&gt;
 </span></code></pre>
 
     </div>
@@ -196,17 +196,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111121613&#x2F;">‹ Java版本问题处理合集</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202111251255&#x2F;">Django经验总结 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

@@ -150,22 +150,22 @@
 <h3 id="arrays-sortzi-ding-yi-bi-jiao-qi">Arrays.sort自定义比较器</h3>
 <p>三种写法，前两种如果比较值超过整形的范围就无法比较了。
 三种写法都是表示对二维数组的行从小到大进行比较，其中intervals是二维数组的数组名。</p>
-<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals, (</span><span style="color:#bf616a;">v1</span><span>, </span><span style="color:#bf616a;">v2</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> v1[</span><span style="color:#d08770;">0</span><span>] - v2[</span><span style="color:#d08770;">0</span><span>]);    </span><span>
-</span><span>    </span><span>
-</span><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals, </span><span style="color:#ebcb8b;">Comparator</span><span>.</span><span style="color:#bf616a;">comparingInt</span><span>(</span><span style="color:#bf616a;">o </span><span style="color:#b48ead;">-&gt;</span><span> o[</span><span style="color:#d08770;">0</span><span>]));</span><span>
-</span><span>    </span><span>
-</span><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals,</span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">Comparator</span><span>&lt;</span><span style="color:#b48ead;">int[]</span><span>&gt;()</span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">public int </span><span style="color:#8fa1b3;">compare</span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int[] </span><span style="color:#bf616a;">o1</span><span style="color:#eff1f5;">,</span><span style="color:#b48ead;">int[] </span><span style="color:#bf616a;">o2</span><span style="color:#eff1f5;">){</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(o1[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">] </span><span>&gt;</span><span style="color:#eff1f5;"> o2[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]){</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else if</span><span style="color:#eff1f5;">(o1[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]</span><span>==</span><span style="color:#eff1f5;">o2[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]){</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    }</span><span>);</span><span>
+<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals, (</span><span style="color:#bf616a;">v1</span><span>, </span><span style="color:#bf616a;">v2</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> v1[</span><span style="color:#d08770;">0</span><span>] - v2[</span><span style="color:#d08770;">0</span><span>]);    
+</span><span>    
+</span><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals, </span><span style="color:#ebcb8b;">Comparator</span><span>.</span><span style="color:#bf616a;">comparingInt</span><span>(</span><span style="color:#bf616a;">o </span><span style="color:#b48ead;">-&gt;</span><span> o[</span><span style="color:#d08770;">0</span><span>]));
+</span><span>    
+</span><span style="color:#ebcb8b;">Arrays</span><span>.</span><span style="color:#bf616a;">sort</span><span>(intervals,</span><span style="color:#b48ead;">new </span><span style="color:#ebcb8b;">Comparator</span><span>&lt;</span><span style="color:#b48ead;">int[]</span><span>&gt;()</span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">public int </span><span style="color:#8fa1b3;">compare</span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int[] </span><span style="color:#bf616a;">o1</span><span style="color:#eff1f5;">,</span><span style="color:#b48ead;">int[] </span><span style="color:#bf616a;">o2</span><span style="color:#eff1f5;">){
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if</span><span style="color:#eff1f5;">(o1[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">] </span><span>&gt;</span><span style="color:#eff1f5;"> o2[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]){
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">            }
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else if</span><span style="color:#eff1f5;">(o1[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]</span><span>==</span><span style="color:#eff1f5;">o2[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">]){
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">            }
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">else
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return </span><span>-</span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">        }
+</span><span style="color:#eff1f5;">    }</span><span>);
 </span><span>
 </span></code></pre>
 <p>对于compare或者compareTo函数返回值，1表示两个比较的数字位置互换，0和-1则是位置不发生变化。</p>
@@ -185,17 +185,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202012091255&#x2F;">‹ maven报错处理合集</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202102201721&#x2F;">Basic template ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

@@ -163,30 +163,30 @@
       <span id="continue-reading"></span>
 <h2 id="anacondazhong-zhuang">Anaconda重装</h2>
 <p>如果conda已经没救了，尝试</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda clean --packages &amp;&amp; conda clean --all &amp;&amp; conda update --all</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda clean --packages &amp;&amp; conda clean --all &amp;&amp; conda update --all
 </span></code></pre>
 <p>若conda还能正常执行安装命令，则跳过此步执行以下步骤</p>
 <p>在 Anaconda Prompt，执行</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install anaconda-clean</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install anaconda-clean
 </span></code></pre>
 <p>安装完成后，执行</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ anaconda-clean</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ anaconda-clean
 </span></code></pre>
 <p>不想一个一个敲y可以</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ anaconda-clean --yes</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ anaconda-clean --yes
 </span></code></pre>
 <p>然后再执行常规卸载重装流程</p>
 <p>需要注意anaconda版本和python版本的对应问题</p>
 <p>&lt;<a href="https://docs.anaconda.com/anaconda/packages/oldpkglists/">Old package lists — Anaconda documentation</a>&gt;</p>
 <h2 id="tusharean-zhuang">tushare安装</h2>
 <p>conda执行</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c waditu tushare</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c waditu tushare
 </span></code></pre>
 <p>来源：&lt;<a href="https://anaconda.org/waditu/tushare">Tushare :: Anaconda.org</a>&gt;</p>
 <p>也可以用pip，但是多python版本环境用pip安装后使用anaconda环境时出现找不到包的情况，走conda可以省很多事，后面同理</p>
 <p>如果有找不到的包可以去<a href="https://anaconda.org/">https://anaconda.org/</a>看看</p>
 <h2 id="ta-liban-zhuang">Ta-Lib安装</h2>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ta-lib</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c conda-forge ta-lib
 </span></code></pre>
 <p>Ta-Lib0.4.23部分API调用会报错，换0.4.17可以解决</p>
 <p>但是ta-lib指定版本更新会报一堆错</p>
@@ -194,31 +194,31 @@
 <p>用<a href="https://github.com/vnpy/vnpy">vnpy/vnpy: 基于Python的开源量化交易平台开发框架 (github.com)</a></p>
 <p>自带ta-lib0.4.17</p>
 <h2 id="pyqtan-zhuang">PyQt安装</h2>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c anaconda pyqt</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ conda install -c anaconda pyqt
 </span></code></pre>
 <h3 id="pyqtzai-pycharmxia-de-huan-jing-pei-zhi">PyQt在PyCharm下的环境配置</h3>
 <p>以下配置默认anaconda环境</p>
 <p>在Pycharm中，依次打开 File - Settings - Tools - External Tools，点击 ' + ' </p>
 <h4 id="qt-designer">Qt Designer</h4>
 <p>配置如下</p>
-<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>Name: QtDisigner</span><span>
-</span><span>Program : C:\Users\用户名\Anaconda3\Lib\site-packages\qt5_applications\Qt\bin\designer.</span><span style="color:#bf616a;">exe</span><span>
-</span><span>Working directory: $FileDir$</span><span>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>Name: QtDisigner
+</span><span>Program : C:\Users\用户名\Anaconda3\Lib\site-packages\qt5_applications\Qt\bin\designer.</span><span style="color:#bf616a;">exe
+</span><span>Working directory: $FileDir$
 </span></code></pre>
 <p>注意新版本的PyQt designer.exe的位置和以前不同</p>
 <h4 id="pyuic">PyUIC</h4>
 <p>配置如下</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Name: PyUIC</span><span>
-</span><span>Program : C:\Users\用户名\Anaconda3\python.exe</span><span>
-</span><span>Arguments: -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><span>
-</span><span>Working directory: $FileDir$</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Name: PyUIC
+</span><span>Program : C:\Users\用户名\Anaconda3\python.exe
+</span><span>Arguments: -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py
+</span><span>Working directory: $FileDir$
 </span></code></pre>
 <h4 id="pyrcc">PyRCC</h4>
 <p>配置如下</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Name: PyRCC</span><span>
-</span><span>Program : C:\Users\用户名\Anaconda3\Scripts\pyrcc5.exe</span><span>
-</span><span>Arguments: $FileName$ -o $FileNameWithoutExtension$_rc.py</span><span>
-</span><span>Working directory: $FileDir$</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Name: PyRCC
+</span><span>Program : C:\Users\用户名\Anaconda3\Scripts\pyrcc5.exe
+</span><span>Arguments: $FileName$ -o $FileNameWithoutExtension$_rc.py
+</span><span>Working directory: $FileDir$
 </span></code></pre>
 <p>配置全部完成后，可以在PyCharm主界面，依次点击 Tools - External Tools 启动QtDisigner、PyUIC和PyRCC</p>
 
@@ -238,17 +238,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201082008&#x2F;">‹ github pages搭建个人博客</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201102136&#x2F;">conda报错处理合集 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

@@ -202,10 +202,10 @@
 <h3 id="mysqlfang-zhi-zhong-fu-cha-ru-xiang-tong-ji-lu">MySQL防止重复插入相同记录</h3>
 <h4 id="shi-yong-mysql-suo-yin">使用MySQL 索引</h4>
 <p>创建索引</p>
-<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">CREATE UNIQUE INDEX </span><span>index_name ON </span><span style="color:#8fa1b3;">tablename</span><span>( index_column_1, index_column_2 );</span><span>
+<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">CREATE UNIQUE INDEX </span><span>index_name ON </span><span style="color:#8fa1b3;">tablename</span><span>( index_column_1, index_column_2 );
 </span></code></pre>
 <p>在一个已存在表中添加一个唯一索引</p>
-<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">ALTER TABLE </span><span>table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;</span><span>
+<pre data-lang="sql" style="background-color:#2b303b;color:#c0c5ce;" class="language-sql "><code class="language-sql" data-lang="sql"><span style="color:#b48ead;">ALTER TABLE </span><span>table_name ADD INDEX index_name( index_column_1, index_column_2 ) ;
 </span></code></pre>
 <p>此时插入重复插入已有索引的记录会出现报错<code>IntegrityError: (1062, &quot;Duplicate entry 'xx' for key 'xxxxx'&quot;)</code></p>
 <p>解决方法：把<code>INSERT INTO</code> 改为 `INSERT IGNORE INTO</p>
@@ -219,34 +219,34 @@
 <h3 id="bao-cuo-chu-li-1">报错处理</h3>
 <h4 id="jie-kou-xing-shi-bao-cuo">接口形式报错</h4>
 <p>事故现场：</p>
-<p><img src=".%5Cimg%5Cpymysql_error.png" alt="" /></p>
+<p><img src="https://arceusj2000.github.io/202201042037/.%5Cimg%5Cpymysql_error.png" alt="" /></p>
 <p>解决：</p>
-<p><img src=".%5Cimg%5Cpymsql_solve.png" alt="" /></p>
+<p><img src="https://arceusj2000.github.io/202201042037/.%5Cimg%5Cpymsql_solve.png" alt="" /></p>
 <h2 id="ubuntuhuan-jing-de-mysql">ubuntu环境的MySQL</h2>
 <h3 id="xiu-gai-mi-ma">修改密码</h3>
 <p>查看mysql数据库自动设置的随机账户与密码</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo cat /etc/mysql/debian.cnf</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo cat /etc/mysql/debian.cnf
 </span></code></pre>
 <p>使用这组账号密码登录</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -u debian-sys-maint -p</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -u debian-sys-maint -p
 </span></code></pre>
 <p>切换到mysql数据库</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>use mysql;</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>use mysql;
 </span></code></pre>
 <p>这里有个巨坑</p>
 <p>mysql 5.7.9以后废弃了password字段和password()函数；authentication_string:字段表示用户密码，而authentication_string字段下只能是mysql加密后的41位字符串密码。</p>
 <p><strong>正确的解决方法：</strong></p>
 <p>将字段置为空</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;      </span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>update user set authentication_string=&#39;&#39; where user=&#39;root&#39;;      
 </span></code></pre>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>alter user &#39;root&#39;@&#39;localhost&#39; identified with mysql_native_password by &#39;root&#39;;</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>alter user &#39;root&#39;@&#39;localhost&#39; identified with mysql_native_password by &#39;root&#39;;
 </span></code></pre>
 <p>最后的'root'是新密码</p>
 <p>修改后<code>quit</code></p>
 <p>重新登录</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>service mysql restart</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>service mysql restart
 </span></code></pre>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -u root -p</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mysql -u root -p
 </span></code></pre>
 <h2 id="gai-nian-he-yuan-li">概念和原理</h2>
 <h3 id="mysqlsuo-yin">MySQL索引</h3>
@@ -266,17 +266,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202112162153&#x2F;">‹ Spring Review</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201051443&#x2F;">pandas经验总结 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

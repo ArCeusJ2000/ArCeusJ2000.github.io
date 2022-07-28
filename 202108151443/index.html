@@ -167,71 +167,71 @@
 <h2 id="ji-chu-tu-xing">基础图形</h2>
 <p>https://seaborn.pydata.org/</p>
 <p>seaborn中提供了与matplotlib类似的接口，其他高级作图函数都以这些底层作图函数为基础，进行封装，通常作为kind参数。各种基本图形既可以直接传入数组形式的变量数据，也可以传入DataFrame列名并传入data参数。</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>seaborn </span><span style="color:#b48ead;">as </span><span>sns</span><span>
-</span><span style="color:#65737e;"># 折线图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">lineplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 条形图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">barplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 计数条形图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">countplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 散点图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">scatterplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 分类散点图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">stripplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 分簇散点图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">swarmplot</span><span>() </span><span style="color:#65737e;"># 与stipplot()的区别就是点不重叠</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 箱型图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">boxplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 增强箱型图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">boxenplot</span><span>() </span><span style="color:#65737e;"># 适合大数据集，显示更多分位数</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 小提琴图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">violinplot</span><span>()</span><span>
-</span><span style="color:#65737e;"># 点图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">pointplot</span><span>() </span><span style="color:#65737e;"># 纵轴是均值，置信区间用标准差表示</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 核密度估计图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">kdeplot</span><span>(x,</span><span style="color:#bf616a;">bw</span><span>=</span><span style="color:#d08770;">2.0</span><span>, </span><span style="color:#bf616a;">shade</span><span>=</span><span style="color:#d08770;">True</span><span>) </span><span style="color:#65737e;">#bw为带宽</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 地毯图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">rugplot</span><span>(x) </span><span style="color:#65737e;"># 直接将数据标记在坐标轴上</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 回归线图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">regplot</span><span>() </span><span style="color:#65737e;"># 散点图附加回归线</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 热图</span><span style="color:#65737e;">
-</span><span>sns.</span><span style="color:#bf616a;">heatmap</span><span>(</span><span style="color:#bf616a;">annot</span><span>=</span><span style="color:#d08770;">True</span><span>) </span><span style="color:#65737e;"># annot表示显示数值</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 另外补充几种常用图</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 饼图</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">#设置字体样式</span><span style="color:#65737e;">
-</span><span>mpl.rcParams[&#39;</span><span style="color:#a3be8c;">font.family</span><span>&#39;]=&#39;</span><span style="color:#a3be8c;">sans-serif</span><span>&#39;</span><span>
-</span><span>mpl.rcParams[&#39;</span><span style="color:#a3be8c;">font.sans-serif</span><span>&#39;]=[</span><span style="color:#b48ead;">u</span><span>&#39;</span><span style="color:#a3be8c;">SimHei</span><span>&#39;]</span><span>
-</span><span>title = &#39;</span><span style="color:#a3be8c;">饼图</span><span>&#39;</span><span>
-</span><span>fig = plt.</span><span style="color:#bf616a;">figure</span><span>(title, </span><span style="color:#bf616a;">figsize</span><span>=(</span><span style="color:#d08770;">8</span><span>, </span><span style="color:#d08770;">7</span><span>))</span><span>
-</span><span>fig.</span><span style="color:#bf616a;">tight_layout</span><span>()</span><span>
-</span><span>ax = fig.</span><span style="color:#bf616a;">add_subplot</span><span>(</span><span style="color:#d08770;">111</span><span>)</span><span>
-</span><span>data = [</span><span style="color:#d08770;">3</span><span>,</span><span style="color:#d08770;">4</span><span>,</span><span style="color:#d08770;">5</span><span>,</span><span style="color:#d08770;">7</span><span>,</span><span style="color:#d08770;">3</span><span>]</span><span>
-</span><span>labels = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">c</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">d</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">e</span><span>&#39;]</span><span>
-</span><span>explodes =[</span><span style="color:#d08770;">0 </span><span style="color:#b48ead;">for </span><span>x </span><span style="color:#b48ead;">in </span><span>data]</span><span>
-</span><span>explodes[</span><span style="color:#d08770;">0</span><span>] =</span><span style="color:#d08770;">0.015</span><span>
-</span><span>ax.</span><span style="color:#bf616a;">pie</span><span>(data, </span><span style="color:#bf616a;">labels</span><span>= labels, </span><span style="color:#bf616a;">radius</span><span>=</span><span style="color:#d08770;">0.8</span><span>, </span><span style="color:#65737e;">#data 是数据，labels 是标签，radius 是饼图半径</span><span style="color:#65737e;">
-</span><span>       </span><span style="color:#bf616a;">explode</span><span>=explodes, </span><span style="color:#65737e;">#explodes 为0 代表不偏离圆心， 不为零则代表偏离圆心的距离</span><span style="color:#65737e;">
-</span><span>       </span><span style="color:#bf616a;">autopct</span><span>=&#39;</span><span style="color:#d08770;">%1.1f%%</span><span>&#39;, </span><span style="color:#65737e;">#显示所占比例，百分数</span><span style="color:#65737e;">
-</span><span>       </span><span style="color:#bf616a;">pctdistance </span><span>= </span><span style="color:#d08770;">0.5</span><span>,</span><span>
-</span><span>       </span><span style="color:#bf616a;">labeldistance</span><span>=</span><span style="color:#d08770;">0.7</span><span>,  </span><span style="color:#65737e;"># a,b,c,d 到圆心的距离</span><span style="color:#65737e;">
-</span><span>       </span><span style="color:#bf616a;">textprops</span><span>={&#39;</span><span style="color:#a3be8c;">fontsize</span><span>&#39;: </span><span style="color:#d08770;">20</span><span>, &#39;</span><span style="color:#a3be8c;">color</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">black</span><span>&#39;}) </span><span style="color:#65737e;"># 标签和比例的格式</span><span style="color:#65737e;">
-</span><span>plt.</span><span style="color:#bf616a;">axis</span><span>(&#39;</span><span style="color:#a3be8c;">equal</span><span>&#39;) </span><span style="color:#65737e;"># 正圆</span><span style="color:#65737e;">
-</span><span>plt.</span><span style="color:#bf616a;">legend</span><span>( </span><span style="color:#bf616a;">loc </span><span>= &#39;</span><span style="color:#a3be8c;">upper right</span><span>&#39;,</span><span style="color:#bf616a;">bbox_to_anchor</span><span>=(</span><span style="color:#d08770;">1.1</span><span>, </span><span style="color:#d08770;">1.05</span><span>), </span><span style="color:#bf616a;">fontsize</span><span>=</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#bf616a;">borderaxespad</span><span>=</span><span style="color:#d08770;">0.3</span><span>)</span><span>
-</span><span style="color:#65737e;"># loc =  &#39;upper right&#39; 位于右上角</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># bbox_to_anchor=[0.5, 0.5] # 外边距 上边 右边</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># ncol=2 分两列</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># borderaxespad = 0.3图例的内边距</span><span style="color:#65737e;">
-</span><span>plt.</span><span style="color:#bf616a;">suptitle</span><span>(title+&#39;</span><span style="color:#a3be8c;">pie</span><span>&#39;, </span><span style="color:#bf616a;">fontsize</span><span>=</span><span style="color:#d08770;">20</span><span>)</span><span>
-</span><span style="color:#65737e;">#plt.savefig(filepath+&#39;\name.png&#39;,dpi=120,bbox_inches=&#39;tight&#39;) #可通过这个方法保存可视化的图片</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># plt.show()</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># plt.close()</span><span style="color:#65737e;">
-</span><span>plt.</span><span style="color:#bf616a;">savefig</span><span>(&#39;</span><span style="color:#a3be8c;">bingtu.png</span><span>&#39;,</span><span style="color:#bf616a;">dpi</span><span>=</span><span style="color:#d08770;">120</span><span>,</span><span style="color:#bf616a;">bbox_inches</span><span>=&#39;</span><span style="color:#a3be8c;">tight</span><span>&#39;)</span><span>
-</span><span style="color:#65737e;"># 极坐标图</span><span style="color:#65737e;">
-</span><span>ax = plt.</span><span style="color:#bf616a;">subplot</span><span>(</span><span style="color:#d08770;">111</span><span>,</span><span style="color:#bf616a;">projection</span><span>=&#39;</span><span style="color:#a3be8c;">polar</span><span>&#39;) </span><span style="color:#65737e;"># projection指投影到极坐标</span><span style="color:#65737e;">
-</span><span>ax.</span><span style="color:#bf616a;">plot</span><span>(x,y) </span><span style="color:#65737e;"># x为角度(弧度制),y为径长</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 平行坐标图</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">from </span><span>pandas.plotting </span><span style="color:#b48ead;">import </span><span>parallel_coordinates</span><span>
-</span><span style="color:#bf616a;">parallel_coordinates</span><span>(data, &#39;</span><span style="color:#a3be8c;">key</span><span>&#39;)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>seaborn </span><span style="color:#b48ead;">as </span><span>sns
+</span><span style="color:#65737e;"># 折线图
+</span><span>sns.</span><span style="color:#bf616a;">lineplot</span><span>()
+</span><span style="color:#65737e;"># 条形图
+</span><span>sns.</span><span style="color:#bf616a;">barplot</span><span>()
+</span><span style="color:#65737e;"># 计数条形图
+</span><span>sns.</span><span style="color:#bf616a;">countplot</span><span>()
+</span><span style="color:#65737e;"># 散点图
+</span><span>sns.</span><span style="color:#bf616a;">scatterplot</span><span>()
+</span><span style="color:#65737e;"># 分类散点图
+</span><span>sns.</span><span style="color:#bf616a;">stripplot</span><span>()
+</span><span style="color:#65737e;"># 分簇散点图
+</span><span>sns.</span><span style="color:#bf616a;">swarmplot</span><span>() </span><span style="color:#65737e;"># 与stipplot()的区别就是点不重叠
+</span><span style="color:#65737e;"># 箱型图
+</span><span>sns.</span><span style="color:#bf616a;">boxplot</span><span>()
+</span><span style="color:#65737e;"># 增强箱型图
+</span><span>sns.</span><span style="color:#bf616a;">boxenplot</span><span>() </span><span style="color:#65737e;"># 适合大数据集，显示更多分位数
+</span><span style="color:#65737e;"># 小提琴图
+</span><span>sns.</span><span style="color:#bf616a;">violinplot</span><span>()
+</span><span style="color:#65737e;"># 点图
+</span><span>sns.</span><span style="color:#bf616a;">pointplot</span><span>() </span><span style="color:#65737e;"># 纵轴是均值，置信区间用标准差表示
+</span><span style="color:#65737e;"># 核密度估计图
+</span><span>sns.</span><span style="color:#bf616a;">kdeplot</span><span>(x,</span><span style="color:#bf616a;">bw</span><span>=</span><span style="color:#d08770;">2.0</span><span>, </span><span style="color:#bf616a;">shade</span><span>=</span><span style="color:#d08770;">True</span><span>) </span><span style="color:#65737e;">#bw为带宽
+</span><span style="color:#65737e;"># 地毯图
+</span><span>sns.</span><span style="color:#bf616a;">rugplot</span><span>(x) </span><span style="color:#65737e;"># 直接将数据标记在坐标轴上
+</span><span style="color:#65737e;"># 回归线图
+</span><span>sns.</span><span style="color:#bf616a;">regplot</span><span>() </span><span style="color:#65737e;"># 散点图附加回归线
+</span><span style="color:#65737e;"># 热图
+</span><span>sns.</span><span style="color:#bf616a;">heatmap</span><span>(</span><span style="color:#bf616a;">annot</span><span>=</span><span style="color:#d08770;">True</span><span>) </span><span style="color:#65737e;"># annot表示显示数值
+</span><span style="color:#65737e;"># 另外补充几种常用图
+</span><span style="color:#65737e;"># 饼图
+</span><span style="color:#65737e;">#设置字体样式
+</span><span>mpl.rcParams[&#39;</span><span style="color:#a3be8c;">font.family</span><span>&#39;]=&#39;</span><span style="color:#a3be8c;">sans-serif</span><span>&#39;
+</span><span>mpl.rcParams[&#39;</span><span style="color:#a3be8c;">font.sans-serif</span><span>&#39;]=[</span><span style="color:#b48ead;">u</span><span>&#39;</span><span style="color:#a3be8c;">SimHei</span><span>&#39;]
+</span><span>title = &#39;</span><span style="color:#a3be8c;">饼图</span><span>&#39;
+</span><span>fig = plt.</span><span style="color:#bf616a;">figure</span><span>(title, </span><span style="color:#bf616a;">figsize</span><span>=(</span><span style="color:#d08770;">8</span><span>, </span><span style="color:#d08770;">7</span><span>))
+</span><span>fig.</span><span style="color:#bf616a;">tight_layout</span><span>()
+</span><span>ax = fig.</span><span style="color:#bf616a;">add_subplot</span><span>(</span><span style="color:#d08770;">111</span><span>)
+</span><span>data = [</span><span style="color:#d08770;">3</span><span>,</span><span style="color:#d08770;">4</span><span>,</span><span style="color:#d08770;">5</span><span>,</span><span style="color:#d08770;">7</span><span>,</span><span style="color:#d08770;">3</span><span>]
+</span><span>labels = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">c</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">d</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">e</span><span>&#39;]
+</span><span>explodes =[</span><span style="color:#d08770;">0 </span><span style="color:#b48ead;">for </span><span>x </span><span style="color:#b48ead;">in </span><span>data]
+</span><span>explodes[</span><span style="color:#d08770;">0</span><span>] =</span><span style="color:#d08770;">0.015
+</span><span>ax.</span><span style="color:#bf616a;">pie</span><span>(data, </span><span style="color:#bf616a;">labels</span><span>= labels, </span><span style="color:#bf616a;">radius</span><span>=</span><span style="color:#d08770;">0.8</span><span>, </span><span style="color:#65737e;">#data 是数据，labels 是标签，radius 是饼图半径
+</span><span>       </span><span style="color:#bf616a;">explode</span><span>=explodes, </span><span style="color:#65737e;">#explodes 为0 代表不偏离圆心， 不为零则代表偏离圆心的距离
+</span><span>       </span><span style="color:#bf616a;">autopct</span><span>=&#39;</span><span style="color:#d08770;">%1.1f%%</span><span>&#39;, </span><span style="color:#65737e;">#显示所占比例，百分数
+</span><span>       </span><span style="color:#bf616a;">pctdistance </span><span>= </span><span style="color:#d08770;">0.5</span><span>,
+</span><span>       </span><span style="color:#bf616a;">labeldistance</span><span>=</span><span style="color:#d08770;">0.7</span><span>,  </span><span style="color:#65737e;"># a,b,c,d 到圆心的距离
+</span><span>       </span><span style="color:#bf616a;">textprops</span><span>={&#39;</span><span style="color:#a3be8c;">fontsize</span><span>&#39;: </span><span style="color:#d08770;">20</span><span>, &#39;</span><span style="color:#a3be8c;">color</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">black</span><span>&#39;}) </span><span style="color:#65737e;"># 标签和比例的格式
+</span><span>plt.</span><span style="color:#bf616a;">axis</span><span>(&#39;</span><span style="color:#a3be8c;">equal</span><span>&#39;) </span><span style="color:#65737e;"># 正圆
+</span><span>plt.</span><span style="color:#bf616a;">legend</span><span>( </span><span style="color:#bf616a;">loc </span><span>= &#39;</span><span style="color:#a3be8c;">upper right</span><span>&#39;,</span><span style="color:#bf616a;">bbox_to_anchor</span><span>=(</span><span style="color:#d08770;">1.1</span><span>, </span><span style="color:#d08770;">1.05</span><span>), </span><span style="color:#bf616a;">fontsize</span><span>=</span><span style="color:#d08770;">14</span><span>, </span><span style="color:#bf616a;">borderaxespad</span><span>=</span><span style="color:#d08770;">0.3</span><span>)
+</span><span style="color:#65737e;"># loc =  &#39;upper right&#39; 位于右上角
+</span><span style="color:#65737e;"># bbox_to_anchor=[0.5, 0.5] # 外边距 上边 右边
+</span><span style="color:#65737e;"># ncol=2 分两列
+</span><span style="color:#65737e;"># borderaxespad = 0.3图例的内边距
+</span><span>plt.</span><span style="color:#bf616a;">suptitle</span><span>(title+&#39;</span><span style="color:#a3be8c;">pie</span><span>&#39;, </span><span style="color:#bf616a;">fontsize</span><span>=</span><span style="color:#d08770;">20</span><span>)
+</span><span style="color:#65737e;">#plt.savefig(filepath+&#39;\name.png&#39;,dpi=120,bbox_inches=&#39;tight&#39;) #可通过这个方法保存可视化的图片
+</span><span style="color:#65737e;"># plt.show()
+</span><span style="color:#65737e;"># plt.close()
+</span><span>plt.</span><span style="color:#bf616a;">savefig</span><span>(&#39;</span><span style="color:#a3be8c;">bingtu.png</span><span>&#39;,</span><span style="color:#bf616a;">dpi</span><span>=</span><span style="color:#d08770;">120</span><span>,</span><span style="color:#bf616a;">bbox_inches</span><span>=&#39;</span><span style="color:#a3be8c;">tight</span><span>&#39;)
+</span><span style="color:#65737e;"># 极坐标图
+</span><span>ax = plt.</span><span style="color:#bf616a;">subplot</span><span>(</span><span style="color:#d08770;">111</span><span>,</span><span style="color:#bf616a;">projection</span><span>=&#39;</span><span style="color:#a3be8c;">polar</span><span>&#39;) </span><span style="color:#65737e;"># projection指投影到极坐标
+</span><span>ax.</span><span style="color:#bf616a;">plot</span><span>(x,y) </span><span style="color:#65737e;"># x为角度(弧度制),y为径长
+</span><span style="color:#65737e;"># 平行坐标图
+</span><span style="color:#b48ead;">from </span><span>pandas.plotting </span><span style="color:#b48ead;">import </span><span>parallel_coordinates
+</span><span style="color:#bf616a;">parallel_coordinates</span><span>(data, &#39;</span><span style="color:#a3be8c;">key</span><span>&#39;)
 </span></code></pre>
 <h2 id="gao-ji-han-shu">高级函数</h2>
 <p>针对数据可视化的不同目的，seaborn提供了relplot()，catplot()，displot()，lmplot()四大主要高级函数。
@@ -255,39 +255,39 @@ kind：底层作图类型名称，如&quot;line&quot;,“bar”,&quot;box&quot;�
 <p>特征工程前，需要对数据集的有一个整体的了解，seabon提供的高级函数displot()可以作各种分布图。</p>
 <h4 id="dan-bian-liang-fen-bu">单变量分布</h4>
 <p>displot是hist(<a href="https://so.csdn.net/so/search?q=%E7%9B%B4%E6%96%B9%E5%9B%BE&amp;spm=1001.2101.3001.7020">直方图</a>)、rugplot(地毯图)、kdeplot(核密度估计图)的高级封装。</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>scipy </span><span style="color:#b48ead;">import </span><span>stats</span><span>
-</span><span>sns.</span><span style="color:#bf616a;">displot</span><span>(x, </span><span style="color:#bf616a;">kde</span><span>=</span><span style="color:#d08770;">False</span><span>,</span><span style="color:#bf616a;">rug</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">fit</span><span>=stats.gamma) </span><span style="color:#65737e;"># 直方图,若传入fit参数，则表示拟合相应的分布</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>scipy </span><span style="color:#b48ead;">import </span><span>stats
+</span><span>sns.</span><span style="color:#bf616a;">displot</span><span>(x, </span><span style="color:#bf616a;">kde</span><span>=</span><span style="color:#d08770;">False</span><span>,</span><span style="color:#bf616a;">rug</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">fit</span><span>=stats.gamma) </span><span style="color:#65737e;"># 直方图,若传入fit参数，则表示拟合相应的分布
 </span></code></pre>
 <h4 id="shuang-bian-liang-fen-bu">双变量分布</h4>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">jointplot</span><span>(</span><span style="color:#bf616a;">kind</span><span>=&#39;</span><span style="color:#a3be8c;">scatter</span><span>&#39;)</span><span>
-</span><span style="color:#65737e;"># scatter表示散点图，hex表示HexBin图，kde表示核密度估计图，reg表示添加回归线的散点图，resid表示残差图</span><span style="color:#65737e;">
-</span><span style="color:#65737e;"># 定制图</span><span style="color:#65737e;">
-</span><span>g = sns.</span><span style="color:#bf616a;">JointGrid</span><span>()</span><span>
-</span><span>g.</span><span style="color:#bf616a;">plot_joint</span><span>(plt.scatter)</span><span>
-</span><span>g.</span><span style="color:#bf616a;">plot_marginal</span><span>(sns.displot)</span><span>
-</span><span>g.</span><span style="color:#bf616a;">annotate</span><span>(stats.pearsonr)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">jointplot</span><span>(</span><span style="color:#bf616a;">kind</span><span>=&#39;</span><span style="color:#a3be8c;">scatter</span><span>&#39;)
+</span><span style="color:#65737e;"># scatter表示散点图，hex表示HexBin图，kde表示核密度估计图，reg表示添加回归线的散点图，resid表示残差图
+</span><span style="color:#65737e;"># 定制图
+</span><span>g = sns.</span><span style="color:#bf616a;">JointGrid</span><span>()
+</span><span>g.</span><span style="color:#bf616a;">plot_joint</span><span>(plt.scatter)
+</span><span>g.</span><span style="color:#bf616a;">plot_marginal</span><span>(sns.displot)
+</span><span>g.</span><span style="color:#bf616a;">annotate</span><span>(stats.pearsonr)
 </span></code></pre>
 <h4 id="cheng-dui-bian-liang-fen-bu">成对变量分布</h4>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">pairplot</span><span>(data)</span><span>
-</span><span style="color:#65737e;"># 定制图</span><span style="color:#65737e;">
-</span><span>g = sns.</span><span style="color:#bf616a;">PairGrid</span><span>(data)</span><span>
-</span><span>g.</span><span style="color:#bf616a;">map_diag</span><span>(sns.kdeplot)</span><span>
-</span><span>g.</span><span style="color:#bf616a;">map_offdiag</span><span>(sns.kdeplot)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">pairplot</span><span>(data)
+</span><span style="color:#65737e;"># 定制图
+</span><span>g = sns.</span><span style="color:#bf616a;">PairGrid</span><span>(data)
+</span><span>g.</span><span style="color:#bf616a;">map_diag</span><span>(sns.kdeplot)
+</span><span>g.</span><span style="color:#bf616a;">map_offdiag</span><span>(sns.kdeplot)
 </span></code></pre>
 <h3 id="hui-gui-xian-tu-linear-model">回归线图(linear model)</h3>
 <p>regplot()以及lmplot()都可以作回归线图，二者的区别是lmplot的参数data是必传的，而regplot不是。因此可以将regplot()视为底层函数。</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">lmplot</span><span>(&#39;</span><span style="color:#a3be8c;">total_bill</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">tip</span><span>&#39;,</span><span style="color:#bf616a;">data</span><span>=tips)</span><span>
-</span><span>sns.</span><span style="color:#bf616a;">residplot</span><span>() </span><span style="color:#65737e;"># 残差图</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">&quot;&quot;&quot;</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">lmplot重要参数解释：</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">ci:置信度</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">order: 拟合阶数</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">x_jitter: 施加噪声</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">robust: 鲁棒性</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">logistic: 逻辑斯谛回归</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">hue：分组回归</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">scatter_kws={&quot;s&quot;:80}: 散点图参数(例如点的大小)</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">&quot;&quot;&quot;</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>sns.</span><span style="color:#bf616a;">lmplot</span><span>(&#39;</span><span style="color:#a3be8c;">total_bill</span><span>&#39;,&#39;</span><span style="color:#a3be8c;">tip</span><span>&#39;,</span><span style="color:#bf616a;">data</span><span>=tips)
+</span><span>sns.</span><span style="color:#bf616a;">residplot</span><span>() </span><span style="color:#65737e;"># 残差图
+</span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">lmplot重要参数解释：
+</span><span style="color:#65737e;">ci:置信度
+</span><span style="color:#65737e;">order: 拟合阶数
+</span><span style="color:#65737e;">x_jitter: 施加噪声
+</span><span style="color:#65737e;">robust: 鲁棒性
+</span><span style="color:#65737e;">logistic: 逻辑斯谛回归
+</span><span style="color:#65737e;">hue：分组回归
+</span><span style="color:#65737e;">scatter_kws={&quot;s&quot;:80}: 散点图参数(例如点的大小)
+</span><span style="color:#65737e;">&quot;&quot;&quot;
 </span></code></pre>
 
     </div>
@@ -304,17 +304,6 @@ kind：底层作图类型名称，如&quot;line&quot;,“bar”,&quot;box&quot;�
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202107151443&#x2F;">‹ paddle踩坑</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202109102136&#x2F;">Win10使用经验总结 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

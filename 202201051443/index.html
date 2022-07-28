@@ -177,27 +177,27 @@
       <span id="continue-reading"></span>
 <h1 id="pandasxian-shi-she-zhi">pandas显示设置</h1>
 <h2 id="kong-zhi-tai-da-yin-wan-zheng-shu-ju">控制台打印完整数据</h2>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#显示更多行</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_columns</span><span>&#39;, </span><span style="color:#d08770;">100</span><span>) </span><span style="color:#65737e;">#显示100行</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">#显示更多行</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_rows</span><span>&#39;, </span><span style="color:#d08770;">100</span><span>) </span><span style="color:#65737e;">#显示100列</span><span style="color:#65737e;">
-</span><span style="color:#65737e;">#改变列宽,设置显示长度为100，默认为50</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_colwidth</span><span>&#39;,</span><span style="color:#d08770;">100</span><span>)</span><span>
-</span><span style="color:#65737e;"># 设置换行，True可以换行显示。False不允许换行</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.expand_frame_repr</span><span>&#39;, </span><span style="color:#d08770;">False</span><span>) </span><span>
-</span><span style="color:#65737e;"># 重置</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_rows</span><span>&#39;)</span><span>
-</span><span style="color:#65737e;"># 全部重置</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">all</span><span>&#39;)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#显示更多行
+</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_columns</span><span>&#39;, </span><span style="color:#d08770;">100</span><span>) </span><span style="color:#65737e;">#显示100行
+</span><span style="color:#65737e;">#显示更多行
+</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_rows</span><span>&#39;, </span><span style="color:#d08770;">100</span><span>) </span><span style="color:#65737e;">#显示100列
+</span><span style="color:#65737e;">#改变列宽,设置显示长度为100，默认为50
+</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_colwidth</span><span>&#39;,</span><span style="color:#d08770;">100</span><span>)
+</span><span style="color:#65737e;"># 设置换行，True可以换行显示。False不允许换行
+</span><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.expand_frame_repr</span><span>&#39;, </span><span style="color:#d08770;">False</span><span>) 
+</span><span style="color:#65737e;"># 重置
+</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_rows</span><span>&#39;)
+</span><span style="color:#65737e;"># 全部重置
+</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">all</span><span>&#39;)
 </span></code></pre>
 <h3 id="pycharmda-kai-da-yin-da-shu-ju-wen-jian-xian-shi-bu-quan-de-jie-jue-fang-fa">Pycharm打开（打印）大数据文件显示不全的解决方法</h3>
 <p>Pycharm IDEA对能关联的文件大小做了限制，默认值为2500kb</p>
 <h4 id="xiu-gai-fang-fa">修改方法：</h4>
 <p>Pycharm菜单找到<code>Edit Custom Properties</code></p>
 <p>追加字段：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>idea.max.intellisense.filesize = 20000</span><span>
-</span><span>idea.max.content.load.filesize = 20000</span><span>
-</span><span>idea.cycle.buffer.size = 20000</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>idea.max.intellisense.filesize = 20000
+</span><span>idea.max.content.load.filesize = 20000
+</span><span>idea.cycle.buffer.size = 20000
 </span></code></pre>
 <p>其中20000代表限制大小为20000kb</p>
 <p>重启Pycharm：</p>
@@ -205,53 +205,53 @@
 <h2 id="shu-zi-ge-shi-hua-xian-shi">数字格式化显示</h2>
 <h4 id="she-zhi-floatlie-de-jing-du">设置float列的精度</h4>
 <p><code>pandas</code>默认情况下float只显示小数点后6位</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>( &#39;</span><span style="color:#a3be8c;">display.precision</span><span>&#39;,</span><span style="color:#d08770;">4</span><span>) </span><span style="color:#65737e;"># 设置显示小数点后4位</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>( &#39;</span><span style="color:#a3be8c;">display.precision</span><span>&#39;,</span><span style="color:#d08770;">4</span><span>) </span><span style="color:#65737e;"># 设置显示小数点后4位
 </span></code></pre>
 <p>这个设置不影响底层数据，它只影响float列的显示。</p>
 <h4 id="shu-zi-ge-shi-hua-xian-shi-1">数字格式化显示</h4>
 <p><code>pandas</code>中有一个选项<code>display.float_formatoption</code>可以用来格式化任何浮点列。</p>
 <p>这个设置项仅适用于浮点列，对于其他数据类型，必须将它们转换为浮点数才可以。</p>
 <p><strong>设置数字精度</strong></p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;,  &#39;</span><span style="color:#d08770;">{:,.2f}</span><span>&#39;.format) </span><span style="color:#65737e;"># 精确到小数点后2位</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;,  &#39;</span><span style="color:#d08770;">{:,.2f}</span><span>&#39;.format) </span><span style="color:#65737e;"># 精确到小数点后2位
 </span></code></pre>
 <p><strong>百分号格式化</strong></p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;, &#39;</span><span style="color:#d08770;">{:.2f}</span><span style="color:#a3be8c;">%</span><span>&#39;.format) </span><span style="color:#65737e;"># 显示带百分比的列</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;, &#39;</span><span style="color:#d08770;">{:.2f}</span><span style="color:#a3be8c;">%</span><span>&#39;.format) </span><span style="color:#65737e;"># 显示带百分比的列
 </span></code></pre>
 <p><strong>逗号格式化大值数字</strong></p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;,&#39;</span><span style="color:#d08770;">{:,}</span><span>&#39;.format) </span><span style="color:#65737e;">#例如100,000</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.float_format</span><span>&#39;,&#39;</span><span style="color:#d08770;">{:,}</span><span>&#39;.format) </span><span style="color:#65737e;">#例如100,000
 </span></code></pre>
 <h2 id="geng-gai-hui-tu-fang-fa">更改绘图方法</h2>
 <p><code>pandas</code>默认使用<code>matplotlib</code>作为绘图后端。</p>
 <p><strong>激活backend</strong></p>
 <p>例如使用plotly：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.options.plotting.backend = &#39;</span><span style="color:#a3be8c;">plotly</span><span>&#39;</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.options.plotting.backend = &#39;</span><span style="color:#a3be8c;">plotly</span><span>&#39;
 </span></code></pre>
 <p>或</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">plotting.backend</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">plotly</span><span>&#39;)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">plotting.backend</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">plotly</span><span>&#39;)
 </span></code></pre>
 <h2 id="pei-zhi-info-de-shu-chu">配置info()的输出</h2>
 <p>设置要分析的最大列数，默认为100。</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_info_columns</span><span>&#39;, </span><span style="color:#d08770;">200</span><span>) </span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_info_columns</span><span>&#39;, </span><span style="color:#d08770;">200</span><span>) 
 </span></code></pre>
 <p>设置计数null时的阈值，默认为1690785。设置一个较小的值可以避免在测试的时候计算所有<code>null</code>导致速度很慢</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_info_rows</span><span>&#39;, </span><span style="color:#d08770;">5</span><span>) </span><span style="color:#65737e;"># 只在行数不超过5时才计数null</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">set_option</span><span>(&#39;</span><span style="color:#a3be8c;">display.max_info_rows</span><span>&#39;, </span><span style="color:#d08770;">5</span><span>) </span><span style="color:#65737e;"># 只在行数不超过5时才计数null
 </span></code></pre>
 <h2 id="xian-shi-she-zhi-he-zhong-zhi-suo-you-she-zhi">显示设置和重置所有设置</h2>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">describe_option</span><span>()  </span><span style="color:#65737e;">#展示所有设置和描述</span><span style="color:#65737e;">
-</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">all</span><span>&#39;)  </span><span style="color:#65737e;">#重置所有设置选项</span><span style="color:#65737e;">
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pd.</span><span style="color:#bf616a;">describe_option</span><span>()  </span><span style="color:#65737e;">#展示所有设置和描述
+</span><span>pd.</span><span style="color:#bf616a;">reset_option</span><span>(&#39;</span><span style="color:#a3be8c;">all</span><span>&#39;)  </span><span style="color:#65737e;">#重置所有设置选项
 </span></code></pre>
 <h1 id="bao-cuo-chu-li">报错处理</h1>
 <h2 id="settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</h2>
 <p>在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X</p>
 <p>事故现场：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
-</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add
 </span></code></pre>
 <p>解决方法：</p>
 <p>直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
-</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()</span><span>
-</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}
+</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add
 </span></code></pre>
 
     </div>
@@ -268,17 +268,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201042037&#x2F;">‹ MySQL使用经验总结</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201071745&#x2F;">git报错处理合集 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

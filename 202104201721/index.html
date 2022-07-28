@@ -149,46 +149,46 @@
 <h1 id="bian-jie-qing-kuang-chu-li">边界情况处理</h1>
 <h3 id="shao-bing">哨兵</h3>
 <p>例题：<a href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram/">84. 柱状图中最大的矩形</a></p>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">vector</span><span>&gt;</span><span>
-</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stack</span><span>&gt;</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">iostream</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">vector</span><span>&gt;
+</span><span style="color:#b48ead;">#include </span><span>&lt;</span><span style="color:#a3be8c;">stack</span><span>&gt;
 </span><span>
-</span><span style="color:#b48ead;">using namespace</span><span> std;</span><span>
+</span><span style="color:#b48ead;">using namespace</span><span> std;
 </span><span>
 </span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
-</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">largestRectangleArea</span><span style="color:#eff1f5;">(vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; </span><span>&amp;</span><span style="color:#bf616a;">heights</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">unsigned long</span><span style="color:#eff1f5;"> size </span><span>=</span><span style="color:#eff1f5;"> heights.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">();</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(size </span><span>== </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> heights[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">];</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> res </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        stack&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; stk;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">for </span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> i </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">; i </span><span>&lt;</span><span style="color:#eff1f5;"> size; </span><span>++</span><span style="color:#eff1f5;">i) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">() </span><span>&amp;&amp;</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()] </span><span>&gt;</span><span style="color:#eff1f5;"> heights[i]) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> length </span><span>=</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()];</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                stk.</span><span style="color:#bf616a;">pop</span><span style="color:#eff1f5;">();</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> weight </span><span>=</span><span style="color:#eff1f5;"> i;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                    weight </span><span>=</span><span style="color:#eff1f5;"> i </span><span>-</span><span style="color:#eff1f5;"> stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                res </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(res, length </span><span>*</span><span style="color:#eff1f5;"> weight);</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            stk.</span><span style="color:#bf616a;">push</span><span style="color:#eff1f5;">(i);</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> length </span><span>=</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()];</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            stk.</span><span style="color:#bf616a;">pop</span><span style="color:#eff1f5;">();</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> weight </span><span>=</span><span style="color:#eff1f5;"> size;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                weight </span><span>=</span><span style="color:#eff1f5;"> size </span><span>-</span><span style="color:#eff1f5;"> stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            res </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(res, length </span><span>*</span><span style="color:#eff1f5;"> weight);</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> res;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">}</span><span>;</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{
+</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">largestRectangleArea</span><span style="color:#eff1f5;">(vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; </span><span>&amp;</span><span style="color:#bf616a;">heights</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">unsigned long</span><span style="color:#eff1f5;"> size </span><span>=</span><span style="color:#eff1f5;"> heights.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(size </span><span>== </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> heights[</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">];
+</span><span style="color:#eff1f5;">        }
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> res </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">        stack&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; stk;
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">for </span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> i </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">; i </span><span>&lt;</span><span style="color:#eff1f5;"> size; </span><span>++</span><span style="color:#eff1f5;">i) {
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">() </span><span>&amp;&amp;</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()] </span><span>&gt;</span><span style="color:#eff1f5;"> heights[i]) {
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> length </span><span>=</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()];
+</span><span style="color:#eff1f5;">                stk.</span><span style="color:#bf616a;">pop</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> weight </span><span>=</span><span style="color:#eff1f5;"> i;
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {
+</span><span style="color:#eff1f5;">                    weight </span><span>=</span><span style="color:#eff1f5;"> i </span><span>-</span><span style="color:#eff1f5;"> stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">                }
+</span><span style="color:#eff1f5;">                res </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(res, length </span><span>*</span><span style="color:#eff1f5;"> weight);
+</span><span style="color:#eff1f5;">            }
+</span><span style="color:#eff1f5;">            stk.</span><span style="color:#bf616a;">push</span><span style="color:#eff1f5;">(i);
+</span><span style="color:#eff1f5;">        }
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> length </span><span>=</span><span style="color:#eff1f5;"> heights[stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">()];
+</span><span style="color:#eff1f5;">            stk.</span><span style="color:#bf616a;">pop</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> weight </span><span>=</span><span style="color:#eff1f5;"> size;
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">if </span><span style="color:#eff1f5;">(</span><span>!</span><span style="color:#eff1f5;">stk.</span><span style="color:#bf616a;">empty</span><span style="color:#eff1f5;">()) {
+</span><span style="color:#eff1f5;">                weight </span><span>=</span><span style="color:#eff1f5;"> size </span><span>-</span><span style="color:#eff1f5;"> stk.</span><span style="color:#bf616a;">top</span><span style="color:#eff1f5;">() </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">            }
+</span><span style="color:#eff1f5;">            res </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(res, length </span><span>*</span><span style="color:#eff1f5;"> weight);
+</span><span style="color:#eff1f5;">        }
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> res;
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">}</span><span>;
 </span><span>
 </span></code></pre>
 <p>以上参考代码 需要考虑两种特殊的情况：</p>
@@ -200,32 +200,32 @@
 <p>左边的柱形（第 1 个柱形）由于它一定比输入数组里任何一个元素小，它肯定不会出栈，因此栈一定不会为空；</p>
 <p>右边的柱形（第 2 个柱形）也正是因为它一定比输入数组里任何一个元素小，它会让所有输入数组里的元素出栈（第 1 个哨兵元素除外）。</p>
 <h4 id="shi-yong-shao-bing-jing-jian-hou-de-dai-ma"><strong>使用哨兵精简后的代码</strong></h4>
-<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{</span><span style="color:#eff1f5;">
-</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">largestRectangleArea</span><span style="color:#eff1f5;">(vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt;</span><span>&amp; </span><span style="color:#bf616a;">heights</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> ans </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        heights.</span><span style="color:#bf616a;">insert</span><span style="color:#eff1f5;">(heights.</span><span style="color:#bf616a;">begin</span><span style="color:#eff1f5;">(), </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">);  </span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#65737e;">// 第一个元素为添0，可以避免栈为空的情况，下面的while不用判断 !stack.empty()，0可看作是所有元素中最小的值</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">        heights.</span><span style="color:#bf616a;">push_back</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">);                </span><span style="color:#65737e;">// 最后一个元素添0，是为了触发最后一个单调栈开始收缩</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">        vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; stack </span><span>= </span><span style="color:#eff1f5;">{</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">};             </span><span style="color:#65737e;">// 第一个元素0，先入栈，是为了while里面的 stack.back() 第一次能取到值</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">for </span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> i </span><span>= </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">; i </span><span>&lt;</span><span style="color:#eff1f5;"> heights.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">(); i</span><span>++</span><span style="color:#eff1f5;">) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#65737e;">// 此时i指向新元素，当新元素小于此时的栈顶（i-1）时，单调栈开始收缩，</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#65737e;">// 第一个老栈顶肯定为i-1，否则不符合逻辑</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(heights[i] </span><span>&lt;</span><span style="color:#eff1f5;"> heights[stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">()]) {</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> curHeight </span><span>=</span><span style="color:#eff1f5;"> heights[stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">()];</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                stack.</span><span style="color:#bf616a;">pop_back</span><span style="color:#eff1f5;">();</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> right </span><span>=</span><span style="color:#eff1f5;"> i </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;            </span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// 右边届是固定的，为第一个老栈顶，也是最初栈里面的最高点</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> left </span><span>=</span><span style="color:#eff1f5;"> stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">() </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;  </span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// 每次更新左边，此时栈已经pop过了，所以栈顶为当前矩形左边届的前一个</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// +1这个位置可能就不在栈里，但是这个值一定大于curHeight，一定要用它做左边</span><span style="color:#65737e;">
-</span><span style="color:#eff1f5;">                ans </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(ans, (right </span><span>-</span><span style="color:#eff1f5;"> left </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">) </span><span>*</span><span style="color:#eff1f5;"> curHeight);</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">            stack.</span><span style="color:#bf616a;">push_back</span><span style="color:#eff1f5;">(i);</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> ans;</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">    }</span><span style="color:#eff1f5;">
-</span><span style="color:#eff1f5;">}</span><span>;</span><span>
+<pre data-lang="c++" style="background-color:#2b303b;color:#c0c5ce;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Solution </span><span style="color:#eff1f5;">{
+</span><span style="color:#b48ead;">public</span><span style="color:#eff1f5;">:
+</span><span style="color:#eff1f5;">    </span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">largestRectangleArea</span><span style="color:#eff1f5;">(vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt;</span><span>&amp; </span><span style="color:#bf616a;">heights</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> ans </span><span>= </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">;
+</span><span style="color:#eff1f5;">        heights.</span><span style="color:#bf616a;">insert</span><span style="color:#eff1f5;">(heights.</span><span style="color:#bf616a;">begin</span><span style="color:#eff1f5;">(), </span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">);  
+</span><span style="color:#eff1f5;">        </span><span style="color:#65737e;">// 第一个元素为添0，可以避免栈为空的情况，下面的while不用判断 !stack.empty()，0可看作是所有元素中最小的值
+</span><span style="color:#eff1f5;">        heights.</span><span style="color:#bf616a;">push_back</span><span style="color:#eff1f5;">(</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">);                </span><span style="color:#65737e;">// 最后一个元素添0，是为了触发最后一个单调栈开始收缩
+</span><span style="color:#eff1f5;">        vector&lt;</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;">&gt; stack </span><span>= </span><span style="color:#eff1f5;">{</span><span style="color:#d08770;">0</span><span style="color:#eff1f5;">};             </span><span style="color:#65737e;">// 第一个元素0，先入栈，是为了while里面的 stack.back() 第一次能取到值
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">for </span><span style="color:#eff1f5;">(</span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> i </span><span>= </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">; i </span><span>&lt;</span><span style="color:#eff1f5;"> heights.</span><span style="color:#bf616a;">size</span><span style="color:#eff1f5;">(); i</span><span>++</span><span style="color:#eff1f5;">) {
+</span><span style="color:#eff1f5;">            </span><span style="color:#65737e;">// 此时i指向新元素，当新元素小于此时的栈顶（i-1）时，单调栈开始收缩，
+</span><span style="color:#eff1f5;">            </span><span style="color:#65737e;">// 第一个老栈顶肯定为i-1，否则不符合逻辑
+</span><span style="color:#eff1f5;">            </span><span style="color:#b48ead;">while </span><span style="color:#eff1f5;">(heights[i] </span><span>&lt;</span><span style="color:#eff1f5;"> heights[stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">()]) {
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> curHeight </span><span>=</span><span style="color:#eff1f5;"> heights[stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">()];
+</span><span style="color:#eff1f5;">                stack.</span><span style="color:#bf616a;">pop_back</span><span style="color:#eff1f5;">();
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> right </span><span>=</span><span style="color:#eff1f5;"> i </span><span>- </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;            
+</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// 右边届是固定的，为第一个老栈顶，也是最初栈里面的最高点
+</span><span style="color:#eff1f5;">                </span><span style="color:#b48ead;">int</span><span style="color:#eff1f5;"> left </span><span>=</span><span style="color:#eff1f5;"> stack.</span><span style="color:#bf616a;">back</span><span style="color:#eff1f5;">() </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">;  
+</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// 每次更新左边，此时栈已经pop过了，所以栈顶为当前矩形左边届的前一个
+</span><span style="color:#eff1f5;">                </span><span style="color:#65737e;">// +1这个位置可能就不在栈里，但是这个值一定大于curHeight，一定要用它做左边
+</span><span style="color:#eff1f5;">                ans </span><span>= </span><span style="color:#bf616a;">max</span><span style="color:#eff1f5;">(ans, (right </span><span>-</span><span style="color:#eff1f5;"> left </span><span>+ </span><span style="color:#d08770;">1</span><span style="color:#eff1f5;">) </span><span>*</span><span style="color:#eff1f5;"> curHeight);
+</span><span style="color:#eff1f5;">            }
+</span><span style="color:#eff1f5;">            stack.</span><span style="color:#bf616a;">push_back</span><span style="color:#eff1f5;">(i);
+</span><span style="color:#eff1f5;">        }
+</span><span style="color:#eff1f5;">        </span><span style="color:#b48ead;">return</span><span style="color:#eff1f5;"> ans;
+</span><span style="color:#eff1f5;">    }
+</span><span style="color:#eff1f5;">}</span><span>;
 </span></code></pre>
 
     </div>
@@ -242,17 +242,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202104111721&#x2F;">‹ Dp template</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202107151443&#x2F;">paddle踩坑 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

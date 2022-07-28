@@ -190,32 +190,32 @@
       <span id="continue-reading"></span>
 <h1 id="cha-zhao-an-zhuang-di-zhi">查找安装地址</h1>
 <p>控制台</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>where python</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>where python
 </span></code></pre>
 <h1 id="diao-shi-ce-shi">调试/测试</h1>
 <h2 id="cheng-xu-ji-shi">程序计时</h2>
 <p><code>time.perf_counter()</code>以秒为单位返回时间的浮点值</p>
 <p><code>time.perf_counter_ns()</code>返回时间以纳秒为单位</p>
 <h2 id="kong-zhi-tai-da-yin-ping-bi-yu-xian-shi">控制台打印屏蔽与显示</h2>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>sys, os</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>sys, os
 </span><span>
-</span><span style="color:#65737e;"># Disable</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">blockPrint</span><span>():</span><span>
-</span><span>    sys.stdout = </span><span style="color:#96b5b4;">open</span><span>(os.devnull, &#39;</span><span style="color:#a3be8c;">w</span><span>&#39;)</span><span>
+</span><span style="color:#65737e;"># Disable
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">blockPrint</span><span>():
+</span><span>    sys.stdout = </span><span style="color:#96b5b4;">open</span><span>(os.devnull, &#39;</span><span style="color:#a3be8c;">w</span><span>&#39;)
 </span><span>
-</span><span style="color:#65737e;"># Restore</span><span style="color:#65737e;">
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">enablePrint</span><span>():</span><span>
-</span><span>    sys.stdout = sys.__stdout__</span><span>
+</span><span style="color:#65737e;"># Restore
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">enablePrint</span><span>():
+</span><span>    sys.stdout = sys.__stdout__
 </span></code></pre>
 <h1 id="bao-cuo-chu-li">报错处理</h1>
 <h2 id="pythonban-ben-wen-ti">Python版本问题</h2>
 <h3 id="modulenotfounderror-no-module-named-cpickle">ModuleNotFoundError: No module named 'cPickle'</h3>
 <p>python2有cPickle，但是python3没有cPickle</p>
 <p>python2使用：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>cPickle</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>cPickle
 </span></code></pre>
 <p>python3使用：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>pickle</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>pickle
 </span></code></pre>
 <h3 id="name-reload-is-not-defined">name 'reload' is not defined</h3>
 <ul>
@@ -223,13 +223,13 @@
 <li>在python3中有了明确的str和byte类型区别，从一种类型转换成另一种类型要显式指定<em>encoding。</em></li>
 </ul>
 <p>python2使用：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>sys</span><span>
-</span><span style="color:#96b5b4;">reload</span><span>(sys)</span><span>
-</span><span>sys.</span><span style="color:#bf616a;">setdefaultencoding</span><span>(‘utf-</span><span style="color:#d08770;">8</span><span>’)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>sys
+</span><span style="color:#96b5b4;">reload</span><span>(sys)
+</span><span>sys.</span><span style="color:#bf616a;">setdefaultencoding</span><span>(‘utf-</span><span style="color:#d08770;">8</span><span>’)
 </span></code></pre>
 <p>python3使用：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>importlib,sys</span><span>
-</span><span>importlib.</span><span style="color:#bf616a;">reload</span><span>(sys)</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>importlib,sys
+</span><span>importlib.</span><span style="color:#bf616a;">reload</span><span>(sys)
 </span></code></pre>
 <h3 id="attributeerror-module-sys-has-no-attribute-setdefaultencoding">AttributeError: module 'sys' has no attribute 'setdefaultencoding'</h3>
 <p>报错原因同上，python3没有<code>sys.setdefaultencoding('utf-8')</code>，删除该行即可</p>
@@ -238,48 +238,48 @@
 <p>debug模式下会对线程的切换造成混乱,解决方案:</p>
 <p>第一种: 禁用debug模式即可</p>
 <p>第二种:在主函数中加入monkey patch</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">if </span><span>__name__ == &#39;</span><span style="color:#a3be8c;">__main__</span><span>&#39;:</span><span>
-</span><span>    </span><span style="color:#b48ead;">from </span><span>gevent </span><span style="color:#b48ead;">import </span><span>monkey</span><span>
-</span><span>    monkey.</span><span style="color:#bf616a;">patch_all</span><span>()</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">if </span><span>__name__ == &#39;</span><span style="color:#a3be8c;">__main__</span><span>&#39;:
+</span><span>    </span><span style="color:#b48ead;">from </span><span>gevent </span><span style="color:#b48ead;">import </span><span>monkey
+</span><span>    monkey.</span><span style="color:#bf616a;">patch_all</span><span>()
 </span></code></pre>
 <h2 id="pyqt5xiang-guan">PyQt5相关</h2>
 <h3 id="error-could-not-find-a-version-that-satisfies-the-requirement-pil-from-versions-none">ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)</h3>
 <p>ERROR: No matching distribution found for PIL</p>
 <p>PIL，全称 Python Imaging Library，是 Python 平台一个功能非常强大而且简单易用的图像处理库。但是，由于 PIL 仅支持到Python 2.7，加上年久失修，于是一群志愿者在 PIL 的基础上创建了兼容 Python 3 的版本，名字叫 Pillow ，现在可以通过安装 Pillow 来使用 PIL。</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pip install pillow</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>pip install pillow
 </span></code></pre>
 <h3 id="importerror-cannot-import-name-options-from-pyecharts">ImportError: cannot import name 'options' from 'pyecharts'</h3>
 <p>解决：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install pyecharts -U</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install pyecharts -U
 </span></code></pre>
 <h2 id="numpyxiang-guan">Numpy相关</h2>
 <h3 id="valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility">ValueError: numpy.ndarray size changed, may indicate binary incompatibility.</h3>
 <p>核心原因是 numpy 版本与当前一些库不匹配，把 numpy 更新到最新版本即可</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install --upgrade numpy</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pip install --upgrade numpy
 </span></code></pre>
 <h2 id="urllibxiang-guan">urllib相关</h2>
 <h3 id="attributeerror-module-urllib-has-no-attribute-request">AttributeError: module 'urllib' has no attribute 'request'</h3>
 <p>解决：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request
 </span></code></pre>
 <h3 id="unresolved-reference-urllib2">Unresolved reference 'urllib2'</h3>
 <p>解决：</p>
 <p>在python3.3以后，用urllib.request代替urllib2</p>
 <p>import语句使用</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>from urllib import request
 </span></code></pre>
 <h2 id="pandasxiang-guan">pandas相关</h2>
 <h3 id="settingwithcopywarning-a-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe">SettingWithCopyWarning:  A value is trying to be set on a copy of a slice from a DataFrame</h3>
 <p>在向DataFrame中插入新行时，Pandas报出了这个警告。虽然不影响程序执行，但还是不想看到警告（X</p>
 <p>事故现场：</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
-</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add
 </span></code></pre>
 <p>解决方法：</p>
 <p>直接对副本修改就会出现这个警告，需要在修改前应该先对副本复制一下</p>
-<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}</span><span>
-</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()</span><span>
-</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add</span><span>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>add = {&#39;</span><span style="color:#a3be8c;">ts_code</span><span>&#39;: stock_code, &#39;</span><span style="color:#a3be8c;">trade_date</span><span>&#39;: now_date, &#39;</span><span style="color:#a3be8c;">close</span><span>&#39;: now_price}
+</span><span>df = df.</span><span style="color:#bf616a;">copy</span><span>()
+</span><span>df.loc[</span><span style="color:#96b5b4;">len</span><span>(df)] = add
 </span></code></pre>
 
     </div>
@@ -296,17 +296,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201142017&#x2F;">‹ JDBC for MySQL</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201151642&#x2F;">python绘制candlestick ›</a>
-                    
-                    
-                    
-                </div>
             
 
         

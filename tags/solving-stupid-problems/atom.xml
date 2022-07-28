@@ -11,12 +11,12 @@
 		<title>Solving stupid problems——装不上某个python包</title>
 		<published>2020-09-13T14:43:14+00:00</published>
 		<updated>2020-09-13T14:43:14+00:00</updated>
-		<link href="https://arceusj2000.github.io/202009131443/" type="text/html"/>
+		<link rel="alternate" href="https://arceusj2000.github.io/202009131443/" type="text/html"/>
 		<id>https://arceusj2000.github.io/202009131443/</id>
 		<content type="html">&lt;p&gt;记录一次用pip安装python包失败的解决过程&lt;&#x2F;p&gt;
 &lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
 &lt;h2 id=&quot;shi-gu-xian-chang&quot;&gt;事故现场&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;img src=&quot;.%5Cimg%5C1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202009131443&#x2F;.%5Cimg%5C1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;pip装不上，去&lt;a href=&quot;https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;stable-baselines3&#x2F;#files&quot;&gt;stable-baselines3 · PyPI&lt;&#x2F;a&gt;上下的whl也装不上&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;wen-ti-jie-jue&quot;&gt;问题解决&lt;&#x2F;h2&gt;
 &lt;p&gt;python 中的egg文件；类似于Java 中的jar 包，把一系列的python源码文件、元数据文件、其他资源文件 zip 压缩，重新命名为.egg 文件，目的是作为一个整体进行发布。&lt;&#x2F;p&gt;

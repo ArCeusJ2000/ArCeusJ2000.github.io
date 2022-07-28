@@ -191,14 +191,14 @@
 <p>docker settings——&gt;Resources——&gt;WSL Integration——&gt;选择要启用的WSL 2 版本</p>
 <p>如果已经安装配置过WSL却出现<code>You don’t have any WSL 2 distro. Please convert a WSL 1 distro to WSL 2</code>，解决方法如下：</p>
 <p>使用命令检查WSL模式：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl.exe -l -v</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl.exe -l -v
 </span></code></pre>
 <p>将已存在的Linux发行版转到v2：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl.exe --set-version ubuntu 2</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl.exe --set-version ubuntu 2
 </span></code></pre>
 <p>(Ubuntu是要启用的发行版本)</p>
 <p>将 WSL 2 设置为默认版本：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl --set-default-version 2</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wsl --set-default-version 2
 </span></code></pre>
 <h3 id="fu-chang-yong-docker-ming-ling">附常用Docker 命令：</h3>
 <ul>
@@ -221,7 +221,7 @@
 <p>点击VS Code左下角的打开远程窗口图标——&gt;New WSL Window using Distro...</p>
 <h3 id="da-kai-xiang-mu">打开项目</h3>
 <p>打开 wsl 终端，进入到要打开的项目中，在项目中执行命令</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>code .</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>code .
 </span></code></pre>
 <p>或者</p>
 <p>在VS Code中进入WSL工作环境后，</p>
@@ -237,7 +237,7 @@
 <h2 id="ming-ling-xing-dai-li">命令行代理</h2>
 <p>使用<code>ipconfig</code>查询宿主机的ip</p>
 <p>在WSL命令行配置，例如export ALL_PROXY=http:192.168.1.105:1081</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>export ALL_PROXY=http://宿主机ip:1081</span><span>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>export ALL_PROXY=http://宿主机ip:1081
 </span></code></pre>
 
     </div>
@@ -256,17 +256,6 @@
                     
                 </div>
             
-            
-                <div class="post-nav">
-                    
-                        <a class="previous" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201241745&#x2F;">‹ Nightwatch使用笔记</a>
-                    
-                    
-                        <a class="next" href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202201291536&#x2F;">LaTex使用总结 ›</a>
-                    
-                    
-                    
-                </div>
             
 
         
