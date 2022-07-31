@@ -4,7 +4,7 @@ date = 2022-03-09 20:17:19
 slug = "202203092017"
 
 [taxonomies]
-tags = ["Non-mainstream databases"]
+tags = ["State-of-the-art DB"]
 categories =  ["Reading Notes", "Eng"]
 
 +++
