@@ -5,8 +5,97 @@
 	<link href="https://arceusj2000.github.io/categories/eng/atom.xml" rel="self" type="application/atom+xml"/>
   <link href="https://arceusj2000.github.io"/>
 	<generator uri="https://www.getzola.org/">Zola</generator>
-	<updated>2022-03-13T20:17:19+00:00</updated>
+	<updated>2022-05-22T20:17:19+00:00</updated>
 	<id>https://arceusj2000.github.io/categories/eng/atom.xml</id>
+	<entry xml:lang="zh">
+		<title>Reading Notes on Data Blocks</title>
+		<published>2022-05-22T20:17:19+00:00</published>
+		<updated>2022-05-22T20:17:19+00:00</updated>
+		<link rel="alternate" href="https://arceusj2000.github.io/202205222017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202205222017/</id>
+		<content type="html">&lt;p&gt;Data Blocks: Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation (SIGMOD 2016, TUM)&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;Data Blocks is a storage layer technology developed by the TUM database group to reduce the memory footprint of HyPer (OLTP + OLAP hybrid main memory database) without sacrificing existing performance.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;questions&quot;&gt;Questions&lt;&#x2F;h2&gt;
+&lt;p&gt;To reduce the memory footprint, the data is divided into cold and hot parts, with the cold data being compressed to reduce memory pressure (and evicted out of memory) and the hot data not compressed. However, unlike some typical OLAP systems, HyPer does not use very high compression ratios, but rather restraint in the use of lightweight compression (byte-addressable compression formats), mainly for the sake of OLTP workoad performance (efficient point accesses). The SARGable scan restrictions (i.e., =, is, &amp;lt;, ≤, &amp;gt;, ≥, between) can be compared directly on this lightly compressed data. Query acceleration techniques such as vectorized execution for highly compressed columnar data are not suitable for OLTP, which generally does not require access to large amounts of data, but rather to locate data quickly.&lt;&#x2F;p&gt;
+&lt;p&gt;As a remark, identifying hot and cold data is not the focus of this article; there are many off-the-shelf algorithms that solve this problem (e.g., Anti-Caching).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;&#x2F;h2&gt;
+&lt;p&gt;This paper contributes to three main areas, the second of which is likely to be more widely understood.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Design of Data Blocks &#x2F;&#x2F; designed for cold data, Chunk compressed into Data Blocks&lt;&#x2F;li&gt;
+&lt;li&gt;Lightweight indexing (PSMA) &#x2F;&#x2F; designed for Data Blocks&lt;&#x2F;li&gt;
+&lt;li&gt;SIMD algorithm for accelerated predicate evaluation &#x2F;&#x2F; done on Data Block&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;design-of-data-blocks&quot;&gt;Design of Data Blocks&lt;&#x2F;h2&gt;
+&lt;p&gt;When a chunk is considered cold, it is compressed into a read-optimized immutable Data Block (not writable). If the data on the cold Data Block is to be updated, the data on the Data Block is first deleted (marked with a flag) and a new one is inserted on top of the hot data. This ensures that OLTP performance is maintained.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;lightweight-indexing-designed-for-data-blocks&quot;&gt;Lightweight indexing designed for Data Blocks&lt;&#x2F;h2&gt;
+&lt;p&gt;The Data Block layout is not much more than meta data + compressed data. What is special about the layout is that a lightweight index, PSMA (Positional SMAs), is stored for each column. Compared to traditional SMAs that only store an interval mix max, PSMAs further reduce the possible query intervals. That is, if a point look up falls within an SMA in this interval, the PSMA narrows down the data to be scanned instead of scanning the entire Data Block (for that query condition column) directly.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The PSMA query process is as follows.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;First a number v is subtracted from the SMA min in the data block interval of the column to obtain a delta value &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The highest non-zero byte value of this delta value is , and the remaining number of bytes is r
+then the index value &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Query the look up table of the PSMA with i as the key, and get a range, which is the interval where the final result exists&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Understanding the query principle, it is easy to construct a PSMA by scanning through the data and continuously updating each range.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;&#x2F;h2&gt;
+&lt;p&gt;Question: Can PSMA only be used to speed up point queries? If it is an OLAP range query, PSMA has to do multiple look up + union operations for each range, which is not necessarily cost effective.&lt;&#x2F;p&gt;
+&lt;p&gt;Then there is the compression of Data Blocks. One of the main features is that each Data Block may have a different compression algorithm for each column, and they will choose the one that is best for their data (the one that minimises memory usage). As for specific compression algorithms, Data Blocks consider three algorithms that they believe balance compression ratio and query performance.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;single value compression &#x2F;&#x2F; if all values of an attribute in a block are equa, e.g., null&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;ordered dictionary compression &#x2F;&#x2F; the relative order of keys before compression is the same as after compression&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;truncation &#x2F;&#x2F; value - min, does not apply to double and string, string will always be compressed to integer&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;When a query comes in, first see if you can exclude the Data Block with SMA and PSMA or narrow the query, then use vectorized execution to compare directly on the compressed data.&lt;&#x2F;p&gt;
+&lt;p&gt;However, the fact that each chunk is compressed differently poses a design challenge for the JIT tuple-at-a-time engine (just-in-time compilation of SQL queries directly into executable code). If the layout of each Data Block is different, the number of code paths to be generated by scan grows exponentially. To solve this problem, the authors took advantage of the vectorized scan remain interpreted and can be pre-compiled capability and combined it with JIT.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;resource&quot;&gt;Resource&lt;&#x2F;h2&gt;
+&lt;p&gt;Harald Lang, Tobias Mühlbauer, Florian Funke, Peter A. Boncz, Thomas Neumann, and Alfons Kemper. 2016. Data Blocks: Hybrid OLTP and OLAP on Compressed Storage using both Vectorization and Compilation. In Proceedings of the 2016 International Conference on Management of Data (SIGMOD &#x27;16). Association for Computing Machinery, New York, NY, USA, 311–326. https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;2882903.2882925&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="zh">
+		<title>Reading Notes on Anti-Caching</title>
+		<published>2022-04-02T20:17:19+00:00</published>
+		<updated>2022-04-02T20:17:19+00:00</updated>
+		<link rel="alternate" href="https://arceusj2000.github.io/202204022017/" type="text/html"/>
+		<id>https://arceusj2000.github.io/202204022017/</id>
+		<content type="html">&lt;p&gt;Anti-Caching: A New Approach to Database Management System Architecture (VLDB 2013, Brown + MIT)&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;Anti-Caching is a data management mechanism designed by the H-Store project team for all-memory databases and is expected to solve the problem of physical memory limitations.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;questions&quot;&gt;Questions&lt;&#x2F;h2&gt;
+&lt;p&gt;The reason for the redesign is that the previous disk-based BufferManager had an excessive overhead in full memory scenarios (if the page is already in main memory, finding the corresponding memory pointer based on the page identifier is completely useless, according to a According to a SIGMOD 2018 paper, 1&#x2F;3 of CPU cycles are wasted here). For this reason, many pure memory databases have abandoned BufferManager (e.g. H-Store, VoltDB [the commercial version of H-Store], MemSQL, and RAMCloud). The problem was that when the amount of physical memory was exceeded, pure in-memory databases started to experience page faults, which suddenly and severely slowed down the system. So at the time, pure memory databases were advising users not to manage more data than was available in physical memory. To solve this problem, the H-Store project team designed Anti-Caching.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;design-goals&quot;&gt;Design goals&lt;&#x2F;h2&gt;
+&lt;p&gt;When physical memory is about to be exhausted, the database collects cold data and writes it to disk in a cost effective manner.&lt;&#x2F;p&gt;
+&lt;p&gt;Unlike previous cache mechanisms, data does not exist in both hard disk and memory, but only in one of these places. Because memory is the primary carrier of data, the typical scenario is that data starts in memory and then cold data is expelled to the hard disk (rather than data starting on the hard disk and hot data being cached to memory). This approach is actually somewhat similar to virtual memory, except that memory is now managed by the database rather than the operating system, which provides more precise control (e.g., tuple level eviction).&lt;&#x2F;p&gt;
+&lt;p&gt;To understand the design of Anti-Caching it may be useful to review the key features of the H-Stored pure memory database: the H-Store is single-transaction (multiple physical nodes, multiple partitions per node, one thread per partition responsible for executing queries involving that partition), so it is lock-free. This is fine when the query mostly involves only one partition), so there is no locking. In terms of persistence, snapshots are flushed periodically, and command logs are also flushed (irregularly, or less than a max period, I guess) (after the group, to reduce the number of I&#x2F;Os), and only after the command log has been dropped does the commit return successful.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;&#x2F;h2&gt;
+&lt;p&gt;The core operation for implementing Anti-Caching is a two-step process.&lt;&#x2F;p&gt;
+&lt;p&gt;Aggregate the tuple of cold data to be expelled from memory (according to the LRU) into a block.
+Update an in-memory table (evicted table) to keep track of which tuples have been written to disk.
+And, because H-Stroe is single-transaction, maintaining these data structures does not require chaining.&lt;&#x2F;p&gt;
+&lt;p&gt;All that remains to be solved is some auxiliary data structures and how to do this elegantly. For example, in addition to the evicted table, there will be a block table to maintain all blocks. To facilitate access to cold data, a LRU Chain is maintained (for each table), so that when a tuple is accessed, it is retrieved directly from its original location and placed at the end of the chain. When implemented, the pointer to this bi-linked table is placed directly in the tuple header to reduce memory usage. To reduce CPU pressure, only some transactions are selected to update the LRU information (sampling). In addition to the data itself, the block table and evicted table are also written to disk during persistence.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;&#x2F;h2&gt;
+&lt;p&gt;Question: Why do we need block tables?
+My understanding is that if only evicted tables were used, then each tuple would have to hold specific block location information, which would undoubtedly increase the memory footprint and undermine the design goal of expelling tuples to reduce memory pressure. Using additional block tables in a dictionary-like fashion can further compress memory usage.&lt;&#x2F;p&gt;
+&lt;p&gt;Another trade-off is that the tuple from the block has to be merged back into the in-memory table structure, but should it be just this data? Or should the whole block be merged? If the former, the blocks on disk will need to be tidied up regularly, otherwise there will be more and more holes. If the latter, it may increase the memory load and the number of evicts.&lt;&#x2F;p&gt;
+&lt;p&gt;The experiments were compared with MySQL, MySQL + Memcached, using the YCSB (Yahoo Cloud Serving Benchmark) and TPC-C (OLTP) datasets. The basic conclusion is that the more skewed the query the more pronounced the Anti-Caching effect. After all, most of the hot pages used can be kept in memory at this point.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;resource&quot;&gt;Resource&lt;&#x2F;h2&gt;
+&lt;p&gt;Justin DeBrabant, Andrew Pavlo, Stephen Tu, Michael Stonebraker, and Stan Zdonik. 2013. Anti-caching: a new approach to database management system architecture. Proc. VLDB Endow. 6, 14 (September 2013), 1942–1953. https:&#x2F;&#x2F;doi.org&#x2F;10.14778&#x2F;2556549.2556575&lt;&#x2F;p&gt;
+</content>
+	</entry>
 	<entry xml:lang="zh">
 		<title>Reading Notes on LeanStore</title>
 		<published>2022-03-13T20:17:19+00:00</published>
