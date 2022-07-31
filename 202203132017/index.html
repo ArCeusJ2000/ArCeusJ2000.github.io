@@ -7,7 +7,7 @@
       <!-- Enable responsiveness on mobile devices-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>Arceus - Reading Notes on umbra</title>
+      <title>Arceus - Reading Notes on LeanStore</title>
 
       
 
@@ -114,17 +114,22 @@
             <ul>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202203092017/#basic-info" class="toc-link">Basic Info</a>
+                    <a href="https://arceusj2000.github.io/202203132017/#questions" class="toc-link">Questions</a>
                     
                 </li>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202203092017/#variable-size-page" class="toc-link">Variable-size Page</a>
+                    <a href="https://arceusj2000.github.io/202203132017/#design-goals" class="toc-link">Design goals</a>
                     
                 </li>
                 
                 <li>
-                    <a href="https://arceusj2000.github.io/202203092017/#resource" class="toc-link">Resource</a>
+                    <a href="https://arceusj2000.github.io/202203132017/#design" class="toc-link">Design</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://arceusj2000.github.io/202203132017/#resource" class="toc-link">Resource</a>
                     
                 </li>
                 
@@ -138,28 +143,35 @@
     
     <header class="post__header">
         <h1 class="post__title">
-            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203092017&#x2F;">Reading Notes on umbra</a>
+            <a href="https:&#x2F;&#x2F;arceusj2000.github.io&#x2F;202203132017&#x2F;">Reading Notes on LeanStore</a>
         </h1>
         <div class="post__meta">
-            <span class="post__time">2022-03-09</span>
+            <span class="post__time">2022-03-13</span>
             
         </div>
     </header>
 
     <div class="post-content">
-      <p>Umbra DB</p>
-<p>Umbra: A Disk-Based System with In-Memory Performance (CIDR 2020, TUM)</p>
+      <p>LeanStore: In-Memory Data Management Beyond Main Memory (ICDE 2018, TUM)</p>
 <span id="continue-reading"></span>
-<h2 id="basic-info">Basic Info</h2>
-<p>Umbra is a database designed by the TUM database group after the HyPer in-memory-only database, which is biased towards large memory scenarios but offers better management of supra-physical memory data volumes than the in-memory-only database. Umbra's positioning overlaps with LeanStore and continues many of the LeanStore's designs (e.g. pointer swizzling, page replacement strategy, optimistic latching...) It also continues much of the design of the LeanStore (e.g. pointer swizzling, page replacement strategy, optimistic latching...) but adds variable-size pages to the LeanStore to better support arbitrary data sizes (especially large data objects) without compromising performance. TUM therefore considers Umbra to be the true successor of Hyper (Umbra is the spiritual successor of our pure in-memory system HyPer).</p>
-<p>Here are some details on the design of the variable-size page.</p>
-<h2 id="variable-size-page">Variable-size Page</h2>
-<p>Umbra's page starts at 64KB and is divided into multiple size classes. Theoretically, the page size can be up to the size of the entire buffer pool. Unlike previous variable size page buffer pool designs, Umbra does not need to set the size of the buffer pool memory available for each size class, so it can be used (api) much differently than a normal buffer manager.</p>
-<p>However, supporting multiple page sizes can easily lead to fragmentation, and Umbra solves this problem by using a mapping between virtual address and physical memory (although a continuous virtual address may be discrete on physical memory). ). Each virtual memory region is sliced into chunks of the size of that size class, so that at least one of the virtual memory chunks is not allocated. Each virtual memory region is sliced into chunks of that size class, so there is no fragmentation, at least on the virtual memory. When a page is read, a physical memory mapping is created with pread. When a page is evict, a pwrite is written back and the MADV_DONTNEED flag is passed to the madvise system call to immediately release the physical The</p>
-<p>Umbra's relation is organised in a B+ tree (using synthetic key), all internal nodes are 64KB pages, and the leaf node can be a variable size page. DataBlock.</p>
-<p>In addition to the variable size page, Umbra has made some additional minor optimisations compared to LeanStore, such as shared latching (to reduce the validation failure of optimistic latching in the case of read heavy workload + few writes) failure). Compared to HyPer, changes have been made to string handling (below), statistics collection (online reservoir sampling variant + HyperLogLog variant), and query compilation (pipelines are further disassembled into steps, abandoned the more generic llvm, wrote a more customised lightweight IR of its own, and adapted it for implementation (ICDE2018)).</p>
+<p>LeanStore is a database designed by the TUM database group after HyPer's pure in-memory database, which favours large in-memory scenarios but provides better management of ultra-physical in-memory data volumes than a pure in-memory database.</p>
+<h2 id="questions">Questions</h2>
+<p>Why go &quot;backwards&quot; from the memory-only databases of the last few years to databases using hard disks? It's really a question of price/performance, 20 years ago when memory-only databases were being talked about, memory capacity was soaring and prices were plummeting, but that trend, like CPUs, has almost stalled in the last 10 years. Memory prices today are only half as cheap as they were a decade ago, but hard drives or SSDs are dropping/increasing in price at a rate that is visible to the naked eye. Mainstream SSDs can now achieve a bandwidth gap that is only an order of magnitude behind memory (a few GB/s vs. tens of GB/s). Also databases actually have a lot of cold data in them, which would be really wasteful to keep in memory as well. But previous in-memory-only databases have always had limitations or severe performance degradation when it comes to external storage, or mechanisms that were too complex to move from the lab to production systems (such as the Anti-Caching design of H-Store, whose indexes contain hot and cold data and the indexes themselves have to be in memory, and given that index sizes often take up half the H-Store often encounters significant memory pressure). For this reason, TUM has designed LeanStore to solve these problems.</p>
+<h2 id="design-goals">Design goals</h2>
+<ol>
+<li>Performs as well as an in-memory-only database when the amount of data is less than physical memory</li>
+<li>Better than in-memory databases when the amount of data is greater than physical memory</li>
+<li>Better than traditional databases in any scenario (using a typical BufferManager, such as BerkeleyDB)</li>
+</ol>
+<p>In order to achieve these benefits, LeanStore has adopted the following design：</p>
+<h2 id="design">Design</h2>
+<ol>
+<li>In a pure memory scenario, using a traditional BufferManager would often result in severe overhead and critical path bottlenecks (e.g. querying the hash table to find the in memory pointer corresponding to the page identifier, which is is an overhead because what's the point of mapping when it's pure memory). As a result, almost all in-memory databases (e.g., HyPer, HANA, H-Store, Hekaton, and Silo) have abandoned BufferManager. However, BufferManager still has many benefits for traditional hard disk databases, such as the ease of managing the amount of data that exceeds memory and the reduction of disk I/O, etc. To facilitate the management of out-of-memory data, LeanStore still uses BufferManager, but with a number of optimisations to reduce the overhead in purely in-memory scenarios.</li>
+<li>A more lightweight page replacement mechanism has been designed to get cold data out of memory when necessary. Traditional disk-based database page replacement policies (such as LRU and Clock) need to keep track of the number of accesses to each page, etc., which can sometimes become a bottleneck when updating access data for some frequently accessed pages. If you still use these disk-based db policies, you will inevitably be slower than a memory-only database in a memory-only scenario.</li>
+<li>In terms of concurrency control, a similar approach to optimistic locking is used, an example of which is the Optimistic Lock Coupling on the Adaptive Radix Tree mentioned in the article.</li>
+</ol>
 <h2 id="resource">Resource</h2>
-<p><a href="https://umbra-db.com/">Umbra</a></p>
+<p>V. Leis, M. Haubenschild, A. Kemper and T. Neumann, &quot;LeanStore: In-Memory Data Management beyond Main Memory,&quot; 2018 IEEE 34th International Conference on Data Engineering (ICDE), 2018, pp. 185-196, doi: 10.1109/ICDE.2018.00026.</p>
 
     </div>
 

@@ -228,6 +228,10 @@
         <lastmod>2022-03-09T20:17:19</lastmod>
     </url>
     <url>
+        <loc>https://arceusj2000.github.io/202203132017/</loc>
+        <lastmod>2022-03-13T20:17:19</lastmod>
+    </url>
+    <url>
         <loc>https://arceusj2000.github.io/categories/</loc>
     </url>
     <url>
@@ -369,9 +373,6 @@
         <loc>https://arceusj2000.github.io/tags/node-js/</loc>
     </url>
     <url>
-        <loc>https://arceusj2000.github.io/tags/non-mainstream-databases/</loc>
-    </url>
-    <url>
         <loc>https://arceusj2000.github.io/tags/npm/</loc>
     </url>
     <url>
@@ -394,6 +395,9 @@
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/spring/</loc>
+    </url>
+    <url>
+        <loc>https://arceusj2000.github.io/tags/state-of-the-art-db/</loc>
     </url>
     <url>
         <loc>https://arceusj2000.github.io/tags/tools/</loc>
