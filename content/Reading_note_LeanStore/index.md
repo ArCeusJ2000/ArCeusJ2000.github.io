@@ -1,10 +1,10 @@
 +++
 title = "Reading Notes on LeanStore"
-date = 2022-03-12 20:17:19
-slug = "202203122017"
+date = 2022-03-13 20:17:19
+slug = "202203132017"
 
 [taxonomies]
-tags = ["State-of-the-art DB]
+tags = ["State-of-the-art DB"]
 categories =  ["Reading Notes", "Eng"]
 
 +++
@@ -35,3 +35,4 @@ In order to achieve these benefits, LeanStore has adopted the following designï¼
 
 ## Resource
 
+V. Leis, M. Haubenschild, A. Kemper and T. Neumann, "LeanStore: In-Memory Data Management beyond Main Memory," 2018 IEEE 34th International Conference on Data Engineering (ICDE), 2018, pp. 185-196, doi: 10.1109/ICDE.2018.00026.
