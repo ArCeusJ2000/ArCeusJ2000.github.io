@@ -35,4 +35,3 @@ In order to achieve these benefits, LeanStore has adopted the following designï¼
 
 ## Resource
 
-V. Leis, M. Haubenschild, A. Kemper and T. Neumann, "LeanStore: In-Memory Data Management beyond Main Memory," 2018 IEEE 34th International Conference on Data Engineering (ICDE), 2018, pp. 185-196, doi: 10.1109/ICDE.2018.00026.
